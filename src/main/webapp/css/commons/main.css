@@ -1,0 +1,148 @@
+@charset "UTF-8";
+*{list-style-type: none; margin:0px; padding:0px; text-decoration: none;}
+
+p{
+	line-height: 30px;
+}
+
+.content_wrap{
+	width:1000px;
+}
+
+.body_wrap{
+	width:100%;
+}
+
+.navbar-brand>img{
+	width: 160px;
+	height: 50px;
+	margin: -10px;
+}
+.header{
+	width:1000px;
+	margin: 0px auto;	
+}
+
+.wrap{
+	width: 1000px;
+	border:1px solid #CCCCCC;
+	margin:0px auto;
+	height: auto;
+	overflow: hidden;
+}
+
+.admin_header{
+	width:100%;
+	height:70px;
+	line-height: 70px;
+	font-weight: bold;
+	font-size: 20px;
+	background: yellow;	
+}
+
+.title_menu{
+	width: 1000px;
+	height:50px;
+}
+
+
+.title_menu li{
+	float: left;
+	border: 1px solid;
+	width: 120px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+.content{
+
+}
+.content_part{
+	float:left;
+	margin-bottom: 100px;
+}
+
+.content_wrap_body{
+	margin:0px 50px 30px 50px;
+	border:1px solid #CCCCCC;
+ 	height:720px;
+	width:450px;
+}
+
+.content_title{
+	border:1px solid #CCCCCC;
+	width:200px;
+	height:40px;
+	margin:60px 0px -16px 50px;
+	line-height: 40px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.content_middle_line_h{
+	width: 1px;
+	height: 600px;
+	margin: 0px 450px;
+	background: #CCCCCC;
+	position: absolute;
+}
+
+.content_box>.content_box1>li{
+	width: 300px;
+	margin: 0px auto;
+	margin-top: 10px;
+}
+.content_box>.content_box2>li{
+	width: 300px;
+	margin: 0px auto;
+	margin-top: 10px;
+}
+
+.content_box_title{
+	border-radius: 5px;
+	border: 1px solid #CCCCCC;
+	text-align: center;
+	height: 40px;
+	line-height: 36px;
+}
+
+.content_box_value{
+	border: 1px solid #CCCCCC;
+	text-align: center;
+	margin-top:20px;
+	height: 150px;
+	line-height: 150px;
+}
+
+.content_box_value>span{
+	font-size: 20px;
+}
+
+.content_box_value>span:last-child {
+	color:red;
+	font-weight: bold;
+}
+
+.content_middle_line_w{
+	width: 348px;
+	height: 2px;
+	margin: 20px 0px;
+	background: #CCCCCC;
+	position: absolute;
+}
+
+.content_box1{
+	
+}
+.content_box2{
+	margin-top:50px;
+}
+
+.content_box3{
+	margin-top:10px;
+}
+
+.input_width{
+	width:270px;
+};
+

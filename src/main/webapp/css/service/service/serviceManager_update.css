@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+textarea{
+	width: 600px;
+}
+
+.notice_1_write{
+	width: 600px;
+	padding: 10px;
+}
+
+.col-lg-margin-left {
+    width: 200px;
+    margin-left: 0px;
+}
+
+.col-lg-margin-left li {
+	float:left;
+}

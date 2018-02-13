@@ -1,0 +1,165 @@
+@charset "UTF-8";
+
+a:hover{text-decoration: none !important;}
+
+.btn-margin{
+	width:300px;
+}
+
+.form-group {
+    margin: 0px;
+}
+
+.col-lg-margin-left{
+	margin-left:310px;
+}
+
+.content{
+	margin-left:0px;
+}	
+
+.content_title{
+	margin:60px 0px 0px 50px;
+}
+
+.content_wrap_body_right{
+	width:900px;
+	margin:15px 50px 30px 50px;
+	border: 1px solid #CCCCCC;
+	height: 720px;
+}
+
+.content_title_signature{
+	margin-top: 60px;
+	font-size: 32px;
+}
+
+.sub_title{
+	position:absolute;
+	margin: 30px -68px;
+	background: white;
+}
+
+.sub_title>div{
+	margin-top:-1px;
+
+	border-top:1px solid #CCCCCC;
+	border-left:1px solid #CCCCCC;
+	width:120px;
+	height:44px;
+	line-height:44px;
+	text-align: center;
+}
+.sub_title a{
+	color:#007bff;
+}
+.sub_title>div:first-child{
+	background: white;
+	border-right:0px;
+}
+
+.sub_title>div:nth-child(2), .sub_title>div:nth-child(3){
+	background: #D5D5D5;
+	border-right:1px solid #CCCCCC;
+}
+
+
+
+.sub_title>div:last-child {
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.content_form{
+	border:0px solid;
+	margin: 0px auto;
+	width: 700px;
+}
+
+/**//**//**//**//**//**//**//**//**//**//**//**//**//**/
+/**//**//**//**//**//**//**//**//**//**//**//**//**//**/
+/**//**//**//**//**//**//**//**//**//**//**//**//**//**/
+/**//**//**//**//**//**//**//**//**//**//**//**//**//**/
+
+/** 배경 지정 */
+
+/** 목록 스타일 초기화 및 중앙 배치, 가로 폭 지정 */
+.content_ul {
+    padding: 0;
+    margin: 10px auto;
+    list-style: none;
+    width: 700px;
+}
+
+/** 제목 영역의 초기화 처리 */
+.title {
+        padding: 0;
+        margin: 0;
+        border: 1px solid #000;
+        border-radius: 5px;
+}
+
+/** 링크의 클릭 영역 확대 및 배경 및 폰트 처리 */
+.title > a {
+    display: block;
+    padding: 2px;
+    font-size: 14px;
+    font-weight: bold;
+    text-indent: 12px;
+    text-decoration: none;
+    color: black;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    
+    /*그라디언트 지정*/
+    /* 
+    background: linear-gradient(top, #cecece 0%, #8f8f8f 100%);
+    background: -moz-linear-gradient(top, #cecece, #8f8f8f);
+    background: -webkit-gradient(linear, left top, left bottom, from(#cecece), to(#8f8f8f));
+ 	*/
+ }
+
+/** 현재 활성화된 요소에 적용할 배경이미지 지정 */
+.selected {
+    background: white;
+     /*그라디언트 지정*/
+    /*
+    background: linear-gradient(top, #6bb2ff 0%, #2288dd 100%) !important;
+    background: -moz-linear-gradient(top, #6bb2ff, #2288dd) !important; 
+    background: -webkit-gradient(linear, left top, left bottom, from(#6bb2ff), to(#2288dd)) !important;  
+    */      
+}
+
+/** 내용 영역 */
+.content_value {
+    margin: 0;
+    background: #FBEFFB;
+    padding: 10px;
+    overflow-y: auto;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin-top:2px;
+}
+
+.collapsible{
+	margin-bottom: 2px;
+}
+
+.service_update{
+	margin-left:20px;
+	background: #FBEFFB;
+	color:black;
+}
+
+.service_delete{
+	background: #FBEFFB;
+	color:black;
+}
+
+
+.input_float_right{
+	float:right;
+	
+}
+

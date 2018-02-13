@@ -1,0 +1,50 @@
+@charset "UTF-8";
+.content_box{
+	margin: 125px 50px 50px 50px;
+}
+
+.content{
+	height: 820px;
+	width: 1000px;
+}
+
+.content_box li{
+	width: 300px;
+	margin: 0px auto;
+}
+
+.content_box_title{
+	border: 1px solid #CCCCCC;
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+}
+
+.content_box_value{
+	border: 1px solid #CCCCCC;
+	text-align: center;
+	margin-top:20px;
+	height: 150px;
+	line-height: 150px;
+}
+
+.content_box_value>span{
+	font-size: 20px;
+}
+
+.content_box_value>span:last-child {
+	color:red;
+	font-weight: bold;
+}
+
+.mapInfo1{
+	
+}
+
+.mapInfo1 li{
+	
+}
+
+.content_part{
+	width:450px;
+}
