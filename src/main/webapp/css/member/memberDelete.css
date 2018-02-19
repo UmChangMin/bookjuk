@@ -1,0 +1,137 @@
+@CHARSET "UTF-8";
+
+#memberDelete_all{
+	padding-bottom: 80px;
+	border-top: 1px solid #e5e6e7;
+	margin-top: 23px;
+}
+
+.memberDeletes {
+	margin: 0 auto;
+	width: 100%;
+	border: 0px solid red;
+}
+
+.memberDelete {
+	width: 1000px;
+	margin: 0 auto;
+
+}
+
+.memberDelete_warp {
+	padding: 25px 0 25px 23px;
+	font-size: 2.5em;
+	font-weight: bold;
+	color: #FFA7A7;
+	
+}
+
+.memberDelete_user_fire{
+	width: 1000px;
+    margin: 0 auto;
+    padding: 18px 0;
+    border-top: 1px solid #e5e6e7;
+    border-bottom: 1px solid #e5e6e7;
+}
+
+.memberDelete_user_fire ul{
+	margin: 0 30px;
+	line-height: 20px;
+	color:#666;
+}
+
+.memberDelete_start{
+    border: 1px solid #e5e6e7;
+    padding: 40px 40px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 6px;
+    box-shadow: 0 3px #f0f0f0;
+	overflow: hidden;
+}
+
+.memberDelete_form{
+	border: 1px #b6b7b7 solid;
+	overflow: hidden;
+	width: 50%;
+	float: left;
+}
+
+.memberDelete_id{
+	overflow: hidden;
+}
+
+.memberDelete_pwd{
+	border-top: 1px solid #b6b7b7;
+}
+
+.memberDelete_id div:FIRST-CHILD{
+	float: left;
+	background: #e5e6e7;
+	padding: 10px 10px;
+	width: 120px;
+	border-right: 1px solid #b6b7b7;
+	height: 32px;
+	line-height: 32px;
+}
+
+.memberDelete_pwd div:FIRST-CHILD{
+	float: left;
+	background: #e5e6e7;
+	padding: 10px 10px;
+	width: 120px;
+	border-right: 1px solid #b6b7b7;
+	height: 32px;
+	line-height: 32px;
+}
+
+.memberDelete_id div:nth-CHILD(2),
+.memberDelete_pwd div:nth-CHILD(2){
+	float: left;
+	padding: 10px 15px;
+	
+}
+
+.memberDelete_id div input,
+.memberDelete_pwd div input{
+	border: 1px solid #b6b7b7;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	width: 265px;
+}
+
+.memberDelete_btn{
+	float: left;
+	border: 0px red solid;
+	padding: 27px 120px;
+	
+}
+
+.memberDelete_btn input {
+    float: left;
+    margin-left: 6px;
+    overflow: hidden;
+    display: block;
+    height: 50px;
+    width: 100px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid #FFD8D8;
+    background: #FFD8D8;
+    box-shadow: 0 2px #FFD8D8;
+    border-radius: 4px;
+    line-height: 49px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #666;
+}
+
+.memberDelete_btn input:nth-CHILD(2){
+	border: 1px solid #e5e6e7;
+    background: #e5e6e7;
+    box-shadow: 0 2px #e5e6e7;
+    cursor: pointer;
+}
+

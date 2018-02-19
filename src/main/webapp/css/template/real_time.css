@@ -1,0 +1,50 @@
+@charset "UTF-8";
+/* 실시간 시작 */
+
+#header_real_time {
+    background: #FFA7A7;
+    width: 310px;
+    float: right;
+    margin-top: 11px;
+    padding: 11px;
+}
+
+#hread_rank_list a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 18px;
+}
+
+#hread_rank_list a:hover {
+    text-decoration: underline;
+}
+
+#hread_rank_list {
+	overflow: hidden;
+    width: 296px;
+    height: 20px;
+    margin: 0;
+}
+
+#hread_rank_list dt {
+    display: none;
+}
+
+#hread_rank_list dd {
+    position: relative;
+    margin: 0;
+}
+
+#hread_rank_list ol {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#hread_rank_list li {
+    height: 20px;
+    line-height: 20px;
+}

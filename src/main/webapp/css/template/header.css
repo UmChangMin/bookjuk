@@ -1,0 +1,213 @@
+@charset "UTF-8";
+
+input[type="button"] {
+	cursor: pointer;
+}
+
+a:link, a:visited {
+	text-decoration: none;
+	color:#666;
+}
+
+img, input, button, select, textarea {
+	vertical-align: middle;
+	
+}
+
+/*top_menu감싸는 상자*/
+
+.header{
+	margin:0px auto;
+}
+
+.header_top {
+	width:100%;
+	margin:0px auto;
+	height: 32px;
+	border-bottom: 1px solid #e5e6e7;
+}
+
+.header_top_inner {
+	position: relative;
+	margin: 0 auto;
+	width: 1000px;
+}
+
+
+.header_lnb_right {
+	float: right;
+	list-style: none;
+}
+
+.header_lnb_right li {
+	float: left;
+	padding: 0 7px;
+	background: url(../../img/main_header/lnb_line.jpg) no-repeat left center;
+}
+
+.header_lnb_right input {
+	font-size: 11px;
+	line-height: 32px;
+	background: no-repeat left center;
+}
+
+.header_lnb_right li a {
+	font-size: 11px;
+    line-height: 32px;
+    margin: 10px auto;
+}
+
+.header_lnb_right li:first-child {
+	
+	font-weight: bold;
+}
+
+.header_mid_content{
+	border: 0px red solid;
+    margin: 0 auto;
+    width: 1000px;
+    overflow: hidden;
+    margin-top: 23px;
+}
+
+.header_mid_logo{
+	float: left;
+	margin-top: 10px;
+	border: 0px solid green;
+}
+
+
+.header_mid_logo img{
+	width: 170px;
+	height: 70px;
+	
+}
+
+.header_mid_search{
+	float: left;
+	border: 0px solid green;
+	width: 826px;
+	height: 70px;
+	line-height: 70px;
+	margin-top: 10px;
+	
+}
+
+.header_mid_search_inner{
+	float: left;
+	margin: 5px 0 0 30px;
+    border: 2px solid #FFA7A7;
+    width: 440px;
+    height: 55px;
+    line-height:55px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    border-radius: 40px;
+}
+
+.header_SearchString{
+    float: left;
+    height: 47px;
+    width: 375px;
+    line-height: 47px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    margin-top:2px;
+}
+
+.header_Search_btn{
+	float: left;
+    height: 47px;
+    line-height: 47px;
+    background: url(../../img/main_header/search-btn.png) no-repeat center center;
+    width: 30px;
+    border: none;
+    cursor: pointer;
+    margin-top:2px;	
+}
+
+/* 메인베너시작 */
+.header_mainGnb_wrap {
+	height: 40px;
+    background: #ffa7a7;
+    margin-top: 23px;
+}
+
+.header_mainGnb_inner {
+	position: relative;
+	margin: 0 auto;
+	width: 1000px;
+}
+
+.header_mainGnb_inner>ul:first-child {
+	float: left;
+	   
+}
+
+.header_gnb_list::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.header_gnb_list {
+	float: left;
+}
+
+
+.header_gnb_list li{
+	float: left;
+    border: 0px solid red;
+    width: 198.8px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #ffa7a7;
+    font-size: 18px;
+    margin-left: 2px;
+    text-align: left;
+}
+
+.header_gnb_list li:first-child{
+	 margin-left:-2px;
+	 
+}
+
+.header_gnb_list li:last-child{
+	width:198.8px;
+}
+
+.header_gnb_list li a{
+	color:white;
+	font-weight: 600;
+}
+
+.header_title_menu_category{
+	width:140px;
+}
+
+.header_title_menu_category>img{
+	width:15px;
+	height:15px;
+	margin:0px 2px 0px 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

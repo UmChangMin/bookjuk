@@ -1,0 +1,379 @@
+@CHARSET "UTF-8";
+
+#maPage_all {
+	background: #fff;
+	padding-bottom: 80px;
+	border-top: 1px solid #e5e6e7;
+	margin-top: 23px;
+}
+
+.maPages {
+	margin: 0 auto;
+	width: 100%;
+	border: 0px solid red;
+}
+
+.maPage {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.maPage_warp {
+	padding: 25px 0 25px 23px;
+	font-size: 2.5em;
+	font-weight: bold;
+	color: #FFA7A7;
+}
+
+.maPage_title {
+	border: 1px solid #e5e6e7;
+	padding: 10px 0;
+	margin-bottom: 10px;
+	height: 170px;
+	width: 100%;
+	box-sizing: border-box;
+	border-radius: 6px;
+	box-shadow: 0 3px #f0f0f0;
+}
+
+.maPage_first {
+	margin: 23px auto;
+}
+
+.maPage_title>ul>li {
+	position: relative;
+	float: left;
+	width: 25%;
+	height: 148px;
+	padding-top: 13px;
+	border-left: 1px solid #e5e6e7;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.maPage_title>ul>li:first-child {
+	padding-top: 0;
+	border-left: none;
+}
+
+.maPage_top {
+	border: 0px solid red;
+	margin-top: 10px;
+}
+
+.maPage_top>span {
+	font-weight: 600;
+	font-size: 20px;
+	color: #666;
+	margin-left: 10px;
+	margin-top: 20px;
+}
+
+.maPage_mid {
+	color: #F15F5F;
+	font-size: 18px;
+	font-weight: 600;
+	margin: 15px 0;
+}
+
+.maPage_title>ul>li:nth-child(2), 
+.maPage_title>ul>li:nth-child(3) {
+	width: 37%;
+}
+
+.myPage_bot {
+	padding: 11px 0;
+	background: #f4f4f4;
+	border-radius: 4px;
+	width: 154px;
+	margin: 0 auto;
+}
+
+.myPage_bot a:hover,
+.maPage_bottom > div:nth-child(1) > ul > li a:hover {
+	color: #F15F5F;
+}
+
+.maPage_bottom{
+	height: 182px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+.maPage_bottom > div:nth-child(1) {
+    height: 182px;
+    padding: 27px 0 20px 0;
+    border-radius: 6px;
+    box-shadow: 0 3px #f0f0f0;
+    background: #fff;
+    border: 1px solid #e5e6e7;
+    box-sizing: border-box;
+}
+
+.maPage_bottom > div:nth-child(1) > ul > li {
+    float: left;
+    width: 50%;
+    height: 132px;
+    box-sizing: border-box;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+.maPage_bottom > div:nth-child(1) > ul > li h4{
+    margin-left: 10px;
+    margin-bottom: 17px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #333;
+}
+
+.maPage_bottom > div:nth-child(1) > ul > li a {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    line-height: 28px;
+    font-weight: 600;
+    transition: .5s;
+    padding-left: 10px;
+}
+
+.maPage_bottom > div:nth-child(1) > ul > li:nth-child(2) {
+    border-left: 1px solid #e5e6e7;
+}
+
+.maPage_warp2 {
+	padding: 25px 0 25px 23px;
+	font-size: 2em;
+	font-weight: bold;
+	color: #FFA7A7;
+	
+}
+
+/* 나의문의내역 */
+.maPage_customer_inquiry_list_content{
+	border: 2px solid #d4d5d7;
+	border-right-width:0px;
+	border-left-width:0px;
+	height: 30px;
+	line-height: 30px;
+	
+}
+
+.maPage_title1 {
+	border: 1px solid #e5e6e7;
+	padding: 40px 40px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	border-radius: 6px;
+	box-shadow: 0 3px #f0f0f0;
+}
+
+.maPage_customer_inquiry_list_content div{
+	float:left;
+	background: linear-gradient(to bottom, #f5f7f6 0%,#f0f0f0 100%);
+}
+ 
+.maPage_customer_inquiry_list_content div:nth-child(1),
+.maPage_customer_inquiry_list_content_list div:nth-child(1){
+	width:100px;
+}
+
+.maPage_customer_inquiry_list_content div:nth-child(2),
+.maPage_customer_inquiry_list_content_list div:nth-child(2){
+	width:576px;
+}
+
+.maPage_customer_inquiry_list_content div:nth-child(3),
+.maPage_customer_inquiry_list_content div:nth-child(4),
+.maPage_customer_inquiry_list_content_list div:nth-child(3),
+.maPage_customer_inquiry_list_content_list div:nth-child(4){
+	width:121px;
+}
+
+.maPage_customer_inquiry_list_content_list div:nth-child(4){
+	color: rgb(241, 95, 95);
+}
+
+.maPage_customer_inquiry_list_content_list{
+	border-bottom: 1px solid #d4d5d6;
+    line-height: 44px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #46474b;
+    overflow: hidden;
+}
+
+.maPage_customer_inquiry_list_content_list div{
+	float:left;
+	
+}
+
+.maPage_customer_inquiry_list_pagenate{
+	height: 45px;
+    overflow: hidden;
+    width: auto;
+    margin-top: 42px;
+    text-align: center;
+}
+
+.maPage_customer_inquiry_list_btn{
+	display: inline-block;
+    vertical-align: middle;
+    width: 43px;
+    height: 43px;
+    line-height: 43px;
+    margin-left: -1px;
+    border: 1px solid #d7d7d8;
+    background: #F6F6F6;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+ 
+
+/* 마이프레임 */
+.my-frame {
+	visibility: hidden;
+	position: absolute;
+	width: 878px;
+	top: 142px;
+	z-index: 1000;
+}
+
+.my-frame.bookcash {
+	left: -170px;
+}
+
+.my-frame.saved {
+	left: -350px;
+}
+
+.my-frame.coupon {
+	left: -530px;
+}
+
+.my-frame.free {
+	left: -710px;
+}
+
+.mpop {
+	width: 878px;
+	background: #fff;
+	border: 1px solid #ff6633;
+	border-radius: 4px;
+	box-shadow: 0 3px 5px 3px rgba(0, 0, 0, .2);
+	box-sizing: border-box;
+	z-index: 9000;
+	text-align: left;
+}
+
+.mpop .mpop-inner {
+	width: 100%;
+	border: 2px solid #ff9966;
+	padding-top: 20px;
+	position: relative;
+	box-sizing: border-box;
+}
+
+.mpop .mpop-inner h4 {
+	padding-left: 20px;
+	margin-bottom: 22px;
+	color: #ff6633;
+	font-weight: 600;
+	font-size: 18px;
+}
+
+.mpop .mpop-inner>p {
+	font-size: 18px;
+	color: #333;
+	font-weight: 600;
+	padding-left: 30px;
+	margin-bottom: 8px;
+}
+
+.mpop .mpop-inner>p span {
+	color: #f26532;
+}
+
+.mpop .mpop-inner>ul {
+	border: 1px solid #eaeaea;
+	border-radius: 4px;
+	padding: 6px 10px;
+	margin: 0 20px 33px;
+}
+
+.mpop .mpop-inner>ul li {
+	font-weight: bold;
+	font-size: 13px;
+	color: #666;
+	line-height: 22px;
+	color: #999;
+}
+
+.mpop .mpop-inner table {
+	width: 832px;
+	font-weight: 600;
+	margin: 0 auto;
+}
+
+.mpop .mpop-inner table th {
+	background: #f4f4f4;
+	font-size: 13px;
+	color: #333;
+	padding: 8px 0;
+	text-align: center;
+}
+
+.mpop .mpop-inner table td {
+	padding: 18px 0;
+	color: #999;
+	font-size: 14px;
+	text-align: Center;
+	border-bottom: 1px solid #f4f4f4;
+	font-weight: bold;
+}
+
+.mpop.bookcash .mpop-inner table td:nth-child(2) {
+	color: #333;
+}
+
+.mpop.bookcash .mpop-inner table td:nth-child(3) {
+	color: #f26532;
+}
+
+.mpop.saved .mpop-inner table td:nth-child(2) {
+	color: #333;
+}
+
+.mpop.saved .mpop-inner table td:nth-child(3) {
+	color: #f26532;
+}
+
+.mpop.coupon .mpop-inner table td:nth-child(1) {
+	color: #333;
+}
+
+.mpop.coupon .mpop-inner table td:nth-child(2) {
+	color: #f26532;
+}
+
+.mpop.coupon .mpop-inner table td:nth-child(3) p {
+	color: #333;
+	line-height: 18px;
+}
+
+.mpop.coupon .mpop-inner table td:nth-child(3) p em {
+	color: #999;
+}
+
+.mpop.free .mpop-inner table td:nth-child(2) {
+	color: #333;
+}
+
+.mpop.free .mpop-inner table td:nth-child(3) {
+	color: #f26532;
+}

@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+#memberUpdate_all{
+	padding-bottom: 120px;
+	border-top: 1px solid #e5e6e7;
+	margin-top: 23px;
+}
+
+.memberUpdates{
+	margin: 0 auto;
+	width: 100%;
+	border: 0px solid red;
+}
+
+.memberUpdate{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.memberUpdate_warp {
+	padding: 25px 0 25px 23px;
+	font-size: 2.5em;
+	font-weight: bold;
+	color: #FFA7A7;
+	
+}
+.memberUpdate_necessary{
+	border:  0px solid yellow;
+	overflow: hidden;
+}
+
+.memberUpdate_options p,
+.memberUpdate_necessary p{
+	color:#666;
+	font-weight: 600;
+	background: #FFEAEA;
+	padding:10px 23px;
+	font-size: 17px;
+	margin-bottom: 10px;
+}
+
+
+.memberUpdate_necessary_inner,
+.memberUpdate_options_inner{
+	border: 1px #b6b7b7 solid;
+    width: 99.8%;
+}
+
+
+.memberUpdate_id,
+.memberUpdate_zips{
+	overflow: hidden;
+}
+
+.memberUpdate_com,
+.memberUpdate_email{
+	border-top: 1px solid #b6b7b7;
+	overflow: hidden;
+}
+
+.memberUpdate_id div:FIRST-CHILD,
+.memberUpdate_com div:FIRST-CHILD,
+.memberUpdate_zips div:first-child,
+.memberUpdate_email div:first-child{
+	float: left;
+	padding: 10px 10px;
+	width: 120px;
+	border-right: 1px solid #b6b7b7;
+	height: 32px;
+	line-height: 32px;
+}
+
+.memberUpdate_id div:nth-CHILD(2),
+.memberUpdate_com div:nth-CHILD(2),
+.memberUpdate_zips div:nth-child(2),
+.memberUpdate_email div:nth-child(2){
+	float: left;
+	padding: 10px 15px;
+	
+}
+
+.memberUpdate_id div input:first-child,
+.memberUpdate_com div input:first-child,
+.memberUpdate_zips div input:first-child,
+.memberUpdate_email div input:first-child{
+	border: 1px solid #b6b7b7;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	width: 265px;
+}
+
+.memberUpdate_zip input:nth-child(2) {
+	background: #FFD8D8;
+	margin-left: 10px;
+	height: 32px;
+	line-height: 32px;
+	padding:2px 10px;
+	border-radius: 4px;
+}
+
+.memberUpdate_email span{
+	font-size: 14px;
+	color: #666;
+}
+
+.memberUpdate_email select{
+	border:1px solid #b6b7b7;
+	height: 32px;
+    line-height: 32px;
+    margin-left: 5px;
+    width: 200px;   
+}
+
+.memberUpdate_options{
+	border: 0px red solid;
+}
+
+.memberDelete_btn{
+	float: left;
+	border: 0px red solid;
+	padding: 30px 393px;
+	
+}
+
+.memberDelete_btn input {
+    float: left;
+    margin-left: 6px;
+    overflow: hidden;
+    display: block;
+    height: 50px;
+    width: 100px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid #e5e6e7;
+    background: #e5e6e7;
+    box-shadow: 0 2px #e5e6e7;
+    border-radius: 4px;
+    line-height: 49px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #666;
+}
+
+.memberDelete_btn input:nth-CHILD(2){
+	border: 1px solid #e5e6e7;
+    background: #e5e6e7;
+    box-shadow: 0 2px #e5e6e7;
+    cursor: pointer;
+}
+
+
+
