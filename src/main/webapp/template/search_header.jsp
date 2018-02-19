@@ -30,7 +30,7 @@
 					<li><a class="" href="">회원가입</a></li>
 					<li><a class="" href="">장바구니</a></li>
 					<li><a class="Orderdelivery" href="" onclick="orderdelivery('${root}')">주문/배송조회</a></li>
-					<li><a class="" href="${root}/admin/customer/customer.do">고객센터</a></li>
+					<li><a class="" href="${root}/customer.jsp">고객센터</a></li>
 					<li><a class="" href="">영업점 안내</a></li>
 				</ul>
 			</div>
