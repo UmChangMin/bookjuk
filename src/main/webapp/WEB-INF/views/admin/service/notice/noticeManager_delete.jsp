@@ -9,7 +9,7 @@
 <body>
 	<script type="text/javascript">
 		alert("정말로 삭제하시겠습니까?");
-		location.href="noticeManager.jsp";
+		location.href="noticeManager.do";
 	</script>
 </body>
 </html>

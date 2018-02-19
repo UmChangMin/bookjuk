@@ -42,13 +42,10 @@
 	
 	<!-- Controller / Component / Autowired -->
 	<context:component-scan base-package="com.bookjuk.bookjuk.homePage" />
-	<context:component-scan base-package="com.bookjuk.admin.aop"/>
-	<context:component-scan base-package="com.bookjuk.admin.sales.*"/>
-	<context:component-scan base-package="com.bookjuk.admin.order.*"/>
-	<context:component-scan base-package="com.bookjuk.admin.customer.*"/>
-	<context:component-scan base-package="com.bookjuk.admin.book.*"/>
-	<context:component-scan base-package="com.bookjuk.admin.shop.*"/>
-	<context:component-scan base-package="com.bookjuk.admin.service.*"/>
+	<context:component-scan base-package="com.bookjuk.aop"/>
+	
+	<!-- 180219 admin package통합 -김태우 AM 09:21-->
+	<context:component-scan base-package="com.bookjuk.admin.*"/>
 
 	
 	<!-- 파일업로드 -->
