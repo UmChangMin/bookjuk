@@ -1,0 +1,287 @@
+@charset "UTF-8";
+
+#complete_all{
+	background: #fff;
+    padding-bottom: 80px;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+#complete_container {
+	width: 100%;
+	margin: 0 auto;
+	border: 0px solid red;
+	overflow: hidden;
+}
+
+#complete_content{
+	width: 1000px;
+	margin: 0 auto;
+	border-top: 1px solid #e9e9e9;
+}
+
+.complete_sub {
+	margin-top: 25px;
+	background: white;
+	padding: 0 30px;
+}
+
+.complete_heading {
+	margin: 25px 0;
+}
+
+.complete_process {
+	float: right;
+	list-style: none;
+	margin: 0px;
+	background: white;
+}
+
+.complete_process li {
+	float: left;
+	padding-left: 7px;
+}
+
+.complete_process li>span {
+	margin: 0px;
+	float: left;
+	padding: 10px 7px 0 7px;
+}
+
+.complete_process li>.complete_process_3 {
+	color: #FFA7A7;
+}
+
+.complete_process li>h3 {
+	margin: 0px;
+	float: left;
+	font-size: 2.5em;
+	font-weight: bold;
+	color: #666;
+}
+
+.complete_basket {
+	float: left;
+	padding-left: 23px;
+	margin: 0px;
+	font-size: 2.5em;
+	font-weight: bold;
+	color: #FFA7A7;
+}
+
+.complete_heading:after {
+	display: block;
+	clear: both;
+	content: '';
+}
+
+.order_result_info {
+	padding-top: 1px;
+    padding-bottom: 30px;
+    text-align: center;
+    letter-spacing: -0.025em;
+    border-bottom: 1px solid #dedede;
+}
+
+.result_title {
+    margin-top: 35px;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+.oredr_info {
+	text-align: center;
+    display: inline-block;
+    padding: 5px 15px;
+    background: #f8f8f8;
+    margin-top: 5px;
+}
+
+.order_col {
+    color: #aeaeae;
+    font-size: 11px;
+    padding: 0px 6px;
+    font-weight: normal;
+}
+
+#btn_blue {
+    width: 110px;
+    height: 20px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 20px;
+    display: inline-block;
+    font-weight: normal;
+    background: #FFD8D8;
+}
+
+.order_result_info .sub_text {
+    margin-top: 10px;
+}
+
+.complete_info{
+	position: relative;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.complete_info_wrap{
+	float: left;
+    padding: 0 0 15px 30px;
+    width: 614px;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+#name {
+    background: white;
+    margin-left: 20px;
+}
+
+#phone {
+    margin-left: 89px;
+    background: white;
+    margin-top: 10px;
+}
+
+#address {
+    margin-left: 89px;
+    width: 500px;
+    background: white;
+    margin-top: 10px;
+}
+
+.order_num {
+    margin-top: 20px;
+}
+
+.order_adress_info {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.order_payment_info {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.order_num > span {
+    padding-left: 37px;
+    color: #FFA7A7;
+    font-weight: bold;
+}
+
+#card {
+    background: white;
+    margin-left: 31px;
+}
+
+#card_num {
+    margin-left: 87px;
+    background: white;
+    width: 300px;
+    margin-top: 10px;
+}
+
+#month {
+    margin-left: 87px;
+    width: 500px;
+    background: white;
+    margin-top: 10px;
+}
+
+#price {
+    margin-left: 87px;
+    width: 500px;
+    background: white;
+    margin-top: 10px;
+}
+
+
+.complete_price {
+    display: inline-block;
+    width: 296px;
+    height: 250px;
+    background: #FFD8D8;
+    overflow: hidden;
+}
+
+.complete_price_sum{
+	float: right;
+    padding: 20px 35px 22px 30px;
+    width: 230px;
+}
+
+.complete_price_sum > h4 {
+    margin-bottom: 12px;
+}
+
+.total_price {
+    display: block;
+    float: right;
+    padding-bottom: 5px;
+}
+
+.calc_list > li > h4 {
+    line-height: 47px;
+}
+
+.total_price > span {
+    font-size: 2.5em;
+}
+
+.total_price > h5 {
+    margin-top: 20px;
+    float: right;
+}
+
+.calc_list li {
+    margin-top: 9px;
+    overflow: hidden;
+}
+
+.calc_list strong {
+    float: left;
+    font-weight: normal;
+}
+
+.calc_list p {
+    float: right;
+}
+
+.calc_list p em {
+    vertical-align: bottom;
+    font-style: normal;
+}
+
+#account_price{
+	margin-left: 87px;
+    width: 500px;
+    background: white;
+    margin-top: 10px;
+    margin-bottom: 26px;
+}
+
+.complete_btn{
+	margin: 30px auto;
+	text-align: center;
+}
+
+#btn_main {
+    width: 140px;
+    height: 50px;
+    background: #FFD8D8;
+}
+
+#btn_cart {
+	margin-left: 10px;
+	width: 140px;
+    height: 50px;
+    background: #FFD8D8;
+}
+
+#btn_order_detail{
+	margin-left: 10px;
+	width: 140px;
+    height: 50px;
+    background: #FFD8D8;
+}

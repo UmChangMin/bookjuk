@@ -1,0 +1,491 @@
+@charset "UTF-8";
+
+#non_order_all{
+	background: #fff;
+    padding-bottom: 80px;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+#non_order_container {
+    width: 100%;
+    margin: 0 auto;
+    border: 0px solid red;
+    overflow: hidden;
+}
+
+#non_order_content {
+    width: 1000px;
+    margin: 0 auto;
+    border-top: 1px solid #e9e9e9;
+}
+
+.non_order_sub {
+	padding: 0 30px;
+	margin-top: 25px;
+	background: #fff;
+	overflow: hidden;
+}
+
+.non_order_heading {
+	margin: 25px 0;
+}
+
+.non_order_process {
+	float: right;
+	list-style: none;
+	margin: 0px;
+	background: #fff;
+}
+
+.non_order_process li {
+	float: left;
+	padding-left: 7px;
+}
+
+.non_order_process li>span {
+	margin: 0px;
+	float: left;
+	padding: 10px 7px 0 7px;
+}
+
+.non_order_process li>.non_order_process_2 {
+	color: #FFA7A7;
+}
+
+.non_order_process li>h3 {
+	margin: 0px;
+	float: left;
+	font-size: 2.5em;
+	font-weight: bold;
+	color: #666;
+}
+
+caption{
+	overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin-top: -1px;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -999999px;
+}
+
+.non_order_tb_products{
+	width: 100%;
+    text-align: center;
+}
+
+.non_order_tb_products thead th {
+    padding: 15px 0 15px;
+    border: 0;
+    font-weight: normal;
+    border-bottom: 1px solid #e9e9e9;
+    color: #000;
+}
+
+.non_order_tb_products tbody td {
+	padding: 15px 0 15px;
+    border: 0;
+    font-weight: normal;
+    border-bottom: 1px solid #e9e9e9;
+    color: #000;
+}
+
+.non_order_product_info > img{
+	border: 1px solid #e9e9e9;
+	width: 100px;
+    height: 150px;
+    float: left;
+    margin-left: 15px;
+}
+
+.non_order_product_info a {
+    line-height: 150px;
+}
+
+.non_order_basket {
+	float: left;
+	padding-left: 23px;
+	margin: 0px;
+	font-size: 2.5em;
+	font-weight: bold;
+	color: #FFA7A7;
+}
+
+.non_order_heading:after {
+	display: block;
+	clear: both;
+	content: '';
+}
+
+.non_order_table {
+	position: relative;
+	overflow: hidden;
+}
+
+.non_order_blind {
+	visibility: hidden;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1px;
+	height: 1px;
+	font-size: 0;
+	line-height: 0;
+}
+
+.btn_pd_edit{
+	width: 30px;
+    height: 15px;
+    margin-top: 1px;
+    font-size: 0.75em;
+    line-height: 15px;
+    display: inline-block;
+    font-weight: normal;
+    border: 1px solid #d0d0d0;
+}
+
+.btn_pd_edit > a{
+	color: white;
+	text-decoration: none;
+}
+
+b.point{
+	color: #F15F5F;
+}
+
+.amount{
+	width: 10px;
+	height: 15px;
+}
+
+.divTableCell.total{
+	width: 130px;
+}
+
+.non_order_destination_wrap{
+	position: relative;
+    display: inline-block;
+}
+
+.non_order_deliver_wrap{
+	float: left;
+    padding: 0 0 30px 30px;
+    width: 613px;
+    border-bottom: 1px solid #e9e9e9;
+    border-right: 1px solid #e9e9e9;
+}
+
+.non_order_deliver_wrap > div {
+    margin: 15px 0px;
+}
+
+.non_order_title > h3{
+	margin: 0px;
+    float: left;
+    font-size: 2.5em;
+    font-weight: bold;
+    color:#FFA7A7;
+}
+
+.non_order_title > h4{
+	font-size: 1.25em;
+    line-height: 40px;
+    padding-left: 43px;
+}
+
+#name {
+    border: 1px solid #e9e9e9;
+    margin-left: 50px;
+    width: 80px;
+    height: 19px;
+}
+
+#phone1, #phone2, #phone3 {
+    border: 1px solid #e9e9e9;
+    width: 60px;
+    height: 19px;
+}
+.non_order_phone > label {
+    margin-right: 50px;
+}
+
+.non_order_address > label {
+    margin-right: 22px;
+
+}
+
+#zipcode {
+    border: 1px solid #e9e9e9;
+	width: 60px;
+    height: 19px;
+    margin-right: 10px;
+}
+
+#btn_zipcode {
+    width: 60px;
+    height: 20px;
+    font-size: 13px;
+    line-height: 15px;
+    display: inline-block;
+    font-weight: normal;
+    background: #FFD8D8;
+}
+
+#address1{
+	margin-left: 90px;
+	height: 19px;
+}
+
+#address1, #address2{
+	border: 1px solid #e9e9e9;
+	width: 240px;
+	height: 19px;
+	margin-top: 15px;
+    margin-right: 15px;
+}
+
+#memo {
+    border: 1px solid #e9e9e9;
+    margin-left: 37px;
+    height: 19px;
+}
+
+.non_order_userinfo_wrap{
+	width: 295px;
+    height: 280px;
+    border-bottom: 1px solid #e9e9e9;
+    float: right;
+}
+
+.non_order_userinfo{
+	padding: 25px 15px 15px 30px;
+}
+
+.non_order_userinfo > div {
+    margin: 10px 0;
+}
+
+#user_name {
+    border: 1px solid #e9e9e9;
+    width: 80px;
+    height: 19px;
+    margin-left: 20px;
+}
+
+#user_phone1, #user_phone2, #user_phone3{
+    border: 1px solid #e9e9e9;
+    width: 40px;
+    height: 19px;
+}
+
+#user_phone1{
+	margin-left: 48px;
+}
+
+#user_email {
+    border: 1px solid #e9e9e9;
+    width: 140px;
+    height: 19px;
+    margin-left: 48px;
+}
+
+#user_password {
+    border: 1px solid #e9e9e9;
+    width: 100px;
+    height: 19px;
+    margin-left: 7px;
+}
+
+.userinfo_title > h4 {
+    margin-bottom: 20px;
+    margin-top: -10px;
+}
+
+.info_dsc {
+    padding-left: 30px;
+}
+
+.info_dsc > p {
+    margin: 10px 0;
+}
+
+.non_order_payment_wrap{
+	position: relative;
+}
+
+.non_order_payment_info{
+	position: relative;
+    float: left;
+    padding: 15px 30px 18px 30px;
+    border-bottom: 1px solid #e9e9e9;
+    width: 583px;
+    height: 100%;
+}
+
+.payment_list > li {
+    float: left;
+    padding: 11px 20px 0px 0px;
+}
+
+.non_order_payment_list > strong{
+	float: left;
+    margin: 0 18px 0 -10px;
+    padding: 10px 0 0 10px;
+    width: 100px;
+    line-height: 20px;
+}
+
+.non_order_refund{
+	display: inline-block;
+}
+
+.non_order_refund_info {
+    padding-top: 12px;
+}
+
+.non_order_refund_info > strong{
+	float: left;
+    margin: auto;
+    width: 117px;
+    line-height: 20px;
+}
+
+.non_order_refund_name{
+	padding-top: 12px;
+}
+
+.non_order_refund_name > input[type="text"]{
+	border: 1px solid #e9e9e9;
+    margin-left: 77px;
+    width: 80px;
+    height: 19px;
+    
+}
+
+.non_order_refund_bankinfo{
+	padding-top: 12px;
+}
+
+.non_order_refund_bankinfo > select{
+	border: 1px solid #e9e9e9;
+    margin-left: 65px;
+    height: 21px;
+}
+
+.non_order_refund_bankinfo > input[type="text"]{
+	border: 1px solid #e9e9e9;
+    height: 19px;
+    width: 230px;
+    margin-left: 15px;
+}
+
+.non_order_price {
+    display: inline-block;
+    width: 296px;
+    height: 310px;
+    background: #FFD8D8;
+    overflow: hidden;
+}
+
+.non_order_price_sum{
+	float: right;
+    padding: 25px 35px 25px 30px;
+    width: 230px;
+}
+
+.non_order_price_sum > h4 {
+    margin-bottom: 12px;
+}
+
+.total_price {
+    display: -webkit-inline-box;
+}
+
+.total_price > span {
+    font-size: 2.5em;
+}
+
+.total_price > h5 {
+    margin-top: 20px;
+}
+
+.calc_list {
+    margin-top: 20px;
+    padding-top: 11px;
+    border-top: 1px solid #e2e2e2;
+}
+
+.calc_list li {
+    margin-top: 9px;
+    overflow: hidden;
+}
+
+.calc_list strong {
+    float: left;
+    font-weight: normal;
+}
+
+.calc_list p {
+    float: right;
+}
+
+.calc_list p em {
+    vertical-align: bottom;
+    font-style: normal;
+}
+
+#btn_regist{
+	width: 60px;
+    height: 20px;
+    font-size: 13px;
+    line-height: 15px;
+    display: inline-block;
+    font-weight: normal;
+    border: 1px solid #d0d0d0;
+    color: black;
+    background: white;
+    float: right;
+}
+
+.non_order_agree_wrap {
+    overflow: hidden;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #efefef;
+}
+
+.non_order_agree_wrap > h3{
+	color: #FFA7A7;
+	margin-bottom: 12px;
+}
+
+.non_order_agree_wrap > span {
+    padding-bottom: 8px;
+    display: inline-block;
+}
+
+.non_order_payment_agree{
+	margin: 20px auto;
+}
+
+.non_order_payment_agree {
+    margin: 30px auto;
+    text-align: center;
+}
+
+#btn_order {
+	margin-left: 10px;
+    width: 130px;
+    height: 50px;
+    background: #FFD8D8;
+}
+
+#btn_cart {
+	width: 140px;
+    height: 50px;
+    background: #FFD8D8;
+}

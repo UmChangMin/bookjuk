@@ -1,0 +1,36 @@
+/* banner */
+.main_slide_board{
+    margin-right: 139px;
+    margin-bottom: 28px;
+    margin-top: 40px;
+}
+.main_slide_banner {
+    position: relative;
+    width: 1000px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px -3px rgba(0,0,0,0.4);	
+}
+
+.main_slide_banner ul {
+	position: absolute;
+	margin: 0px;
+	padding: 0;
+	list-style: none;
+}
+
+.main_slide_banner ul li {
+	float: left;
+	width: 1000px;
+	height: 300px;
+	margin: 0;
+	padding: 0;
+}
+.main_slide_banner img{
+	width: 1000px;
+}
+
+
+

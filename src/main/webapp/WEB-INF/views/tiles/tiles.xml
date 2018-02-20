@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" 
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<!-- 사용자 메인페이지 content  -->
+<tiles-definitions>
+	<definition name="layout" template="/WEB-INF/views/template/layout.jsp">
+		<put-attribute name="mainheader" value="/WEB-INF/views/template/main_header.jsp"/>
+		<put-attribute name="content" value=""/><!-- 내용이 계속 바뀌니까 비우기 -->
+		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp"/>
+	</definition>
+	
+	<definition name="*.tiles" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/views/{1}.jsp"/>
+	</definition>
+	
+	<definition name="*/*.tiles" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
+	</definition>
+	
+	<definition name="*/*/*.tiles" extends="layout">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
+	</definition>
+	
+	
+	
+	 <!-- 관리자 페이지 content  -->
+	<definition name="admin"  template="/WEB-INF/views/template/admin.jsp">
+		<put-attribute name="header_menu" value="/WEB-INF/views/template/header_menu.jsp"/>
+		<put-attribute name="content" value=""/>
+	</definition>
+	
+	
+	<definition name="*.admin" extends="admin">
+		<put-attribute name="content" value="/WEB-INF/views/{1}.jsp"/>
+	</definition>
+	
+	<definition name="*/*.admin" extends="admin">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
+	</definition>
+	
+	<definition name="*/*/*.admin" extends="admin">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
+	</definition>
+	
+	
+	<!--  사용자 search_header(메인페이지 제외 모든 페이지) -->
+ 	<definition name="search" template="/WEB-INF/views/template/search.jsp">
+		<put-attribute name="search_header" value="/WEB-INF/views/template/search_header.jsp"/>
+		<put-attribute name="content" value=""/>
+		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp"/>
+	</definition>
+	 
+	
+	<definition name="*.search" extends="search">
+		<put-attribute name="content" value="/WEB-INF/views/{1}.jsp"/>
+	</definition>
+	
+	<definition name="*/*.search" extends="search">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
+	</definition>
+	
+	<definition name="*/*/*.search" extends="search">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
+	</definition> 
+	
+	
+	
+	<!-- 헤더,풋터가 필요없이 jsp페이지만 켜지게  -->
+	<definition name="empty" template="/WEB-INF/views/template/empty.jsp">
+		<put-attribute name="content" value=""/>
+	</definition>
+	
+	<definition name="*/*.empty" extends="empty">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
+	</definition>
+	
+		<definition name="*/*/*.empty" extends="empty">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
+	</definition>
+</tiles-definitions>
