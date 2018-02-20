@@ -22,7 +22,7 @@
 <body>
 	<!-- 타이틀메뉴 시작 -->
 	<div class="all">
-		<jsp:include page="../../commons/header_menu.jsp"></jsp:include>
+
 		<!-- wrap시작 -->
 			<div class="wrap">
 				<div class="content_wrap">

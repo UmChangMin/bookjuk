@@ -33,7 +33,7 @@
 <body>
 	<!-- 타이틀메뉴 시작 -->
 	<div class="all">
-		<jsp:include page="../commons/header_menu.jsp"></jsp:include>
+		
 		<!-- wrap시작 -->
 			<div class="wrap">
 				<div class="content_wrap">
@@ -43,38 +43,6 @@
 						<ul>
 							<li class="content_part content_part_move1">
 							<div class="content_wrap_body_left">
-								
-								<div class="content_box">
-									<ul class="content_box1">
-										<li class="content_box_title">영업점조회</li>
-										<li class="">
-											<form class="form-horizontal">
-											  <fieldset>
-											  
-											    <div class="form-group">											      
-											      <div class="col-lg-10">											      								
-												      <select class="form-control input_width" id="select">
-											           <option>역삼</option>
-											           <option>잠실</option>
-											           <option>본점</option>
-											           <option>강남</option>									          
-											        </select>			      							 											        											       
-											      </div>
-											    </div>
-											    								  
-											    <div class="form-group" align="center">
-											      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left">
-											        <button type="submit" class="btn btn-primary">조회</button>
-											        <button type="reset" class="btn btn-default">취소</button>
-											      </div>
-											    </div>
-											  </fieldset>
-											</form>
-										</li>
-									</ul>									
-								</div>
-								
-								<div class="content_middle_line_w content_middle_line_w_move1"></div>
 								
 								<div class="mapInfo1">
 									<ul>
@@ -98,10 +66,7 @@
 								
 							</div>
 							</li>
-						
-						<!-- 	<li>
-								<div class="content_middle_line_h content_middle_line_h_move1"></div>
-							</li> -->
+
 							<li class="content_part content_part_move1">
 								<div class="content_wrap_body_right">
 									

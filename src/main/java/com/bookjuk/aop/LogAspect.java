@@ -25,8 +25,8 @@ public class LogAspect {
 			obj=joinPoint.proceed();
 			
 		}catch (Throwable e) {
-			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			e.printStackTrace();
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 		}
 		
 		return obj;

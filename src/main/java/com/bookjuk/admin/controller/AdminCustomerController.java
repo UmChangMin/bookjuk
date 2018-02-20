@@ -21,13 +21,25 @@ public class AdminCustomerController{
 	public AdminCustomerController() {}
 
 	@RequestMapping(value="/admin/customer/customerManager.do",method=RequestMethod.GET)
-	public ModelAndView boardWrite(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView customerOutput(HttpServletRequest request, HttpServletResponse response) {
 		
 		LogAspect.logger.info(LogAspect.logMsg+"customer?");
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
-		adminCustomerService.customerMove(mav);
+		adminCustomerService.customerOutputMove(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/admin/customer/customerManager_search.do",method=RequestMethod.GET)
+	public ModelAndView customerSearch(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"customer?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminCustomerService.customerSearchMove(mav);
 		
 		return mav;
 	}

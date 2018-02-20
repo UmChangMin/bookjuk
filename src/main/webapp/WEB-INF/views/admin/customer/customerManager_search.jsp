@@ -7,22 +7,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>관리자모드</title>
-
 <c:set var="root" value="${pageContext.request.contextPath }"/>
- <link rel="stylesheet" type="text/css" href="${root }/css/admin/order/orderManager_search.css">
- <link rel="stylesheet" type="text/css" href="${root }/css/admin/commons/main.css">
- <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
- <script type="text/javascript" src="${root }/js/admin/order.js"></script>
+<link rel="stylesheet" type="text/css" href="${root }/css/admin/commons/main.css">
+<link rel="stylesheet" type="text/css" href="${root }/css/admin/customer/customerManager_search.css">
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>   
-
+<script type="text/javascript">
+	$(function(){
+		$(".nav-item:eq(2)").addClass("active");
+	});
+</script>
 <body>
 	<!-- 타이틀메뉴 시작 -->
 	<div class="all">
-		
+	
 		<!-- wrap시작 -->
 			<div class="wrap">
 				<div class="content_wrap">
-					<div class="content_title">주문관리</div>
+					<div class="content_title">고객관리</div>
 					
 					<div class="content">
 						<ul>
@@ -31,39 +33,26 @@
 								
 								<div class="content_box">
 									<ul class="content_box1">
-										<li class="content_box_title">주문정보조회</li>
+										<li class="content_box_title">회원정보조회</li>
 										<li class="">
-										
-											<!-- 주문정보조회 -->
-											<form class="form-horizontal searchForm" method="get" action="orderManager.do">
+											<form class="form-horizontal">
 											  <fieldset>
 											  
 											    <div class="form-group">											      
 											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="inputPhone" name="phone" placeholder="전화번호">											        
+											        <input type="text" class="form-control input_width" id="inputId" placeholder="아이디">											        
 											      </div>
 											    </div>
 											    
 											    <div class="form-group">											      
 											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="inputName" name="name" placeholder="이름">											        
+											        <input type="text" class="form-control input_width" id="inputName" placeholder="이름">											        
 											      </div>
 											    </div>
-											  											   
-											    <div class="form-group">											      
-											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="inputEmail" name="email" placeholder="이메일">											        
-											      </div>
-											    </div>
-											    
-											    <div class="form-group">											      
-											      <div class="col-lg-10">
-											        <input type="datetime-local" class="form-control input_width" id="inputOrderDate" name="order_date" placeholder="주문일자">											       
-											      </div>
-											    </div>											  
+											  											   										    									  
 											    <div class="form-group">
 											      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left">
-											        <button type="submit" class="btn btn-primary" onclick="search()">조회</button>
+											        <button type="submit" class="btn btn-primary">조회</button>
 											        <button type="reset" class="btn btn-default">취소</button>
 											      </div>
 											    </div>
@@ -74,6 +63,8 @@
 								</div>
 							</div>
 							</li>
+							
+
 						</ul>
 					</div><!-- content -->
 					

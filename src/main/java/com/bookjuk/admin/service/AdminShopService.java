@@ -4,7 +4,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 public interface AdminShopService {
 
-	public void shopMove(ModelAndView mav);
+	public void shopSearchMove(ModelAndView mav);
+	public void shopOutputMove(ModelAndView mav);
 	
 	
 }

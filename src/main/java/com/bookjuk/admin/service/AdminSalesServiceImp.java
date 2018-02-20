@@ -24,7 +24,7 @@ public class AdminSalesServiceImp implements AdminSalesService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/sales/salesManager");
+		mav.setViewName("admin/sales/salesManager.admin");
 		
 	}
 

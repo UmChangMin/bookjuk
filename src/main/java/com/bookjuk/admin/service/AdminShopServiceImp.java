@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bookjuk.admin.dao.AdminShopDao;
+import com.bookjuk.admin.dto.AdminShopDto;
+import com.bookjuk.aop.LogAspect;
 
 @Component
 public class AdminShopServiceImp implements AdminShopService {
@@ -20,11 +22,26 @@ public class AdminShopServiceImp implements AdminShopService {
 
 	
 	@Override
-	public void shopMove(ModelAndView mav) {
+	public void shopSearchMove(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/shop/shopManager");
+		mav.setViewName("admin/shop/shopManager_search.admin");
+		
+	}
+	
+	@Override
+	public void shopOutputMove(ModelAndView mav) {
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		String shop_name=request.getParameter("shop");
+		LogAspect.logger.info(LogAspect.logMsg+shop_name);
+		
+		AdminShopDto shopDto=shopDao.shopSelect(shop_name);
+		LogAspect.logger.info(LogAspect.logMsg+shopDto.toString());
+		
+		mav.setViewName("admin/shop/shopManager.admin");
 		
 	}
 

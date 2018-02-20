@@ -59,13 +59,14 @@ label{
 .content_wrap_body_left{
 	margin-left:50px;
 	border: 1px solid #CCCCCC;
-	width: 350px;
+	width: 900px;
+	height:500px;
 }
 
 .content_wrap_body_right{
 	border: 1px solid #CCCCCC;
-	width: 900px;
-	margin-left: 50px;
+	width: 548px;
+	margin-left: -11px;
 	height: auto;
 	overflow: hidden;
 }
@@ -88,7 +89,7 @@ label{
 }
 
 .content_box1{
-	margin-top:220px;
+	margin-top:150px;
 }
 
 .content_menulist{

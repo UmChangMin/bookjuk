@@ -14,7 +14,7 @@ public class AdminOrderDto {
 	
 	private String book_name;		//도서명
 	private int book_order_count;	//도서주문수량
-	private Date order_date;	 	//주문일자 ex)2018-01-14 13:35 
+	private String order_date;	 	//주문일자 ex)2018-01-14 13:35 
 	
 	private String credit;			//결제수단 ex)카드, 카드번호 xxxx-xxxx-xxxx-xxxx
 	private String refund_account;	//환불계좌 ex)신한, 110-xxx-xxxxxx
@@ -75,10 +75,10 @@ public class AdminOrderDto {
 	public void setBook_order_count(int book_order_count) {
 		this.book_order_count = book_order_count;
 	}
-	public Date getOrder_date() {
+	public String getOrder_date() {
 		return order_date;
 	}
-	public void setOrder_date(Date order_date) {
+	public void setOrder_date(String order_date) {
 		this.order_date = order_date;
 	}
 	public String getCredit() {

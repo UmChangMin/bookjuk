@@ -18,13 +18,21 @@ public class AdminCustomerServiceImp implements AdminCustomerService {
 	
 	public AdminCustomerServiceImp() {}
 
-	
 	@Override
-	public void customerMove(ModelAndView mav) {
+	public void customerSearchMove(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/customer/customerManager");
+		mav.setViewName("admin/customer/customerManager_search.admin");
+		
+	}
+	
+	@Override
+	public void customerOutputMove(ModelAndView mav) {
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		mav.setViewName("admin/customer/customerManager.admin");
 		
 	}
 

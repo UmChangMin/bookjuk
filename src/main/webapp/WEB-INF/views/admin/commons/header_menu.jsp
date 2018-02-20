@@ -31,16 +31,16 @@
 			        <a class="nav-link" href="${root }/admin/order/orderManager_search.do">주문관리</a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="${root }/admin/customer/customerManager.do">고객관리</a>
+			        <a class="nav-link" href="${root }/admin/customer/customerManager_search.do">고객관리</a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="${root }/admin/book/bookManager.do">도서관리</a>
+			        <a class="nav-link" href="${root }/admin/book/bookManager_search.do">도서관리</a>
 			      </li>
 	        	  <li class="nav-item">
 			        <a class="nav-link" href="${root }/admin/service/service/serviceManager.do">고객센터관리</a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="${root }/admin/shop/shopManager.do">영업점관리</a>
+			        <a class="nav-link" href="${root }/admin/shop/shopManager_search.do">영업점관리</a>
 			      </li>
 			    </ul>			  
 			  </div>
