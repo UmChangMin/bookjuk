@@ -28,7 +28,7 @@
 			        <a class="nav-link" href="${root }/admin/sales/salesManager.do">영업관리 <span class="sr-only">(current)</span></a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="${root }/admin/order/orderManager.do">주문관리</a>
+			        <a class="nav-link" href="${root }/admin/order/orderManager_search.do">주문관리</a>
 			      </li>
 			      <li class="nav-item">
 			        <a class="nav-link" href="${root }/admin/customer/customerManager.do">고객관리</a>

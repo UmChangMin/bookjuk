@@ -1,0 +1,18 @@
+package com.bookjuk.admin.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class AdminBookDaoImp implements AdminBookDao {
+
+	@Autowired
+	private SqlSessionTemplate sqlSessionTemplate; 
+	
+	public AdminBookDaoImp() {}
+
+	
+
+	
+}

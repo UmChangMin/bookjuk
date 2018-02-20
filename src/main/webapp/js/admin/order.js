@@ -37,10 +37,12 @@ $(function(){
 	}
 	
 	//연산값	
-	//alert(mul);
-	/*var a=$.number(mul);*/
 	$("#inputTotalPrice").val(mul+'원');
-	/*$("#inputTotalPrice").number(true);*/
+	
+	
+	
+	
+	
 	
 	
 	$(".nav-item:eq(1)").addClass("active");
@@ -50,3 +52,35 @@ $(function(){
 	
     
 });	
+
+
+function search() {
+	var Iphone=document.getElementById("inputPhone").value;
+	var Iname=document.getElementById("inputName").value;
+	var Iemail=document.getElementById("inputEmail").value;
+	var IorderDate=document.getElementById("inputOrderDate").value;
+	alert(Iphone+","+Iname+","+Iemail+","+IorderDate);
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

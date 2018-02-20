@@ -15,7 +15,7 @@
  <script type="text/javascript" src="${root }/js/admin/order.js"></script>
 </head>   
 
-<body">
+<body>
 	<!-- 타이틀메뉴 시작 -->
 	<div class="all">
 		<jsp:include page="../commons/header_menu.jsp"></jsp:include>
@@ -29,120 +29,64 @@
 							<li class="content_part content_part_move1">
 							<div class="content_wrap_body_left">
 								
-								<div class="content_box">
-									<ul class="content_box1">
-										<li class="content_box_title">주문정보조회</li>
+								<div class="content_box" align="center">									
+									
+									<ul class="content_box_left">
+										<!-- <li class="content_box_title">고객배송지정보</li> -->
+										
 										<li class="">
 											<form class="form-horizontal">
 											  <fieldset>
+											  <div class="form-left">
+											  	<div class="content_box_title left_title">고객배송지정보</div>
 											  
 											    <div class="form-group">											      
 											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="inputPhone" placeholder="전화번호">											        
-											      </div>
-											    </div>
-											    
-											    <div class="form-group">											      
-											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="inputName" placeholder="이름">											        
-											      </div>
-											    </div>
-											  											   
-											    <div class="form-group">											      
-											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="inputEmail" placeholder="이메일">											        
-											      </div>
-											    </div>
-											    
-											    <div class="form-group">											      
-											      <div class="col-lg-10">
-											        <input type="text" class="form-control input_width" id="inputOrderDate" placeholder="주문일자">											       
-											      </div>
-											    </div>											  
-											    <div class="form-group">
-											      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left">
-											        <button type="submit" class="btn btn-primary" onclick="calc()">조회</button>
-											        <button type="reset" class="btn btn-default">취소</button>
-											      </div>
-											    </div>
-											  </fieldset>
-											</form>
-										</li>	
-									</ul>
-									
-									<div class="content_middle_line_w content_middle_line_w_move1"></div>
-									
-									<ul class="content_box2">
-										<li class="content_box_title">고객배송지정보</li>
-										<li class="">
-											<form class="form-horizontal">
-											  <fieldset>
-											  
-											    <div class="form-group">											      
-											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="inputName" placeholder="이름">											        
+											        <input type="text" class="form-control input_width" id="outputName" placeholder="이름">											        
 											      </div>
 											    </div>
 											  	
 											  	<div class="form-group">											      
 											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="inputPost" placeholder="우편번호">											        
+											        <input type="text" class="form-control input_width" id="outputPost" placeholder="우편번호">											        
 											      </div>
 											    </div>
 											    
 											    <div class="form-group">											      
 											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="inputAddress" placeholder="주소">											        
+											        <input type="text" class="form-control input_width" id="outputAddress" placeholder="주소">											        
 											      </div>
 											    </div>
 											    
 											    <div class="form-group">											      
 											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="inputDetailAddr" placeholder="상세주소">											        
+											        <input type="text" class="form-control input_width" id="outputDetailAddr" placeholder="상세주소">											        
 											      </div>
 											    </div>
 											    										   
 											    <div class="form-group">											      
 											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="inputEmail" placeholder="이메일">											        
+											        <input type="text" class="form-control input_width" id="outputEmail" placeholder="이메일">											        
 											      </div>
 											    </div>
-										  
-											    <div class="form-group">
-											      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left">
-											         <button type="button" class="btn btn-default" id="">수정</button>										   
-											         <button type="button" class="btn btn-default" id="">취소</button>
-											         <button type="button" class="btn btn-default" id="">삭제</button>
-											      </div>
-											    </div>
-											  </fieldset>
-											</form>
-										</li>							
-									</ul>
-								</div>
-							</div>
-							</li>
-
-							
-							<li class="content_part content_part_move1 part2">
-							<div class="content_wrap_body_right">
+										    </div>
+						    <div class="content_wrap_body_right">
 								<div class="content_box">
-									<ul class="content_box1 content_title_height">
+									<!-- <ul class="content_box1 content_title_height">
 										<li class="content_box_title content_admin_alert">
 											<span>※관리자 주의사항</span><br/>
 											<span>※환불, 교환,반품 수정은 상품 출발 전 또는 상품이 
 											본사에 도착한 이후를 기점으로 합니다.</span>
 										</li>											
-									</ul>
+									</ul> -->
 									
-									<ul class="content_box2 content_box2_margin">
+									<ul class="">
 										<li class="content_box_title" id="box3_width">고객주문내역</li>						
 									</ul>
 									
 									<ul class="content_box3">					
 										<li class="content_box3_main_li">
 										<div class="content_box3_form" align="center">
-											<form class="content_box3_formtag">
 											<div class="content_c_orderlist_title">
 												<ul>
 													<li class="c_orderlist_h">결제내역</li>																		
@@ -161,7 +105,7 @@
 													<li><input type="text" value="18,000" id="value_price" readonly="readonly"/></li>
 												</ul>
 												
-												<ul>
+											<!-- 	<ul>
 													<li>마시멜로이야기</li>
 													<li><input type="text" value="2" id="value_count" readonly="readonly"/></li>
 													<li><input type="text" value="14,000" id="value_price" readonly="readonly"/></li>
@@ -176,7 +120,7 @@
 													<li>Java의 정석</li>
 													<li><input type="text" value="4" id="value_count" readonly="readonly"/></li>
 													<li><input type="text" value="28,000" id="value_price" readonly="readonly"/></li>
-												</ul>
+												</ul> -->
 												<!-- 추가가능 -->
 						
 											</div>
@@ -243,21 +187,27 @@
 													    </div>
 													</li>
 												</ul>
-										     <div class="form-group btn-margin" align="center">
-											      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left" id="btn-margin">
-												        <button type="button" class="btn btn-default" id="">추가</button>
-												        <button type="button" class="btn btn-default" id="">수정</button>
-												        <button type="button" class="btn btn-default" id="">취소</button>
-												        <button type="button" class="btn btn-default" id="">삭제</button>
-											      </div>
-										    </div> 								
+											     <div class="form-group btn-margin" align="center">
+												      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left" id="btn-margin">
+													        <button type="button" class="btn btn-default" id="">추가</button>
+													        <button type="button" class="btn btn-default" id="">수정</button>
+													        <button type="button" class="btn btn-default" id="">취소</button>
+													        <button type="button" class="btn btn-default" id="">삭제</button>
+												      </div>
+											    </div> 								
 											</div>											
 											<!-- 환불, 교환, 반품-->
 										     
-											</form>
 										</div>
 										
 										</li>																										
+									</ul>
+								</div>
+							</div>
+											    
+											  </fieldset>
+											</form>
+										</li>							
 									</ul>
 								</div>
 							</div>

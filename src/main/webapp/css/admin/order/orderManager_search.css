@@ -37,6 +37,7 @@ label{
 
 .content_box{
 	background: white;
+	margin-top: 90px;
 }
 
 .content_box1{
@@ -56,11 +57,11 @@ label{
 }
 
 .content_box2_margin{
-	margin-top:0px; 
+	margin-top:30px; 
 }
 
 .content_box2{
-	margin-top:0px;
+	margin-top:70px;
 }
 
 /**//**//**//**//**//**//**//**//**//**//**//**//**/
@@ -74,16 +75,15 @@ label{
 	margin-left:50px;
 	border: 1px solid #CCCCCC;
 	width: 900px;
-	height:auto;
+	height:500px;
 }
 
 .content_wrap_body_right{
-	border: 0px solid #CCCCCC;
+	border: 1px solid #CCCCCC;
 	width: 548px;
 	height: auto;
 	overflow: hidden;
 	margin-left: -10px;
-	margin-bottom: 50px;
 }
 
 .content_middle_line_w_move1 {
@@ -92,7 +92,7 @@ label{
 }
 
 .content_part_move1{
-	width:1000px;
+	width:410px;
 }
 
 .content_middle_line_h_move1 {
@@ -220,6 +220,10 @@ label{
 	margin-bottom: 78px;
 }
 
+.part2{
+	width:530px;
+}
+
 #value_count{
 	border:0px;
 	width:40px;
@@ -231,34 +235,5 @@ label{
 	width:90px;
 	text-align: center;
 }
-
-.content_box_left{
-	margin-top:50px;
-}
-
-.content_box_title{
-	width:300px;
-	margin-bottom: 10px;
-}
-
-.form-left{
-	float:left;
-}
-
-.left_title{
-	width: 270px;
-	margin-left: 42px;
-	
-}
-
-
-
-
-
-
-
-
-
-
 
 
