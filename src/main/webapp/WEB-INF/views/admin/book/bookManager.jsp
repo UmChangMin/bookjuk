@@ -34,8 +34,7 @@
 
 <body>
 	<!-- 타이틀메뉴 시작 -->
-	<div class="all">
-		<jsp:include page="../commons/header_menu.jsp"></jsp:include>		
+	<div class="all">	
 		<!-- wrap시작 -->
 			<div class="wrap">
 				<div class="content_wrap">
@@ -43,70 +42,6 @@
 					
 					<div class="content">
 						<ul>
-							<li class="content_part content_part_move1">
-								<div class="content_wrap_body_left">
-									
-									<div class="content_box">
-										<ul class="content_box1">
-											<li class="content_box_title">도서정보조회</li>
-											<li class="">
-												<form class="form-horizontal">
-												  <fieldset>
-												  
-												    <div class="form-group">											      
-												      <div class="col-lg-10">											      											      							 
-												        <input type="text" class="form-control input_width" id="inputBookName" placeholder="도서명">											        
-												      </div>
-												    </div>
-												    <div class="form-group">											      
-												      <div class="col-lg-10">											      											      							 
-												        <input type="text" class="form-control input_width" id="inputPublisher" placeholder="출판사">											        
-												      </div>
-												    </div>
-												    <div class="form-group">											      
-												      <div class="col-lg-10">											      											      							 
-												        <input type="text" class="form-control input_width" id="inputAuthor" placeholder="저자">											        
-												      </div>
-												    </div>
-												    									  
-												    <div class="form-group">
-												      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left">
-												        <button type="submit" class="btn btn-primary">조회</button>
-												        <button type="reset" class="btn btn-default">취소</button>
-												      </div>
-												    </div>
-												  </fieldset>
-												</form>
-											</li>	
-										</ul>
-										
-										<div class="content_middle_line_w content_middle_line_w_move1"></div>									
-									</div>
-									
-									<div class="mapInfo1" align="center">
-										<ul>
-											<!-- 영업점지도정보 추가-->
-											<li class="content_box_title">영업점별 가용재고</li>
-																								
-											<li class="medium_title">											
-												<select class="form-control" id="select">
-										           <option>본점</option>
-										           <option>잠실</option>
-										           <option>역삼</option>
-										           <option>강남</option>									          
-										        </select>
-												<input type="text" class="form-control" id="input" placeholder="41권">
-											</li>										
-										</ul>								
-									</div>
-								</div>
-							</li>
-							
-							<!-- <li>
-								<div class="content_middle_line_h content_middle_line_h_move1"></div>
-							</li> -->
-							
-							<!--  -->
 							<li class="content_part content_part_move1">
 								<div class="content_wrap_body_right">
 									
@@ -153,6 +88,21 @@
 												    </div>												    
 												</li>																						
 											</ul>
+																					
+											<ul class="mapInfo1">
+												<!-- 영업점지도정보 추가-->
+												<li class="content_box_title">영업점별 가용재고</li>
+																									
+												<li class="medium_title">											
+													<select class="form-control" id="select">
+											           <option>본점</option>
+											           <option>잠실</option>
+											           <option>역삼</option>
+											           <option>강남</option>									          
+											        </select>
+													<input type="text" class="form-control" id="input" placeholder="41권">
+												</li>										
+											</ul>								
 											
 											<!-- 환불, 교환, 반품-->
 										    <div class="form-group btn-margin" align="center">

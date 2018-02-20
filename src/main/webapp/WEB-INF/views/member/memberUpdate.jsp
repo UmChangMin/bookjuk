@@ -13,7 +13,6 @@
 <title>회원정보수정</title>
 </head>
 <body>
-
 	<!-- 회원수정 시작 강민아-->
 	<form action="" method="post" onsubmit="return memberUpdate(this)">
 	<div id="memberUpdate_all">
@@ -99,6 +98,5 @@
 		</div>
 	</div>
 	</form>
-	
 </body>
 </html>

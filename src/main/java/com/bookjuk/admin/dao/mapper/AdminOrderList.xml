@@ -25,9 +25,9 @@
 	</resultMap>
 
 	
-	<select id="orderListCheck" resultMap="Stirng" parameterType="Stirng">
+	<select id="orderListCheck" resultMap="com.bookjuk.admin.dto.AdminOrderDto" parameterType="Stirng">
 		<![CDATA[
-			select * from orderlist where phone=#{phone} and name=#{name} and email=#{email}
+			select * from orderlist where phone=#{phone} and name=#{name} and email=#{email} and order_date=#{orderDate}
 		]]>
 	</select>
 	

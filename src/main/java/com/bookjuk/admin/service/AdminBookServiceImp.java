@@ -20,13 +20,23 @@ public class AdminBookServiceImp implements AdminBookService {
 
 	
 	@Override
-	public void bookMove(ModelAndView mav) {
+	public void bookSearchMove(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/book/bookManager");
+		mav.setViewName("admin/book/bookManager_search.admin");
 		
 	}
+	
+	@Override
+	public void bookOutputMove(ModelAndView mav) {
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		mav.setViewName("admin/book/bookManager.admin");
+		
+	}
+
 
 	
 }

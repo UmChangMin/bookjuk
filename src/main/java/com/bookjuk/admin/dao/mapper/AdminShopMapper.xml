@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bookjuk.admin.dao.mapper">
+	<resultMap type="com.bookjuk.admin.dto.AdminShopDto" id="shopDto">	
+		<result property="num" column="num"/>
+		<result property="shop_name" column="shop_name"/>
+		<result property="shop_post_num" column="shop_post_num"/>
+		<result property="shop_addr" column="shop_addr"/>
+		<result property="shop_addr_detail" column="shop_addr_detail"/>
+		
+		<result property="shop_callnum" column="shop_callnum"/>
+		<result property="shop_time" column="shop_time"/>
+		<result property="shop_comming" column="shop_comming"/>
+		
+		<result property="shop_lat" column="shop_lat"/>
+		<result property="shop_lon" column="shop_lon"/>
+	
+	</resultMap>
+	<select id="shopSelect" resultType="com.bookjuk.admin.dto.AdminShopDto" parameterType="String">
+		<![CDATA[
+			select * from shop where shop_name=#{shop_name}
+		]]>
+	</select>
+	
+</mapper>

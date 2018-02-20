@@ -14,7 +14,7 @@ label {
 }
 
 .form-group {
-	margin-bottom: 5px;
+	margin-bottom: 50px;
 }
 
 .col-lg-10 {
@@ -33,6 +33,7 @@ label {
 	text-align: center;
 	margin: 0px auto;
 	margin-top: 26px;
+	margin-bottom: 50px;
 }
 
 .content_box1 {
@@ -64,9 +65,10 @@ label {
 }
 
 .content_wrap_body_right {
-	width: 540px;
+	width: 900px;
 	border: 1px solid #CCCCCC;
-	height: 720px;
+	height: auto;
+	margin-left: 50px;
 }
 
 .content_middle_line_w_move1 {
@@ -194,8 +196,9 @@ label {
 }
 
 .mapInfo1 {
-	margin-top: 130px;
-	
+	height: auto;
+	overflow: hidden;
+	margin-top: 30px;
 }
 
 .c_orderlist_inputform_value div>input {
@@ -204,7 +207,7 @@ label {
 
 .content_box_title {
 	width: 300px;
-	margin-top: 140px;
+
 }
 
 .content_middle_line_w {

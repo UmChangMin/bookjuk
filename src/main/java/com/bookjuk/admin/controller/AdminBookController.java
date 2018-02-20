@@ -20,14 +20,26 @@ public class AdminBookController{
 	
 	public AdminBookController() {}
 
+	@RequestMapping(value="/admin/book/bookManager_search.do",method=RequestMethod.GET)
+	public ModelAndView bookSearch(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"book-search?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminBookService.bookSearchMove(mav);
+		
+		return mav;
+	}
+	
 	@RequestMapping(value="/admin/book/bookManager.do",method=RequestMethod.GET)
-	public ModelAndView boardWrite(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView bookOutput(HttpServletRequest request, HttpServletResponse response) {
 		
 		LogAspect.logger.info(LogAspect.logMsg+"book?");
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
-		adminBookService.bookMove(mav);
+		adminBookService.bookOutputMove(mav);
 		
 		return mav;
 	}

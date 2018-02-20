@@ -24,4 +24,22 @@ public class OrderServiceImp implements OrderService {
 		
 	}
 
+	@Override
+	public void orderMain(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		mav.setViewName("order/orderMain.empty");
+	}
+	
+	@Override
+	public void orderList(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		mav.setViewName("order/orderList.search");
+	}
+
+	
+
 }

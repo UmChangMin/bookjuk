@@ -26,7 +26,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/service/service/serviceManager");
+		mav.setViewName("admin/service/service/serviceManager.admin");
 		
 	}
 
@@ -36,7 +36,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/service/service/serviceManager_write");
+		mav.setViewName("admin/service/service/serviceManager_write.admin");
 		
 	}
 	
@@ -46,7 +46,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 			Map<String,Object>map=mav.getModelMap();
 			HttpServletRequest request=(HttpServletRequest)map.get("request");
 			
-			mav.setViewName("admin/service/service/serviceManager_update");
+			mav.setViewName("admin/service/service/serviceManager_update.admin");
 			
 		}
 		
@@ -56,7 +56,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 			Map<String,Object>map=mav.getModelMap();
 			HttpServletRequest request=(HttpServletRequest)map.get("request");
 			
-			mav.setViewName("admin/service/service/serviceManager_delete");
+			mav.setViewName("admin/service/service/serviceManager_delete.admin");
 			
 		}
 	
@@ -70,7 +70,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/service/notice/noticeManager");
+		mav.setViewName("admin/service/notice/noticeManager.admin");
 		
 	}
 	
@@ -79,7 +79,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/service/notice/noticeManager_read");
+		mav.setViewName("admin/service/notice/noticeManager_read.admin");
 		
 	}
 	
@@ -88,7 +88,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/service/notice/noticeManager_write");
+		mav.setViewName("admin/service/notice/noticeManager_write.admin");
 		
 	}
 	
@@ -97,7 +97,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/service/notice/noticeManager_update");
+		mav.setViewName("admin/service/notice/noticeManager_update.admin");
 		
 	}
 	
@@ -106,7 +106,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/service/notice/noticeManager_delete");
+		mav.setViewName("admin/service/notice/noticeManager_delete.admin");
 		
 	}
 
@@ -121,7 +121,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/service/contact/contactManager");
+		mav.setViewName("admin/service/contact/contactManager.admin");
 		
 	}
 	
@@ -130,7 +130,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/service/contact/contactManager_read");
+		mav.setViewName("admin/service/contact/contactManager_read.admin");
 		
 	}
 	
@@ -139,7 +139,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/service/contact/contactManager_write");
+		mav.setViewName("admin/service/contact/contactManager_write.admin");
 		
 	}
 	
@@ -148,7 +148,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/service/contact/contactManager_update");
+		mav.setViewName("admin/service/contact/contactManager_update.admin");
 		
 	}
 	
@@ -157,7 +157,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/service/contact/contactManager_delete");
+		mav.setViewName("admin/service/contact/contactManager_delete.admin");
 		
 	}
 

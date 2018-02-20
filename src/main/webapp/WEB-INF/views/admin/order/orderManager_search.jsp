@@ -18,7 +18,7 @@
 <body>
 	<!-- 타이틀메뉴 시작 -->
 	<div class="all">
-		<jsp:include page="../commons/header_menu.jsp"></jsp:include>
+		
 		<!-- wrap시작 -->
 			<div class="wrap">
 				<div class="content_wrap">
@@ -58,7 +58,7 @@
 											    
 											    <div class="form-group">											      
 											      <div class="col-lg-10">
-											        <input type="text" class="form-control input_width" id="inputOrderDate" name="order_date" placeholder="주문일자">											       
+											        <input type="datetime-local" class="form-control input_width" id="inputOrderDate" name="order_date" placeholder="주문일자">											       
 											      </div>
 											    </div>											  
 											    <div class="form-group">

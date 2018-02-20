@@ -21,9 +21,7 @@
 	<definition name="*/*/*.tiles" extends="layout">
 		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
 	</definition>
-	
-	
-	
+			
 	 <!-- 관리자 페이지 content  -->
 	<definition name="admin"  template="/WEB-INF/views/template/admin.jsp">
 		<put-attribute name="header_menu" value="/WEB-INF/views/template/header_menu.jsp"/>
@@ -41,6 +39,10 @@
 	
 	<definition name="*/*/*.admin" extends="admin">
 		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
+	</definition>
+	
+	<definition name="*/*/*/*.admin" extends="admin">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}/{4}.jsp"/>
 	</definition>
 	
 	

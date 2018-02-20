@@ -223,11 +223,15 @@
 			<artifactId>tiles-jsp</artifactId>
 			<version>2.2.1</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-servlet</artifactId>
 			<version>2.2.1</version>
 		</dependency>
+		
+		
+		
 	</dependencies>
     <build>
         <plugins>
@@ -267,4 +271,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

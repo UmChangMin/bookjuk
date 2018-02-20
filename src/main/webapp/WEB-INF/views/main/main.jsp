@@ -292,23 +292,6 @@
 			</div>
 		</div><br/>
 	</div>
-	
-	<!-- 플로팅 메뉴 -->
-	<div id="floatMenu" align="center">
-		<div class="today_view" align="center">
-			<div class="today_title"><h3 align="center">최근 본 목록</h3></div>
-			<div class="tv_container">
-				<div class="tv_prod"><a href="#"><img src="http://bookimg.bookcube.com/94/1308/130801548.jpg"></a></div>
-				<div class="tv_prod"><a href="#"><img src="http://bookimg.bookcube.com/94/1712/171201262.jpg"></a></div>
-				<div class="tv_prod"><a href="#"><img src="http://bookimg.bookcube.com/94/1607/160704046.jpg"></a></div>
-			</div>
-		</div>
-		<div class="float_btn">
-			<a href="${root}/order/cart.bjbj" class="cart_btn">장바구니</a><br/>
-			<a href="#" class="top_btn">TOP</a>
-		</div>
-	</div>
-			
 
 			<!-- MD추천 시작 1-->
 			<div class="main_md">

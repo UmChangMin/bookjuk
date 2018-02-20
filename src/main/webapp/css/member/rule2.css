@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+#rule_table2 h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #FFA7A7;
+    text-align: center;
+    margin-top: 39px;
+    margin-bottom: 29px;
+    margin-left: 81px;
+}	
+.registe_closebut {
+	width: 144px;
+	height: 41px;
+	margin: 24px 0px 18px 252px;
+	background: #FFA7A7;
+	border: 1px solid #FFA7A7;
+	color: #fff;
+	font-weight: bold;
+	border-radius: 16px;
+}
+.rule_img{
+	float: right;
+    margin-right: -63px;
+    margin-top: -9px;
+    cursor: pointer;
+    width: 20px;
+}
+
+.txtColor2 {
+    color: #F15F5F;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-left: 62px;
+}
+
+.rule_img{
+    width: 18px;
+    height: 14px;
+    margin-right: 60px;
+}
+
+.rule_text{
+    font-size: 12px;
+    padding: 0px;
+    text-align: justify;
+    line-height: 32px;
+    margin-left: 62px;
+    margin-right: 62px;
+}

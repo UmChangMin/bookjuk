@@ -4,7 +4,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 public interface AdminCustomerService {
 
-	public void customerMove(ModelAndView mav);
+	public void customerSearchMove(ModelAndView mav);
+	public void customerOutputMove(ModelAndView mav);
 	
 	
 }

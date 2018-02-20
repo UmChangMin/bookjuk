@@ -14,7 +14,6 @@
 <script type="text/javascript" src="${root }/js/book/bookList.js"></script>
 </head>
 <body>
-
 <!-- 도서 목록 리스트 시작 강민아 -->
 		<form action="">
 		<div id="bookList_all">
@@ -125,6 +124,5 @@
 		</div>
 		</form>
 	<!-- 도서 목록 리스트 끝 -->
-	
 </body>
 </html>

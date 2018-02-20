@@ -1,5 +1,8 @@
 package com.bookjuk.member.service;
 
-public interface MemberService {
+import org.springframework.web.servlet.ModelAndView;
 
+public interface MemberService {
+	public void login(ModelAndView mav);
+	public void registe(ModelAndView mav);
 }

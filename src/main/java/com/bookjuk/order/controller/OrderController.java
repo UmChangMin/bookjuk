@@ -29,4 +29,26 @@ public class OrderController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value = "/orderMain.do", method = RequestMethod.GET)
+	public ModelAndView orderMain(HttpServletRequest request, HttpServletResponse response) {
+		LogAspect.logger.info(LogAspect.logMsg + "cart");
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		orderService.orderMain(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/orderList.do", method = RequestMethod.GET)
+	public ModelAndView orderList(HttpServletRequest request, HttpServletResponse response) {
+		LogAspect.logger.info(LogAspect.logMsg + "cart");
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		orderService.orderList(mav);
+		
+		return mav;
+	}
 }

@@ -20,14 +20,26 @@ public class AdminShopController{
 	
 	public AdminShopController() {}
 
-	@RequestMapping(value="/admin/shop/shopManager.do",method=RequestMethod.GET)
-	public ModelAndView boardWrite(HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value="/admin/shop/shopManager_search.do",method=RequestMethod.GET)
+	public ModelAndView shopSearch(HttpServletRequest request, HttpServletResponse response) {
 		
 		LogAspect.logger.info(LogAspect.logMsg+"shop?");
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
-		adminShopService.shopMove(mav);
+		adminShopService.shopSearchMove(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/admin/shop/shopManager.do",method=RequestMethod.GET)
+	public ModelAndView shopOutput(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"shop?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminShopService.shopOutputMove(mav);
 		
 		return mav;
 	}

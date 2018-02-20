@@ -1,8 +1,5 @@
 package com.bookjuk.admin.service;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +26,7 @@ public class AdminOrderServiceImp implements AdminOrderService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/order/orderManager_search");
+		mav.setViewName("admin/order/orderManager_search.admin");
 		
 	}
 	
@@ -44,19 +41,12 @@ public class AdminOrderServiceImp implements AdminOrderService {
 		String order_date=request.getParameter("order_date");
 		LogAspect.logger.info(LogAspect.logMsg+phone+","+name+","+email+","+order_date);
 			
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");		
 		
-		Date odate;
-		try {
-			odate = sdf.parse(order_date);
-			int check=orderDao.searchList(phone,name,email,odate);  
-			LogAspect.logger.info(LogAspect.logMsg+check);
-			mav.addObject("check",check);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		AdminOrderDto orderDto=orderDao.searchList(phone,name,email,order_date);  
+		LogAspect.logger.info(LogAspect.logMsg+orderDto);
+		mav.addObject("orderDto",orderDto);
 		
-		mav.setViewName("admin/order/orderManager");
+		mav.setViewName("admin/order/orderManager.admin");
 		
 	}
 
