@@ -79,7 +79,7 @@
 				<ul class="header_gnb_list">
 					<li><a href="#" class="header_title_menu_category"><img
 							src="${root }/img/main_header/cate_bar.png" alt="전체 카테고리바" />전체카테고리</a></li>
-					<li><a href="#" class="header_title_menu_best">베스트셀러</a></li>
+					<li><a href="${root}/bookjuk/src/main/webapp/WEB-INF/views/book/book_detail/book_detail.do" class="header_title_menu_best">베스트셀러</a></li>
 					<li><a href="#" class="header_title_menu_firebook">화제의도서</a></li>
 					<li><a href="#" class="header_title_menu_newbook">신간도서</a></li>
 					<li><a href="#" class="header_title_menu_half">할인도서</a></li>

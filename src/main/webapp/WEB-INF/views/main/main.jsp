@@ -45,7 +45,7 @@
 				<!-- 베스트셀러  -->
 				<div class="main_banner_list_div">
 					<ul class="main_banner_list">
-						<li><a href="#"><img alt="책사진"
+						<li><a href="${root}"><img alt="책사진"
 								src="http://image.ypbooks.co.kr/upload/img/book/410/100830410.jpg"></a></li>
 
 						<li><a href="#"><img alt="책사진"

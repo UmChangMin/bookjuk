@@ -37,7 +37,7 @@ public class CustomerServiceImp implements CustomerService {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
-		mav.setViewName("customer_service/inquiry/customer_inquiry_read.search");
+		mav.setViewName("customer_service/notice/customer_notice_read.search");
 	}
 
 	@Override

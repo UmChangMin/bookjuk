@@ -13,7 +13,7 @@
 <script type="text/javascript" src="${root}/js/member/member.js"></script>
 </head>
 <body>
-	<%@ include file="/template/search_header.jsp"%>
+
 	<!-- 회원탈퇴 시작 강민아-->
 	<form action="" method="post" onsubmit="return memberDelete(this)">
 	<div id="memberDelete_all">
@@ -60,6 +60,6 @@
 		</div>
 	</div>
 	</form>
-	<%@ include file="/template/footer.jsp"%>
+	
 </body>
 </html>

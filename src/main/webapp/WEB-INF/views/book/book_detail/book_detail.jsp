@@ -23,7 +23,7 @@
 </script>
 </head>
 <body>
-	<%@ include file="/template/main_header.jsp"%>
+
 	<!-- 도서 상세보기 시작 강민아-->
 	<form action="">
 		<div id="bookDetail_all">
@@ -245,7 +245,6 @@
 		</div>
 	</form>
 	<!-- 도서 상세보기 끝 -->
-	<%@ include file="/template/footer.jsp"%>
-
+	
 </body>
 </html>

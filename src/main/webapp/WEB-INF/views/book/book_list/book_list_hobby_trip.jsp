@@ -14,7 +14,6 @@
 <script type="text/javascript" src="${root }/js/book/bookList.js"></script>
 </head>
 <body>
-<jsp:include page="/template/main_header.jsp"/>
 
 <!-- 도서 목록 리스트 시작 강민아 -->
 		<form action="">
@@ -126,6 +125,6 @@
 		</div>
 		</form>
 	<!-- 도서 목록 리스트 끝 -->
-	<jsp:include page="/template/footer.jsp"/>
+	
 </body>
 </html>
