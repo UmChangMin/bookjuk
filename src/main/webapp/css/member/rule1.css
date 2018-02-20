@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.rule1_title {
+	width: 750px;
+	text-align: center;
+	background: #D9E5FF;
+	color: #666;
+	font-size: 22px;
+	height: 50px;
+	line-height: 50px;
+	position: relative;
+	font-weight: bold;
+}
+
+.rule1_close {
+	display: block;
+	height: 50px;
+	width: 50px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: #666;
+	cursor: pointer;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.rule1_window, .rule1_content {
+	font-weight: 300;
+	font-size: 12px;
+}
+
+.rule1_window, .rule1_content iframe {
+	width: 740px;
+	padding-left: 10px;
+	height: 745px;
+}
+
+.rule1_window {
+	padding: 0;
+}

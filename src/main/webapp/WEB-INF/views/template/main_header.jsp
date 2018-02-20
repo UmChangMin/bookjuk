@@ -12,7 +12,8 @@
 <link rel="stylesheet" type="text/css" href="${root }/css/template/basic.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/template/header.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/template/real_time.css" />
-<%-- <script type="text/javascript" src="${root}/jquery/jquery.js"></script> --%>
+<link rel="stylesheet" type="text/css" href="${root }/css/main/bjbj_main.css" />
+<script type="text/javascript" src="${root}/jquery/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/main/real_time.js"></script>
 <script type="text/javascript" src="${root}/js/main/main_header.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
@@ -30,9 +31,9 @@
 					<li><a href="" class="openMask" onclick="login('${root}')">로그인</a></li>
 					<li><a class="openMask2" href="" onclick="registe('${root}')" >회원가입</a></li>
 					<li><a class="" href="${root}/order/cart.do">장바구니</a></li>
-					<li><a class="openMask3" href="" onclick="orderdelivery('${root}')" >주문/배송조회</a></li>
+					<li><a class="openMask3" href="${root}/order/orderList.do" onclick="orderdelivery('${root}')" >주문/배송조회</a></li>
 					<li><a class="" href="${root}/customer/customer.do">고객센터</a></li>
-					<li><a class="" href="${root}/user/Shop/Shop.do">영업점 안내</a></li>
+					<li><a class="" href="${root}/shop.do">영업점 안내</a></li>
 				</ul>
 			</div>
 		</div>
@@ -88,6 +89,22 @@
 		</div>
 	</div>
 	<!-- header끝 -->
+	
+	<!-- 플로팅 메뉴 -->
+	<div id="floatMenu" align="center">
+		<div class="today_view" align="center">
+			<div class="today_title"><h3 align="center">최근 본 목록</h3></div>
+			<div class="tv_container">
+				<div class="tv_prod"><a href="#"><img src="http://bookimg.bookcube.com/94/1308/130801548.jpg"></a></div>
+				<div class="tv_prod"><a href="#"><img src="http://bookimg.bookcube.com/94/1712/171201262.jpg"></a></div>
+				<div class="tv_prod"><a href="#"><img src="http://bookimg.bookcube.com/94/1607/160704046.jpg"></a></div>
+			</div>
+		</div>
+		<div class="float_btn">
+			<a href="${root}/order/cart.do" class="cart_btn">장바구니</a><br/>
+			<a href="#" class="top_btn">TOP</a>
+		</div>
+	</div>
 
 
 </body>

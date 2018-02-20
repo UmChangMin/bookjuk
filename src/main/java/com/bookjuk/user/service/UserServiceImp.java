@@ -1,4 +1,4 @@
-package com.bookjuk.order.service;
+package com.bookjuk.user.service;
 
 import java.util.Map;
 
@@ -8,38 +8,38 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bookjuk.order.dao.OrderDao;
+import com.bookjuk.user.dao.UserDao;
 
 @Component
-public class OrderServiceImp implements OrderService {
+public class UserServiceImp implements UserService {
+	
 	@Autowired
-	private OrderDao orderDao;
-	
+	private UserDao mainDao;
+
 	@Override
-	public void cart(ModelAndView mav) {
+	public void main(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
-		mav.setViewName("order/cart.search");
-		
+		mav.setViewName("main/main.tiles");
 	}
 
 	@Override
-	public void orderMain(ModelAndView mav) {
+	public void shop(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
-		mav.setViewName("order/orderMain.empty");
+		mav.setViewName("main/shop.search");
 	}
-	
+
+	/* 이벤트 미구현
 	@Override
-	public void orderList(ModelAndView mav) {
+	public void event(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
-		mav.setViewName("order/orderList.search");
+		mav.setViewName("main/event.search");
 	}
-
+	*/
 	
-
 }

@@ -13,7 +13,6 @@
 <title>회원정보수정</title>
 </head>
 <body>
-	<%@ include file="/template/search_header.jsp"%>
 	<!-- 회원수정 시작 강민아-->
 	<form action="" method="post" onsubmit="return memberUpdate(this)">
 	<div id="memberUpdate_all">
@@ -99,6 +98,5 @@
 		</div>
 	</div>
 	</form>
-	<%@ include file="/template/footer.jsp"%>
 </body>
 </html>
