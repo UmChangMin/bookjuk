@@ -21,7 +21,8 @@
 		<property name="dataSource" ref="dataSource"/>
 		<property name="mapperLocations">
 			<list>				
-				<value>classpath:com/bookjuk/admin/dao/mapper/AdminShopMapper.xml</value>
+				<value>classpath:/com/bookjuk/admin/dao/mapper/AdminShopMapper.xml</value> 
+				<!-- com 앞에 / 추가 -->
 			</list>
 		</property>
 	</bean>
@@ -31,7 +32,7 @@
 	</bean>
 	
 	<!-- 트랜잭션 -->
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+ 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
 		

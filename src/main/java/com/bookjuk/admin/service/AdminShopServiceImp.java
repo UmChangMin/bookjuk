@@ -35,14 +35,15 @@ public class AdminShopServiceImp implements AdminShopService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		String shop_name=request.getParameter("shop");
-		LogAspect.logger.info(LogAspect.logMsg+shop_name);
+		String shop_subname=request.getParameter("shop");
+		LogAspect.logger.info(LogAspect.logMsg+shop_subname);
 		
-		AdminShopDto shopDto=shopDao.shopSelect(shop_name);
+		AdminShopDto shopDto=shopDao.shopSelect(shop_subname);
 		LogAspect.logger.info(LogAspect.logMsg+shopDto.toString());
 		
-		mav.setViewName("admin/shop/shopManager.admin");
+		//mav.setViewName("admin/shop/shopManager.admin");
 		
+		 
 	}
 
 	

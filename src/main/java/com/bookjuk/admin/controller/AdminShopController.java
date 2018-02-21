@@ -23,7 +23,7 @@ public class AdminShopController{
 	@RequestMapping(value="/admin/shop/shopManager_search.do",method=RequestMethod.GET)
 	public ModelAndView shopSearch(HttpServletRequest request, HttpServletResponse response) {
 		
-		LogAspect.logger.info(LogAspect.logMsg+"shop?");
+		LogAspect.logger.info(LogAspect.logMsg+"shop-search?");
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
@@ -35,7 +35,7 @@ public class AdminShopController{
 	@RequestMapping(value="/admin/shop/shopManager.do",method=RequestMethod.GET)
 	public ModelAndView shopOutput(HttpServletRequest request, HttpServletResponse response) {
 		
-		LogAspect.logger.info(LogAspect.logMsg+"shop?");
+		LogAspect.logger.info(LogAspect.logMsg+"shop-output?");
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);

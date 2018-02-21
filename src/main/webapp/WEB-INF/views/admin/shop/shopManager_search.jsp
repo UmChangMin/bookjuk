@@ -61,9 +61,9 @@
 											    <div class="form-group">											      
 											      <div class="col-lg-10">											      								
 												      <select class="form-control input_width" id="select" name="shop">
-											           <option value="역삼점">역삼</option>
-											           <option value="잠실점">잠실</option>
-											           <option value="본점">본점</option>											          									         
+											           <option value="yeoksam">역삼</option>
+											           <option value="jamsil">잠실</option>
+											           <option value="bon">본점</option>											          									         
 											        </select>			      							 											        											       
 											      </div>
 											    </div>

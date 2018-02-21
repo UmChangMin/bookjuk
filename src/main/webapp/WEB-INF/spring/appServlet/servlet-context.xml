@@ -21,8 +21,6 @@
 	<resources location="/css/" mapping="/css/**"/>
 	<resources location="/img/" mapping="/img/**"/>
 	<resources location="/js/" mapping="/js/**"/>
-	<resources location="/javascript/" mapping="/javascript/**"/>
-	<!-- <resources location="/" mapping="/jquery.js"/> -->
 	<resources location="/jqueryUI/" mapping="/jqueryUI/**"/>
 	
 	
@@ -34,7 +32,6 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean> -->
 	
-	<context:component-scan base-package="com.bookjuk.bookjuk" />
 	
 	<!-- Tiles 생성 180219 허단비  -->
 	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
@@ -52,6 +49,7 @@
 	<!-- Controller / Component / Autowired -->
 	<context:component-scan base-package="com.bookjuk.bookjuk.homePage" />
 	<context:component-scan base-package="com.bookjuk.aop"/>
+	<context:component-scan base-package="com.bookjuk.bookjuk" />
 	
 	<!-- 180219 admin package통합 -김태우 AM 09:21-->
 	<context:component-scan base-package="com.bookjuk.admin.*"/>
@@ -74,7 +72,7 @@
 	<aop:aspectj-autoproxy/>
 	
 	<!-- transaction -->
-	<tx:annotation-driven transaction-manager="transactionManager"/>
+<!-- 	<tx:annotation-driven transaction-manager="transactionManager"/> -->
 	
 	
 	

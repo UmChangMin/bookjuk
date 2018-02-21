@@ -11,14 +11,16 @@ import com.bookjuk.admin.dto.AdminShopDto;
 public class AdminShopDaoImp implements AdminShopDao {
 
 	@Autowired
-	private SqlSessionTemplate sqlSessionTemplate; 
+	private SqlSessionTemplate sqlSession; 
 	
 	public AdminShopDaoImp() {}
 
 	@Override
-	public AdminShopDto shopSelect(String shop_name) {
+	public AdminShopDto shopSelect(String shop_subname) {
 
-		return sqlSessionTemplate.selectOne("shopSelect", shop_name);
+		System.out.println(shop_subname);
+		
+		return sqlSession.selectOne("shopSelect", shop_subname);
 	}
 
 	
