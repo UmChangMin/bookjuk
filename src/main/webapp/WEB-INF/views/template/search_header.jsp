@@ -5,11 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<c:set var="root" value="${pageContext.request.contextPath}" />
-
 <title>Insert title here</title>
-
-
+<c:set var="root" value="${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css" href="${root }/css/template/basic.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/template/header.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/template/real_time.css" />
@@ -21,16 +18,15 @@
 
 </head>
 <body>
-
 	<div id="header">
 		<div class="header_top">
 			<div class="header_top_inner">
 				<ul class="header_lnb_right">
-					<li><strong><a class="" href="">관리자모드</a></strong></li>
+					<li><strong><a class="" href="${root}/admin/sales/salesManager.do">관리자모드</a></strong></li>
 					<li><a href="" class="openMask" onclick="login('${root}')">로그인</a></li>
 					<li><a class="openMask2" href="" onclick="registe('${root}')" >회원가입</a></li>
 					<li><a class="" href="${root}/order/cart.do">장바구니</a></li>
-					<li><a class="openMask3" href="${root}/order/orderList.do" onclick="orderdelivery('${root}')" >주문/배송조회</a></li>
+					<li><a class="openMask3" href="${root}/order/order_list.do" onclick="orderdelivery('${root}')" >주문/배송조회</a></li>
 					<li><a class="" href="${root}/customer/customer.do">고객센터</a></li>
 					<li><a class="" href="${root}/shop.do">영업점 안내</a></li>
 				</ul>
