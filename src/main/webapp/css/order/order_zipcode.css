@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+#orderZipcode{
+	margin-top: 10px;	
+}
+
+.orderZipcode_title{
+	font-size:16px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.orderZipcode_search input:first-child{
+	border: 1px solid #b6b7b7;
+	height: 30px;
+	line-height: 30px;
+}
+
+.orderZipcode_search input:nth-child(2) {
+    margin-left: 6px;
+    width:50px;
+    height: 30px;
+	line-height: 30px;
+    box-sizing: border-box;
+    border: 1px solid #FFD8D8;
+    background: #FFD8D8;
+    box-shadow: 0 2px #FFD8D8;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #666;
+}

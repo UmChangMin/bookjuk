@@ -26,11 +26,75 @@ public class BookServiceImp implements BookService {
 	}
 
 	@Override
+	public void bookIssue(ModelAndView mav) {
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		mav.setViewName("book/book_list/book_issue.tiles");
+		
+		
+	}
+
+	@Override
+	public void bookNew(ModelAndView mav) {
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		mav.setViewName("book/book_list/book_new.tiles");
+		
+		
+		
+	}
+
+	@Override
+	public void bookDiscount(ModelAndView mav) {
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		mav.setViewName("book/book_list/book_discount.tiles");
+		
+		
+		
+	}
+	
+
+	@Override
 	public void bookDetail(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
 		mav.setViewName("book/book_detail/book_detail.tiles");
+		
+	}
+
+	@Override
+	public void bookComputer(ModelAndView mav) {
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		mav.setViewName("book/book_list/book_list_computer.tiles");
+		
+		
+		
+	}
+
+	@Override
+	public void bookHobby(ModelAndView mav) {
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		mav.setViewName("book/book_list/book_list_hobby_trip.tiles");
+		
+		
+	}
+
+	@Override
+	public void bookNovel(ModelAndView mav) {
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		mav.setViewName("book/book_list/book_list_novel.tiles");
+		
 		
 	}
 }

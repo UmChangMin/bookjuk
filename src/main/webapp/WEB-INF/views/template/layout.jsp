@@ -8,12 +8,14 @@
 <title>북적북적</title>
 </head>
 <body>
+
 	<!-- main layout -->
 	<!--  header -->
 	<tiles:insertAttribute name="mainheader"/>
 	
 	<!-- content -->
 	<tiles:insertAttribute name="content"/>
+
 	
 	<!-- footer  -->
 	<tiles:insertAttribute name="footer"/>

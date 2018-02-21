@@ -48,16 +48,18 @@
 									<ul>
 										<!-- 영업점지도정보 추가-->
 										<li class="content_box_title">영업점지도정보</li>
-										<li><img src="${root }/img/map/yeoksam.PNG" alt="지도내용" style="width:300px; height:250px"></li>
+										<li>
+											<div id="img_area" style="width:300px; height:250px;"></div>
+										</li>
 																							
 										<li class="medium_title">
 											<label class="title_name">위도</label>
-											<input type="text" class="form-control" id="input" placeholder="37.499294">
+											<input type="text" class="form-control" id="input" value="${shopDto.shop_lat}">
 										</li>	
 																																
 										<li class="medium_title">
 											<label class="title_name">경도</label>
-											<input type="text" class="form-control" id="input" placeholder="127.0309996">
+											<input type="text" class="form-control" id="input" value="${shopDto.shop_lng}">
 										</li>
 									
 									</ul>								
@@ -83,38 +85,37 @@
 											<ul class="content_box3">					
 												<li class="content_li">
 													<span class="content_title_name">영업점명</span>
-													<input type="text" class="form-control" id="inputBookName" placeholder="역삼점">
+													<input type="text" class="form-control" id="inputBookName" value="${shopDto.shop_name}">
 												</li>		
 												<li class="content_li">
 													<span class="content_title_name">우편번호</span>
-													<input type="text" class="form-control" id="inputPost" placeholder="06235">
+													<input type="text" class="form-control" id="inputPost" value="${shopDto.shop_post_num}">
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">주소</span>
-													<input type="text" class="form-control" id="inputAddr" placeholder="서울시 강남구 역삼1동">
+													<input type="text" class="form-control" id="inputAddr" value="${shopDto.shop_addr}">
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">상세주소</span>
-													<input type="text" class="form-control" id="inputDetailAddr" placeholder="테헤란로 132 한독빌딩 8층">
+													<input type="text" class="form-control" id="inputDetailAddr" value="${shopDto.shop_addr_detail}">
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">전화번호</span>
-													<input type="text" class="form-control" id="inputCall" placeholder="02-1234-5678">
+													<input type="text" class="form-control" id="inputCall" value="${shopDto.shop_callnum}">
 												</li>	
 												<li class="content_li">
 													<span class="content_title_name">영업시간</span>
-													<input type="text" class="form-control" id="inputTime" placeholder="오전 09시 30분 - 오후 10시 00분">
+													<input type="text" class="form-control" id="inputTime" value="${shopDto.shop_time}">
 												</li>	
 												<li class="content_li">
 													<span class="content_title_name">오시는길</span>
-													<textarea class="form-control" rows="3" id="textArea" placeholder="지하철 이용:역삼역 2호선 3번출구, 버스 이용시 지선버스:3217 간선버스:146, 242, 402, 421, 471 직행버스 1005-1"></textarea>
+													<textarea class="form-control" rows="3" id="textArea">${shopDto.shop_comming}</textarea>
 												</li>																														
 											</ul>
 											
 											<!-- 환불, 교환, 반품-->
 										    <div class="form-group btn-margin" align="center">
 											      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left" id="btn-margin">
-												        <button type="button" class="btn btn-default" id="">추가</button>
 												        <button type="button" class="btn btn-default" id="">수정</button>
 												        <button type="button" class="btn btn-default" id="">취소</button>
 												        <button type="button" class="btn btn-default" id="">삭제</button>

@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+.col-lg-10{
+	width:300px;
+	padding:0px;
+	max-width:100%;
+	margin-top: 20px;
+}
+
+.content_c_orderlist_title li{
+	width:300px;
+	margin:0px auto;
+}
+
+#select_position{
+	width:100px;
+	float:left;
+	margin:0px auto;
+	height:38px;
+	line-height: 38px;
+}
+
+.abc {
+	width: 300px;
+	margin: 0px auto;
+}
+
+#imgprime{
+	display:none;
+}
+
+.content_box_title{
+	width:300px;
+}
+
+.mapInfo1{
+	width:300px;	
+	margin: 50px auto;
+}
+
+.mapInfo1 li{
+	margin: 10px auto;
+}
+
+.title_name{
+	float:left;
+	width:60px;
+	text-align:center;
+	margin-top: 6px;
+}
+
+.content_box1{
+	margin-top:50px;
+}
+
+.content_middle_line_w{
+	margin:0px;
+}
+.medium_title>input{
+	width:200px;
+}
+
+.content_wrap_body_left {
+	width: 360px;
+	border: 1px solid #CCCCCC;
+	height: 720px;
+	margin-left: 50px;
+}
+
+.content_wrap_body_right {
+	width: 540px;
+	border: 1px solid #CCCCCC;
+	height: 720px;
+}
+
+/**/
+
+#box3_width {
+	width: 480px;
+}
+
+.content_title_name{
+	width: 100px;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+}
+
+.content_li>input{	
+	width:380px;
+	float: right;	
+}
+
+.content_box3_form {
+	margin: 0px auto;
+	width: 480px;
+}
+
+/**/
+
+.content_li:last-child>span {
+	float:left;
+}
+
+#textArea{
+	width:380px;
+	height:260px;
+}
+
+.content_li:last-child{
+	margin-top: 20px;
+}
+
+#inputAddr_detail{
+	width:320px;
+}
+
+#input_map{
+	width:60px;
+}

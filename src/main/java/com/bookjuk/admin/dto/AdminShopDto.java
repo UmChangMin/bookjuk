@@ -2,6 +2,8 @@ package com.bookjuk.admin.dto;
 
 public class AdminShopDto {
 	private int num;
+	private String shop_lat;
+	private String shop_lng;
 	private String shop_name;
 	private String shop_post_num;
 	private String shop_addr;
@@ -9,14 +11,23 @@ public class AdminShopDto {
 	private String shop_callnum;
 	private String shop_time;
 	private String shop_comming;
-	private String shop_lat;
-	private String shop_lon;
-	
 	public int getNum() {
 		return num;
 	}
 	public void setNum(int num) {
 		this.num = num;
+	}
+	public String getShop_lat() {
+		return shop_lat;
+	}
+	public void setShop_lat(String shop_lat) {
+		this.shop_lat = shop_lat;
+	}
+	public String getShop_lng() {
+		return shop_lng;
+	}
+	public void setShop_lng(String shop_lng) {
+		this.shop_lng = shop_lng;
 	}
 	public String getShop_name() {
 		return shop_name;
@@ -60,26 +71,16 @@ public class AdminShopDto {
 	public void setShop_comming(String shop_comming) {
 		this.shop_comming = shop_comming;
 	}
-	public String getShop_lat() {
-		return shop_lat;
-	}
-	public void setShop_lat(String shop_lat) {
-		this.shop_lat = shop_lat;
-	}
-	public String getShop_lon() {
-		return shop_lon;
-	}
-	public void setShop_lon(String shop_lon) {
-		this.shop_lon = shop_lon;
-	}
+	
+	
 	@Override
 	public String toString() {
-		return "AdminShopDto [num=" + num + ", shop_name=" + shop_name + ", shop_post_num=" + shop_post_num
-				+ ", shop_addr=" + shop_addr + ", shop_addr_detail=" + shop_addr_detail + ", shop_callnum="
-				+ shop_callnum + ", shop_time=" + shop_time + ", shop_comming=" + shop_comming + ", shop_lat="
-				+ shop_lat + ", shop_lon=" + shop_lon + "]";
+		return "AdminShopDto [num=" + num + ", shop_lat=" + shop_lat + ", shop_lng=" + shop_lng + ", shop_name="
+				+ shop_name + ", shop_post_num=" + shop_post_num + ", shop_addr=" + shop_addr + ", shop_addr_detail="
+				+ shop_addr_detail + ", shop_callnum=" + shop_callnum + ", shop_time=" + shop_time + ", shop_comming="
+				+ shop_comming + "]";
 	}
-	
+
 	
 }
 

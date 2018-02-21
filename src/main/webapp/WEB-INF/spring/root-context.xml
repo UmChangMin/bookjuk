@@ -21,8 +21,7 @@
 		<property name="dataSource" ref="dataSource"/>
 		<property name="mapperLocations">
 			<list>				
-				<value>classpath:/com/bookjuk/admin/dao/mapper/AdminShopMapper.xml</value> 
-				<!-- com 앞에 / 추가 -->
+				<value>classpath:com/bookjuk/admin/dao/mapper/AdminShopMapper.xml</value> 
 			</list>
 		</property>
 	</bean>

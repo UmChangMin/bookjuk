@@ -2,11 +2,15 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.bookjuk.admin.dao.mapper">
-	<select id="shopSelect" resultType="com.bookjuk.admin.dto.AdminShopDto" parameterType="String">
-		<![CDATA[
-			select * from shop where shop_subname=#{shop_subname}
-		]]>
+<mapper namespace="com.bookjuk.admin.dao.mapper.AdminShopMapper">
+
+	<select id="shopSelect" parameterType="String" resultType="com.bookjuk.admin.dto.AdminShopDto" >
+			select * from shop where shop_name=#{shop_name}
 	</select>
 	
+	<insert id="shopInsert" parameterType="com.bookjuk.admin.dto.AdminShopDto">
+		<![CDATA[
+			insert into shop values(shop_num_seq.nextval, #{shop_lat}, #{shop_lng}, #{shop_name}, #{shop_post_num}, #{shop_addr}, #{shop_addr_detail}, #{shop_callnum}, #{shop_time}, #{shop_comming})
+		]]>
+	</insert>
 </mapper>

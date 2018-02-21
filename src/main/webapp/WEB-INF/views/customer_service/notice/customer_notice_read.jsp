@@ -71,7 +71,7 @@
 					<!-- 이전 다음 시작 --> 
 					<div class="notice_button" align="center">
 						<input type="button" value="이전" onclick=""/>
-						<input type="button" value="목록" onclick="location.href='${root}/customer_notice_list.jsp'"/>
+						<input type="button" value="목록" onclick="location.href='${root}/customer/notice/list.do'"/>
 						<input type="button" value="다음" onclick=""/>
 					</div> 
 					<!-- 이전 다음 끝 -->

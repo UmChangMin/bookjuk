@@ -3,7 +3,7 @@
  */
 function zipcodeRead(root){
 		 var url=root+"/memberZipcode.jsp";
-		 window.open(url,"", "width=500, height=600, scrollbars=yes");
+		 window.open(url,"", "width=500, height=600, scrollbars=yes, left=620px, top=225px" );
 			
 }
 	

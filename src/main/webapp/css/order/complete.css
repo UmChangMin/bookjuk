@@ -1,10 +1,7 @@
 @charset "UTF-8";
 
 #complete_all{
-	background: #fff;
     padding-bottom: 80px;
-	border-top: 1px solid #e5e6e7;
-	margin-top: 23px;
 }
 
 #complete_container {
@@ -22,7 +19,8 @@
 .complete_sub {
 	margin-top: 25px;
 	background: white;
-	padding: 0 30px;
+	padding: 0 29px;
+	border: 1px solid #e5e6e7;
 }
 
 .complete_heading {
@@ -112,6 +110,7 @@
     display: inline-block;
     font-weight: normal;
     background: #FFD8D8;
+    color: black;
 }
 
 .order_result_info .sub_text {

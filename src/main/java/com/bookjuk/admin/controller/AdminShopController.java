@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bookjuk.admin.dto.AdminShopDto;
 import com.bookjuk.admin.service.AdminShopService;
 import com.bookjuk.aop.LogAspect;
 
@@ -32,6 +33,19 @@ public class AdminShopController{
 		return mav;
 	}
 	
+	@RequestMapping(value="/admin/shop/shopManager_input.do",method=RequestMethod.GET)
+	public ModelAndView shopInput(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"shop-input?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminShopService.shopInputMove(mav);
+		
+		return mav;
+	}
+	
+	
 	@RequestMapping(value="/admin/shop/shopManager.do",method=RequestMethod.GET)
 	public ModelAndView shopOutput(HttpServletRequest request, HttpServletResponse response) {
 		
@@ -40,6 +54,19 @@ public class AdminShopController{
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
 		adminShopService.shopOutputMove(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/admin/shop/shopManager_inputOk.do",method=RequestMethod.GET)
+	public ModelAndView shopInputOk(HttpServletRequest request, HttpServletResponse response, AdminShopDto adminShopDto) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"shop-input?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("adminShopDto", adminShopDto);
+		
+		adminShopService.shopInputOk(mav);
 		
 		return mav;
 	}

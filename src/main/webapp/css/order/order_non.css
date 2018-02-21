@@ -1,10 +1,7 @@
 @charset "UTF-8";
 
 #order_non_all{
-background: #fff;
     padding-bottom: 80px;
-	border-top: 1px solid #e5e6e7;
-	margin-top: 23px;
 }
 
 #order_non_container {
@@ -20,10 +17,11 @@ background: #fff;
 }
 
 .order_non_sub {
-	padding: 0 30px;
+	padding: 0 29px;
 	margin-top: 25px;
 	background: #fff;
 	overflow: hidden;
+	border: 1px solid #e5e6e7;
 }
 
 .order_non_heading {

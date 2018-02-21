@@ -45,7 +45,7 @@
 				<!-- 베스트셀러  -->
 				<div class="main_banner_list_div">
 					<ul class="main_banner_list">
-						<li><a href="${root}"><img alt="책사진"
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진"
 								src="http://image.ypbooks.co.kr/upload/img/book/410/100830410.jpg"></a></li>
 
 						<li><a href="#"><img alt="책사진"
@@ -61,48 +61,6 @@
 								src="http://image.ypbooks.co.kr/upload/img/book/780/100735780.jpg"></a></li>
 					</ul>
 				</div>
-				<!-- 화제의 도서 
-				<div class="main_banner_list_div">
-					<ul class="main_banner_list">
-						<li><a href="#"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/410/100830410.jpg"></a></li>
-
-						<li><a href="#"><img alt="책사진"src="http://image.yes24.com/momo/TopCate1638/MidCate004/163736954.jpg"></a></li>
-
-						<li><a href="#"><img alt="책사진"src="http://image.ypbooks.co.kr/upload/img/book/430/100726430.jpg"></a></li>
-
-						<li><a href="#"><img alt="책사진"src="http://image.ypbooks.co.kr/upload/img/book/623/100710623.jpg"></a></li>
-
-						<li><a href="#"><img alt="책사진"src="http://image.ypbooks.co.kr/upload/img/book/780/100735780.jpg"></a></li>
-					</ul>
-				</div>-->
-				<!--시간도서 
-				<div class="main_banner_list_div">
-					<ul class="main_banner_list">
-						<li><a href="#"><img alt="책사진"src="http://image.ypbooks.co.kr/upload/img/book/410/100830410.jpg"></a></li>
-
-						<li><a href="#"><img alt="책사진"src="http://image.yes24.com/momo/TopCate1638/MidCate004/163736954.jpg"></a></li>
-
-						<li><a href="#"><img alt="책사진"src="http://image.ypbooks.co.kr/upload/img/book/430/100726430.jpg"></a></li>
-
-						<li><a href="#"><img alt="책사진"src="http://image.ypbooks.co.kr/upload/img/book/623/100710623.jpg"></a></li>
-
-						<li><a href="#"><img alt="책사진"src="http://image.ypbooks.co.kr/upload/img/book/780/100735780.jpg"></a></li>
-					</ul>
-				</div> -->
-				<!-- 할인도서
-				<div class="main_banner_list_div">
-					<ul class="main_banner_list">
-						<li><a href="#"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/410/100830410.jpg"></a></li>
-
-						<li><a href="#"><img alt="책사진" src="http://image.yes24.com/momo/TopCate1638/MidCate004/163736954.jpg"></a></li>
-
-						<li><a href="#"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/430/100726430.jpg"></a></li>
-
-						<li><a href="#"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/623/100710623.jpg"></a></li>
-
-						<li><a href="#"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/780/100735780.jpg"></a></li>
-					</ul>
-				</div> -->
 
 			</div>
 			<!-- main banner 끝 -->
@@ -127,10 +85,10 @@
 							<li>
 								<p class="b_num1 rank">1</p>
 								<div class="thumBox">
-									<a href="#"><img alt="그리스 로마 신화 1"
+									<a href="${root}/book/book_detail/detail.do"><img alt="그리스 로마 신화 1"
 										src="http://bookimg.bookcube.com/150/1105/110500213.jpg"></a>
 									<p class="best_title">
-										<a href="#">그리스 로마 신화 1</a> <br /> <a href="#">허단비</a>
+										<a href="${root}/book/book_detail/detail.do">그리스 로마 신화 1</a> <br /> <a href="${root}/book/book_detail/detail.do">허단비</a>
 									</p>
 								</div>
 							</li>
@@ -303,10 +261,10 @@
 						<ul class="main_md_list">
 							<li>
 								<div class="main_md_synthesis">
-									<a href="#"><img alt="책사진"
+									<a href="${root}/book/book_detail/detail.do"><img alt="책사진"
 										src="http://image.kyobobook.co.kr/images/book/xlarge/125/x9791195522125.jpg"></a>
 									<p class="main_md_title">
-										<a href="#">언어의 온도</a><br /> <a href="#">이기주</a>
+										<a href="${root}/book/book_detail/detail.do">언어의 온도</a><br /> <a href="${root}/book/book_detail/detail.do">이기주</a>
 									</p>
 								</div>
 								<div class="main_md_text">

@@ -22,7 +22,14 @@
 	<resources location="/img/" mapping="/img/**"/>
 	<resources location="/js/" mapping="/js/**"/>
 	<resources location="/jqueryUI/" mapping="/jqueryUI/**"/>
+<<<<<<< HEAD
 		
+=======
+	<!-- <resources location="/xhr/" mapping="/xhr/**"/> -->
+	
+	
+	
+>>>>>>> f5343de2f9f4422acfdb0b88465409f35cc078d7
 	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<!-- <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -58,6 +65,7 @@
 	<context:component-scan base-package="com.bookjuk.customer.*"/>
 	<context:component-scan base-package="com.bookjuk.member.*"/>
 	<context:component-scan base-package="com.bookjuk.user.*"/>
+	
 	
 	<!-- 파일업로드 -->
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

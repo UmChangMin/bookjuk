@@ -45,6 +45,15 @@ public class OrderController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/zipcode.do", method = RequestMethod.GET)
+	public ModelAndView zipcode(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		orderService.zipcode(mav);
+		
+		return mav;
+	}
+	
 	@RequestMapping(value = "/complete.do", method = RequestMethod.GET)
 	public ModelAndView complete(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
@@ -63,11 +72,21 @@ public class OrderController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/order_list.do", method = RequestMethod.GET)
+	@RequestMapping(value="/order_list.do",method=RequestMethod.GET)
 	public ModelAndView orderList(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
 		orderService.orderList(mav);
+		
+		return mav;
+	}
+	
+	
+	@RequestMapping(value = "/order_cancle.do", method = RequestMethod.GET)
+	public ModelAndView orderCancle(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		orderService.orderCancle(mav);
 		
 		return mav;
 	}

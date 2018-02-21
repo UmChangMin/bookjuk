@@ -9,6 +9,7 @@
 <link type="text/css" rel="stylesheet" href="${root}/css/order/order_non.css"/>
 <link type="text/css" rel="stylesheet" href="${root}/css/template/basic.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
+<script type="text/javascript" src="${root}/js/order/order_zipcode.js"></script>
 <script type="text/javascript">
 	$(function(){
 		$("#btn_order").click(function(){
@@ -68,35 +69,37 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>
-									<div class="order_non_product_info">
-										<img alt="말의 품격" src="http://image.kyobobook.co.kr/images/book/large/772/l9788997092772.jpg">
-										<a href="#">말의 품격</a>
-									</div>
-								</td>
-								<td>
-									<div class="order_non_product_amount">
-										<span>1</span>
-									</div>
-								</td>
-								<td>
-									<div class="order_non_product_price">
-										<strong>13,500원</strong><br/>
-										<del>750</del><b class="point">P</b>
-									</div>
-								</td>
-								<td>
-									<div class="order_non_product_delfee">
-										<span>무료배송</span>
-									</div>
-								</td>
-								<td>
-									<div class="order_non_product_total">
-										<strong><span>13,500</span>원</strong>
-									</div>
-								</td>
-							</tr>
+							<c:forEach var="i" begin="1" end="5">
+								<tr>
+									<td>
+										<div class="order_non_product_info">
+											<img alt="말의 품격" src="http://image.kyobobook.co.kr/images/book/large/772/l9788997092772.jpg">
+											<a href="#">말의 품격</a>
+										</div>
+									</td>
+									<td>
+										<div class="order_non_product_amount">
+											<span>1</span>
+										</div>
+									</td>
+									<td>
+										<div class="order_non_product_price">
+											<strong>13,500원</strong><br/>
+											<del>750</del><b class="point">P</b>
+										</div>
+									</td>
+									<td>
+										<div class="order_non_product_delfee">
+											<span>무료배송</span>
+										</div>
+									</td>
+									<td>
+										<div class="order_non_product_total">
+											<strong><span>13,500</span>원</strong>
+										</div>
+									</td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 					<!-- 배송지 정보 -->
@@ -116,7 +119,7 @@
 							</div>
 							<div class="order_non_address">
 								<label>배송지 주소</label>
-								<input type="text" id="zipcode" value=""/><button id="btn_zipcode">우편번호</button><br/>
+								<input type="text" id="zipcode" value=""/><button id="btn_zipcode" onclick="zipcodeRead('${root}')">우편번호</button><br/>
 								<input type="text" id="address1" value=""/><input type="text" id="address2" value=""/>
 							</div>
 							<div class="order_non_memo">

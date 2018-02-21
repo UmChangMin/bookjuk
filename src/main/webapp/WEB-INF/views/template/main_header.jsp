@@ -6,27 +6,32 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 <c:set var="root" value="${pageContext.request.contextPath}" />
+
+<title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${root }/css/template/basic.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/template/header.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/template/real_time.css" />
-<link rel="stylesheet" type="text/css" href="${root }/css/main/bjbj_main.css" />
+<link rel="stylesheet" type="text/css" href="${root}/css/main/bjbj_main.css" />
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
-<script type="text/javascript" src="${root}/js/main/real_time.js"></script>
 <script type="text/javascript" src="${root}/js/main/main_header.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+
+<!-- header뷰: 강민아 ,실시간 급상승,전체카테고리 :허단비 /수정: 허단비  -->
 </head>
-<body> 
+<body>
+
 	<div id="header">
 		<div class="header_top">
 			<div class="header_top_inner">
 				<ul class="header_lnb_right">
-					<li><strong><a href="${root}/admin/sales/salesManager.do">관리자모드</a></strong></li>
+					<li><strong><a
+							href="${root}/admin/sales/salesManager.do">관리자모드</a></strong></li>
 					<li><a href="" class="openMask" onclick="login('${root}')">로그인</a></li>
-					<li><a class="openMask2" href="" onclick="registe('${root}')" >회원가입</a></li>
+					<li><a class="openMask2" href="" onclick="registe('${root}')">회원가입</a></li>
 					<li><a class="" href="${root}/order/cart.do">장바구니</a></li>
-					<li><a class="openMask3" href="${root}/order/order_list.do" onclick="orderdelivery('${root}')" >주문/배송조회</a></li>
+					<li><a class="openMask3" href="${root}/order/order_list.do"
+						onclick="orderdelivery('${root}')">주문/배송조회</a></li>
 					<li><a class="" href="${root}/customer/customer.do">고객센터</a></li>
 					<li><a class="" href="${root}/shop.do">영업점 안내</a></li>
 				</ul>
@@ -35,12 +40,14 @@
 
 		<div class="header_mid_content">
 			<div class="header_mid_logo">
-				<a href="${root}/index.jsp"><img src="${root}/img/main_header/bookjuk_headlogo.png"/></a>
+				<a href="${root}/index.jsp"><img
+					src="${root}/img/main_header/bookjuk_headlogo.png" /></a>
 			</div>
 			<div class="header_mid_search">
 				<div class="header_mid_search_inner">
 					<input type="text" name="SearchString" class="header_SearchString">
-					<input type="button" name="Search_btn" class="header_Search_btn" onclick="">	
+					<input type="button" name="Search_btn" class="header_Search_btn"
+						onclick="">
 				</div>
 
 				<!-- 실시간 시작 -->
@@ -68,35 +75,91 @@
 			</div>
 		</div>
 
+
+
 		<div class="header_mainGnb_wrap">
 			<div class="header_mainGnb_inner">
-				<ul class="header_gnb_list">
-					<li><a href="#" class="header_title_menu_category"><img
-							src="${root }/img/main_header/cate_bar.png" alt="전체 카테고리바" />전체카테고리</a></li>
-					<li><a href="${root}/bookjuk/src/main/webapp/WEB-INF/views/book/book_detail/book_detail.do" class="header_title_menu_best">베스트셀러</a></li>
-					<li><a href="#" class="header_title_menu_firebook">화제의도서</a></li>
-					<li><a href="#" class="header_title_menu_newbook">신간도서</a></li>
-					<li><a href="#" class="header_title_menu_half">할인도서</a></li>
-				</ul>
+				<div id="header_menu_wrapper" align="center">
+					<ul class="header_gnb_list">
+						<li><a href="#">전체카테고리</a>
+
+							<div>
+								<div class="header_nav_column" align="center">
+
+									<ul>
+										<li><h3>컴퓨터/IT</h3></li>
+										<li><a href="#">컴퓨터 공학</a></li>
+										<li><a href="#">네트워크</a></li>
+										<li><a href="#">보안/해킹</a></li>
+										<li><a href="#">데이터베이스</a></li>
+										<li><a href="#">프로그래밍언어</a></li>
+										<li><a href="#">그래픽</a></li>
+									</ul>
+								</div>
+
+								<div class="header_nav_column" align="center">
+									<ul>
+										<li><h3>소설</h3></li>
+										<li><a href="#">현대소설</a></li>
+										<li><a href="#">고전소설</a></li>
+										<li><a href="#">추리소설</a></li>
+										<li><a href="#">로맨스소설</a></li>
+										<li><a href="#">역사소설</a></li>
+										<li><a href="#">판타지소설</a></li>
+									</ul>
+								</div>
+
+								<div class="header_nav_column" align="center">
+									<ul>
+										<li><h3>여행/취미</h3></li>
+										<li><a href="#">국내여행</a></li>
+										<li><a href="#">해외여행</a></li>
+										<li><a href="#">테마여행</a></li>
+										<li><a href="#">애완동물</a></li>
+										<li><a href="#">등산/낚시</a></li>
+										<li><a href="#">취미/일반</a></li>
+									</ul>
+								</div>
+							</div></li>
+						<li><a href="${root}/book/book_list/best.do	">베스트셀러</a></li>
+						<li><a href="${root}/book/book_list/issue.do">화제의도서</a></li>
+						<li><a href="${root}/book/book_list/new.do">신간도서</a></li>
+						<li><a href="${root}/book/book_list/discount.do">할인도서</a></li>
+
+					</ul>
+
+				</div>
 			</div>
 		</div>
 	</div>
 	<!-- header끝 -->
-	
 	<!-- 플로팅 메뉴 -->
 	<div id="floatMenu" align="center">
 		<div class="today_view" align="center">
-			<div class="today_title"><h3 align="center">최근 본 목록</h3></div>
+			<div class="today_title">
+				<h3 align="center">최근 본 목록</h3>
+			</div>
 			<div class="tv_container">
-				<div class="tv_prod"><a href="#"><img src="http://bookimg.bookcube.com/94/1308/130801548.jpg"></a></div>
-				<div class="tv_prod"><a href="#"><img src="http://bookimg.bookcube.com/94/1712/171201262.jpg"></a></div>
-				<div class="tv_prod"><a href="#"><img src="http://bookimg.bookcube.com/94/1607/160704046.jpg"></a></div>
+				<div class="tv_prod">
+					<a href="#"><img
+						src="http://bookimg.bookcube.com/94/1308/130801548.jpg"></a>
+				</div>
+				<div class="tv_prod">
+					<a href="#"><img
+						src="http://bookimg.bookcube.com/94/1712/171201262.jpg"></a>
+				</div>
+				<div class="tv_prod">
+					<a href="#"><img
+						src="http://bookimg.bookcube.com/94/1607/160704046.jpg"></a>
+				</div>
 			</div>
 		</div>
 		<div class="float_btn">
-			<a href="${root}/order/cart.do" class="cart_btn">장바구니</a><br/>
-			<a href="#" class="top_btn">TOP</a>
+			<a href="${root}/order/cart.do" class="cart_btn">장바구니</a><br /> <a
+				href="#" class="top_btn">TOP</a>
 		</div>
 	</div>
+
+
 </body>
 </html>

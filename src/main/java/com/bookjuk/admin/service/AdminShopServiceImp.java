@@ -17,10 +17,7 @@ public class AdminShopServiceImp implements AdminShopService {
 
 	@Autowired
 	private AdminShopDao shopDao;
-	
-	public AdminShopServiceImp() {}
-
-	
+		
 	@Override
 	public void shopSearchMove(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
@@ -30,6 +27,29 @@ public class AdminShopServiceImp implements AdminShopService {
 		
 	}
 	
+	@Override
+	public void shopInputMove(ModelAndView mav) {
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		mav.setViewName("admin/shop/shopManager_input.admin");	 
+	}
+	
+	
+	@Override
+	public void shopInputOk(ModelAndView mav) {			
+		AdminShopDto shopDto=(AdminShopDto) mav.getModel().get("shopDto");
+		LogAspect.logger.info(LogAspect.logMsg + "shopDto : "+shopDto.toString());
+		
+		int check=shopDao.shopInsert(shopDto);
+		LogAspect.logger.info(LogAspect.logMsg+check);
+		
+		mav.addObject("check", check);
+		mav.setViewName("admin/shop/shopManager_inputOk.admin");	
+		
+	}
+	
+	 
 	@Override
 	public void shopOutputMove(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
@@ -41,9 +61,8 @@ public class AdminShopServiceImp implements AdminShopService {
 		AdminShopDto shopDto=shopDao.shopSelect(shop_subname);
 		LogAspect.logger.info(LogAspect.logMsg+shopDto.toString());
 		
-		//mav.setViewName("admin/shop/shopManager.admin");
-		
-		 
+		mav.addObject("shopDto", shopDto);
+		mav.setViewName("admin/shop/shopManager.admin");		 
 	}
 
 	
