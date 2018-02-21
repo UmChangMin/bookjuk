@@ -63,11 +63,21 @@ public class OrderController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/order_list.do", method = RequestMethod.GET)
+	@RequestMapping(value="/order_list.do",method=RequestMethod.GET)
 	public ModelAndView orderList(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
 		orderService.orderList(mav);
+		
+		return mav;
+	}
+	
+	
+	@RequestMapping(value = "/order_cancle.do", method = RequestMethod.GET)
+	public ModelAndView orderCancle(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		orderService.orderCancle(mav);
 		
 		return mav;
 	}

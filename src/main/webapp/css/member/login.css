@@ -134,6 +134,7 @@ legend{
     float: left;
     display: block;
     text-decoration: none;
+    color: #000;
 }
 
 .login_btn{
