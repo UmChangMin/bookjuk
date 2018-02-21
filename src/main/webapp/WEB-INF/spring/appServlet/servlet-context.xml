@@ -22,9 +22,7 @@
 	<resources location="/img/" mapping="/img/**"/>
 	<resources location="/js/" mapping="/js/**"/>
 	<resources location="/jqueryUI/" mapping="/jqueryUI/**"/>
-	
-	
-	
+		
 	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<!-- <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -72,7 +70,7 @@
 	<aop:aspectj-autoproxy/>
 	
 	<!-- transaction -->
-<!-- 	<tx:annotation-driven transaction-manager="transactionManager"/> -->
+ 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 	
 	
