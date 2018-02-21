@@ -234,9 +234,10 @@
 						</table>
 					</div>
 					<div class="cart_btn_section" align="center">
-						<a class="cart_btn_home">쇼핑 계속하기</a>
+						<a href="${root}/main.do" class="cart_btn_home">쇼핑 계속하기</a>
 						<a href="#" class="cart_btn_delete">선택상품 삭제하기</a>
-						<a class="cart_btn_order">선택상품 주문하기</a>
+						<a href="${root}/order/order_non.do" class="cart_btn_non_order">비회원 주문하기</a>
+						<a href="${root}/order/order.do" class="cart_btn_order">선택상품 주문하기</a>
 					</div>
 				</div>
 			</div>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>사용자 search헤더 </title>
+<title>북적북적</title>
 </head>
 <body>
 	<!-- search_header  -->

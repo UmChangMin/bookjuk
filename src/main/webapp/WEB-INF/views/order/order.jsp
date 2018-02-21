@@ -8,6 +8,19 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <link type="text/css" rel="stylesheet" href="${root}/css/order/order.css"/>
 <link type="text/css" rel="stylesheet" href="${root}/css/template/basic.css"/>
+<script type="text/javascript" src="${root}/js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#btn_order").click(function(){
+			if($("#agree").is(":checked") == false){
+				alert("주문 항목 동의해주세요.");
+				return false;
+			}else{
+				location.href = "${root}/order/complete.bjbj";
+			}
+		});
+	});
+</script>
 <title>회원 주문</title>
 </head>
 <body>
@@ -298,7 +311,7 @@
 					</div>
 					<div class="order_payment_agree">
 						<button id="btn_cart">장바구니 가기</button>
-						<button id="btn_order" onclick="location='${root}/order/complete.bjbj'">결제하기</button>
+						<button id="btn_order" onclick="location='${root}/order/complete.do'">결제하기</button>
 					</div>
 				</div>
 			</div>
