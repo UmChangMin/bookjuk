@@ -1,0 +1,83 @@
+@charset "UTF-8";
+#pointAll{
+	margin: 10px auto;	
+	padding: 10px 10px;
+}
+
+.point_title{
+	font-size:20px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	color: rgb(241, 95, 95);
+}
+
+.point_mid{
+	border: 0px solid red;
+	padding: 5px 5px;
+	overflow: hidden;
+	font-size:17px;
+	font-weight: 600;
+}
+
+.point_mid div{
+	float: left;
+}
+
+.point_mid div:nth-child(2) {
+	color: rgb(241, 95, 95);
+}
+
+.point_bot{
+	font-weight: 600;
+    margin: 15px auto;
+    border: 0px red solid;
+    overflow: hidden;
+}
+
+.point_bot>ul{
+	font-size:15px;
+	font-weight: 600;
+}
+
+.point_bot>ul li,
+.point_bot_content2>ul li{
+	float: left;
+	
+}
+
+.point_bot>ul li div,
+.point_bot_content2>ul li div{
+	margin: 5px auto;
+	
+}
+
+.point_bot>ul li:nth-child(1),
+.point_bot_content2>ul li:nth-child(1),
+.point_bot>ul li:nth-child(2),
+.point_bot_content2>ul li:nth-child(2),
+.point_bot>ul li:nth-child(3),
+.point_bot_content2>ul li:nth-child(3){
+	
+	width: 33%;
+}
+
+.point_bot_content1{
+	margin-top: 20px;
+	font-size:15px;
+	font-weight: 600;
+	color: #666;
+}
+
+.point_bot_content2{
+	font-weight: 600;
+    margin: 15px auto;
+    border: 0px red solid;
+    overflow: hidden;
+}
+
+.point_bot_content2>ul{
+	font-size:15px;
+	color: #666;
+}
+
+

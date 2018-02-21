@@ -31,8 +31,12 @@
 				<div class="bookDetail">
 					<!-- 도서분류 시작 -->
 					<div class="bookDetail_select">
-						<span>HOME ></span> <span><a href="${root}/book_list_computer.jsp">컴퓨터 / IT </a>></span><span>&nbsp;프로그래밍</span>
-					</div>
+						<span>HOME ></span> <span><a href="${root}/book/book_list/computer.do">컴퓨터 / IT </a>></span><span>&nbsp;프로그래밍</span>
+						<%-- <span>HOME ></span> <span><a href="${root}/book/book_list/hobby_trip.do">취미 / 여행 </a>></span><span>&nbsp;프로그래밍</span>
+						<span>HOME ></span> <span><a href="${root}/book/book_list/nov
+						el.do">소설&nbsp;</a>></span><span>&nbsp;프로그래밍</span>
+						
+					 --%></div>
 					<!-- 도서분류 끝 -->
 
 

@@ -16,8 +16,9 @@ img, input, button, select, textarea {
 
 /*top_menu감싸는 상자*/
 
-.header{
+#header{
 	margin:0px auto;
+	border-bottom: 1px solid #e5e6e7;
 }
 
 .header_top {

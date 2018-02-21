@@ -13,13 +13,12 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/template/header.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/template/real_time.css" />
 <link rel="stylesheet" type="text/css" href="${root }/css/main/bjbj_main.css" />
-<script type="text/javascript" src="${root}/jquery/jquery.js"></script>
+
+<script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/main/real_time.js"></script>
 <script type="text/javascript" src="${root}/js/main/main_header.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-	
-</script>
+
 </head>
 <body> 
 
@@ -80,10 +79,10 @@
 				<ul class="header_gnb_list">
 					<li><a href="#" class="header_title_menu_category"><img
 							src="${root }/img/main_header/cate_bar.png" alt="전체 카테고리바" />전체카테고리</a></li>
-					<li><a href="${root}/bookjuk/src/main/webapp/WEB-INF/views/book/book_detail/book_detail.do" class="header_title_menu_best">베스트셀러</a></li>
-					<li><a href="#" class="header_title_menu_firebook">화제의도서</a></li>
-					<li><a href="#" class="header_title_menu_newbook">신간도서</a></li>
-					<li><a href="#" class="header_title_menu_half">할인도서</a></li>
+					<li><a href="${root}/book/book_list/best.do" class="header_title_menu_best">베스트셀러</a></li>
+					<li><a href="${root}/book/book_list/issue.do" class="header_title_menu_firebook">화제의도서</a></li>
+					<li><a href="${root}/book/book_list/new.do" class="header_title_menu_newbook">신간도서</a></li>
+					<li><a href="${root}/book/book_list/discount.do" class="header_title_menu_half">할인도서</a></li>
 				</ul>
 			</div>
 		</div>

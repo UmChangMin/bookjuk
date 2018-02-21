@@ -29,6 +29,67 @@ public class BookController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/book_list/issue.do", method=RequestMethod.GET)
+	public ModelAndView bookIssue(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		
+		bookService.bookIssue(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/book_list/new.do", method=RequestMethod.GET)
+	public ModelAndView bookNew(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		
+		bookService.bookNew(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/book_list/discount.do", method=RequestMethod.GET)
+	public ModelAndView bookDiscount(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		
+		bookService.bookDiscount(mav);
+		
+		return mav;
+	}
+	
+	
+	@RequestMapping(value="/book_list/computer.do", method=RequestMethod.GET)
+	public ModelAndView bookComputer(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		
+		bookService.bookComputer(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/book_list/hobby_trip.do", method=RequestMethod.GET)
+	public ModelAndView bookHobby(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		
+		bookService.bookHobby(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/book_list/novel.do", method=RequestMethod.GET)
+	public ModelAndView bookNovel(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		
+		bookService.bookNovel(mav);
+		
+		return mav;
+	}
+		
 	@RequestMapping(value="/book_detail/detail.do", method=RequestMethod.GET)
 	public ModelAndView bookDetail(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav=new ModelAndView();

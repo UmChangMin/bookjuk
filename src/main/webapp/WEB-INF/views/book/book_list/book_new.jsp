@@ -6,9 +6,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>도서 목록 리스트 컴퓨터/IT</title>
+<title>도서 베스트셀러</title>
 <c:set var="root" value="${pageContext.request.contextPath }" />
-<link rel="stylesheet" type="text/css" href="${root}/css/bookList/book_list.css" />
+<link rel="stylesheet" type="text/css" href="${root}/css/bookList/book_best.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css" />
 <script type="text/javascript" src="${root }/js/jquery.js"></script>
 <script type="text/javascript" src="${root }/js/book/bookList.js"></script>
@@ -21,26 +21,16 @@
 				<div class="bookList">
 					<!-- 도서분류 시작 -->
 					<div class="bookList_select">
-						<span>HOME ></span><span>&nbsp;컴퓨터 / IT</span>
+						<span>HOME ></span> <span>&nbsp;신간도서</span>
 					</div>
 					<!-- 도서분류 끝 -->
 					<div class="bookList_mid">
 						<!-- 도서 정보 top 시작 -->
 						<div class="bookList_wrap">
-							<h3>컴퓨터/IT</h3>
-							<div class="bookList_top">
-								<ul class="bookList_top_list">
-									<li><a href="#" class="">컴퓨터공학</a></li>
-									<li><a href="#" class="">네트워크</a></li>
-									<li><a href="#" class="">보안/해킹</a></li>
-									<li><a href="#" class="">데이터베이스</a></li>
-									<li><a href="#" class="">프로그래밍언어</a></li>
-									<li><a href="#" class="">그래픽</a></li>
-								</ul>
-							</div>
+							<h3>신간도서</h3>
+							
 						</div>
 						<!-- 도서 정보 top 끝 -->
-		
 						<!-- 도서 보기 시작 -->
 						<div class="bookDetail_mid_images">
 							<div class="bookDetail_mid_image">
@@ -51,7 +41,6 @@
 							</div>
 						</div>
 						<!-- 도서 보기 끝 -->
-						
 						<!-- 도서 리스트로 보기 시작 -->
 						<div class="bookList_mid_content1">
 						
@@ -110,7 +99,6 @@
 						<!-- 도서 이미지로 보기 끝 -->
 						
 						
-						<!-- 도서목록 리스트 뿌리기 끝 -->
 						<!-- 페이지 번호 시작 -->
 						<div class="bookList_pageNumber">
 							<a href="#" class="bookList_num_before">이전</a>	
