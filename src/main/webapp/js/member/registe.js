@@ -1,14 +1,14 @@
 
 
 function rule(root){
-	var url = root+"/member/rule1.do";
+	var url = root+"/user/member/rule1.do";
 	//alert("자세히보기");
 	window.open(url,"","width=730, height=800,left=620px, top=100px,scrollbars=no");
 }
 
 
 function rule2(root){
-	var url = root+"/member/rule2.do";
+	var url = root+"/user/member/rule2.do";
 	/*alert("나와주세여");*/
 	window.open(url,"","width=730, height=360,left=620px, top=100px,scrollbars=no");
 }
@@ -190,5 +190,17 @@ $(function(){
 	    }
 		
 		$("form").submit();
+	});
+	
+	$("#registe_chk_all").click(function (){
+		//만약 전체 선택 체크박스가 
+		if($("#registe_chk_all").prop("checked")){
+			//해당화면에 전체 체크박스들을 체크해준다.
+			$("input[type=checkbox]").prop("checked",true);
+			//전체선택 체크박스가 해제된 경우
+		}else{
+			//해당 화면에 모든 체크 박스들을 해제
+			$("input[type=checkbox]").prop("checked",false);
+		}
 	});
 });

@@ -71,4 +71,13 @@ public class OrderServiceImp implements OrderService {
 		
 		mav.setViewName("order/order_list.search");
 	}
+
+	@Override
+	public void orderCancle(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		mav.setViewName("order/order_cancle.search");
+		
+	}
 }

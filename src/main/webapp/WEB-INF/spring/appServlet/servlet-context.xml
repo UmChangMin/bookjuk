@@ -22,6 +22,7 @@
 	<resources location="/img/" mapping="/img/**"/>
 	<resources location="/js/" mapping="/js/**"/>
 	<resources location="/jqueryUI/" mapping="/jqueryUI/**"/>
+	<!-- <resources location="/xhr/" mapping="/xhr/**"/> -->
 	
 	
 	

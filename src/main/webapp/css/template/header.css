@@ -69,11 +69,12 @@ img, input, button, select, textarea {
     width: 1000px;
     overflow: hidden;
     margin-top: 23px;
+    margin-bottom: 10px;
 }
 
 .header_mid_logo{
 	float: left;
-	margin-top: 5px;
+	margin-top: 10px;
 	border: 0px solid green;
 }
 
@@ -81,6 +82,7 @@ img, input, button, select, textarea {
 .header_mid_logo img{
 	width: 170px;
 	height: 70px;
+	margin-top: -9px;
 	
 }
 
@@ -165,7 +167,6 @@ img, input, button, select, textarea {
     height: 40px;
     line-height: 40px;
     text-align: center;
-    background: #ffa7a7;
     font-size: 18px;
     margin-left: 2px;
     text-align: left;
@@ -195,7 +196,124 @@ img, input, button, select, textarea {
 	margin:0px 2px 0px 2px;
 }
 
+/* Menu Container */
+.header_gnb_list {
+    width: 1000px;
+    display: inline-block;
+    position: relative;
+    cursor: default;
+    z-index: 500;
+    background-color: #FFA7A7;
+}
 
+/* 전체보기 List */
+.header_gnb_list > li {
+	display: block;
+	float: left;
+}
+
+/* 전체보기 Links */
+.header_gnb_list > li > a {
+	position: relative;
+    display: block;
+    z-index: 510;
+    height: 40px;
+    line-height: 38px;
+    font-weight: 600;
+    font-size: 17px;
+    color: #fff;
+    background: #FFA7A7;
+    border-left: 1px solid #FFA7A7;
+    border-right: 1px solid#FFA7A7;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+
+.header_gnb_list > li:first-child > a {
+	border-radius: 3px 0 0 3px;
+	border-left: none;
+}
+
+
+/* 전체보기 Dropdown */
+.header_gnb_list > li > div {
+    position: absolute;
+    display: block;
+    width: 101%;
+    height: 347px;
+    border: 2px solid #ffd8d8;
+    border-top: 0;
+    /* top: 55px; */
+    left: -4px;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    background: #ffffff;
+    border-radius: 0 0 3px 3px;
+    -webkit-transition: all .3s ease .15s;
+    -moz-transition: all .3s ease .15s;
+    -o-transition: all .3s ease .15s;
+    -ms-transition: all .3s ease .15s;
+    transition: all .3s ease .15s;
+}
+
+.header_gnb_list > li:hover > div {
+	opacity: 1;
+	visibility: visible;
+	overflow: visible;
+}
+
+/* Menu Content Styles */
+.header_gnb_list .header_nav_column {
+	float: left;
+	width: 20%;
+	padding: 2.5%;
+}
+
+.header_gnb_list .header_nav_column h3 {
+    margin: 20px 0 10px 0;
+    line-height: 18px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: #ffa7a7;
+    text-align: center;
+    /* text-transform: uppercase; */
+}
+
+
+.header_gnb_list .header_nav_column li a {
+	display: block;
+    line-height: 61px;
+    font-weight: bold;
+    font-size: 13px;
+    color: #000;
+    text-align: center;
+}
+
+.header_gnb_list .header_nav_column li a:hover { color: #F15F5F; }
+
+.header_gnb_list img{
+    width: 15px;
+    height: 15px;
+    margin: 0px 10px -1px 4px;
+}
+
+.header_mainGnb_wrap{
+	height: 40px;
+    background: #ffa7a7;
+    margin-top: 23px;
+}
+
+.header_mainGnb_inner{
+	position: relative;
+	margin: 0 auto;
+	width: 1000px;
+}
 
 
 

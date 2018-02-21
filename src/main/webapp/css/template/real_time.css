@@ -2,7 +2,8 @@
 /* 실시간 시작 */
 
 #header_real_time {
-    background: #FFA7A7;
+    /* background: #FFA7A7; */
+    border: 1px solid #FFA7A7;
     width: 310px;
     float: right;
     margin-top: 11px;
@@ -10,9 +11,10 @@
 }
 
 #hread_rank_list a {
-    color: #fff;
+    color: #747474;
     text-decoration: none;
     margin-left: 18px;
+    font-weight: bold;
 }
 
 #hread_rank_list a:hover {

@@ -4,34 +4,40 @@
     padding-bottom: 80px;
 }
 
-.Cancel_exchange_refund_top{
+.order_top{
 	width: 100%;
  	margin: 0 auto;
-	padding-bottom: 210px;
+	padding-bottom: 80px;
 
 }
 
-.Cancel_exchange_refund_inner{
+.order_inner{
 	width: 1000px;
 	margin: 0 auto;
 	font-size: 13px;
 }
 
 
-.Cancel_exchange_refund_title2{
+.order_title2{
     font-size: 2.5em;
     color: #ffa7a7;
     font-weight: bold;
     padding: 25px 0 25px 23px;
 } 
 
-.Cancel_exchange_refund_box{
+.order_title{
+    border-bottom: 0px solid #e5e6e7;
+}
+
+
+
+.order_box{
     border: 1px solid #e5e6e7;
     height: 719px;
     background-color: white;
 }
 
-.Cancel_exchange_refund_month{
+.order_month{
 	border: 1px solid #e5e6e7;
     width: 300px;
     margin-left: 213px;
@@ -42,158 +48,170 @@
     
 }
 
-.Cancel_exchange_refund_month a{
+.order_month a{
     border-right: 1px solid #e5e6e7;
     font-size: 15px;
     padding-left: 24px;
 }
 
-.Cancel_exchange_refund_month a:nth-child(4){
+.order_month a:nth-child(4){
 	border-right: 0px;
 }
 
-.Cancel_exchange_refund_month a:hover{
-	color:#6799FF;
+.order_month a:hover{
+	color:#ffa7a7;
 }
 
-.Cancel_exchange_refund_monthbox{
-	border-bottom: 0px solid #e5e6e7;
+.order_monthbox{
+	border-bottom: 1px solid #e5e6e7;
     width: 810px;
     margin-left: 98px;
     padding-bottom: 39px;
 }
 
-.Cancel_exchange_refund_calendar{
-	margin-left:197px;
-	margin-top: 20px;
-}
-#Cancel_exchange_refund_calendar1{
-    border: 1px solid #e5e6e7;
-    height: 28px;
-
-}
-
-#Cancel_exchange_refund_calendar2{
-    border: 1px solid #e5e6e7;
-    height: 28px;
-}
-
-.Cancel_exchange_refund_calendar p{
-	float: right;
-    margin-right: 152px;
-    margin-top: 6px;
-}
-
-.Cancel_exchange_refund_subtitlebox{
+ .order_subtitleboxinner{
 	border: 1px solid #e5e6e7;
-	width: 810px;
-	margin-left: 99px;
-	padding-bottom: 19px;
-	height: 25px;
-}
+    width: 810px;
+    height: 44px;
+    margin-top: 15px;
+} 
 
-.Cancel_exchange_refund_subtitle p{
+#checkbox{
+    float: left;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+.order_subtitle p{
 	float: left;
     margin-right: 23px;
     margin-left: 53px;
     margin-top: 15px;	
 }
 
-.Cancel_exchange_refund_listbox{
+.order_subtitle span{
+    float: left;
+    margin-right: 10px;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.order_subtitlebox{
+	border-bottom: 0px solid #e5e6e7;
+    width: 810px;
+    margin-left: 99px;
+    padding-bottom: 19px;
+}
+
+.orber_listbox{
     height: 199px;
     margin-top: 32px;
     width: 811px;
     margin-left: 98px;
     border-bottom: 1px solid #e5e6e7;
+    border-top: 1px solid #e5e6e7;
 }
 
-.Cancel_exchange_refund_listimg li{
-    margin-left: 153px;
+.orber_listbox2{
+    height: 162px;
+    margin-top: 34px;
+    width: 811px;
+    margin-left: 98px;
+    border-bottom: 1px solid #e5e6e7;
+    padding-bottom: 23px;
+}
+
+#checkbox2{
+    margin-top: 77px;
+}
+
+.order_listimg li{
+    margin-left: 247px;
     position: relative;
-    border: 1px solid #e5e6e7;
     width: 110px;
     height: 169px;
+    margin-top: -78px;
 }
 
-.Cancel_exchange_refund_listimg img{
-    width: 110px;
+.order_listimg img{
+    /* width: 110px; */
     height: 170px;
+    margin-top: -85px;
 
 }
 
+.order_list_text a{
+	float: left;
+    margin-right: 23px;
+	margin-left: 179px;
+    margin-top: 15px;
+}
 
-.Cancel_exchange_refund_list_text span{
-    float: left;
-    margin-top: 67px;
+.order_list_text{
+    margin-left: 92px;
+    margin-top: -33px;
+}
+
+.order_list_text span{
+	float: left;
+    margin-top: 20px;
     margin-left: 51px;
 }
 
-.bookname{
-	float: left;
-    margin-right: 23px;
-    margin-left: 179px;
-    margin-top: 58px;
-}
-
-.Cancel_exchange_refund_listbox2{
-	height: 199px;
-    margin-top: 32px;
-    width: 811px;
-    margin-left: 98px;
-    border-bottom: 0px solid #e5e6e7;
-}
-
-.Cancel_exchange_refund_list_text2 p{
-	margin-left: 57px;
+.order_list_text2 p{
+    margin-left: 57px;
     margin-right: 74px;
     float: left;
-    margin-top: 60px;
-}
-.Cancel_exchange_refund_list_text2 span{
-	margin-top: 64px;
-    margin-right: 259px;
-    float: right;
-}
-
-.Cancel_exchange_refund_list_text2 a{
-    margin-top: 65px;
-    float: right;
-    margin-right: -179px;
-}
-
-
-
-.Cancel_exchange_refund_Precautions{
-	margin-top: 59px;
-    margin-left: -17px;
-}
-
-.Cancel_exchange_refund_Precautions_text{
-    border: 1px solid black;
-    width: 680px;
-    height: 85px;
-    margin-left: 10px;
-}
-
-.Cancel_exchange_refund_Precautions div{
-    margin-left: 16px;
     margin-top: 15px;
-    font-size: 13px;
 }
-
-.Cancel_exchange_refund_contact input{
-    width: 126px;
-    height: 62px;
-    border-radius: 17px;
-    border: 1px solid #ffd8d8;
-    background-color: #ffd8d8;
+.order_list_text2 span{
+    margin-top: 15px;
+    margin-right: 157px;
     float: right;
-    margin-top: -77px;
-    margin-right: 98px;
 }
 
-.Cancel_exchange_refund_Precautions_text p{
-	margin-top: 12px;
-    margin-left: 6px;
-    text-align: justify;
+.order_list_text2 a{
+    margin-top: -17px;
+    float: right;
+    margin-right: 29px;
 }
+
+.order_listimg2 li{
+	margin-left: 247px;
+    position: relative;
+    width: 110px;
+    height: 169px;
+    margin-top: -109px;
+}
+
+#checkbox_All{
+	float: left;
+    margin-top: 15px;
+}
+.calendar{
+	margin-left:197px;
+	margin-top: 20px;
+}
+#calendar1{
+	border: 1px solid #e5e6e7;
+	height: 25px;
+
+}
+
+#calendar2{
+	border: 1px solid #e5e6e7;
+	height: 25px;
+}
+
+.calendar p{
+	float: right;
+    margin-right: 152px;
+    margin-top: 6px;
+}
+
+.order_listimg2 img{
+    /* width: 110px; */
+    height: 170px;
+    margin-top: -106px;
+}
+
+

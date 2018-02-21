@@ -17,11 +17,13 @@
 	font-size: 13px;
 }
 
+
+
 .Shop_titleinner{
 	font-size: 2.5em;
     color: #ffa7a7;
     font-weight: bold;
-    padding: 25px 0 25px 23px;
+    padding: 25px 0 27px 23px;
 }
 
 .Shop_subtitle_ul{
@@ -61,36 +63,42 @@
 
 .Shop_Maps_box{
     border: 0px solid red;
-    width: 999px;
-    height: 567px;
+    width: 1000px;
+    height: 622px;
     margin-top: 69px;
     clear: both;
 }
 
 .Shop_Maps{
 	border: 1px solid #ddd;
-	width: 500px;
+	width: 450px;
 	height: 350px;
+	margin-left: -16px;
+	    margin-top: -32px;
 }
 
 .Shop_Maps_text {
     border: 1px solid #ddd;
-    width: 478px;
+    width: 462px;
     height: 350px;
-    float: right;
+    /* float: right; */
     margin-top: -352px;
+    overflow: hidden;
+    margin-left: 524px;
 }
 
 .Shop_Maps_text p{
 	text-align: justify;
-    font-size: 17px;
+    font-size: 15px;
     margin-left: 20px;
 }
 
 .Shop_Maps_directions{
     border: 1px solid #d5d5d5;
-    height: 188px;
+    height: 222px;
     margin-top: 41px;
+    margin-left: -16px;
+    width: 1003px;
 }
 
 .Shop_Maps_directions p:nth-child(1){
@@ -118,6 +126,18 @@
     font-size: 20px;
 }
 
+
+
+#map1 {
+	width: 480px;
+	height: 350px;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
 
 
 
