@@ -41,7 +41,7 @@
 					<!-- notice_list 시작 -->
 						<div class="customer_content_title">
 							<div align="center">제목</div>
-							<div align="center">등록일</div>
+							<div align="center">작성일</div>
 						</div>
 					<c:forEach var="i" begin="1" end="10">	
 						<div class="customer_notices">

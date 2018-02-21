@@ -44,8 +44,8 @@
 							<div>[공지] 제목입니다.</div>
 						</div>
 						<div class="notice_read_date">
-							<div align="center">등록일</div>
-							<div>등록일입니다.</div>
+							<div align="center">작성일</div>
+							<div>작성일입니다.</div>
 						</div>
 						<div class="notice_read_content">
 							

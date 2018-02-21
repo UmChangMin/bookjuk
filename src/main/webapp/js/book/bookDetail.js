@@ -22,7 +22,6 @@ $(function(){
 		$(".bookDetail_scroll_tab li>a:eq(0)").click(function(){
 			var position = $(".bookDetail_one_page").offset(); // 위치값
 			$("html,body").animate({ scrollTop : position.top }, 200); // 이동
-			
 		});
 		
 		$(".bookDetail_scroll_tab li>a:eq(1)").click(function(){
@@ -44,7 +43,7 @@ $(function(){
 			var position = $('.bookDetail_review').offset(); // 위치값
 			$("html,body").animate({ scrollTop : position.top }, 200); // 이동
 		});
-         
+        
         // tab클릭시 pink_bottom 바뀌기 - bookDetail_on
         $( ".bookDetail_scroll_tab li" ).click(function() { 
         	$(this).addClass("bookDetail_on");

@@ -53,7 +53,7 @@
 					<div class="customer_inquiry_list_content">
 						<div align="center">글번호</div>
 						<div align="center">제목</div>
-						<div align="center">등록일</div>
+						<div align="center">작성일</div>
 						<div align="center">답변</div>
 					</div>
 					<!-- 1:1문의 타이틀 끝-->
