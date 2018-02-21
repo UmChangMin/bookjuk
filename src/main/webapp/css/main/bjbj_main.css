@@ -56,16 +56,15 @@ a:link, a:visited{
 
 .best_category{
 	margin-top: 15px;
-	padding-left: 14px;
 	padding-bottom: 12px;
 }
 
 .best_category h1{
 	float: left;
-	padding-bottom: 3px;
-	margin: 0;
-	font-weight:bold;
-	color: #FFA7A7;
+    padding-bottom: 3px;
+    margin: 0;
+    color: #FFA7A7;
+    font-size: 2.5em;
 }
 
 .best_category:after{
@@ -83,7 +82,7 @@ a:link, a:visited{
 .best_cate{
 	float: left;
 	padding-left: 30px;
-	padding-top: 10px;
+	padding-top: 15px;
 }
 
 .best_cate li:first-child{
@@ -109,7 +108,8 @@ a:link, a:visited{
 	padding:0;
 	margin:0;
 	width:1000px;
-	height:260px;
+	height:290px;
+	border-bottom: 1px solid #e5e6e7;
 }
 
 .best_view{

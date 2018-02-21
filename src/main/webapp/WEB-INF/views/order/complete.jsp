@@ -42,7 +42,7 @@
 								<strong>주문번호(13552618651)</strong>
 								<span class="order_col">|</span>
 								" XXX 고객님, 감사합니다. "
-								<a href="" id="btn_blue"><strong>주문내역 상세보기</strong></a>
+								<a href="${root}/order/order_list.do" id="btn_blue"><strong>주문내역 상세보기</strong></a>
 							</div>
 							<div class="sub_text">
 								주문내역 및 배송에 관한 안내는 주문/배송조회 에서 확인 가능합니다.
@@ -211,9 +211,9 @@
 							</div>
 						</div>
 						<div class="complete_btn">
-							<button id="btn_main" onclick="redirect:location.href='http://localhost:8081/projectbjbj/index.jsp'">쇼핑 계속하기</button>
-							<button id="btn_cart">장바구니</button>
-							<button id="btn_order_detail">주문내역 상세보기</button>
+							<button id="btn_main" onclick="location.href='${root}/main.do'">쇼핑 계속하기</button>
+							<button id="btn_cart" onclick="location.href='${root}/order/cart.do'">장바구니</button>
+							<button id="btn_order_detail" onclick="location.href='${root}/order/order_list.do'">주문내역 상세보기</button>
 						</div>
 					</div>
 				</div>

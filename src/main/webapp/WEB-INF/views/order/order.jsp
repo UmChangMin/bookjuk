@@ -9,6 +9,7 @@
 <link type="text/css" rel="stylesheet" href="${root}/css/order/order.css"/>
 <link type="text/css" rel="stylesheet" href="${root}/css/template/basic.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
+<script type="text/javascript" src="${root}/js/order/order_zipcode.js"></script>
 <script type="text/javascript">
 	$(function(){
 		$("#btn_order").click(function(){
@@ -16,7 +17,7 @@
 				alert("주문 항목 동의해주세요.");
 				return false;
 			}else{
-				location.href = "${root}/order/complete.bjbj";
+				location.href = "${root}/order/complete.do";
 			}
 		});
 	});
@@ -68,64 +69,37 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>
-									<div class="order_product_info">
-										<img alt="말의 품격" src="http://image.kyobobook.co.kr/images/book/large/772/l9788997092772.jpg">
-										<a href="#">말의 품격</a>
-									</div>
-								</td>
-								<td>
-									<div class="order_product_amount">
-										<span>1</span>
-									</div>
-								</td>
-								<td>
-									<div class="order_product_price">
-										<strong>13,500원</strong><br/>
-										<span>750</span><b class="point">P</b>
-									</div>
-								</td>
-								<td>
-									<div class="order_product_delfee">
-										<span>무료배송</span>
-									</div>
-								</td>
-								<td>
-									<div class="order_product_total">
-										<strong><span>13,500</span>원</strong>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="order_product_info">
-										<img alt="말의 품격" src="http://image.kyobobook.co.kr/images/book/large/772/l9788997092772.jpg">
-										<a href="#">말의 품격</a>
-									</div>
-								</td>
-								<td>
-									<div class="order_product_amount">
-										<span>1</span>
-									</div>
-								</td>
-								<td>
-									<div class="order_product_price">
-										<strong>13,500원</strong><br/>
-										<span>750</span><b class="point">P</b>
-									</div>
-								</td>
-								<td>
-									<div class="order_product_delfee">
-										<span>무료배송</span>
-									</div>
-								</td>
-								<td>
-									<div class="order_product_total">
-										<strong><span>13,500</span>원</strong>
-									</div>
-								</td>
-							</tr>
+							<c:forEach var="i" begin="1" end="5">
+								<tr>
+									<td>
+										<div class="order_product_info">
+											<img alt="말의 품격" src="http://image.kyobobook.co.kr/images/book/large/772/l9788997092772.jpg">
+											<a href="#">말의 품격</a>
+										</div>
+									</td>
+									<td>
+										<div class="order_product_amount">
+											<span>1</span>
+										</div>
+									</td>
+									<td>
+										<div class="order_product_price">
+											<strong>13,500원</strong><br/>
+											<span>750</span><b class="point">P</b>
+										</div>
+									</td>
+									<td>
+										<div class="order_product_delfee">
+											<span>무료배송</span>
+										</div>
+									</td>
+									<td>
+										<div class="order_product_total">
+											<strong><span>13,500</span>원</strong>
+										</div>
+									</td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 					<!-- 배송지 정보 -->
@@ -145,7 +119,7 @@
 							</div>
 							<div class="order_address">
 								<label>배송지 주소</label>
-								<input type="text" id="zipcode" value=""/><button id="btn_zipcode">우편번호</button><br/>
+								<input type="text" id="zipcode" value=""/><button id="btn_zipcode" onclick="zipcodeRead('${root}')">우편번호</button><br/>
 								<input type="text" id="address1" value=""/><input type="text" id="address2" value=""/>
 							</div>
 							<div class="order_memo">
@@ -271,7 +245,7 @@
 								<h3>주문동의</h3>
 								<span>주문할 상품의 상품명, 가격, 배송 정보에 동의하십니까?</span>
 								<div class="order_agree_required">
-									<input type="checkbox" name="agree"/><span> 확인동의 (전자상거래법 제 8조 2항)</span>
+									<input type="checkbox" id="agree"/><span> 확인동의 (전자상거래법 제 8조 2항)</span>
 								</div>
 							</div>
 						</div>
@@ -310,8 +284,8 @@
 						</div>
 					</div>
 					<div class="order_payment_agree">
-						<button id="btn_cart">장바구니 가기</button>
-						<button id="btn_order" onclick="location='${root}/order/complete.do'">결제하기</button>
+						<button id="btn_cart" onclick="location='${root}/order/cart.do'">장바구니 가기</button>
+						<button id="btn_order">결제하기</button>
 					</div>
 				</div>
 			</div>

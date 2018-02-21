@@ -39,6 +39,14 @@ public class OrderServiceImp implements OrderService {
 		
 		mav.setViewName("order/order.search");
 	}
+	
+	@Override
+	public void zipcode(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		mav.setViewName("order/order_zipcode.empty");
+	}
 
 	@Override
 	public void complete(ModelAndView mav) {

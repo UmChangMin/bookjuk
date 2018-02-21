@@ -1,10 +1,7 @@
 @charset "UTF-8";
 
 #order_all{
-background: #fff;
     padding-bottom: 80px;
-	border-top: 1px solid #e5e6e7;
-	margin-top: 23px;
 }
 
 #order_container {
@@ -20,10 +17,11 @@ background: #fff;
 }
 
 .order_sub {
-	padding: 0 30px;
+	padding: 0 29px;
 	margin-top: 25px;
 	background: #fff;
 	overflow: hidden;
+	border: 1px solid #e5e6e7;
 }
 
 .order_heading {
@@ -281,7 +279,7 @@ b.point{
 }
 
 .order_tb_discount .use_list .pointcol {
-    color: #FFD8D8 !important;
+    color: #F15F5F !important;
 }
 
 .order_tb_discount .input_area {
