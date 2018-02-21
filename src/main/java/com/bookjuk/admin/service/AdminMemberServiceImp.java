@@ -8,31 +8,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bookjuk.admin.dao.AdminCustomerDao;
+import com.bookjuk.admin.dao.AdminMemberDao;
 
 @Component
-public class AdminCustomerServiceImp implements AdminCustomerService {
+public class AdminMemberServiceImp implements AdminMemberService {
 
 	@Autowired
-	private AdminCustomerDao customerDao;
+	private AdminMemberDao customerDao;
 	
-	public AdminCustomerServiceImp() {}
+	public AdminMemberServiceImp() {}
 
 	@Override
-	public void customerSearchMove(ModelAndView mav) {
+	public void memberSearchMove(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/customer/customerManager_search.admin");
+		mav.setViewName("admin/member/memberManager_search.admin");
 		
 	}
 	
 	@Override
-	public void customerOutputMove(ModelAndView mav) {
+	public void memberOutputMove(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/customer/customerManager.admin");
+		mav.setViewName("admin/member/memberManager.admin");
 		
 	}
 

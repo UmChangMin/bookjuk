@@ -30,7 +30,7 @@
 			        <a class="nav-link" href="${root }/admin/order/orderManager_search.do">주문관리</a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="${root }/admin/customer/customerManager_search.do">고객관리</a>
+			        <a class="nav-link" href="${root }/admin/member/memberManager_search.do">고객관리</a>
 			      </li>
 			      <li class="nav-item">
 			        <a class="nav-link" href="${root }/admin/book/bookManager_search.do">도서관리</a>

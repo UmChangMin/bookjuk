@@ -1,0 +1,17 @@
+diff a/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml b/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml	(rejected hunks)
+@@ -22,15 +22,6 @@
+ 	<resources location="/img/" mapping="/img/**"/>
+ 	<resources location="/js/" mapping="/js/**"/>
+ 	<resources location="/jqueryUI/" mapping="/jqueryUI/**"/>
+-<<<<<<< HEAD
+-		
+-=======
+-	<!-- <resources location="/xhr/" mapping="/xhr/**"/> -->
+-	
+-	
+-	
+->>>>>>> f5343de2f9f4422acfdb0b88465409f35cc078d7
+-	
+ 
+ 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+ 	<!-- <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

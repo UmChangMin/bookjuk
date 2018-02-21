@@ -1,6 +1,6 @@
 package com.bookjuk.admin.dao;
 
-public interface AdminCustomerDao {
+public interface AdminMemberDao {
 
 	
 	

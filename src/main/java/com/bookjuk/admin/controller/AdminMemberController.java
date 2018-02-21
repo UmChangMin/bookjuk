@@ -9,37 +9,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bookjuk.admin.service.AdminCustomerService;
+import com.bookjuk.admin.service.AdminMemberService;
 import com.bookjuk.aop.LogAspect;
 
 @Controller
-public class AdminCustomerController{
+public class AdminMemberController{
 
 	@Autowired
-	private AdminCustomerService adminCustomerService;
+	private AdminMemberService adminMemberService;
 	
-	public AdminCustomerController() {}
+	public AdminMemberController() {}
 
-	@RequestMapping(value="/admin/customer/customerManager.do",method=RequestMethod.GET)
+	@RequestMapping(value="/admin/member/memberManager.do",method=RequestMethod.GET)
 	public ModelAndView customerOutput(HttpServletRequest request, HttpServletResponse response) {
 		
-		LogAspect.logger.info(LogAspect.logMsg+"customer?");
+		LogAspect.logger.info(LogAspect.logMsg+"Member?");
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
-		adminCustomerService.customerOutputMove(mav);
+		adminMemberService.memberOutputMove(mav);
 		
 		return mav;
 	}
 	
-	@RequestMapping(value="/admin/customer/customerManager_search.do",method=RequestMethod.GET)
+	@RequestMapping(value="/admin/member/memberManager_search.do",method=RequestMethod.GET)
 	public ModelAndView customerSearch(HttpServletRequest request, HttpServletResponse response) {
 		
-		LogAspect.logger.info(LogAspect.logMsg+"customer?");
+		LogAspect.logger.info(LogAspect.logMsg+"Member-search?");
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
-		adminCustomerService.customerSearchMove(mav);
+		adminMemberService.memberSearchMove(mav);
 		
 		return mav;
 	}

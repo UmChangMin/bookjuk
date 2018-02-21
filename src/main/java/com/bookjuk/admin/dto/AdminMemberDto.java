@@ -1,6 +1,6 @@
 package com.bookjuk.admin.dto;
 
-public class AdminCustomerDto {
+public class AdminMemberDto {
 	
 }
 

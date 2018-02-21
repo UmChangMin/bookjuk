@@ -9,7 +9,7 @@
 <title>관리자모드</title>
 <c:set var="root" value="${pageContext.request.contextPath }"/>
 <link rel="stylesheet" type="text/css" href="${root }/css/admin/commons/main.css">
-<link rel="stylesheet" type="text/css" href="${root }/css/admin/customer/customerManager.css">
+<link rel="stylesheet" type="text/css" href="${root }/css/admin/member/memberManager.css">
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>   
 <script type="text/javascript">
