@@ -72,6 +72,7 @@
 												      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left">
 												        <button type="submit" class="btn btn-primary">조회</button>
 												        <button type="reset" class="btn btn-default">취소</button>
+												        <button type="button" class="btn btn-default" onclick="location.href='bookManager_input.do'">추가</button>
 												      </div>
 												    </div>
 												  </fieldset>

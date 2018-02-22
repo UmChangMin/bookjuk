@@ -6,7 +6,7 @@ import com.bookjuk.admin.dto.AdminLocationDto;
 
 public interface AdminLocationDao {
 
-	/*public int shopList(List<AdminShopDto> shopList);*/
+	public List<AdminLocationDto> locationList();
 	public AdminLocationDto locationSelect(String location_name);
 	public int locationInsert(AdminLocationDto shopDto);
 }

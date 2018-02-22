@@ -58,23 +58,23 @@
 											<ul class="content_box3">					
 												<li class="content_li">
 													<span class="content_title_name">도서명</span>
-													<input type="text" class="form-control" id="inputBookName" placeholder="마시멜로이야기">
+													<input type="text" class="form-control" id="inputBookName" name="">
 												</li>		
 												<li class="content_li">
 													<span class="content_title_name">출판사</span>
-													<input type="text" class="form-control" id="inputPublisher" placeholder="한국경제신문사">
+													<input type="text" class="form-control" id="inputPublisher" name="">
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">저자</span>
-													<input type="text" class="form-control" id="inputAuthor" placeholder="호아 킴 데 포사다">
+													<input type="text" class="form-control" id="inputAuthor" name="">
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">가격</span>
-													<input type="text" class="form-control" id="inputPrice" placeholder="14,000원">
+													<input type="text" class="form-control" id="inputPrice" name="">
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">분야</span>
-													<input type="text" class="form-control" id="inputKind" placeholder="자기계발">
+													<input type="text" class="form-control" id="inputKind" name="">
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">이미지</span>
@@ -95,19 +95,17 @@
 																									
 												<li class="medium_title">											
 													<select class="form-control" id="select">
-											           <option>본점</option>
-											           <option>잠실</option>
 											           <option>역삼</option>
-											           <option>강남</option>									          
+											           <option>잠실</option>									          
 											        </select>
-													<input type="text" class="form-control" id="input" placeholder="41권">
+													<input type="text" class="form-control" id="input">
 												</li>										
 											</ul>								
 											
 											<!-- 환불, 교환, 반품-->
 										    <div class="form-group btn-margin" align="center">
 											      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left" id="btn-margin">
-												        <button type="button" class="btn btn-default" id="">수정</button>
+												        <button type="button" class="btn btn-default" id="">추가</button>												        
 												        <button type="button" class="btn btn-default" id="">취소</button>
 												        <button type="button" class="btn btn-default" id="">삭제</button>
 											      </div>

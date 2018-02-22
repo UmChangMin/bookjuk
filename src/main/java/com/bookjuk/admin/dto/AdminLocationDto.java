@@ -11,6 +11,7 @@ public class AdminLocationDto {
 	private String location_callnum;
 	private String location_time;
 	private String location_comming;
+	
 	public int getNum() {
 		return num;
 	}

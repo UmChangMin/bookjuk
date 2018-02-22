@@ -21,6 +21,9 @@ public class AdminLocationController{
 	
 	public AdminLocationController() {}
 
+	
+	
+	
 	@RequestMapping(value="/admin/location/locationManager_search.do",method=RequestMethod.GET)
 	public ModelAndView LocationSearch(HttpServletRequest request, HttpServletResponse response) {
 		
@@ -35,8 +38,10 @@ public class AdminLocationController{
 	public ModelAndView LocationInput(HttpServletRequest request, HttpServletResponse response) {
 		
 		LogAspect.logger.info(LogAspect.logMsg+"Location-input?");
+		ModelAndView mav=new ModelAndView();		
+		adminLocationService.locationInputMove(mav);
 		
-		return new ModelAndView("admin/Location/locationManager_input.admin");
+		return mav;
 	}
 	
 	@RequestMapping(value="/admin/location/locationManager_inputOk.do",method=RequestMethod.GET)

@@ -18,6 +18,14 @@ public class AdminLocationServiceImp implements AdminLocationService {
 
 	@Autowired
 	private AdminLocationDao LocationDao;	
+
+	
+	
+	@Override
+	public void locationInputMove(ModelAndView mav) {
+		mav.setViewName("admin/location/locationManager_input.admin");
+		
+	}
 	
 	@Override
 	public void locationInputOk(ModelAndView mav) {			
@@ -56,13 +64,15 @@ public class AdminLocationServiceImp implements AdminLocationService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		/*List<AdminLocationDto>LocationList=LocationDao.LocationList(LocationList);
+		List<AdminLocationDto>LocationList=LocationDao.locationList();
 		
 		LogAspect.logger.info(LogAspect.logMsg+LocationList.size());
 		
-		mav.addObject("LocationList",LocationList);*/
+		mav.addObject("LocationList",LocationList);
 		mav.setViewName("admin/location/locationManager_search.admin");
 	}
+
+
 
 	
 }

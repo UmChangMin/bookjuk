@@ -32,6 +32,31 @@ public class AdminBookController{
 		return mav;
 	}
 	
+	@RequestMapping(value="/admin/book/bookManager_input.do",method=RequestMethod.GET)
+	public ModelAndView bookInput(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"book-input?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminBookService.bookInputMove(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/admin/book/bookManager_inputOk.do",method=RequestMethod.GET)
+	public ModelAndView bookInputOk(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"book-inputOk?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminBookService.bookInputOkMove(mav);
+		
+		return mav;
+	}
+	
+	
 	@RequestMapping(value="/admin/book/bookManager.do",method=RequestMethod.GET)
 	public ModelAndView bookOutput(HttpServletRequest request, HttpServletResponse response) {
 		
@@ -44,4 +69,27 @@ public class AdminBookController{
 		return mav;
 	}
 	
+	@RequestMapping(value="/admin/book/bookManager_update.do",method=RequestMethod.GET)
+	public ModelAndView bookUpdate(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"book-update?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminBookService.bookUpdateMove(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/admin/book/bookManager_updateOk.do",method=RequestMethod.GET)
+	public ModelAndView bookUpdateOk(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"book-updateOk?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminBookService.bookUpdateOkMove(mav);
+		
+		return mav;
+	}
 }

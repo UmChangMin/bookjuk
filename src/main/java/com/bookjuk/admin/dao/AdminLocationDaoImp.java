@@ -19,18 +19,26 @@ public class AdminLocationDaoImp implements AdminLocationDao {
 	@Override
 	public AdminLocationDto locationSelect(String location_name) {
 		
-		//System.out.println(shop_subname);
-		return sqlSessionTemplate.selectOne("shopSelect", location_name);
+		//System.out.println(location_name);
+		return sqlSessionTemplate.selectOne("locationSelect", location_name);
 	}
 
 	@Override
 	public int locationInsert(AdminLocationDto locationDto) {
 		//System.out.println(shopDto.toString());
-		return sqlSessionTemplate.insert("shopInsert", locationDto);
+		return sqlSessionTemplate.insert("locationInsert", locationDto);
+	}
+
+	@Override
+	public List<AdminLocationDto> locationList() {		
+		List<AdminLocationDto>locationList=sqlSessionTemplate.selectList("locationList");
+
+		return locationList;
+		
 	}
 
 	/*@Override
-	public int shopList(List<AdminShopDto> shopList) {
+	public int locationList(List<AdminShopDto> locationList) {
 		// TODO Auto-generated method stub
 		return 0;
 	}*/

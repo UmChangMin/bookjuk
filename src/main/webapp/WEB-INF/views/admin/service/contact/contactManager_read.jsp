@@ -53,8 +53,11 @@
 										</ul>
 										<ul>
 											<li class="notice_title">파일첨부</li>
-											<li class="notice_title_value"><input type="file" class="" id=""></li>
-											
+											<li class="notice_title_value"><input type="file" class="" id=""></li>										
+										</ul>
+										<ul>
+											<li class="notice_title">문의유형</li>
+											<li class="notice_title_value"><input type="text" class="" id="" placeholder="유형유형"></li>
 										</ul>
 										<ul>											
 											<li class="notice_content_title">내용</li>

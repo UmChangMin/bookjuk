@@ -9,12 +9,12 @@
 <c:set var="root" value="${pageContext.request.contextPath }"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
- <link rel="stylesheet" type="text/css" href="${root }/css/commons/main.css">
+ <link rel="stylesheet" type="text/css" href="${root }/css/admin/commons/main.css">
 </head>
 <body>
 	<div class="header" align="center">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			  <a class="navbar-brand" href="#">
+			  <a class="navbar-brand" href="${root }/main.do">
 			  	<img src="${root}/img/logo/bookjuk_headlogo.png">
 			  </a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation" style="">

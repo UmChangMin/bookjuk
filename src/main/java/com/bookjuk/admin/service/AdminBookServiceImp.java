@@ -29,6 +29,20 @@ public class AdminBookServiceImp implements AdminBookService {
 	}
 	
 	@Override
+	public void bookInputMove(ModelAndView mav) {
+		
+		mav.setViewName("admin/book/bookManager_input.admin");
+		
+	}
+	
+	@Override
+	public void bookInputOkMove(ModelAndView mav) {
+		
+		mav.setViewName("admin/book/bookManager_inputOk.admin");
+		
+	}
+	
+	@Override
 	public void bookOutputMove(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
@@ -37,6 +51,19 @@ public class AdminBookServiceImp implements AdminBookService {
 		
 	}
 
+	@Override
+	public void bookUpdateMove(ModelAndView mav) {
+		
+		mav.setViewName("admin/book/bookManager_update.admin");
+		
+	}
+	
+	@Override
+	public void bookUpdateOkMove(ModelAndView mav) {
+		
+		mav.setViewName("admin/book/bookManager_updateOk.admin");
+		
+	}
 
 	
 }

@@ -28,10 +28,12 @@
 	
 	$(function(){
 		$(".nav-item:eq(5)").addClass("active");
+		$("#insert").click(function () {
+			$(location).attr("href", "${root}/admin/location/locationManager_input.do");
+		});
 	});
 	
-	/*18/02/22-추가해야할 내용 데이터베이스의 영업점 개수만큼 option 생성하기  */
-	var index="디비연동인데";
+	/*18/02/22-추가해야할 내용 데이터베이스의 영업점 개수만큼 option 생성하기  */	
 	
 	
 	
@@ -60,12 +62,10 @@
 											    <div class="form-group" align="center">											      
 											      <div class="col-lg-10">											      								
 												      <select class="form-control input_width" id="select" name="location">
-												      <c:forEach var="locationList" items="${locationList }">
-												      	<option value="${location_name }">${location_name}</option>
+												      <c:forEach var="location" items="${LocationList }">
+												      	<option value="${location.location_name }">${location.location_name}</option>
 												      </c:forEach>
-											           <!-- <option value="역삼점">역삼</option>
-											           <option value="잠실점">잠실</option>
-											           <option value="본점">본점</option>		 -->									          									         
+							          									         
 											        </select>			      							 											        											       
 											      </div>
 											    </div>
@@ -74,7 +74,7 @@
 											      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left">
 											        <button type="submit" class="btn btn-primary" id="selected">조회</button>
 											        <button type="reset" class="btn btn-default">취소</button>
-											        <button type="button" class="btn btn-default" onclick="location.href='locationManager_input.do'">추가</button>
+											        <button type="button" class="btn btn-default" id="insert">추가</button>
 											      </div>
 											    </div>
 											  </fieldset>

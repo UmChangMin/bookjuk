@@ -14,4 +14,7 @@
 		]]>
 	</insert>
 	
+	<select id="locationList" resultType="com.bookjuk.admin.dto.AdminLocationDto">
+		select * from location
+	</select>
 </mapper>
