@@ -26,11 +26,7 @@ public class AdminShopController{
 		
 		LogAspect.logger.info(LogAspect.logMsg+"shop-search?");
 		
-		ModelAndView mav=new ModelAndView();
-		mav.addObject("request",request);
-		adminShopService.shopSearchMove(mav);
-		
-		return mav;
+		return new ModelAndView("admin/shop/shopManager_search.admin");
 	}
 	
 	@RequestMapping(value="/admin/shop/shopManager_input.do",method=RequestMethod.GET)
@@ -38,13 +34,23 @@ public class AdminShopController{
 		
 		LogAspect.logger.info(LogAspect.logMsg+"shop-input?");
 		
+		return new ModelAndView("admin/shop/shopManager_input.admin");
+	}
+	
+	@RequestMapping(value="/admin/shop/shopManager_inputOk.do",method=RequestMethod.GET)
+	public ModelAndView shopInputOk(HttpServletRequest request, HttpServletResponse response, AdminShopDto adminShopDto) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"shop-inputOK?");
+		
 		ModelAndView mav=new ModelAndView();
+		
 		mav.addObject("request",request);
-		adminShopService.shopInputMove(mav);
+		mav.addObject("adminShopDto", adminShopDto);
+		
+		adminShopService.shopInputOk(mav);
 		
 		return mav;
 	}
-	
 	
 	@RequestMapping(value="/admin/shop/shopManager.do",method=RequestMethod.GET)
 	public ModelAndView shopOutput(HttpServletRequest request, HttpServletResponse response) {
@@ -58,17 +64,5 @@ public class AdminShopController{
 		return mav;
 	}
 	
-	@RequestMapping(value="/admin/shop/shopManager_inputOk.do",method=RequestMethod.GET)
-	public ModelAndView shopInputOk(HttpServletRequest request, HttpServletResponse response, AdminShopDto adminShopDto) {
-		
-		LogAspect.logger.info(LogAspect.logMsg+"shop-input?");
-		
-		ModelAndView mav=new ModelAndView();
-		mav.addObject("adminShopDto", adminShopDto);
-		
-		adminShopService.shopInputOk(mav);
-		
-		return mav;
-	}
 	
 }

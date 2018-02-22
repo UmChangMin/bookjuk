@@ -15,15 +15,15 @@ public class AdminShopDaoImp implements AdminShopDao {
 	public AdminShopDaoImp() {}
 
 	@Override
-	public AdminShopDto shopSelect(String shop_subname) {
+	public AdminShopDto shopSelect(String shop_name) {
 		
 		//System.out.println(shop_subname);
-		return sqlSessionTemplate.selectOne("shopSelect", shop_subname);
+		return sqlSessionTemplate.selectOne("shopSelect", shop_name);
 	}
 
 	@Override
 	public int shopInsert(AdminShopDto shopDto) {
-		
+		//System.out.println(shopDto.toString());
 		return sqlSessionTemplate.insert("shopInsert", shopDto);
 	}
 
