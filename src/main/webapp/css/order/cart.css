@@ -270,8 +270,5 @@ b.point{
     text-align: center;
     line-height: 40px;
     margin-left: 10px;
-}
-
-.cart_btn_section > a:link, a:visited{
-	color: black;
+    color: black;
 }
