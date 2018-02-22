@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bookjuk.admin.dao.mapper.AdminlocationMapper">
+
+	<select id="locationSelect" parameterType="String" resultType="com.bookjuk.admin.dto.AdminLocationDto" >
+			select * from location where location_name=#{location_name}
+	</select>
+	
+	<insert id="locationInsert" parameterType="com.bookjuk.admin.dto.AdminLocationDto">
+		<![CDATA[
+			insert into location values(location_num_seq.nextval, #{location_lat}, #{location_lng}, #{location_name}, #{location_post_num}, #{location_addr}, #{location_addr_detail}, #{location_callnum}, #{location_time}, #{location_comming})
+		]]>
+	</insert>
+	
+</mapper>

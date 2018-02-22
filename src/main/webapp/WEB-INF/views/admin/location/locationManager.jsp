@@ -6,18 +6,39 @@
 <head>
 <meta name="viewport" content="initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>관리자모드</title>
 
 <c:set var="root" value="${pageContext.request.contextPath }"/>
 <link rel="stylesheet" type="text/css" href="${root }/css/admin/commons/main.css">
-<link rel="stylesheet" type="text/css" href="${root }/css/admin/shop/shopManager_input.css">
+<link rel="stylesheet" type="text/css" href="${root }/css/admin/location/locationManager.css">
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT8UWioePDnrx76CcuMrV_2M1FfUY9j0w&callback=initMap" async defer></script>  
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT8UWioePDnrx76CcuMrV_2M1FfUY9j0w&callback=initMap" async defer></script>
 <script type="text/javascript" src="${root}/js/xhr.js"></script>
-<script type="text/javascript" src="${root}/js/admin/shop.js"></script>
-
+<script type="text/javascript" src="${root}/js/admin/location.js"></script>
 </head>   
+<script type="text/javascript"> 
+	  window.onload = function() {
+		toServer();
+	  }
+	
+	function readURL(input){ 
+		if(input.files&&input.files[0]){ 
+			var reader=new FileReader(); 
+			reader.onload=function(e){ 
+				$("#imgFrame").attr("src", e.target.result); 
+			} 
+			reader.readAsDataURL(input.files[0]); 
+		} 
+	} 
+	
+	
+	$(function(){
+		$(".nav-item:eq(5)").addClass("active");
+	});
+	
+</script>
 <body>
 	<!-- 타이틀메뉴 시작 -->
 	<div class="all">
@@ -28,7 +49,6 @@
 					<div class="content_title">영업점관리</div>
 					
 					<div class="content">
-						<form class="content_box3_formtag" action="shopManager_inputOk.do" method="get">	
 						<ul>
 							<li class="content_part content_part_move1">
 							<div class="content_wrap_body_left">
@@ -37,20 +57,20 @@
 									<ul>
 										<!-- 영업점지도정보 추가-->
 										<li class="content_box_title">영업점지도정보</li>
-										<%-- <img src="${root }/img/map/yeoksam.PNG" alt="지도내용" > --%>
 										<li>
 											<div id="img_area" style="width:300px; height:250px;"></div>
 										</li>
 																							
 										<li class="medium_title">
 											<label class="title_name">위도</label>
-											<input type="text" class="form-control" id="input_lat" name="shop_lat">
+											<input type="text" class="form-control" id="input_lat" value="${locationDto.location_lat}">
 										</li>	
 																																
 										<li class="medium_title">
 											<label class="title_name">경도</label>
-											<input type="text" class="form-control" id="input_lng" name="shop_lng">
-										</li>										
+											<input type="text" class="form-control" id="input_lng" value="${locationDto.location_lng}">
+										</li>
+									
 									</ul>								
 								</div>
 								
@@ -70,53 +90,53 @@
 									
 									<!--  -->
 									<div class="content_box3_form" align="center">
-										
+										<form class="content_box3_formtag">	
 											<ul class="content_box3">					
 												<li class="content_li">
 													<span class="content_title_name">영업점명</span>
-													<input type="text" class="form-control" id="inputShopName" name="shop_name">
+													<input type="text" class="form-control" id="inputBookName" value="${locationDto.location_name}">
 												</li>		
 												<li class="content_li">
 													<span class="content_title_name">우편번호</span>
-													<input type="text" class="form-control" id="inputPost" name="shop_post_num">
+													<input type="text" class="form-control" id="inputPost" value="${locationDto.location_post_num}">
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">주소</span>
-													<input type="text" class="form-control" id="inputAddr" name="shop_addr">
+													<input type="text" class="form-control" id="inputAddr" value="${locationDto.location_addr}">
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">상세주소</span>
-													<input type="text" class="form-control" id="inputAddr_detail" name="shop_addr_detail">
-													<input type="button" class="btn btn-primary" id="input_map" onclick="toServer()" value="지도">													
+													<input type="text" class="form-control" id="inputAddr_detail" value="${locationDto.location_addr_detail}">
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">전화번호</span>
-													<input type="text" class="form-control" id="inputCall" name="shop_callnum">
+													<input type="text" class="form-control" id="inputCall" value="${locationDto.location_callnum}">
 												</li>	
 												<li class="content_li">
 													<span class="content_title_name">영업시간</span>
-													<input type="text" class="form-control" id="inputTime" name="shop_time">
+													<input type="text" class="form-control" id="inputTime" value="${locationDto.location_time}">
 												</li>	
 												<li class="content_li">
 													<span class="content_title_name">오시는길</span>
-													<textarea class="form-control" rows="3" id="textArea" name="shop_comming"></textarea>
+													<textarea class="form-control" rows="3" id="textArea">${locationDto.location_comming}</textarea>
 												</li>																														
 											</ul>
 											
+											<!-- 환불, 교환, 반품-->
+										    <div class="form-group btn-margin" align="center">
+											      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left" id="btn-margin">
+												        <button type="button" class="btn btn-default" id="" onsub>수정</button>
+												        <button type="button" class="btn btn-default" id="">취소</button>
+												        <button type="button" class="btn btn-default" id="">삭제</button>
+											      </div>
+										    </div>
+										</form>		
 									</div>							
 									<!--  -->			
 												
 									</div>									
 								</li>								
-							</ul>
-						<!-- 환불, 교환, 반품-->
-					    <div class="form-group btn-margin" align="center">
-						      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left" id="btn-margin">											      	
-							        <button type="submit" class="btn btn-primary" id="">완료</button>
-							        <button type="reset" class="btn btn-default" id="">취소</button>
-						      </div>
-					    </div>
-					</form>		
+						</ul>
 					</div><!-- content -->
 					
 				</div>

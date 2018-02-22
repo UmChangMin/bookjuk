@@ -13,13 +13,13 @@
 		<c:when test="${check==0 }">
 		<script type="text/javascript">
 			alert("추가 실패.");
- 			location.href="${root}/admin/shop/shopManager_search.do";			
+ 			location.href="${root}/admin/location/locationManager_search.do";			
 		</script>
 		</c:when>
 		<c:when test="${check>0 }">
 		<script type="text/javascript">
 			alert("추가 완료.");
-			location.href="${root}/admin/shop/shopManager_search.do";
+			location.href="${root}/admin/location/locationManager_search.do";
 		</script>
 		</c:when>
 	</c:choose>

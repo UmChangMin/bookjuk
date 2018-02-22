@@ -39,7 +39,7 @@
 			        <a class="nav-link" href="${root }/admin/service/service/serviceManager.do">고객센터관리</a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="${root }/admin/shop/shopManager_search.do">영업점관리</a>
+			        <a class="nav-link" href="${root }/admin/location/locationManager_search.do">영업점관리</a>
 			      </li>
 			    </ul>			  
 			  </div>
