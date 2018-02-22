@@ -27,13 +27,13 @@
 			        <a class="nav-link" href="${root }/admin/sales/salesManager.do">영업관리 <span class="sr-only">(current)</span></a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="${root }/admin/order/orderManager.do">주문관리</a>
+			        <a class="nav-link" href="${root }/admin/order/orderManager_search	.do">주문관리</a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="${root }/admin/customer/customerManager_search.do">고객관리</a>
+			        <a class="nav-link" href="${root }/admin/member/memberManager_search.do">고객관리</a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="${root }/admin/book/bookManager.do">도서관리</a>
+			        <a class="nav-link" href="${root }/admin/book/bookManager_search.do">도서관리</a>
 			      </li>
 	        	  <li class="nav-item">
 			        <a class="nav-link" href="${root }/admin/service/service/serviceManager.do">고객센터관리</a>
