@@ -28,7 +28,7 @@
 					<li><a class="openMask3" href="${root}/order/order_list.do"
 						onclick="orderdelivery('${root}')">주문/배송조회</a></li>
 					<li><a class="" href="${root}/service/question.do">고객센터</a></li>
-					<li><a class="" href="${root}/shop.do">영업점 안내</a></li>
+					<li><a class="" href="${root}/location.do">영업점 안내</a></li>
 				</ul>
 			</div>
 		</div>

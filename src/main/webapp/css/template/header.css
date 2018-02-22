@@ -43,7 +43,7 @@ img, input, button, select, textarea {
 .header_lnb_right li {
 	float: left;
 	padding: 0 7px;
-	background: url(../../../img/template/header/lnb_line.jpg) no-repeat left center;
+	background: url(../../img/template/header/lnb_line.jpg) no-repeat left center;
 }
 
 .header_lnb_right input {
@@ -124,7 +124,7 @@ img, input, button, select, textarea {
 	float: left;
     height: 47px;
     line-height: 47px;
-    background: url(../../../img/template/header/search-btn.png) no-repeat center center;
+    background: url(../../img/template/header/search-btn.png) no-repeat center center;
     width: 30px;
     border: none;
     cursor: pointer;
@@ -134,8 +134,9 @@ img, input, button, select, textarea {
 /* 메인베너시작 */
 .header_mainGnb_wrap {
 	height: 40px;
-    background: #ffa7a7;
+    background: #fff;
     margin-top: 23px;
+    border-top: 1px solid #e5e6e7;
 }
 
 .header_mainGnb_inner {
@@ -167,7 +168,7 @@ img, input, button, select, textarea {
     text-align: center;
     font-size: 18px;
     margin-left: 2px;
-    text-align: left;
+    text-align: center;
 }
 
 .header_gnb_list li:first-child{
@@ -201,7 +202,7 @@ img, input, button, select, textarea {
     position: relative;
     cursor: default;
     z-index: 500;
-    background-color: #FFA7A7;
+   
 }
 
 /* 전체보기 List */
@@ -219,10 +220,10 @@ img, input, button, select, textarea {
     line-height: 38px;
     font-weight: 600;
     font-size: 17px;
-    color: #fff;
-    background: #FFA7A7;
-    border-left: 1px solid #FFA7A7;
-    border-right: 1px solid#FFA7A7;
+    color: #738082;
+    background: #fff;
+   
+    border-right: 1px solid #e5e6e7;
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -o-transition: all .3s ease;
@@ -230,10 +231,18 @@ img, input, button, select, textarea {
     transition: all .3s ease;
 }
 
-
 .header_gnb_list > li:first-child > a {
 	border-radius: 3px 0 0 3px;
 	border-left: none;
+	
+	
+}
+.header_gnb_list > li:last-child > a{
+	border-right-width: 0px;
+}
+
+.header_gnb_list > li a:hover{
+	color: #F15F5F;
 }
 
 
@@ -241,12 +250,12 @@ img, input, button, select, textarea {
 .header_gnb_list > li > div {
     position: absolute;
     display: block;
-    width: 101%;
+    width: 100%;
     height: 347px;
-    border: 2px solid #ffd8d8;
-    border-top: 0;
-    /* top: 55px; */
-    left: -4px;
+    border: 1px solid #e5e6e7;
+    /* border-top: 0; */
+    top: 41px;
+    left: -3px;
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
@@ -293,18 +302,12 @@ img, input, button, select, textarea {
     text-align: center;
 }
 
-.header_gnb_list .header_nav_column li a:hover { color: #F15F5F; }
+.header_gnb_list .header_nav_column li a:hover{ color: #F15F5F; }
 
 .header_gnb_list img{
     width: 15px;
     height: 15px;
     margin: 0px 10px -1px 4px;
-}
-
-.header_mainGnb_wrap{
-	height: 40px;
-    background: #ffa7a7;
-    margin-top: 23px;
 }
 
 .header_mainGnb_inner{

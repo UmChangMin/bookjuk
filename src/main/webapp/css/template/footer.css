@@ -10,8 +10,8 @@
 .foot_right{float:left;width:800px;padding-left:120px;box-sizing:border-box;}
 .f_lnb{margin-bottom:15px;*zoom:1;}
 .f_lnb:after{content:"";display:block;clear:both;}
-.f_lnb li{float:left;padding:0 12px;background:url(../../../img/template/footer/footerDot.gif) no-repeat left center;font-size:11px;line-height:18px;color:#9d9d9d;}
-.f_lnb.large li{float:left;padding:0 8px;background:url(../../../img/template/footer/footerDot.gif) no-repeat left center;font-size:11px;line-height:18px;color:#9d9d9d;}
+.f_lnb li{float:left;padding:0 12px;background:url(../../img/template/footer/footerDot.gif) no-repeat left center;font-size:11px;line-height:18px;color:#9d9d9d;}
+.f_lnb.large li{float:left;padding:0 8px;background:url(../../img/template/footer/footerDot.gif) no-repeat left center;font-size:11px;line-height:18px;color:#9d9d9d;}
 .f_lnb li:first-child{padding-left:0;background:none;}
 .f_lnb li a{font-size:14px;color:#666;}
 .f_lnb li:hover a{text-decoration:underline;} 

@@ -49,7 +49,7 @@
 										<div class="bookDetail_figure">
 											<div class="bookDetail_thum_box">
 												<span class="bookDetail_rm_br"> <img
-													src="http://bookimg.bookcube.com/270/1801/180104379.jpg" />
+													src="${root}/img/book/book_detail/computer_com_05.jpg" />
 												</span>
 											</div>
 										</div>

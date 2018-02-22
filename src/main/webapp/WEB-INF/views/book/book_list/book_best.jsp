@@ -50,7 +50,7 @@
 									<li>
 										<div class="bookList_mid_content_figure">
 											<a href="${root}/book/book_detail/detail.do">
-												<img src="http://bookimg.bookcube.com/150/1801/180104379.jpg">
+												<img src="${root}/img/book/book_detail/computer_com_05.jpg">
 											</a>
 										</div>
 										<div class="bookList_content_inbfo">
@@ -75,7 +75,7 @@
 									<li>
 										<div class="bookList_mid_content_figure2">
 											<a href="${root}/book/book_detail/detail.do">
-												<img src="http://bookimg.bookcube.com/150/1801/180104379.jpg">
+												<img src="${root}/img/book/book_list/computer_com_02.jpg">
 											</a>
 										</div>
 										<div class="bookList_mid_content_hot_info">
