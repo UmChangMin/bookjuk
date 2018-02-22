@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta name="viewport" content="initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>관리자모드</title>
@@ -12,8 +13,15 @@
 <link rel="stylesheet" type="text/css" href="${root }/css/admin/commons/main.css">
 <link rel="stylesheet" type="text/css" href="${root }/css/admin/shop/shopManager.css">
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT8UWioePDnrx76CcuMrV_2M1FfUY9j0w&callback=initMap" async defer></script>
+<script type="text/javascript" src="${root}/js/xhr.js"></script>
+<script type="text/javascript" src="${root}/js/admin/shop.js"></script>
 </head>   
 <script type="text/javascript"> 
+	  window.onload = function() {
+		toServer();
+	  }
 	
 	function readURL(input){ 
 		if(input.files&&input.files[0]){ 
@@ -24,6 +32,7 @@
 			reader.readAsDataURL(input.files[0]); 
 		} 
 	} 
+	
 	
 	$(function(){
 		$(".nav-item:eq(5)").addClass("active");
@@ -54,12 +63,12 @@
 																							
 										<li class="medium_title">
 											<label class="title_name">위도</label>
-											<input type="text" class="form-control" id="input" value="${shopDto.shop_lat}">
+											<input type="text" class="form-control" id="input_lat" value="${shopDto.shop_lat}">
 										</li>	
 																																
 										<li class="medium_title">
 											<label class="title_name">경도</label>
-											<input type="text" class="form-control" id="input" value="${shopDto.shop_lng}">
+											<input type="text" class="form-control" id="input_lng" value="${shopDto.shop_lng}">
 										</li>
 									
 									</ul>								
@@ -97,7 +106,7 @@
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">상세주소</span>
-													<input type="text" class="form-control" id="inputDetailAddr" value="${shopDto.shop_addr_detail}">
+													<input type="text" class="form-control" id="inputAddr_detail" value="${shopDto.shop_addr_detail}">
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">전화번호</span>
@@ -116,7 +125,7 @@
 											<!-- 환불, 교환, 반품-->
 										    <div class="form-group btn-margin" align="center">
 											      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left" id="btn-margin">
-												        <button type="button" class="btn btn-default" id="">수정</button>
+												        <button type="button" class="btn btn-default" id="" onsub>수정</button>
 												        <button type="button" class="btn btn-default" id="">취소</button>
 												        <button type="button" class="btn btn-default" id="">삭제</button>
 											      </div>

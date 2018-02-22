@@ -13,4 +13,5 @@
 			insert into shop values(shop_num_seq.nextval, #{shop_lat}, #{shop_lng}, #{shop_name}, #{shop_post_num}, #{shop_addr}, #{shop_addr_detail}, #{shop_callnum}, #{shop_time}, #{shop_comming})
 		]]>
 	</insert>
+	
 </mapper>

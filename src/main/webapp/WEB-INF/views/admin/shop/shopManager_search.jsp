@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="${root }/css/admin/commons/main.css">
 <link rel="stylesheet" type="text/css" href="${root }/css/admin/shop/shopManager_search.css">
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
 </head>   
 <script type="text/javascript"> 
 	
@@ -27,13 +28,13 @@
 	
 	$(function(){
 		$(".nav-item:eq(5)").addClass("active");
-		
-		/* $(".selected").click(function(){
-			alert($("select[name=shop]").val());
-			
-		
-		}); */
 	});
+	
+	/*18/02/22-추가해야할 내용 데이터베이스의 영업점 개수만큼 option 생성하기  */
+	var index="디비연동인데"
+	
+	var option_tag="<option value="index">"index"</option>";
+	
 	
 	
 </script>
@@ -61,9 +62,9 @@
 											    <div class="form-group" align="center">											      
 											      <div class="col-lg-10">											      								
 												      <select class="form-control input_width" id="select" name="shop">
-											           <option value="yeoksam">역삼</option>
-											           <option value="jamsil">잠실</option>
-											           <option value="bon">본점</option>											          									         
+											           <option value="역삼점">역삼</option>
+											           <option value="잠실점">잠실</option>
+											           <option value="본점">본점</option>											          									         
 											        </select>			      							 											        											       
 											      </div>
 											    </div>
