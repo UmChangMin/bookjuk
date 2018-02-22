@@ -71,12 +71,15 @@
 							</div>
 							
 							<div class="memberUpdate_com">
-								<div>상세주소</div>
+								<div>주소</div>
 								<div>
-									<input type="text">
+									<input type="text">	
+								</div>
+								<div>
+								<input type="text" placeholder="상세주소를 입력하세요">
 								</div>
 							</div>
-							
+
 							<div class="memberUpdate_com">
 								<div>휴대폰번호</div>
 								<div>

@@ -57,6 +57,10 @@
 	overflow: hidden;
 }
 
+.memberUpdate_com div:nth-child(3){
+	padding: 10px 15px;
+}
+
 .memberUpdate_id div:FIRST-CHILD,
 .memberUpdate_com div:FIRST-CHILD,
 .memberUpdate_zips div:first-child,
@@ -147,6 +151,3 @@
     box-shadow: 0 2px #e5e6e7;
     cursor: pointer;
 }
-
-
-

@@ -222,8 +222,8 @@ img, input, button, select, textarea {
     font-size: 17px;
     color: #738082;
     background: #fff;
-   
     border-right: 1px solid #e5e6e7;
+    border-bottom: 1px solid #e5e6e7;
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -o-transition: all .3s ease;
@@ -232,13 +232,9 @@ img, input, button, select, textarea {
 }
 
 .header_gnb_list > li:first-child > a {
-	border-radius: 3px 0 0 3px;
-	border-left: none;
-	
-	
-}
-.header_gnb_list > li:last-child > a{
-	border-right-width: 0px;
+    border-radius: 3px 0 0 3px;
+    border-left: 1px solid #e5e6e7;
+    border-bottom: 0;
 }
 
 .header_gnb_list > li a:hover{
@@ -266,6 +262,8 @@ img, input, button, select, textarea {
     -o-transition: all .3s ease .15s;
     -ms-transition: all .3s ease .15s;
     transition: all .3s ease .15s;
+    border-top: 0px;
+    margin-top: -1px;
 }
 
 .header_gnb_list > li:hover > div {
@@ -277,8 +275,9 @@ img, input, button, select, textarea {
 /* Menu Content Styles */
 .header_gnb_list .header_nav_column {
 	float: left;
-	width: 20%;
-	padding: 2.5%;
+    width: 20%;
+    padding: 3.5%;
+    margin-left: 41px;
 }
 
 .header_gnb_list .header_nav_column h3 {
