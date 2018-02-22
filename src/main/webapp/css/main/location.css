@@ -1,17 +1,17 @@
 @charset "UTF-8";
 
-.Shop{
+.location{
 
 	margin-top: -10px;
 }
 
-.Shop_top{
+.location_top{
 	width: 100%;
  	margin: 0 auto;
 	padding-bottom: 80px;
 }
 
-.Shop_inner{
+.location_inner{
 	width: 1000px;
 	margin: 0 auto;
 	font-size: 13px;
@@ -19,14 +19,14 @@
 
 
 
-.Shop_titleinner{
+.location_titleinner{
 	font-size: 2.5em;
     color: #ffa7a7;
     font-weight: bold;
     padding: 25px 0 27px 23px;
 }
 
-.Shop_subtitle_ul{
+/* .Shop_subtitle_ul{
     margin: 0;
     padding: 0;
     float: left;
@@ -34,9 +34,9 @@
     height: 32px;
     border-bottom: 1px solid #e5e6e7;
     width: 100%;
-}
+} */
 
-.Shop_subtitle_ul li{
+/* .Shop_subtitle_ul li{
     float: left;
     text-align: center;
     cursor: pointer;
@@ -50,18 +50,18 @@
     position: relative;
     font-weight: bold;
     border-left: 1px solid #fbf9ee;
-}
+} */
 
-.Shop_subtitle_ul li a{
+/* .Shop_subtitle_ul li a{
 	color: #fff;	
 }
 
 .Shop_subtitle_ul, .Shop_subtitle_li{
 	background: #FFFFFF;
     border-bottom: 1px solid #FFFFFF;
-}
+} */
 
-.Shop_Maps_box{
+.location_Maps_box{
     border: 0px solid red;
     width: 1000px;
     height: 622px;
@@ -69,7 +69,7 @@
     clear: both;
 }
 
-.Shop_Maps{
+.location_Maps{
 	border: 1px solid #ddd;
 	width: 450px;
 	height: 350px;
@@ -77,7 +77,7 @@
 	    margin-top: -32px;
 }
 
-.Shop_Maps_text {
+.location_Maps_text {
     border: 1px solid #ddd;
     width: 462px;
     height: 350px;
@@ -87,13 +87,13 @@
     margin-left: 524px;
 }
 
-.Shop_Maps_text p{
+.location_Maps_text p{
 	text-align: justify;
     font-size: 15px;
     margin-left: 20px;
 }
 
-.Shop_Maps_directions{
+.location_Maps_directions{
     border: 1px solid #d5d5d5;
     height: 222px;
     margin-top: 41px;
@@ -101,17 +101,17 @@
     width: 1003px;
 }
 
-.Shop_Maps_directions p:nth-child(1){
+.location_Maps_directions p:nth-child(1){
 	text-align: center;
 	margin-top: 10px;	
 }
 
-.Shop_Maps_directions_p{
+.location_Maps_directions_p{
 	text-align: justify;
 	margin-left: 299px;
 }
 
-.Shop_Maps_text_h3{
+.location_Maps_text_h3{
     margin-top: 55px;
     margin-left: 20px;
     margin-bottom: 31px;
@@ -119,7 +119,7 @@
     font-size: 20px;
 }
 
-.Shop_Maps_directions_h3{
+.location_Maps_directions_h3{
     margin-top: 23px;
     margin-left: 299px;
     color: #ffa7a7;
@@ -128,7 +128,7 @@
 
 
 
-#map1 {
+#map {
 	width: 480px;
 	height: 350px;
 }

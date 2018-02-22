@@ -25,16 +25,16 @@ public class UserController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "shop.do")
-	public ModelAndView shop(HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value = "location.do")
+	public ModelAndView location(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
-		mainService.shop(mav);
+		mainService.location(mav);
 		
 		return mav;
 	}
 	
-	/* ÀÌº¥Æ® ¹Ì±¸Çö
+	/* ï¿½Ìºï¿½Æ® ï¿½Ì±ï¿½ï¿½ï¿½
 	@RequestMapping(value = "event.do")
 	public ModelAndView event(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();

@@ -25,14 +25,14 @@ public class UserServiceImp implements UserService {
 	}
 
 	@Override
-	public void shop(ModelAndView mav) {
+	public void location(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
-		mav.setViewName("main/shop.search");
+		mav.setViewName("main/location.search");
 	}
 
-	/* ÀÌº¥Æ® ¹Ì±¸Çö
+	/* ï¿½Ìºï¿½Æ® ï¿½Ì±ï¿½ï¿½ï¿½
 	@Override
 	public void event(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
