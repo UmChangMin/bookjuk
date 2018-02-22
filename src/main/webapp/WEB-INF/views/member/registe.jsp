@@ -15,8 +15,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
 	<div id="registe_all">
 		<!-- container -->
 		<div id="registe_container">

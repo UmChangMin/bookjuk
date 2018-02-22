@@ -15,7 +15,6 @@
 <script type="text/javascript" src="${root}/jqueryUI/jquery-ui.js"></script>
 <script type="text/javascript" src="${root}/js/main/shop.js"></script>
 <title>영업점 안내</title>
-
 </head>
 <body>
 <div class="Shop">
@@ -88,7 +87,6 @@
 			<!-- 	지도,영업점 정보 끝 -->
 		</div>
 
-
 		<div id="tabs-2">
 	<!-- 	지도,영업점 정보 시작 -->
 			<div class="Shop_Maps_box">
@@ -139,7 +137,6 @@
 			<!-- 	지도,영업점 정보 끝 -->		
 		</div>
 		
-		
 		<div id="tabs-3">
 			<div class="Shop_Maps_box">
 				<div class="Shop_Maps">
@@ -189,8 +186,6 @@
 			<!-- 	지도,영업점 정보 끝 -->
 		</div>
 		
-		
-		
 		<div id="tabs-4">
 			<div class="Shop_Maps_box">
 				<div class="Shop_Maps">
@@ -238,7 +233,6 @@
 			</div>
 			<!-- 	지도,영업점 정보 끝 -->
 		</div>
-		
 		
 		<div id="tabs-5">
 			<div class="Shop_Maps_box">

@@ -15,7 +15,7 @@
 	<div class="header" align="center">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			  <a class="navbar-brand" href="#">
-			  	<img src="${root }/img/logo/bookjuk_headlogo.png">
+			  	<img src="${root}/img/logo/bookjuk_headlogo.png">
 			  </a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation" style="">
 			    <span class="navbar-toggler-icon"></span>

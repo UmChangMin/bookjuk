@@ -14,22 +14,15 @@
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
-	<annotation-driven />
+	<annotation-driven/>
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/resources/**" location="/resources/"/>
 	<resources location="/css/" mapping="/css/**"/>
 	<resources location="/img/" mapping="/img/**"/>
 	<resources location="/js/" mapping="/js/**"/>
 	<resources location="/jqueryUI/" mapping="/jqueryUI/**"/>
 
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
-	<!-- <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/" />
-		<beans:property name="suffix" value=".jsp" />
-	</beans:bean> -->
-	 
-	
 	<!-- Tiles 생성 180219 허단비  -->
 	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
 		<beans:property name="definitions">
@@ -44,9 +37,8 @@
 	</beans:bean>
 	
 	<!-- Controller / Component / Autowired -->
-	<context:component-scan base-package="com.bookjuk.bookjuk.homePage" />
 	<context:component-scan base-package="com.bookjuk.aop"/>
-	<context:component-scan base-package="com.bookjuk.bookjuk" />
+	<context:component-scan base-package="com.bookjuk.bookjuk"/>
 	
 	<!-- 180219 admin package통합 -김태우 AM 09:21-->
 	<context:component-scan base-package="com.bookjuk.admin.*"/>
@@ -54,10 +46,9 @@
 	<!-- 180220 package 생성  -엄창민 -->
 	<context:component-scan base-package="com.bookjuk.order.*"/>
 	<context:component-scan base-package="com.bookjuk.book.*"/>
-	<context:component-scan base-package="com.bookjuk.customer.*"/>
+	<context:component-scan base-package="com.bookjuk.service.*"/>
 	<context:component-scan base-package="com.bookjuk.member.*"/>
 	<context:component-scan base-package="com.bookjuk.user.*"/>
-	
 	
 	<!-- 파일업로드 -->
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -65,13 +56,10 @@
 		<beans:property name="maxUploadSize" value="1024000"/>
 	</beans:bean>	
 	
-	
 	<!-- AOP -->
 	<aop:aspectj-autoproxy/>
 	
 	<!-- transaction -->
  	<tx:annotation-driven transaction-manager="transactionManager"/>
-	
-	
 	
 </beans:beans>

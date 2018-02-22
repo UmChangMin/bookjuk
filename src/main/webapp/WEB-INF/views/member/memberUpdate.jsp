@@ -83,17 +83,14 @@
 									<input type="text" placeholder=" - 빼고 입력하세요.">
 								</div>
 							</div>
-							
 						</div>
 					</div>
-					
-					</div>
-					<!-- 선택사항 끝 -->
-					<div class="memberDelete_btn" align="center">
-						<input type="submit" value="회원수정">
-						<input type="reset" value="취소">
-					</div>
-				
+				</div>
+				<!-- 선택사항 끝 -->
+				<div class="memberDelete_btn" align="center">
+					<input type="submit" value="회원수정">
+					<input type="reset" value="취소">
+				</div>
 			</div>
 		</div>
 	</div>

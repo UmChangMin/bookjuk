@@ -6,22 +6,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <c:set var="root" value="${pageContext.request.contextPath}" />
-
 <!-- header뷰: 강민아 ,실시간 급상승 :허단비,  플로팅 메뉴 : 엄창민 /수정: 허단비  -->
 <title>북적북적</title>
-
-<link rel="stylesheet" type="text/css" href="${root }/css/template/basic.css" />
+<link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/template/header.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/template/real_time.css" />
-<link rel="stylesheet" type="text/css" href="${root}/css/main/bjbj_main.css" />
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/main/main_header.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"
-	type="text/javascript"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
-
 	<div id="header">
 		<div class="header_top">
 			<div class="header_top_inner">
@@ -33,7 +27,7 @@
 					<li><a class="" href="${root}/order/cart.do">장바구니</a></li>
 					<li><a class="openMask3" href="${root}/order/order_list.do"
 						onclick="orderdelivery('${root}')">주문/배송조회</a></li>
-					<li><a class="" href="${root}/customer/customer.do">고객센터</a></li>
+					<li><a class="" href="${root}/service/question.do">고객센터</a></li>
 					<li><a class="" href="${root}/shop.do">영업점 안내</a></li>
 				</ul>
 			</div>
@@ -42,7 +36,7 @@
 		<div class="header_mid_content">
 			<div class="header_mid_logo">
 				<a href="${root}/index.jsp"><img
-					src="${root}/img/main_header/bookjuk_headlogo.png" /></a>
+					src="${root}/img/template/header/bookjuk_headlogo.png" /></a>
 			</div>
 			<div class="header_mid_search">
 				<div class="header_mid_search_inner">
@@ -73,11 +67,11 @@
 					</dl>
 				</div>
 				<!-- 실시간 끝 -->
-		
 			</div>
 		</div>
 	</div>
-<!-- 플로팅 메뉴 -->
+	
+	<!-- 플로팅 메뉴 -->
 	<div id="floatMenu" align="center">
 		<div class="today_view" align="center">
 			<div class="today_title"><h3 align="center">최근 본 목록</h3></div>
@@ -92,9 +86,6 @@
 			<a href="#" class="top_btn">TOP</a>
 		</div>
 	</div>	
-
-
-
 
 </body>
 </html>

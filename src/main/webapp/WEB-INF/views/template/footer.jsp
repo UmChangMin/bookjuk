@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <c:set var="root" value="${pageContext.request.contextPath }"/>
-<link rel="stylesheet" type="text/css" href="${root }/css/template/footer.css"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/template/footer.css"/>
 </head>
 <body>
 <!-- footer 시작 -->
@@ -15,7 +15,7 @@
 		<div class="foot_inner">
 			<div class="foot_left">
 				<h3>북적북적 네트웍스</h3>
-				<a href="${root}"><img src="${root}/img/main_header/bookjuk_footer.png"></a>
+				<a href="${root}"><img src="${root}/img/template/header/bookjuk_footer.png"></a>
 			</div>
 			<div class="foot_right">
 				<ul class="f_lnb large">
