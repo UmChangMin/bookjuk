@@ -8,10 +8,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>도서 상세보기</title>
 <c:set var="root" value="${pageContext.request.contextPath }" />
-<link rel="stylesheet" type="text/css" href="${root}/css/bookDetail/book_detail.css" />
+<link rel="stylesheet" type="text/css" href="${root}/css/book/book_detail/book_detail.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css" />
-<script type="text/javascript" src="${root }/js/jquery.js"></script>
-<script type="text/javascript" src="${root }/js/book/bookDetail.js"></script>
+<script type="text/javascript" src="${root}/js/jquery.js"></script>
+<script type="text/javascript" src="${root}/js/book/book_detail.js"></script>
 <script type="text/javascript">
 	$(function(){
 		// 컴퓨터/IT & 소설 & 취미/여행 각각의 도서목록 리스트에서 도서 클릭시 HOME > 뒤에 내용이 바뀌어야함
@@ -115,7 +115,7 @@
 
 						<!-- 에디터의 한마디 시작 -->
 						<div class="bookDetail_MD">
-							<span><img src="${root}/img/bookDetail/good.png" width="25" height="25"/>&nbsp;에디터의 한마디</span>
+							<span><img src="${root}/img/book/book_detail/good.png" width="25" height="25"/>&nbsp;에디터의 한마디</span>
 							<div>컴퓨터 과학의 개념을 이해하고 코딩할 수 있다!컴퓨터 과학의 개념을 이해하고 코딩할 수 있다! 컴퓨터 과학의 개념을 이해하고 코딩할 수 있다! 컴퓨터 과학의 개념을 이해하고 코딩할 수 있다!  </div>
 						</div>
 									
@@ -246,7 +246,5 @@
 		</div>
 	</form>
 	<!-- 도서 상세보기 끝 -->
-	
-	
 </body>
 </html>

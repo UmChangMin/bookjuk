@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+
+.service_content{
+	border: 1px solid #e5e6e7;
+	background: white;
+	margin-top: 10px;
+	padding: 40px 40px 40px 40px;
+	overflow: hidden;
+	width: 92%;
+}
+
+.service_inner{
+	width: 100%;
+}
+
+.service_contact_list{
+	border-bottom: 2px solid #ededed;
+}    
+
+.service_contact_title{
+	border: 2px solid #d4d5d7;
+}
+
+.service_contact_title_inner{
+	background: #f5f7f6;
+	padding: 6px 0;
+	overflow:hidden;
+}
+
+.service_contact_title_inner p{
+	float: left;
+    margin-left: 25px;
+    line-height: 28px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #46474b;
+}
+
+.service_contact_title_inner a{
+	float: right;
+    margin-right: 15px;
+    display: block;
+    padding: 0 15px;
+    line-height: 28px;
+    border: 1px solid #c4c4c4;
+    border-radius: 4px;
+    text-align: center;
+    background:#F6F6F6;
+}
+
+.service_contact_list_content{
+	border: 2px solid #d4d5d7;
+	border-right-width:0px;
+	border-left-width:0px;
+	height: 30px;
+	line-height: 30px;
+	
+}
+
+.service_contact_list_content div{
+	float:left;
+	background: linear-gradient(to bottom, #f5f7f6 0%,#f0f0f0 100%);
+}
+
+.service_contact_list_content div:nth-child(1),
+.service_contact_list_content_list div:nth-child(1){
+	width:100px;
+}
+
+.service_contact_list_content div:nth-child(2),
+.service_contact_list_content_list div:nth-child(2){
+	width:578px;
+}
+
+.service_contact_list_content div:nth-child(3),
+.service_contact_list_content div:nth-child(4),
+.service_contact_list_content_list div:nth-child(3),
+.service_contact_list_content_list div:nth-child(4){
+	width:121px;
+}
+
+.service_contact_list_content_list div:nth-child(4){
+	color: rgb(241, 95, 95);
+}
+
+.service_contact_list_content_list{
+	border-bottom: 1px solid #d4d5d6;
+    line-height: 44px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #46474b;
+    overflow: hidden;
+}
+
+.service_contact_list_content_list div{
+	float:left;
+	
+}
+
+.service_contact_list_pagenate{
+	height: 45px;
+    overflow: hidden;
+    width: auto;
+    margin-top: 42px;
+    text-align: center;
+}
+
+.service_contact_list_btn{
+	display: inline-block;
+    vertical-align: middle;
+    width: 43px;
+    height: 43px;
+    line-height: 43px;
+    margin-left: -1px;
+    border: 1px solid #d7d7d8;
+    background: #F6F6F6;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+
+

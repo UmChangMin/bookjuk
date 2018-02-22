@@ -8,10 +8,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>도서 베스트셀러</title>
 <c:set var="root" value="${pageContext.request.contextPath }" />
-<link rel="stylesheet" type="text/css" href="${root}/css/bookList/book_best.css" />
+<link rel="stylesheet" type="text/css" href="${root}/css/book/book_list/book_best.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css" />
-<script type="text/javascript" src="${root }/js/jquery.js"></script>
-<script type="text/javascript" src="${root }/js/book/bookList.js"></script>
+<script type="text/javascript" src="${root}/js/jquery.js"></script>
+<script type="text/javascript" src="${root}/js/book/book_list.js"></script>
 </head>
 <body>
 <!-- 도서 목록 리스트 시작 강민아 -->
@@ -35,8 +35,8 @@
 						<div class="bookDetail_mid_images">
 							<div class="bookDetail_mid_image">
 								<ul>
-									<li class="bookDetail_mid_list_show"><a class="bookList_on"><img src="${root}/img/bookList/list_var_pink.png"></a></li>
-									<li class="bookDetail_mid_image_show"><a class=""><img src="${root}/img/bookList/grid_pink.png"></a></li>
+									<li class="bookDetail_mid_list_show"><a class="bookList_on"><img src="${root}/img/book/book_list/list_var_pink.png"></a></li>
+									<li class="bookDetail_mid_image_show"><a class=""><img src="${root}/img/book/book_list/grid_pink.png"></a></li>
 								</ul>
 							</div>
 						</div>

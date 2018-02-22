@@ -1,14 +1,18 @@
 @charset "UTF-8";
 
+a:link, a:visited{
+	text-decoration: none;
+}
+
 .main{
 	width: 100%;
-	
 }
 
 .main_inner{
-	width: 1000px; 
-	margin: 0 auto;
-	font-size: 13px;
+	margin: 0px auto;
+	width: 1000px;
+	padding: 0px;
+	margin-bottom: 50px;
 }
 
 /* 베스트,화제,신간,화재 */
@@ -57,6 +61,214 @@
     border-radius: 6px;
 }
 
+/* 메인 배너 */
+
+/* banner */
+.main_slide_board{
+    margin-right: 139px;
+    margin-bottom: 28px;
+    margin-top: 40px;
+}
+.main_slide_banner {
+    position: relative;
+    width: 1000px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px -3px rgba(0,0,0,0.4);	
+}
+
+.main_slide_banner ul {
+	position: absolute;
+	margin: 0px;
+	padding: 0;
+	list-style: none;
+}
+
+.main_slide_banner ul li {
+	float: left;
+	width: 1000px;
+	height: 300px;
+	margin: 0;
+	padding: 0;
+}
+.main_slide_banner img{
+	width: 1000px;
+}
+
+/* 분야별 베스트 */
+.best_wrap{
+	margin: 20px 0;
+}
+
+.content_box{
+	padding: 43px 47px 40px 47px;
+	margin-top: 5px;
+	margin-bottom: 28px;
+	width: 804px;
+	border: 1px solid #d5d5d5;
+	border-bottom: 1px solid #e5e6e7;
+}
+
+.content_wrap{
+	position: relative;
+}
+
+.content_wrap_title{
+	width: 886px;
+	height: 24px;
+	display: block;
+}
+
+.c_author{
+	font-size: 11px;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.content_wrap h3 span{
+	display: inline-block;
+	margin-right: 7px;
+	color: #f26532;
+}
+
+.content_wrap h3{
+	font-weight: 600;
+	font-size: 19px;
+	margin-left: 14px;
+	padding-bottom: 3px;
+}
+
+.best_category{
+	margin-top: 15px;
+	padding-bottom: 12px;
+}
+
+.best_category h1{
+	float: left;
+    padding-bottom: 3px;
+    margin: 0;
+    color: #FFA7A7;
+    font-size: 2.5em;
+}
+
+.best_category:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.best_wrap h3{
+	float: left;
+	margin-left: 14px;
+	padding-bottom: 3px;
+}
+
+.best_cate{
+	float: left;
+	padding-left: 30px;
+	padding-top: 15px;
+}
+
+.best_cate li:first-child{
+	background: none;
+	padding-left: 0px;
+}
+
+.best_cate li{
+	float: left;
+	padding: 0 11px;
+	line-height: 22px;
+	cursor: pointer;
+}
+
+.best_cate:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.best_box{
+	padding:0;
+	margin:0;
+	width:1000px;
+	height:290px;
+	border-bottom: 1px solid #e5e6e7;
+}
+
+.best_view{
+	border-top: 1px solid #e5e6e7;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.best_view:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.best_list{
+	padding-top: 22px;
+	padding-left: 5px;
+}
+
+.best_list:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.best_list li:first-child{
+	padding-left: 0px;
+}
+
+.best_list li{
+	float: left;
+	margin-left: 0;
+	padding-left: 20px;
+	margin-bottom: 15px;
+	width: 180px;
+	height: 200px;
+}
+
+.best_list li:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.rank{
+	float: left;
+	margin-top: 5px;
+	color: #FFA7A7;
+	font-weight: bold;
+	font-size: 2em;
+}
+
+.thumBox{
+	float: left;
+	margin-left: 15px;
+	width: 149px;
+}
+
+.thumBox img{
+	width: 150px;
+    height: 200px;
+    border: 1px solid #e5e6e7;
+    box-shadow: 0px 0px 9px 1px rgba(0,0,0,0.4);
+}
+
+.best_title{
+	margin: 15px 20px 20px 20px;
+	font-weight: bold;
+	text-align: center;
+	width: 120px;
+}
 
 /*md추천  */
  .main_md{

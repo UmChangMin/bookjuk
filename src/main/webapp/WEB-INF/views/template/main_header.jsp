@@ -1,26 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <c:set var="root" value="${pageContext.request.contextPath}" />
-
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="${root }/css/template/basic.css" />
-<link rel="stylesheet" type="text/css" href="${root}/css/template/header.css" />
-<link rel="stylesheet" type="text/css" href="${root}/css/template/real_time.css" />
-<link rel="stylesheet" type="text/css" href="${root}/css/main/bjbj_main.css" />
+<link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/template/header.css"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/template/real_time.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/main/main_header.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
-
 <!-- header뷰: 강민아 ,실시간 급상승,전체카테고리 :허단비 /수정: 허단비  -->
 </head>
 <body>
-
 	<div id="header">
 		<div class="header_top">
 			<div class="header_top_inner">
@@ -32,7 +27,7 @@
 					<li><a class="" href="${root}/order/cart.do">장바구니</a></li>
 					<li><a class="openMask3" href="${root}/order/order_list.do"
 						onclick="orderdelivery('${root}')">주문/배송조회</a></li>
-					<li><a class="" href="${root}/customer/customer.do">고객센터</a></li>
+					<li><a class="" href="${root}/service/question.do">고객센터</a></li>
 					<li><a class="" href="${root}/shop.do">영업점 안내</a></li>
 				</ul>
 			</div>
@@ -41,7 +36,7 @@
 		<div class="header_mid_content">
 			<div class="header_mid_logo">
 				<a href="${root}/index.jsp"><img
-					src="${root}/img/main_header/bookjuk_headlogo.png" /></a>
+					src="${root}/img/template/header/bookjuk_headlogo.png" /></a>
 			</div>
 			<div class="header_mid_search">
 				<div class="header_mid_search_inner">
@@ -71,11 +66,8 @@
 					</dl>
 				</div>
 				<!-- 실시간 끝 -->
-
 			</div>
 		</div>
-
-
 
 		<div class="header_mainGnb_wrap">
 			<div class="header_mainGnb_inner">
@@ -125,14 +117,13 @@
 						<li><a href="${root}/book/book_list/issue.do">화제의도서</a></li>
 						<li><a href="${root}/book/book_list/new.do">신간도서</a></li>
 						<li><a href="${root}/book/book_list/discount.do">할인도서</a></li>
-
 					</ul>
-
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- header끝 -->
+	
 	<!-- 플로팅 메뉴 -->
 	<div id="floatMenu" align="center">
 		<div class="today_view" align="center">
@@ -159,7 +150,5 @@
 				href="#" class="top_btn">TOP</a>
 		</div>
 	</div>
-
-
 </body>
 </html>

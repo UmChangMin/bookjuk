@@ -9,8 +9,6 @@
 <link type="text/css" rel="stylesheet" href="${root}/css/member/login.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/member/registe.js"></script>
-
-
 <!-- 로그인 뷰: 엄창민  수정:허단비 -->
 <title>Insert title here</title>
 </head>

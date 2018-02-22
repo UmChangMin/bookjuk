@@ -13,7 +13,6 @@
 <body>
 <div id="rule_table">
 	<h2>(주)북적북적 이용약관</h2>
-
 	<dl>
 		<dt>[제 1장 총칙]</dt>
 		<dd>

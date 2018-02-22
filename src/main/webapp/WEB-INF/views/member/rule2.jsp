@@ -9,7 +9,6 @@
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet"href="${root}/css/template/basic.css" />
 <link type="text/css" rel="stylesheet" href="${root}/css/member/rule2.css"/>
-
 </head>
 <body>
 	<div id="rule_table2">
