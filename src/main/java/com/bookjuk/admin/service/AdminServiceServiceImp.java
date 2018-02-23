@@ -1,5 +1,7 @@
 package com.bookjuk.admin.service;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +11,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bookjuk.admin.dao.AdminServiceDao;
+import com.bookjuk.admin.dto.AdminServiceDto;
+import com.bookjuk.aop.LogAspect;
 
 @Component
 public class AdminServiceServiceImp implements AdminServiceService {
@@ -65,11 +69,39 @@ public class AdminServiceServiceImp implements AdminServiceService {
 	
 	
 	/** 공지사항 시작*/
+		
+	//공지사항 리스트
 	@Override
 	public void noticeMove(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null)pageNumber="1";
 		
+		int current=Integer.parseInt(pageNumber);
+		int boardSize=3;
+		int start=(current-1)*boardSize+1;
+		int end=current*boardSize;
+		
+		HashMap<String, Integer> hmap=new HashMap<String, Integer>();
+		
+		hmap.put("start", start);
+		hmap.put("end", end);
+		
+		int count=serviceDao.getCount();
+		
+		List<AdminServiceDto> boardList=null;
+		
+		if(count>0) {
+			boardList=serviceDao.getList(hmap);
+		}
+		LogAspect.logger.info(LogAspect.logMsg+"출력 뿅" +count +", " +boardList.size());
+		
+		
+		mav.addObject("count", count);
+		mav.addObject("boardList", boardList);
+		mav.addObject("boardSize", boardSize);
+		mav.addObject("pageNumber", current);
 		mav.setViewName("admin/service/notice/noticeManager.admin");
 		
 	}
@@ -86,11 +118,11 @@ public class AdminServiceServiceImp implements AdminServiceService {
 	@Override
 	public void noticeWriteMove(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
-		HttpServletRequest request=(HttpServletRequest)map.get("request");
-		
-		mav.setViewName("admin/service/notice/noticeManager_write.admin");
-		
+		HttpServletRequest request=(HttpServletRequest)map.get("request");		
+		mav.setViewName("admin/service/notice/noticeManager_write.admin");		
 	}
+	
+	
 	
 	@Override
 	public void noticeUpdateMove(ModelAndView mav) {

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bookjuk.admin.dao.mapper.AdminServiceMapper">
+	
+	<select id="getCount" resultType="int">
+		select count(*) from service_notice
+	</select>
+	
+	<select id="getList" parameterType="java.util.HashMap" resultType="com.bookjuk.admin.dto.AdminServiceDto">
+		<![CDATA[
+			SELECT * FROM (SELECT ROWNUM rnum, A.* FROM 
+			(SELECT * FROM service_notice ORDER BY notice_group_num DESC, notice_sequence_num ASC) A)b 
+			where b.rnum >= #{start} and b.rnum <= #{end}
+		]]>
+	</select>
+	
+</mapper>

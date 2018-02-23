@@ -73,7 +73,7 @@ label{
 .content_wrap_body_left{
 	margin-left:50px;
 	border: 1px solid #CCCCCC;
-	width: 900px;
+	width: 901px;
 	height:auto;
 }
 
@@ -207,7 +207,6 @@ label{
 
 .c_orderlist_inputform_value div>input{
 	width:404px;
-	margin-left: -16px;
 }
 
 /**/
@@ -243,11 +242,12 @@ label{
 
 .form-left{
 	float:left;
+	margin-left: 42px;
 }
 
 .left_title{
 	width: 270px;
-	margin-left: 42px;
+	
 	
 }
 

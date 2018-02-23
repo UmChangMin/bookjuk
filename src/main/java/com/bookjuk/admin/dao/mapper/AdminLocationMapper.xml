@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.bookjuk.admin.dao.mapper.AdminlocationMapper">
+<mapper namespace="com.bookjuk.admin.dao.mapper.AdminLocationMapper">
 
 	<select id="locationSelect" parameterType="String" resultType="com.bookjuk.admin.dto.AdminLocationDto" >
 			select * from location where location_name=#{location_name}

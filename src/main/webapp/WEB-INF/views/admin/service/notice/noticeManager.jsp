@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -97,9 +98,40 @@
 									<!-- 버튼시작 -->
 								    <div>
 								        <button type="button" class="btn btn-default input_float_right" id="" onclick="location.href='noticeManager_write.do'">글쓰기</button>										        
-							        </div>
-								
+							        </div>									
 									<!-- 버튼끝 -->	
+									
+									<!-- 페이징 처리 -->
+									<!-- 페이지 번호 -->
+									<div align="center">
+										<c:if test="${count>0 }">			
+											<fmt:parseNumber var="pageCount" value="${count/boardSize+(count%boardSize==0? 0:1)}" integerOnly="true"/>
+											<c:set var="pageBlock" value="${3}"/>
+										
+											<fmt:parseNumber var="rs" value="${(pageNumber-1)/pageBlock}" integerOnly="true"/>
+											<c:set var="startPage" value="${rs*pageBlock+1}"/>
+											
+											<c:set var="endPage" value="${startPage+pageBlock-1 }"/>
+											
+											<c:if test="${endPage>pageCount }">
+												<c:set var="endPage" value="${pageCount}"/>
+											</c:if>
+											
+											<c:if test="${startPage>pageBlock }">
+												<a href="${root}/borad/list.do?pageNumber=${startPage-pageBlock}">[이전]</a>
+											</c:if>
+											
+											<c:forEach var="i" begin="${startPage}" end="${endPage}">
+												<a href="${root}/borad/list.do?pageNumber=${i}">[${i}]</a>
+											</c:forEach>
+											
+											<c:if test="${endPage<pageCount }">
+												<a href="${root}/borad/list.do?pageNumber=${startPage+pageBlock}">[다음]</a>
+											</c:if>
+										</c:if>
+									</div>
+									<!-- 페이징 처리 끝 -->
+									
 									
 								</div>
 							</div>

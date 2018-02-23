@@ -42,11 +42,9 @@
 		 document.getElementById("input_lat").value=lat;
 		 document.getElementById("input_lng").value=lng;			 
 		 
-		//alert(arr.join("\n"));
-		 input_value();	
+		//alert(arr.join("\n"));		 
 	}
-	function input_value(){
-	}
+
 	/**지도파싱 끝*/
 	
 	
