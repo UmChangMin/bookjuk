@@ -60,6 +60,38 @@ $(function (){
 });
 
 
+//베스트셀러,화제의 도서,신간도서,할인도서
+
+$(function (){
+   
+   $(".main_banner_button > input:eq(0)").hover(function() {
+		$(".main_banner_list_div > div:not(:eq(0))").hide();
+		$(".main_banner_list_div > div").eq(0).show();
+	});
+   
+   $(".main_banner_button > input:eq(1)").hover(function() {
+		$(".main_banner_list_div > div:not(:eq(1))").hide();
+		$(".main_banner_list_div > div").eq(1).show();
+	});  
+   
+   $(".main_banner_button > input:eq(2)").hover(function() {
+		$(".main_banner_list_div > div:not(:eq(2))").hide();
+		$(".main_banner_list_div > div").eq(2).show();
+	});  
+   
+   $(".main_banner_button > input:eq(3)").hover(function() {
+		$(".main_banner_list_div > div:not(:eq(3))").hide();
+		$(".main_banner_list_div > div").eq(3).show();
+	}); 
+   
+
+   
+});
+
+
+
+
+
 
 
 

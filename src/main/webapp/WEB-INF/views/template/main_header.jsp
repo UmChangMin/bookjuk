@@ -10,7 +10,9 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/template/header.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/template/real_time.css"/>
+<link rel="stylesheet" type="text/css" href="${root}/jqueryUI/jquery-ui2.css">
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
+<script type="text/javascript" src="${root}/jqueryUI/jquery-ui2.js"></script>
 <script type="text/javascript" src="${root}/js/main/main_header.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
 <!-- header뷰: 강민아 ,실시간 급상승,전체카테고리 :허단비 /수정: 허단비  -->

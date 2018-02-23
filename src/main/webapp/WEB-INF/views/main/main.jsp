@@ -33,28 +33,78 @@
 
 			<div class="main_banner">
 				<div class="main_banner_button">
-					<input type="button" value="베스트셀러" /> <br /> <input type="button"
-						value="화제의도서" /> <br /> <input type="button" value="신간도서" /> <br />
+					<input type="button" value="베스트셀러" /> <br />
+					<input type="button" value="화제의도서" /> <br /> 
+					<input type="button" value="신간도서" /> <br />
 					<input type="button" value="할인도서" />
 				</div>
-				<!-- 베스트셀러  -->
+				
+				
 				<div class="main_banner_list_div">
+				
+				<!-- 베스트셀러  -->
+				<div class="main_banner_list_view" style="display: block;">
 					<ul class="main_banner_list">
-						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진"
-								src="http://image.ypbooks.co.kr/upload/img/book/410/100830410.jpg"></a></li>
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/410/100830410.jpg"></a></li>
 
-						<li><a href="#"><img alt="책사진"
-								src="http://image.yes24.com/momo/TopCate1638/MidCate004/163736954.jpg"></a></li>
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.yes24.com/momo/TopCate1638/MidCate004/163736954.jpg"></a></li>
 
-						<li><a href="#"><img alt="책사진"
-								src="http://image.ypbooks.co.kr/upload/img/book/430/100726430.jpg"></a></li>
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/430/100726430.jpg"></a></li>
 
-						<li><a href="#"><img alt="책사진"
-								src="http://image.ypbooks.co.kr/upload/img/book/623/100710623.jpg"></a></li>
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/623/100710623.jpg"></a></li>
 
-						<li><a href="#"><img alt="책사진"
-								src="http://image.ypbooks.co.kr/upload/img/book/780/100735780.jpg"></a></li>
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/780/100735780.jpg"></a></li>
 					</ul>
+					</div>
+					
+					
+				<!-- 화제의 도서  -->
+				<div class="main_banner_list_view" style="display: none;">
+					<ul class="main_banner_list">
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/large/358/l9788984373358.jpg"></a></li>
+
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/large/538/l9791161903538.jpg"></a></li>
+
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/large/845/l9791187119845.jpg"></a></li>
+
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/large/987/l9791185952987.jpg"></a></li>
+
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/large/772/l9788997092772.jpg"></a></li>
+					</ul>
+					</div>
+					
+					
+					
+				<!-- 신간도서  -->
+				<div class="main_banner_list_view" style="display: none;">
+					<ul class="main_banner_list">
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/410/100830410.jpg"></a></li>
+
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/medium/182/m9788954650182.jpg"></a></li>
+
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/medium/796/m9788965705796.jpg"></a></li>
+
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/medium/802/m9788965705802.jpg"></a></li>
+
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/medium/876/m9791162202876.jpg"></a></li>
+					</ul>
+					</div>
+					
+					
+				<!-- 할인도서  -->
+				<div class="main_banner_list_view" style="display: none;">
+					<ul class="main_banner_list">
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/410/100830410.jpg"></a></li>
+
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/new_ink/used/product/136/l7258706876136.jpg"></a></li>
+
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/large/299/l9788960902299.jpg"></a></li>
+
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/large/004/l9788998790004.jpg"></a></li>
+
+						<li><a href="${root}/book/book_detail/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/large/466/l9788954640466.jpg"></a></li>
+					</ul>
+					</div>
 				</div>
 			</div>
 			<!-- main banner 끝 -->
