@@ -8,8 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>도서 상세보기</title>
 <c:set var="root" value="${pageContext.request.contextPath }" />
-<link rel="stylesheet" type="text/css" href="${root}/css/book/book_detail/book_detail.css" />
-<link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css" />
+<link rel="stylesheet" type="text/css" href="${root}/css/book/book_detail.css"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/book/book_detail.js"></script>
 <script type="text/javascript">
@@ -31,9 +31,9 @@
 				<div class="bookDetail">
 					<!-- 도서분류 시작 -->
 					<div class="bookDetail_select">
-						<span>HOME ></span> <span><a href="${root}/book/book_list/computer.do">컴퓨터 / IT </a>></span><span>&nbsp;프로그래밍</span>
-						<%-- <span>HOME ></span> <span><a href="${root}/book/book_list/hobby_trip.do">취미 / 여행 </a>></span><span>&nbsp;프로그래밍</span>
-						<span>HOME ></span> <span><a href="${root}/book/book_list/nov
+						<span>HOME ></span> <span><a href="${root}/book/list/computer.do">컴퓨터 / IT </a>></span><span>&nbsp;프로그래밍</span>
+						<%-- <span>HOME ></span> <span><a href="${root}/book/list/hobby_trip.do">취미 / 여행 </a>></span><span>&nbsp;프로그래밍</span>
+						<span>HOME ></span> <span><a href="${root}/book/list/nov
 						el.do">소설&nbsp;</a>></span><span>&nbsp;프로그래밍</span>
 						
 					 --%></div>
@@ -49,7 +49,7 @@
 										<div class="bookDetail_figure">
 											<div class="bookDetail_thum_box">
 												<span class="bookDetail_rm_br"> <img
-													src="${root}/img/book/book_detail/computer_com_05.jpg" />
+													src="${root}/img/book/computer_com_05.jpg" />
 												</span>
 											</div>
 										</div>
@@ -115,7 +115,7 @@
 
 						<!-- 에디터의 한마디 시작 -->
 						<div class="bookDetail_MD">
-							<span><img src="${root}/img/book/book_detail/good.png" width="25" height="25"/>&nbsp;에디터의 한마디</span>
+							<span><img src="${root}/img/book/good.png" width="25" height="25"/>&nbsp;에디터의 한마디</span>
 							<div>컴퓨터 과학의 개념을 이해하고 코딩할 수 있다!컴퓨터 과학의 개념을 이해하고 코딩할 수 있다! 컴퓨터 과학의 개념을 이해하고 코딩할 수 있다! 컴퓨터 과학의 개념을 이해하고 코딩할 수 있다!  </div>
 						</div>
 									

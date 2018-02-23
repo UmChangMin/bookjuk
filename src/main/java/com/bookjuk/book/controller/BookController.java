@@ -43,7 +43,7 @@ public class BookController {
 	@RequestMapping(value="/list/new.do", method=RequestMethod.GET)
 	public ModelAndView bookNew(HttpServletRequest request, HttpServletResponse response) {
 		
-		LogAspect.logger.info(LogAspect.logMsg+"신간도서!");
+		LogAspect.logger.info(LogAspect.logMsg+"�떊媛꾨룄�꽌!");
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
@@ -74,7 +74,7 @@ public class BookController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/list/hobby_trip.do", method=RequestMethod.GET)
+	@RequestMapping(value="/list/hobby&trip.do", method=RequestMethod.GET)
 	public ModelAndView bookHobby(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);

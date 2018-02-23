@@ -37,7 +37,7 @@
 
 		<div class="header_mid_content">
 			<div class="header_mid_logo">
-				<a href="${root}/index.jsp"><img
+				<a href="${root}/main.do"><img
 					src="${root}/img/template/header/bookjuk_headlogo.png" /></a>
 			</div>
 			<div class="header_mid_search">
@@ -115,10 +115,10 @@
 									</ul>
 								</div>
 							</div></li>
-						<li><a href="${root}/book/book_list/best.do	">베스트셀러</a></li>
-						<li><a href="${root}/book/book_list/issue.do">화제의도서</a></li>
-						<li><a href="${root}/book/book_list/new.do">신간도서</a></li>
-						<li><a href="${root}/book/book_list/discount.do">할인도서</a></li>
+						<li><a href="${root}/book/list/best.do	">베스트셀러</a></li>
+						<li><a href="${root}/book/list/issue.do">화제의도서</a></li>
+						<li><a href="${root}/book/list/new.do">신간도서</a></li>
+						<li><a href="${root}/book/list/discount.do">할인도서</a></li>
 					</ul>
 				</div>
 			</div>

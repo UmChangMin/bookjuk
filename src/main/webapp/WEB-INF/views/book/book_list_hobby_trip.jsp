@@ -6,9 +6,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>도서 베스트셀러</title>
+<title>도서 목록 리스트 컴퓨터/IT</title>
 <c:set var="root" value="${pageContext.request.contextPath }" />
-<link rel="stylesheet" type="text/css" href="${root}/css/book/book_list/book_best.css" />
+<link rel="stylesheet" type="text/css" href="${root}/css/book/book_list.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css" />
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/book/book_list.js"></script>
@@ -21,26 +21,37 @@
 				<div class="bookList">
 					<!-- 도서분류 시작 -->
 					<div class="bookList_select">
-						<span>HOME ></span> <span>&nbsp;화제의도서</span>
+						<span>HOME ></span><span>&nbsp;취미 / 여행</span>
 					</div>
 					<!-- 도서분류 끝 -->
 					<div class="bookList_mid">
 						<!-- 도서 정보 top 시작 -->
 						<div class="bookList_wrap">
-							<h3>화제의도서</h3>
-							
+							<h3>취미/여행</h3>
+							<div class="bookList_top">
+								<ul class="bookList_top_list">
+									<li><a href="#" class="">애완동물</a></li>
+									<li><a href="#" class="">등산/낚시</a></li>
+									<li><a href="#" class="">취미일반</a></li>
+									<li><a href="#" class="">국내여행</a></li>
+									<li><a href="#" class="">해외여행</a></li>
+									<li><a href="#" class="">테마여행</a></li>
+								</ul>
+							</div>
 						</div>
 						<!-- 도서 정보 top 끝 -->
+		
 						<!-- 도서 보기 시작 -->
 						<div class="bookDetail_mid_images">
 							<div class="bookDetail_mid_image">
 								<ul>
-									<li class="bookDetail_mid_list_show"><a class="bookList_on"><img src="${root}/img/book/book_list/list_var_pink.png"></a></li>
-									<li class="bookDetail_mid_image_show"><a class=""><img src="${root}/img/book/book_list/grid_pink.png"></a></li>
+									<li class="bookDetail_mid_list_show"><a class="bookList_on"><img src="${root}/img/book/list_var_pink.png"></a></li>
+									<li class="bookDetail_mid_image_show"><a class=""><img src="${root}/img/book/grid_pink.png"></a></li>
 								</ul>
 							</div>
 						</div>
 						<!-- 도서 보기 끝 -->
+						
 						<!-- 도서 리스트로 보기 시작 -->
 						<div class="bookList_mid_content1">
 						
@@ -49,12 +60,12 @@
 								<ul>
 									<li>
 										<div class="bookList_mid_content_figure">
-											<a href="${root}/book/book_detail/detail.do">
+											<a href="${root}/book/list/detail.do">
 												<img src="http://bookimg.bookcube.com/150/1801/180104379.jpg">
 											</a>
 										</div>
 										<div class="bookList_content_inbfo">
-											<p class="bookList_content_title"><a href="${root}/book/book_detail/detail.do">모두의 엔트리 with 엔트리파이선</a></p>
+											<p class="bookList_content_title"><a href="${root}/book/list/detail.do">모두의 엔트리 with 엔트리파이선</a></p>
 											<p class="bookList_content_author">김슬기, 김성훈, 곽혜미 &nbsp;|&nbsp;길벗&nbsp;|&nbsp;2018.01.15</p>
 											<p class="bookList_content_buy">구매 <span>12,600원</span></p>
 											<div class="bookList_content_content">이 책은 이제 막 소프트웨어(SW) 교육을 시작하는 초등학교 고학년부터 중·고등학생, 컴퓨터를 전공하지 않은 대학생, 취미로 코딩을 배우고 싶은 직장인, SW 교육에 관심이 있는...이 책은 이제 막 소프트웨어(SW) 교육을 시작하는 초등학교 고학년부터 중·고등학생, 컴퓨터를 전공하지 않은 대학생, 취미로 코딩을 배우고 싶은 직장인, SW 교육에 관심이 있는...</div>
@@ -74,13 +85,13 @@
 								<ul>
 									<li>
 										<div class="bookList_mid_content_figure2">
-											<a href="${root}/book/book_detail/detail.do">
+											<a href="${root}/book/list/detail.do">
 												<img src="http://bookimg.bookcube.com/150/1801/180104379.jpg">
 											</a>
 										</div>
 										<div class="bookList_mid_content_hot_info">
 											<p>
-												<a href="${root}/book/book_detail/detail.do">모두의 엔트리 with 엔트리파이선</a>
+												<a href="${root}/book/list/detail.do">모두의 엔트리 with 엔트리파이선</a>
 											</p>
 											<p class="bookList_mid_content_author">
 												러셀 매딕스<em>&nbsp;|&nbsp;&nbsp;</em>시그마북스
@@ -99,6 +110,7 @@
 						<!-- 도서 이미지로 보기 끝 -->
 						
 						
+						<!-- 도서목록 리스트 뿌리기 끝 -->
 						<!-- 페이지 번호 시작 -->
 						<div class="bookList_pageNumber">
 							<a href="#" class="bookList_num_before">이전</a>	

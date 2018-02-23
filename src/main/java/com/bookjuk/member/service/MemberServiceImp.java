@@ -29,6 +29,14 @@ public class MemberServiceImp implements MemberService {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 
-		mav.setViewName("member/member_registe.empty");
+		mav.setViewName("member/member_regist.empty");
+	}
+
+	@Override
+	public void checkId(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		request.getAttribute("");
+		
 	}
 }

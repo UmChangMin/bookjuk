@@ -185,7 +185,7 @@
     width: 84px;
     height: 15px;
     overflow: hidden;
-    background: url(../../../img/book/book_detail/rank_star_main.png) no-repeat scroll 0% 0% transparent;
+    background: url(../../img/book/rank_star_main.png) no-repeat scroll 0% 0% transparent;
     text-indent: -9999px;
     vertical-align: middle;
 }
@@ -271,7 +271,7 @@
 }
 
 .bookDetail_cart>span {
-	background: url(../../../img/book/book_detail/cart.png) no-repeat center center #fff;
+	background: url(../../img/book/cart.png) no-repeat center center #fff;
 	display: block;
 }
 

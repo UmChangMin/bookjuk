@@ -12,6 +12,15 @@
 	font-weight: bold;
 }
 
+.rule_img{
+	width: 24px;
+    height: 24px;
+    cursor: pointer;
+    float: right;
+    margin-right: 10px;
+    margin-top: -25px;
+}
+
 .rule1_close {
 	display: block;
 	height: 50px;
@@ -41,8 +50,13 @@
 }
 
 #rule_table h2 {
-	font-size: 16px;
-	font-weight: 600;
+	font-size: 22px;
+    font-weight: bold;
+    color: #FFA7A7;
+    text-align: center;
+    margin-top: 39px;
+    margin-bottom: 29px;
+    margin-left: 81px;
 }
 
 #rule_table dl {

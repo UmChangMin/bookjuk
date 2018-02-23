@@ -35,7 +35,7 @@
 
 		<div class="header_mid_content">
 			<div class="header_mid_logo">
-				<a href="${root}/index.jsp"><img
+				<a href="${root}/main.do"><img
 					src="${root}/img/template/header/bookjuk_headlogo.png" /></a>
 			</div>
 			<div class="header_mid_search">

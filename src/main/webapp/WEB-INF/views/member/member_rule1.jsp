@@ -12,6 +12,7 @@
 </head>
 <body>
 <div id="rule_table">
+	<img alt="닫기" src="${root}/img/main/cancel.png"  onclick='self.close()' class="rule_img">
 	<h2>(주)북적북적 이용약관</h2>
 	<dl>
 		<dt>[제 1장 총칙]</dt>
@@ -155,9 +156,6 @@
 						<li>③ 회사는 제1항의 사유로 서비스의 제공이 일시적으로 중단됨으로 인하여 이용자 또는 제3자가 입은 손해에 대하여 회사의 고의 또는 과실이 없는 경우에는 배상하지 아니합니다.</li>
 					</ul>
 				</li>
-				<div class="registe_close">
-					<input  onclick='self.close()' type="button" value="닫기" class="registe_closebut">
-				</div>
 			</ul>
 		</dd>
 	</dl>

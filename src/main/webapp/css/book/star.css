@@ -22,11 +22,11 @@ body{
 
 /* 빈 별과, 찬 별이 아닌것을 hover했을 때, selected된 것 */
 .star, .rating:not(.change_star):hover .star:hover ~ .star, .rating.change_star .star.selected ~ .star{
-	background-image: url("../../img/bookList/star_off.png");
+	background-image: url("../../img/star_off.png");
 }
 
 .rating:hover .star, .rating.change_star .star{
-  background-image: url("../../img/bookList/star_on.png");
+  background-image: url("../../img/star_on.png");
   height: 124px;
   width: 144px;
 }

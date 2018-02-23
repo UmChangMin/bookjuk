@@ -21,7 +21,7 @@ public class BookServiceImp implements BookService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("book/book_list/book_best.tiles");
+		mav.setViewName("book/book_best.tiles");
 		
 	}
 
@@ -30,7 +30,7 @@ public class BookServiceImp implements BookService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("book/book_list/book_issue.tiles");
+		mav.setViewName("book/book_issue.tiles");
 		
 		
 	}
@@ -49,7 +49,7 @@ public class BookServiceImp implements BookService {
 		
 		
 		
-		mav.setViewName("book/book_list/book_new.tiles");
+		mav.setViewName("book/book_new.tiles");
 		
 		
 		
@@ -60,7 +60,7 @@ public class BookServiceImp implements BookService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("book/book_list/book_discount.tiles");
+		mav.setViewName("book/book_discount.tiles");
 		
 		
 		
@@ -72,7 +72,7 @@ public class BookServiceImp implements BookService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("book/book_detail/book_detail.tiles");
+		mav.setViewName("book/book_detail.tiles");
 		
 	}
 
@@ -81,7 +81,7 @@ public class BookServiceImp implements BookService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("book/book_list/book_list_computer.tiles");
+		mav.setViewName("book/book_list_computer.tiles");
 		
 		
 		
@@ -92,7 +92,7 @@ public class BookServiceImp implements BookService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("book/book_list/book_list_hobby_trip.tiles");
+		mav.setViewName("book/book_list_hobby_trip.tiles");
 		
 		
 	}
@@ -102,7 +102,7 @@ public class BookServiceImp implements BookService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("book/book_list/book_list_novel.tiles");
+		mav.setViewName("book/book_list_novel.tiles");
 		
 		
 	}

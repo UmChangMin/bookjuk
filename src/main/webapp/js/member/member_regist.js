@@ -1,19 +1,27 @@
 
 
 function rule(root){
-	var url = root+"/user/member/rule1.do";
+	var url = root+"/member/rule1.do";
 	//alert("자세히보기");
 	window.open(url,"","width=730, height=800,left=620px, top=100px,scrollbars=no");
 }
 
 
 function rule2(root){
-	var url = root+"/user/member/rule2.do";
+	var url = root+"/member/rule2.do";
 	/*alert("나와주세여");*/
 	window.open(url,"","width=730, height=360,left=620px, top=100px,scrollbars=no");
 }
 
 $(function(){
+	$("#registe_chk_all").click(function (){
+		if($("#registe_chk_all").prop("checked")){
+			$("input[type=checkbox]").prop("checked",true);
+		}else{
+			$("input[type=checkbox]").prop("checked",false);
+		}
+	});
+	
 	$(".registe-input input").on("focus", function(){
 		if($(this).hasClass("registe_id")){
 			$(this).attr("placeholder","5~12자 영문, 숫자");
@@ -29,17 +37,17 @@ $(function(){
 		}
 		
 		if($(this).hasClass("registe_name")){
-			$(this).attr("placeholder","이름을 반드시 입력해주세요");
+			$(this).attr("placeholder","반드시 입력해주세요. ex)2~4글자");
 			$(this).css("border","1px solid #F15F5F");
 		}
 		
 		if($(this).hasClass("registe_email")){
-			$(this).attr("placeholder","이메일 을 반드시 입력해주세요");
+			$(this).attr("placeholder","반드시 입력해주세요.");
 			$(this).css("border","1px solid #F15F5F");
 		}
 		
 		if($(this).hasClass("registe_birthday")){
-			$(this).attr("placeholder","생년월일 을 반드시 입력해주세요");
+			$(this).attr("placeholder","반드시 입력해주세요. ex)900827");
 			$(this).css("border","1px solid #F15F5F");
 		}
 		
@@ -76,13 +84,42 @@ $(function(){
 		}
 	});
 	
+//  아이디와 비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
+    var idCheck = 0;
+    //아이디 체크하여 가입버튼 비활성화, 중복확인.
+    function checkId() {
+        var inputed = $('.registe_id').val();
+        $.ajax({
+            data : {id : inputed},
+            url : "member/checkId.do",
+            type : "post",
+            success : function(data) {
+                if(inputed=="" && data=='0') {
+                    $("#idChk").css("background-color", "#FFCECE");
+                    idCheck = 0;
+                } else if (data == '0') {
+                    $("#idChk").css("background-color", "#B0F6AC");
+                    idCheck = 1;
+                } else if (data == '1') {
+                    $("#idChk").css("background-color", "#FFCECE");
+                    idCheck = 0;
+                } 
+            }
+        });
+    }
+	
 	$("#submit").click(function(){
+		var regexId = /^[a-z][a-z0-9]{4,12}$/;
+		var regexPwd = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+		var regexName = /^[가-힣]{2,4}$/;
+		var regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+		var regexBirth = /^[0-9]{6}$/;
+		
 		if($(".registe_id").val() == "") {
 	        alert("아이디를 꼭 입력하세요!");	
 	        $(".registe_id").focus();
 	        return false;
 	    }
-		
 		if($(".registe_pwd").val() == "") {
 	        alert("비밀번호를 꼭 입력하세요!");
 	        $(".registe_pwd").focus();
@@ -93,6 +130,13 @@ $(function(){
 	        $(".registe_pwdChk").focus();
 	        return false;
 	    }
+		if($(".registe_pwd").val() != $(".registe_pwdChk").val()) {
+            alert("입력한 비밀번호가 일치하지 않습니다.");
+            $(".registe_pwd").val("");
+            $(".registe_pwdChk").val("");
+            $(".registe_pwd").focus();
+            return false;
+        }
 		if($(".registe_name").val() == "") {
 	        alert("이름을 꼭 입력하세요!");
 	        $(".registe_name").focus();
@@ -108,99 +152,47 @@ $(function(){
 	        $(".registe_birthday").focus();
 	        return false;
 	    }
-		$("form").submit();
-	});
-});
-
-
-$(function(){
-	$(".login_input input").on("focus", function(){
-		if($(this).hasClass("login_id")){
-			$(this).attr("placeholder","5~12자 영문, 숫자");
-			$(this).css("border","1px solid #F15F5F");
-		}
-		if($(this).hasClass("login_pwd")){
-			$(this).attr("placeholder","최소 8자 이상 특수문자 포함");
-			$(this).css("border","1px solid #F15F5F");
-		}
-	});
-	
-	$(".login_input input").on("blur",function(){
-		if($(this).hasClass("login_id")){
-			$(this).attr("placeholder","아이디");
-			$(this).css("border","1px solid #ccc");
-		}
-		if($(this).hasClass("login_pwd")){
-			$(this).attr("placeholder","비밀번호");
-			$(this).css("border","1px solid #ccc");
-		}
-	});
-	
-	$("#submit").click(function(){
-		if($(".login_id").val() == "") {
-	        alert("아이디를 꼭 입력하세요!");	
-	        $(".login_id").focus();
-	        return false;
-	    }
 		
-		if($(".login_pwd").val() == "") {
-	        alert("비밀번호를 꼭 입력하세요!");
-	        $(".login_pwd").focus();
-	        return false;
-	    }
+		if(!regexId.test($.trim($(".registe_id").val()))){
+			alert("아이디 : 첫글자 반드시 영문 소문자 포함, 5~12자 입력해주세요.");
+			$(".registe_id").focus();
+			return false;
+		}
 		
-		$("form").submit();
-	});
-});
-
-$(function(){
-	$(".order_input input").on("focus", function(){
-		if($(this).hasClass("order_phonenumber")){
-			$(this).attr("placeholder","'-'제외하고 핸드폰번호를 입력해 주세요");
-			$(this).css("border","1px solid #F15F5F");
+		if(!regexPwd.test($.trim($(".registe_pwd").val()))){
+			alert("비밀번호 : 특수문자, 영문 소문자, 숫자 포함, 8~15자 입력해주세요.");
+			$(".registe_pwd").focus();
+			return false;
 		}
-		if($(this).hasClass("order_pwd")){
-			$(this).attr("placeholder","비밀번호를 입력해주세요");
-			$(this).css("border","1px solid #F15F5F");
-		}
-	});
-	
-	$(".order_input input").on("blur",function(){
-		if($(this).hasClass("order_phonenumber")){
-			$(this).attr("placeholder","핸드폰 번호");
-			$(this).css("border","1px solid #ccc");
-		}
-		if($(this).hasClass("order_pwd")){
-			$(this).attr("placeholder","비밀번호");
-			$(this).css("border","1px solid #ccc");
-		}
-	});
-	
-	$("#submit").click(function(){
-		if($(".order_phonenumber").val() == "") {
-	        alert("핸드폰 번호 를 꼭 입력하세요!");	
-	        $(".order_phonenumber").focus();
-	        return false;
-	    }
 		
-		if($(".order_pwd").val() == "") {
-	        alert("비밀번호를 꼭 입력하세요!");
-	        $(".order_pwd").focus();
-	        return false;
-	    }
+		if(!regexName.test($.trim($(".registe_name").val()))) {
+            alert("이름 : 2~4 글자를 입력해주세요.");
+            $(".registe_name").focus();
+            return false;
+        }
 		
-		$("form").submit();
-	});
-	
-	$("#registe_chk_all").click(function (){
-		//만약 전체 선택 체크박스가 
-		if($("#registe_chk_all").prop("checked")){
-			//해당화면에 전체 체크박스들을 체크해준다.
-			$("input[type=checkbox]").prop("checked",true);
-			//전체선택 체크박스가 해제된 경우
+		if(!regexEmail.test($.trim($(".registe_email").val()))){
+			alert("이메일 형식이 잘못되었습니다.");
+			$(".registe_email").focus();
+			return false;
+		}
+		
+		if(!regexBirth.test($.trim($(".registe_birthday").val()))){
+			alert("생년월일 : 숫자 6글자 입력해주세요.");
+			$(".registe_birthday").focus();
+			return false;
+		}
+		
+		if($("#email_chk").is(":checked") == true){
+			
+		}
+		
+		if($("#registe_chk").is(":checked") == false){
+			alert("이용약관 및 개인정보 취급 방침 동의해주세요.");
+			return false;
 		}else{
-			//해당 화면에 모든 체크 박스들을 해제
-			$("input[type=checkbox]").prop("checked",false);
+			$("form").submit();
 		}
+		
 	});
 });

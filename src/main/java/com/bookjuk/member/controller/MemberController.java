@@ -35,6 +35,16 @@ public class MemberController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/checkId.do")
+	public ModelAndView checkId(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("response", response);
+		memberService.checkId(mav);
+		
+		return mav;
+	}
+	
 	@RequestMapping(value = "zipcode.do")
 	public ModelAndView zipcode(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
