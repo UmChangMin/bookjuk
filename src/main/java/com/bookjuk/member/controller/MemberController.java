@@ -6,8 +6,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bookjuk.member.dto.MemberDto;
 import com.bookjuk.member.service.MemberService;
 
 @Controller
@@ -17,20 +19,30 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	@RequestMapping(value = "/login.do")
+	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
+		return new ModelAndView("member/member_login.empty");
+	}
+	
+	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+	public ModelAndView loginOk(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
-		memberService.login(mav);
+		memberService.loginOk(mav);
 		
 		return mav;
 	}
 	
-	@RequestMapping(value = "/registe.do")
+	@RequestMapping(value = "/regist.do", method = RequestMethod.GET)
 	public ModelAndView registe(HttpServletRequest request, HttpServletResponse response) {
+		return new ModelAndView("member/member_regist.empty");
+	}
+	
+	@RequestMapping(value = "/regist.do", method = RequestMethod.POST)
+	public ModelAndView registeOk(HttpServletRequest request, HttpServletResponse response, MemberDto memberDto) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("request", request);
-		memberService.registe(mav);
+		mav.addObject("memberDto", memberDto);
+		memberService.registOk(mav);
 		
 		return mav;
 	}

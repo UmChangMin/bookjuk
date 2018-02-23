@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bookjuk.aop.LogAspect;
 import com.bookjuk.member.dao.MemberDao;
+import com.bookjuk.member.dto.MemberDto;
 
 @Component
 public class MemberServiceImp implements MemberService {
@@ -19,7 +21,7 @@ public class MemberServiceImp implements MemberService {
 	private MemberDao memberDao;
 
 	@Override
-	public void login(ModelAndView mav) {
+	public void loginOk(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 
@@ -27,11 +29,22 @@ public class MemberServiceImp implements MemberService {
 	}
 
 	@Override
-	public void registe(ModelAndView mav) {
+	public void registOk(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
-		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		MemberDto memberDto = (MemberDto) map.get("memberDto");
+		
+		if(memberDto.getMember_mailing() == null) {
+			memberDto.setMember_mailing("no");
+		}else {
+			memberDto.setMember_mailing("yes");
+		}
+		memberDto.setMember_level("member");
+		
+		int check = memberDao.insert(memberDto);
 
-		mav.setViewName("member/member_regist.empty");
+		mav.addObject("check", check);
+		
+		mav.setViewName("member/member_registOk.empty");
 	}
 
 	@Override

@@ -26,7 +26,7 @@
 				</div>
 				<!-- 회원가입 메인 -->
 				<div class="registe_main">
-					<form action="#" method="post">
+					<form action="${root}/member/regist.do" method="post">
 						<fieldset>
 						<legend>회원가입</legend>
 						<div class="registe-wrap">

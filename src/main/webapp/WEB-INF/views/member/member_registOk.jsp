@@ -11,17 +11,17 @@
 </head>
 <body>
 	<C:choose>
-		<C:when test="${check==0 }">
+		<C:when test="${check == 0}">
 			<script type="text/javascript">
 				alert("회원가입에 실패하였습니다.");
-				$(location).attr("href","${root}/user/member/regist.do");
+				$(location).attr("href","${root}/member/regist.do");
 			</script>
 		</C:when>
 		
-		<C:when test="${check>0 }">
+		<C:when test="${check > 0}">
 			<script type="text/javascript">
 				alert("회원가입 축하드립니다.더 많은 서비스를 이용하시려면 로그인 하세요");
-				$(location).attr("href","${root}/user/main/main.do");
+				window.close();
 			</script>
 		</C:when>
 	</C:choose>

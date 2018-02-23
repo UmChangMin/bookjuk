@@ -22,7 +22,7 @@ function registe(root){				//회원가입
 	window.open(url,"","width=550, height=810,left=620px, top=225px");
 }		
 
-//window.open창 완료(허단비)
+//window.open창 완료(허단비)	
 
 $(function(){
 	// 분야별 베스트

@@ -8,4 +8,7 @@
 		SELECT nvl(count(*),0) FROM member WHERE member_id = #{id}
 	</select>
 
+	<insert id="memberInsert" parameterType="com.bookjuk.member.dto.MemberDto">
+		INSERT INTO member (member_num, member_id, member_password, member_name, member_email, member_mailing, member_birth, member_level) VALUES (member_num_seq.nextval, #{member_id}, #{member_password}, #{member_name}, #{member_email}, #{member_mailing}, #{member_birth}, #{member_level})
+	</insert>
 </mapper>
