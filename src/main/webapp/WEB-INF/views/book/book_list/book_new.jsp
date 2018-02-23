@@ -70,7 +70,7 @@
 						
 						<!-- 도서 이미지로 보기 시작 -->
 						<div class="bookList_mid_content2">
-							<c:forEach var="i" begin="1" end="20">
+							<c:forEach var="i" begin="1" end="10">
 								<ul>
 									<li>
 										<div class="bookList_mid_content_figure2">

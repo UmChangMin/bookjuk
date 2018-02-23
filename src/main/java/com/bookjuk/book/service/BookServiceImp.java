@@ -40,6 +40,15 @@ public class BookServiceImp implements BookService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
+		// 0223 
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null) {pageNumber="1";}
+		
+		int currentPage=Integer.parseInt(pageNumber);
+		
+		
+		
+		
 		mav.setViewName("book/book_list/book_new.tiles");
 		
 		

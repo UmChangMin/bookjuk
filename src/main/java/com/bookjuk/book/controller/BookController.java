@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bookjuk.aop.LogAspect;
 import com.bookjuk.book.service.BookService;
 
 @Controller
@@ -19,7 +20,7 @@ public class BookController {
 	private BookService bookService;
 	
 	
-	@RequestMapping(value="/book_list/best.do", method=RequestMethod.GET)
+	@RequestMapping(value="/list/best.do", method=RequestMethod.GET)
 	public ModelAndView bookBest(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
@@ -29,7 +30,7 @@ public class BookController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/book_list/issue.do", method=RequestMethod.GET)
+	@RequestMapping(value="/list/issue.do", method=RequestMethod.GET)
 	public ModelAndView bookIssue(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
@@ -39,8 +40,11 @@ public class BookController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/book_list/new.do", method=RequestMethod.GET)
+	@RequestMapping(value="/list/new.do", method=RequestMethod.GET)
 	public ModelAndView bookNew(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"신간도서!");
+		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
 		
@@ -49,7 +53,7 @@ public class BookController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/book_list/discount.do", method=RequestMethod.GET)
+	@RequestMapping(value="/list/discount.do", method=RequestMethod.GET)
 	public ModelAndView bookDiscount(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
@@ -60,7 +64,7 @@ public class BookController {
 	}
 	
 	
-	@RequestMapping(value="/book_list/computer.do", method=RequestMethod.GET)
+	@RequestMapping(value="/list/computer.do", method=RequestMethod.GET)
 	public ModelAndView bookComputer(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
@@ -70,7 +74,7 @@ public class BookController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/book_list/hobby_trip.do", method=RequestMethod.GET)
+	@RequestMapping(value="/list/hobby_trip.do", method=RequestMethod.GET)
 	public ModelAndView bookHobby(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
@@ -80,7 +84,7 @@ public class BookController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/book_list/novel.do", method=RequestMethod.GET)
+	@RequestMapping(value="/list/novel.do", method=RequestMethod.GET)
 	public ModelAndView bookNovel(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
@@ -90,7 +94,7 @@ public class BookController {
 		return mav;
 	}
 		
-	@RequestMapping(value="/book_detail/detail.do", method=RequestMethod.GET)
+	@RequestMapping(value="/list/detail.do", method=RequestMethod.GET)
 	public ModelAndView bookDetail(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
