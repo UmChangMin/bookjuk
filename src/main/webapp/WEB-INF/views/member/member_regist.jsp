@@ -21,7 +21,7 @@
 			<div id="registe_content">
 				<!-- 회원가입 타이틀 -->
 				<div class="registe_title">
-				<img alt="닫기" src="${root}/img/main/cancel.png"  onclick='self.close()'>
+				
 					<h3>회원가입</h3>
 				</div>
 				<!-- 회원가입 메인 -->

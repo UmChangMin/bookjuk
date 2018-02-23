@@ -21,12 +21,12 @@
 				<div class="main_slide_banner">
 					<ul>
 						<li><img src="${root}/img/main/출석체크 이벤트.jpg"></li>
+						<li><img src="${root}/img/main/이벤트 배너이미지 수정본.jpg"></li>
 						<li><img src="${root}/img/main/포인트 배너 이미지 수정본.jpg"></li>
-						<li><img src="${root}/img/main/할인도서 이벤트 배너.jpg"></li>
-						<li><img
+<%-- 						<li><img
 							src="${root}/img/main/eventBanner_1514508708809W.jpg"></li>
 						<li><img
-							src="${root}/img/main/eventBanner_1516846885798W.jpg"></li>
+							src="${root}/img/main/eventBanner_1516846885798W.jpg"></li> --%>
 					</ul>
 				</div>
 			</div>

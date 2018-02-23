@@ -20,7 +20,6 @@
 			<div id="login_content">
 				<!-- 로그인 타이틀 -->
 				<div class="login_title">
-				<img alt="닫기" src="${root}/img/main/cancel.png"  onclick='self.close()' class="login_close">
 					<h3>로그인</h3>
 				</div>
 				<!-- 로그인 메인 -->
