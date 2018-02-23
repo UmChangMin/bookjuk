@@ -22,7 +22,8 @@
 		<property name="mapperLocations">
 			<list>				
 				<value>classpath:com/bookjuk/admin/dao/mapper/AdminLocationMapper.xml</value> 
-				<value>classpath:com/bookjuk/admin/dao/mapper/AdminServiceMapper.xml</value> 
+				<value>classpath:com/bookjuk/admin/dao/mapper/AdminServiceMapper.xml</value>
+				<value>classpath:/com/bookjuk/member/dao/mapper/MemberMapper.xml</value>
 			</list>
 		</property>
 	</bean>

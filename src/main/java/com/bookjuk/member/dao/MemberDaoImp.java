@@ -9,4 +9,9 @@ public class MemberDaoImp implements MemberDao {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
+
+	@Override
+	public int checkId(String id) {
+		return sqlSession.selectOne("checkId", id);
+	}
 }

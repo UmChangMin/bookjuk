@@ -42,7 +42,7 @@ public class MemberController {
 		mav.addObject("response", response);
 		memberService.checkId(mav);
 		
-		return mav;
+		return null;
 	}
 	
 	@RequestMapping(value = "zipcode.do")

@@ -13,15 +13,25 @@ function rule2(root){
 	window.open(url,"","width=730, height=360,left=620px, top=100px,scrollbars=no");
 }
 
-$(function(){
-	$("#registe_chk_all").click(function (){
-		if($("#registe_chk_all").prop("checked")){
-			$("input[type=checkbox]").prop("checked",true);
-		}else{
-			$("input[type=checkbox]").prop("checked",false);
-		}
-	});
-	
+function checkId() {
+    var inputed = $('.registe_id').val();
+    $.ajax({
+        data : {id : inputed},
+        url : "checkId.do",
+        type : "POST",
+        success : function(data) {
+            if(inputed=="" && data=='0') {
+                $("#idChk").css("border","1px solid #F15F5F");
+            } else if (data == '0') {
+                $("#idChk").css("border","1px solid #00c73c");
+            } else if (data == '1') {
+                $("#idChk").css("border","1px solid #F15F5F");
+            } 
+        }
+    });
+}
+
+$(function(){	
 	$(".registe-input input").on("focus", function(){
 		if($(this).hasClass("registe_id")){
 			$(this).attr("placeholder","5~12자 영문, 숫자");
@@ -83,30 +93,14 @@ $(function(){
 			$(this).css("border","1px solid #ccc");
 		}
 	});
-	
-//  아이디와 비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
-    var idCheck = 0;
-    //아이디 체크하여 가입버튼 비활성화, 중복확인.
-    function checkId() {
-        var inputed = $('.registe_id').val();
-        $.ajax({
-            data : {id : inputed},
-            url : "member/checkId.do",
-            type : "post",
-            success : function(data) {
-                if(inputed=="" && data=='0') {
-                    $("#idChk").css("background-color", "#FFCECE");
-                    idCheck = 0;
-                } else if (data == '0') {
-                    $("#idChk").css("background-color", "#B0F6AC");
-                    idCheck = 1;
-                } else if (data == '1') {
-                    $("#idChk").css("background-color", "#FFCECE");
-                    idCheck = 0;
-                } 
-            }
-        });
-    }
+
+    $("#registe_chk_all").click(function (){
+		if($("#registe_chk_all").prop("checked")){
+			$("input[type=checkbox]").prop("checked",true);
+		}else{
+			$("input[type=checkbox]").prop("checked",false);
+		}
+	});
 	
 	$("#submit").click(function(){
 		var regexId = /^[a-z][a-z0-9]{4,12}$/;
