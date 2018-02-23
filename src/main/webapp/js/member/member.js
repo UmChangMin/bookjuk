@@ -2,7 +2,7 @@
  * 
  */
 function zipcodeRead(root){
-		 var url=root+"/memberZipcode.jsp";
+		 var url=root+"/member/zipcode.do";
 		 window.open(url,"", "width=500, height=600, scrollbars=yes, left=620px, top=225px" );
 			
 }

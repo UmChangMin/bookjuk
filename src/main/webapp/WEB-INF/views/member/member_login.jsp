@@ -6,9 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <c:set var="root" value="${pageContext.request.contextPath}"/>
-<link type="text/css" rel="stylesheet" href="${root}/css/member/login.css"/>
+<link type="text/css" rel="stylesheet" href="${root}/css/member/member_login.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
-<script type="text/javascript" src="${root}/js/member/registe.js"></script>
+<script type="text/javascript" src="${root}/js/member/member_regist.js"></script>
 <!-- 로그인 뷰: 엄창민  수정:허단비 -->
 <title>Insert title here</title>
 </head>

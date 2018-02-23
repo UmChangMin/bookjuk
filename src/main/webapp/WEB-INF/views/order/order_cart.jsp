@@ -7,7 +7,7 @@
 <head>
 <c:set var="root" value="${pageContext.request.contextPath}" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link type="text/css" rel="stylesheet" href="${root}/css/order/cart.css"/>
+<link type="text/css" rel="stylesheet" href="${root}/css/order/order_cart.css"/>
 <link type="text/css" rel="stylesheet" href="${root}/css/template/basic.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript">

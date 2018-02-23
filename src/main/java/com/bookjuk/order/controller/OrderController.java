@@ -63,7 +63,7 @@ public class OrderController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/order_main.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
 	public ModelAndView orderMain(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
@@ -72,7 +72,7 @@ public class OrderController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/order_list.do",method=RequestMethod.GET)
+	@RequestMapping(value="/list.do",method=RequestMethod.GET)
 	public ModelAndView orderList(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
@@ -82,7 +82,7 @@ public class OrderController {
 	}
 	
 	
-	@RequestMapping(value = "/order_cancle.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/cancle.do", method = RequestMethod.GET)
 	public ModelAndView orderCancle(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);

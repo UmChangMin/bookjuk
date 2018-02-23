@@ -20,8 +20,7 @@ public class OrderServiceImp implements OrderService {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
-		mav.setViewName("order/cart.search");
-		
+		mav.setViewName("order/order_cart.search");
 	}
 
 	@Override
@@ -53,7 +52,7 @@ public class OrderServiceImp implements OrderService {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
-		mav.setViewName("order/complete.search");
+		mav.setViewName("order/order_complete.search");
 	}
 	
 	@Override
@@ -78,6 +77,5 @@ public class OrderServiceImp implements OrderService {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
 		mav.setViewName("order/order_cancle.search");
-		
 	}
 }

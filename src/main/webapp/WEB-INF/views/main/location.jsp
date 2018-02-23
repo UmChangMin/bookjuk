@@ -65,7 +65,7 @@
 						async defer></script> -->
 				</div>
 				<div class="location_Maps_text">
-					<h3 class="location_Maps">북적북적 역삼점</h3>
+					<h3 class="location_Maps_text_h3">북적북적 역삼점</h3>
 					<p>
 						전화번호 : 1234-5678<br /> 팩스 : 0123-456-7890<br /> 영업시간 : 9:30 ~
 						22:00<br /> 정기휴일 : 설(당일), 추석(당일)<br /> <br /> 주소 : 서울특별시 서초구

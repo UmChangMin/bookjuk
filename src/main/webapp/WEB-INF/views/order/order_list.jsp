@@ -13,10 +13,8 @@
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/jqueryUI/jquery-ui2.js"></script>
 <script type="text/javascript" src="${root}/js/order/order_list.js"></script>
-
 </head>
 <body>
-
 	<div class="order">
 	<div class="order_top">
 		<div class="order_inner">
@@ -27,7 +25,6 @@
 			<!-- </div> -->
 		</div>
 		<!-- 타이틀 끝 -->
-
 		
 		<!-- 배송조회 리스트 -->
 		<div class="order_box">
@@ -78,7 +75,6 @@
 								<a href="#"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/410/100830410.jpg"></a>
 							</li>
 						</ul> 
-
 				</div>
 				<div class="orber_listbox2">
 				
@@ -97,12 +93,9 @@
 								<a href="#"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/780/100735780.jpg"></a>
 							</li>
 						</ul> 
-					
 				</div>
 			</div>
 		</div>
-		
-		
 		</div>
 	</div>
 </div>

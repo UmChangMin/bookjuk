@@ -25,7 +25,7 @@
 					<li><a href="" class="openMask" onclick="login('${root}')">로그인</a></li>
 					<li><a class="openMask2" href="" onclick="registe('${root}')">회원가입</a></li>
 					<li><a class="" href="${root}/order/cart.do">장바구니</a></li>
-					<li><a class="openMask3" href="${root}/order/order_list.do"
+					<li><a class="openMask3" href="${root}/order/list.do"
 						onclick="orderdelivery('${root}')">주문/배송조회</a></li>
 					<li><a class="" href="${root}/service/question.do">고객센터</a></li>
 					<li><a class="" href="${root}/location.do">영업점 안내</a></li>

@@ -21,7 +21,7 @@ public class MemberServiceImp implements MemberService {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 
-		mav.setViewName("member/login.empty");
+		mav.setViewName("member/member_login.empty");
 	}
 
 	@Override
@@ -29,6 +29,6 @@ public class MemberServiceImp implements MemberService {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 
-		mav.setViewName("member/registe.empty");
+		mav.setViewName("member/member_registe.empty");
 	}
 }

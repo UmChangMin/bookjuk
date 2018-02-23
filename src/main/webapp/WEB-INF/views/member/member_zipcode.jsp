@@ -5,20 +5,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<c:set var="root" value="${pageContext.request.contextPath}"/>
 <title>우편번호 검색</title>
-<link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css" />
-<link rel="stylesheet" type="text/css" href="${root}/css/member/memberZipcode.css" />
-<script type="text/javascript" src="${root }/js/jquery.js"></script>
+<c:set var="root" value="${pageContext.request.contextPath}"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/member/member_zipcode.css"/>
+<script type="text/javascript" src="${root}/js/jquery.js"></script>
 </head>
 <body>
 	<!-- 우편번호 시작 강민아-->
 	<div align = "center">
 		<form action ="" method="post">
-			<div id="membnerZipcode">
-				<div class="membnerZipcode_title">검색할 동 또는 읍 명을 입력해주세요.</div>
+			<div id="memberZipcode">
+				<div class="memberZipcode_title">검색할 동 또는 읍 명을 입력해주세요.</div>
 
-				<div class="membnerZipcode_search">
+				<div class="memberZipcode_search">
 					<input type="text" name="dong" size="50" /> 
 					<input type="submit" value="검색" />
 				</div>

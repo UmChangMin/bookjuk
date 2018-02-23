@@ -6,10 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <c:set var="root" value="${pageContext.request.contextPath}"/>
-<link type="text/css" rel="stylesheet" href="${root}/css/member/registe.css"/>
-<link type="text/css" rel="stylesheet" href="${root}/css/member/rule1.css"/>
+<link type="text/css" rel="stylesheet" href="${root}/css/member/member_registe.css"/>
+<link type="text/css" rel="stylesheet" href="${root}/css/member/member_rule1.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
-<script type="text/javascript" src="${root}/js/member/registe.js"></script>
+<script type="text/javascript" src="${root}/js/member/member_registe.js"></script>
 
 <!-- 회원가입 뷰 :엄창민 , 수정: 허단비  -->
 <title>Insert title here</title>

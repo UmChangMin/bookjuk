@@ -1,22 +1,22 @@
 @charset "UTF-8";
 
-#membnerZipcode{
+#memberZipcode{
 	margin-top: 10px;	
 }
 
-.membnerZipcode_title{
+.memberZipcode_title{
 	font-size:16px;
 	font-weight: 600;
 	margin-bottom: 10px;
 }
 
-.membnerZipcode_search input:first-child{
+.memberZipcode_search input:first-child{
 	border: 1px solid #b6b7b7;
 	height: 30px;
 	line-height: 30px;
 }
 
-.membnerZipcode_search input:nth-child(2) {
+.memberZipcode_search input:nth-child(2) {
     margin-left: 6px;
     width:50px;
     height: 30px;

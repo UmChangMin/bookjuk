@@ -7,9 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원탈퇴</title>
 <c:set var="root" value="${pageContext.request.contextPath }" />
-<link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css" />
-<link rel="stylesheet" type="text/css" href="${root}/css/member/memberDelete.css" />
-<script type="text/javascript" src="${root }/js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/member/member_delete.css"/>
+<script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/member/member.js"></script>
 </head>
 <body>

@@ -7,10 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <title>쿠폰</title>
-<link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css" />
-<link rel="stylesheet" type="text/css" href="${root}/css/myPage/coupon.css" />
-<script type="text/javascript" src="${root }/js/jquery.js"></script>
-<script type="text/javascript" src="${root }/js/member/myPage.js"></script>
+<link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/member/member_coupon.css"/>
+<script type="text/javascript" src="${root}/js/jquery.js"></script>
+<script type="text/javascript" src="${root}/js/member/member_mypage.js"></script>
 </head>
 <body>
 	<!-- 쿠폰 시작 강민아-->

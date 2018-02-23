@@ -6,8 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <c:set var="root" value="${pageContext.request.contextPath}"/>
-<link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css" />
-<link type="text/css" rel="stylesheet" href="${root}/css/member/memberUpdate.css"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css"/>
+<link type="text/css" rel="stylesheet" href="${root}/css/member/member_update.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/member/member.js"></script>
 <title>회원정보수정</title>

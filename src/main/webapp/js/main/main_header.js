@@ -4,7 +4,7 @@
 
 function orderdelivery (root){			//주문,배송 조회
 
-	var url=root+"/order/order_main.do";
+	var url=root+"/order/main.do";
 	/*alert("제발~"+url);*/
 	window.open(url,"","width=630, height=400,left=620px, top=225px,scrollbars=no");
 }

@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <c:set var="root" value="${pageContext.request.contextPath}"/>
-<link type="text/css" rel="stylesheet" href="${root}/css/order/complete.css"/>
+<link type="text/css" rel="stylesheet" href="${root}/css/order/order_complete.css"/>
 <link type="text/css" rel="stylesheet" href="${root}/css/template/basic.css"/>
 <title>Insert title here</title>
 </head>
@@ -42,7 +42,7 @@
 								<strong>주문번호(13552618651)</strong>
 								<span class="order_col">|</span>
 								" XXX 고객님, 감사합니다. "
-								<a href="${root}/order/order_list.do" id="btn_blue"><strong>주문내역 상세보기</strong></a>
+								<a href="${root}/order/list.do" id="btn_blue"><strong>주문내역 상세보기</strong></a>
 							</div>
 							<div class="sub_text">
 								주문내역 및 배송에 관한 안내는 주문/배송조회 에서 확인 가능합니다.
@@ -213,7 +213,7 @@
 						<div class="complete_btn">
 							<button id="btn_main" onclick="location.href='${root}/main.do'">쇼핑 계속하기</button>
 							<button id="btn_cart" onclick="location.href='${root}/order/cart.do'">장바구니</button>
-							<button id="btn_order_detail" onclick="location.href='${root}/order/order_list.do'">주문내역 상세보기</button>
+							<button id="btn_order_detail" onclick="location.href='${root}/order/list.do'">주문내역 상세보기</button>
 						</div>
 					</div>
 				</div>

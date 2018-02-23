@@ -7,8 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <c:set var="root" value="${pageContext.request.contextPath}" />
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="${root}/css/member/rule1html.css" />
-<script type="text/javascript" src="${root}/js/member/registe.js"></script>
+<link rel="stylesheet" type="text/css" href="${root}/css/member/member_rule1.css" />
+<script type="text/javascript" src="${root}/js/member/member_registe.js"></script>
 </head>
 <body>
 <div id="rule_table">

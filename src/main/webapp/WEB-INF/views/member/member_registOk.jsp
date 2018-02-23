@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<C:set var="root" value="${pageContext.request.contextPath }"/>
+<C:set var="root" value="${pageContext.request.contextPath}"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 </head>
 <body>
