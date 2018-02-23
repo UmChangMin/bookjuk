@@ -55,8 +55,10 @@
 					
 				</div>
 				<!-- 페이지번호 시작 -->
-				
-				<!-- 페이지번호 끝 -->
+					<div class="service_notice_list_pagenate">
+						<a href="" class="service_notice_list_btn">1</a> 
+					</div>
+				<!-- 페이지 번호 끝 -->
 			</div>
 			<!-- 내용부분 끝 -->
 			

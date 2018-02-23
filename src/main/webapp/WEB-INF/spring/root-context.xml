@@ -11,7 +11,7 @@
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
 		<property name="url" value="jdbc:oracle:thin:@211.63.89.109:1521:xe"/>
 		<property name="username" value="bookjuk"/>
-		<property name="password" value="1234"/>
+		<property name="password" value="1371"/>
 		<property name="maxActive" value="20"/>
 		<property name="maxIdle" value="10"/>
 		<property name="maxWait" value="2000"/>	

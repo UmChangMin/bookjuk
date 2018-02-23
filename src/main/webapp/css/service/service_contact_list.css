@@ -121,6 +121,9 @@
     text-align: center;
 }
 
+.service_contact_list_pagenate a:hover{
+	color: rgb(241, 95, 95);
+}
 
 
 

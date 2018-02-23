@@ -3,16 +3,17 @@
 
 .service_content{
 	border: 1px solid #e5e6e7;
-	background: white;
-	margin-top: 10px;
-	padding: 40px 40px 80px 40px;
-	overflow: hidden;
-	width: 92%;
+    background: white;
+    margin-top: 10px;
+    padding: 40px 40px;
+    overflow: hidden;
+    width: 92%;
 }
 
 .service_inner{
-	padding-bottom: 80px;
-	width: 100%;
+	padding-bottom: 40px;
+    width: 100%;
+    overflow: hidden;
 }
 
 .service_content_title{
@@ -63,3 +64,30 @@
 	cursor: default;
 	color: #999;
 }
+
+.service_notice_list_pagenate{
+	height: 45px;
+    overflow: hidden;
+    width: auto;
+   
+    text-align: center;
+}
+
+.service_notice_list_btn{
+	display: inline-block;
+    vertical-align: middle;
+    width: 43px;
+    height: 43px;
+    line-height: 43px;
+    margin-left: -1px;
+    border: 1px solid #d7d7d8;
+    background: #F6F6F6;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.service_notice_list_pagenate a:hover{
+	color: rgb(241, 95, 95);
+}
+
