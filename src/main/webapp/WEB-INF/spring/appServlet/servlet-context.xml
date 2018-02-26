@@ -22,6 +22,7 @@
 	<resources location="/img/" mapping="/img/**"/>
 	<resources location="/js/" mapping="/js/**"/>
 	<resources location="/jqueryUI/" mapping="/jqueryUI/**"/>
+	<resources location="/book_img/" mapping="/book_img/**"/>
 
 	<!-- Tiles 생성 180219 허단비  -->
 	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">

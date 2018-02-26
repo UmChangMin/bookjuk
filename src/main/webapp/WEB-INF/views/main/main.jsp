@@ -45,9 +45,9 @@
 				<!-- 베스트셀러  -->
 				<div class="main_banner_list_view" style="display: block;">
 					<ul class="main_banner_list">
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/410/100830410.jpg"></a></li>
+						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="${root}/book_img/computer/com/computer_com_01.jpg"></a></li>
 
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.yes24.com/momo/TopCate1638/MidCate004/163736954.jpg"></a></li>
+						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="${root}/book_img/computer/com/computer_com_02.jpg"></a></li>
 
 						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/430/100726430.jpg"></a></li>
 
