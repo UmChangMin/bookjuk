@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+a{text-decoration: none;}
+
 .form-group {
     margin: 10px;
 }
@@ -129,9 +131,16 @@
 	margin-top: 10px;
 }
 
+.notice_content li>a{
+	color:black;
+	text-decoration: none;
+}
 
 
-
+.pagepic.active{
+	background: black;
+	color:white;
+}
 
 
 

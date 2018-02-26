@@ -25,7 +25,6 @@ public class AdminLocationDaoImp implements AdminLocationDao {
 
 	@Override
 	public int locationInsert(AdminLocationDto locationDto) {
-		//System.out.println(shopDto.toString());
 		return sqlSessionTemplate.insert("locationInsert", locationDto);
 	}
 

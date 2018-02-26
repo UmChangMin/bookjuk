@@ -27,11 +27,14 @@ public class MemberDaoImp implements MemberDao {
 	}
 
 	@Override
-	public String loginOk(String member_id, String member_password) {
-		Map<String, Object> hMap = new HashMap<String, Object>();
+	public MemberDto loginOk(String member_id, String member_password) {
+		Map<String, String> hMap = new HashMap<String, String>();
+		
 		hMap.put("member_id", member_id);
 		hMap.put("member_password", member_password);
+		System.out.println(member_id+","+member_password);
 		
 		return sqlSession.selectOne("memberLogin", hMap);
+		
 	}
 }

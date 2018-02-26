@@ -71,5 +71,17 @@ public class AdminLocationController{
 		return mav;
 	}
 	
+	@RequestMapping(value="/admin/location/zipcode.do",method=RequestMethod.GET)
+	public ModelAndView ZipCodeMove(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"Zipcode?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminLocationService.zipCodeMove(mav);
+		
+		return mav;
+	}
+	
 	
 }

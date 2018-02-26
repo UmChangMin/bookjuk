@@ -3,17 +3,26 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bookjuk.admin.dao.mapper.AdminServiceMapper">
+
+	<insert id="notice_insert" parameterType="com.bookjuk.admin.dto.AdminService_noticeDto">
+		insert into service_notice values(notice_num_seq.nextval, #{notice_subject}, #{notice_content}, #{notice_writer}, #{notice_date})
+	</insert>
 	
 	<select id="getCount" resultType="int">
 		select count(*) from service_notice
 	</select>
 	
-	<select id="getList" parameterType="java.util.HashMap" resultType="com.bookjuk.admin.dto.AdminServiceDto">
+	<select id="getList" parameterType="java.util.HashMap" resultType="com.bookjuk.admin.dto.AdminService_noticeDto">
 		<![CDATA[
 			SELECT * FROM (SELECT ROWNUM rnum, A.* FROM 
-			(SELECT * FROM service_notice ORDER BY notice_group_num DESC, notice_sequence_num ASC) A)b 
+			(SELECT * FROM service_notice ORDER BY notice_date desc) A)b 
 			where b.rnum >= #{start} and b.rnum <= #{end}
 		]]>
 	</select>
+	
+	<select id="notice_Numselect" parameterType="String" resultType="com.bookjuk.admin.dto.AdminService_noticeDto">
+		select * from service_notice where notice_num=#{notice_num}
+	</select>
+	
 	
 </mapper>

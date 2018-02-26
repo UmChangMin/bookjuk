@@ -12,7 +12,7 @@
 		INSERT INTO member (member_num, member_id, member_password, member_name, member_email, member_mailing, member_birth, member_level) VALUES (member_num_seq.nextval, #{member_id}, #{member_password}, #{member_name}, #{member_email}, #{member_mailing}, #{member_birth}, #{member_level})
 	</insert>
 
-	  <select id="memberLogin" parameterType="java.util.Map" resultType="String">
-  		<![CDATA[select member_level from member where member_id=#{member_id} and member_password=#{member_password}]]>
+	  <select id="memberLogin" parameterType="java.util.Map" resultType="com.bookjuk.member.dto.MemberDto">
+  		<![CDATA[select * from member where member_id=#{member_id} and member_password=#{member_password}]]>
   	</select> 
 </mapper>

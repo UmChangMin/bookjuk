@@ -8,5 +8,5 @@ public interface AdminLocationDao {
 
 	public List<AdminLocationDto> locationList();
 	public AdminLocationDto locationSelect(String location_name);
-	public int locationInsert(AdminLocationDto shopDto);
+	public int locationInsert(AdminLocationDto locationDto);
 }

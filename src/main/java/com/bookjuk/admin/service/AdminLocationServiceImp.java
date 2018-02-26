@@ -32,10 +32,12 @@ public class AdminLocationServiceImp implements AdminLocationService {
 /*		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 */		
-		AdminLocationDto LocationDto=(AdminLocationDto) mav.getModel().get("adminLocationDto");			
-		LogAspect.logger.info(LogAspect.logMsg+LocationDto);
+		AdminLocationDto locationDto=(AdminLocationDto) mav.getModel().get("adminLocationDto");
+		locationDto.setLocation_comming(locationDto.getLocation_comming().replace("\r\n", "<br/>"));
 		
-		int check=LocationDao.locationInsert(LocationDto);
+		LogAspect.logger.info(LogAspect.logMsg+locationDto);
+		
+		int check=LocationDao.locationInsert(locationDto);
 		LogAspect.logger.info(LogAspect.logMsg+check);
 		
 		mav.addObject("check", check);
@@ -48,10 +50,10 @@ public class AdminLocationServiceImp implements AdminLocationService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		String Location_name=request.getParameter("location");
-		LogAspect.logger.info(LogAspect.logMsg+Location_name);
+		String location_name=request.getParameter("location");
+		LogAspect.logger.info(LogAspect.logMsg+location_name);
 		
-		AdminLocationDto locationDto=LocationDao.locationSelect(Location_name);
+		AdminLocationDto locationDto=LocationDao.locationSelect(location_name);
 		LogAspect.logger.info(LogAspect.logMsg+locationDto.toString());
 		
 		mav.addObject("locationDto", locationDto);
@@ -70,6 +72,14 @@ public class AdminLocationServiceImp implements AdminLocationService {
 		
 		mav.addObject("LocationList",LocationList);
 		mav.setViewName("admin/location/locationManager_search.admin");
+	}
+
+	@Override
+	public void zipCodeMove(ModelAndView mav) {
+		Map<String, Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		mav.setViewName("admin/location/zipcode.empty");
 	}
 
 

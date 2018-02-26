@@ -98,7 +98,7 @@
 												</li>		
 												<li class="content_li">
 													<span class="content_title_name">우편번호</span>
-													<input type="text" class="form-control" id="inputPost" value="${locationDto.location_post_num}">
+													<input type="text" class="form-control" id="inputPost" value="${locationDto.location_postcode}">
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">주소</span>
@@ -110,11 +110,15 @@
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">전화번호</span>
-													<input type="text" class="form-control" id="inputCall" value="${locationDto.location_callnum}">
+													<input type="text" class="form-control" id="inputCall" value="${locationDto.location_call}">
 												</li>	
 												<li class="content_li">
+													<span class="content_title_name">팩스</span>
+													<input type="text" class="form-control" id="inputfax" value="${locationDto.location_fax}">
+												</li>													
+												<li class="content_li">
 													<span class="content_title_name">영업시간</span>
-													<input type="text" class="form-control" id="inputTime" value="${locationDto.location_time}">
+													<input type="text" class="form-control" id="inputTime" value="${locationDto.location_hour}">
 												</li>	
 												<li class="content_li">
 													<span class="content_title_name">오시는길</span>

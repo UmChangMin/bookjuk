@@ -29,12 +29,13 @@ public class MemberServiceImp implements MemberService {
 		String member_password=request.getParameter("member_password");
 		LogAspect.logger.info(LogAspect.logMsg+"아이디&비밀번호:"+member_id+"&"+member_password);
 		
-		String member_level=memberDao.loginOk(member_id,member_password);
-		LogAspect.logger.info(LogAspect.logMsg+member_level);
+		MemberDto memberDto = memberDao.loginOk(member_id,member_password);
 		
-		mav.addObject("member_id",member_id);
-		mav.addObject("member_password", member_password);
-		mav.addObject("member_level", member_level);
+		LogAspect.logger.info(LogAspect.logMsg+memberDto.toString());
+		
+		
+		mav.addObject("member_name", memberDto.getMember_name());
+		mav.addObject("member_level", memberDto.getMember_level());
 
 		mav.setViewName("member/member_loginOk.empty");
 	}

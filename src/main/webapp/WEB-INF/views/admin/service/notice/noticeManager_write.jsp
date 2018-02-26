@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -35,20 +36,23 @@
 							<div class="content_title_signature" align="center">공지사항작성</div>	
 							<div class="content_form" align="center">
 								<div class="form_style">
+									<form action="${root }/admin/service/notice/noticeManager_writeOk.do">
 									<div class="notice_content">
 										<ul>											
 											<li class="notice_title">제목</li>
-											<li class="notice_title_value"><input type="text" class="value_input" id="" placeholder="내용"></li>
+											<li class="notice_title_value"><input type="text" class="value_input" name="notice_subject" placeholder="내용"></li>
 										</ul>
 										<ul>											
 											<li class="notice_title">작성자</li>
-											<li class="notice_writer_value">관리자</li>
+											<li class="notice_writer_value"><input type="text" class="value_input_small" name="notice_writer" value="관리자" readonly="readonly"></li>
 											<li class="notice_title">작성일</li>
-											<li class="notice_date">Sysdate</li>
+											<li class="notice_date">
+												<input type="text" class="value_input_middle" readonly="readonly">
+											</li>											
 										</ul>
 										<ul>											
 											<li class="notice_content_title">내용</li>
-											<li class="notice_content_value"><textarea placeholder="내용"></textarea></li>
+											<li class="notice_content_value"><textarea name="notice_content" placeholder="내용"></textarea></li>
 										</ul>
 										
 										
@@ -61,15 +65,15 @@
 									      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left" id="btn-margin">
 									      	<ul>
 									      		<li>
+											        <button type="submit" class="btn btn-default" id="">완료</button>
+											        <button type="reset" class="btn btn-default" id=""">취소</button>
 											        <button type="button" class="btn btn-default" id="" onclick="location.href='noticeManager.do'">목록</button>
-											        <button type="submit" class="btn btn-default" id="" onclick="location.href='noticeManager.do'">완료</button>
-											        <button type="reset" class="btn btn-default" id="" onclick="location.href='noticeManager.do'">취소</button>
 										        </li>
 										    </ul>
 									      </div>
 									</div>
 									<!-- 버튼끝 -->	
-									
+									</form>
 								</div>
 							</div>
 						</div>

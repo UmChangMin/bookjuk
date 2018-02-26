@@ -12,7 +12,7 @@ function orderdelivery (root){			//주문,배송 조회
 
 function login(root){				//로그인
 	var url=root+"/member/login.do";
-	/*alert("나와라 로그인"+url);*/
+	//alert("나와라 로그인"+url);
 	window.open(url,"","width=550, height=410,left=620px, top=225px,scrollbars=no");
 }
 

@@ -32,7 +32,7 @@
 				</c:if>
 			<c:if test="${member_level != null && member_id!=null}">
 				<ul class="header_lnb_right">
-					<li><a href="" class="openMask" onclick="login('${root}')">[${member_id}]</a></li>
+					<li><a href="" class="openMask" onclick="">[${member_name}]</a></li>
 					<li><a class="openMask2" href="${root}/member/logout.do" >로그아웃</a></li>
 					<li><a class="" href="${root}/order/cart.do">장바구니</a></li>
 					<li><a class="openMask3" href="${root}/order/list.do" onclick="orderdelivery('${root}')">주문/배송조회</a></li>
@@ -42,6 +42,7 @@
 			</c:if>
 			<c:if test="${member_level=='admin'}">
 					<li><strong><a href="${root}/admin/sales/salesManager.do">관리자모드</a></strong></li>
+					<li><a class="openMask2" href="${root}/member/logout.do" >로그아웃</a></li>
 					<li><a class="" href="${root}/order/cart.do">장바구니</a></li>
 					<li><a class="openMask3" href="${root}/order/list.do" onclick="orderdelivery('${root}')">주문/배송조회</a></li>
 					<li><a class="" href="${root}/service/question.do">고객센터</a></li>

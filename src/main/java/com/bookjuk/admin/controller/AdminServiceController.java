@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bookjuk.admin.dto.AdminService_noticeDto;
 import com.bookjuk.admin.service.AdminServiceService;
 import com.bookjuk.aop.LogAspect;
 
@@ -115,6 +116,20 @@ public class AdminServiceController{
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
 		adminServiceService.noticeWriteMove(mav);
+		
+		return mav;
+	}
+	
+	//공지사항 쓰기
+	@RequestMapping(value="/admin/service/notice/noticeManager_writeOk.do",method=RequestMethod.GET)
+	public ModelAndView noticeWriteOk(HttpServletRequest request, HttpServletResponse response, AdminService_noticeDto noticeDto) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"notice-writeOk?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("noticeDto",noticeDto);
+		adminServiceService.noticeWriteOkMove(mav);
 		
 		return mav;
 	}

@@ -6,14 +6,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <title>관리자모드</title>
 
 <c:set var="root" value="${pageContext.request.contextPath }"/>
 <link rel="stylesheet" type="text/css" href="${root }/css/admin/commons/main.css">
 <link rel="stylesheet" type="text/css" href="${root }/css/admin/service/notice/noticeManager.css">
-<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="${root }/js/admin/service.js"></script>
+<script type="text/javascript" src="${root }/js/admin/service_commons.js"></script>
+<script type="text/javascript" src="${root }/js/admin/service_notice.js"></script>
 </head>   
 
 <body>
@@ -33,6 +33,17 @@
 						<!-- Content 시작 -->
 						<div class="content">
 							<div class="content_title_signature" align="center">공지사항목록</div>	
+							<c:if test="${count==0 }">
+								<div align="center" style="font-size: 30px; font-weight: bold; color:red;">등록된 게시물이 없습니다.</div>
+								<!-- 버튼시작 -->
+							    <div>
+							        <button type="button" class="btn btn-default input_float_right" id="" onclick="location.href='noticeManager_write.do'">글쓰기</button>										        
+						        </div>									
+								<!-- 버튼끝 -->
+							</c:if>
+							
+							<!-- 값이 있을 때 -->
+							<c:if test="${count>0 }">							
 							<div class="content_form" align="center">
 								<div class="form_style">
 									<div class="notice_content">
@@ -41,57 +52,17 @@
 											<li class="notice_title">제목</li>
 											<li class="notice_date">작성일</li>
 										</ul>
-										
-										<ul>
-											<li class="notice_board_num">10</li>
-											<li class="notice_title"><a href="noticeManager_read.do">[공지] 1월 12일 고객센터 운영시간 변경 안내</a></li>
-											<li class="notice_date">2018-01-12</li>
-										</ul>
-										<ul>
-											<li class="notice_board_num">9</li>
-											<li class="notice_title"><a href="">[공지] 카카오페이 서비스 일시 중지 안내</a></li>
-											<li class="notice_date">2018-01-11</li>
-										</ul>
-										<ul>
-											<li class="notice_board_num">8</li>
-											<li class="notice_title"><a href="">[공지] 1월 10일 고객센터 운영시간 변경 안내</a></li>
-											<li class="notice_date">2018-01-10</li>
-										</ul>
-										<ul>
-											<li class="notice_board_num">7</li>
-											<li class="notice_title"><a href="">[공지] ios 북적북적 앱 업데이트 공지</a></li>
-											<li class="notice_date">2017-12-26</li>
-										</ul>
-										<ul>
-											<li class="notice_board_num">6</li>
-											<li class="notice_title"><a href="">[공지] 일부 서비스 중지 안내</a></li>
-											<li class="notice_date">2017-12-22</li>
-										</ul>
-										<ul>
-											<li class="notice_board_num">5</li>
-											<li class="notice_title"><a href="">[공지] 북적북적 서버 정기점검 작업 공지</a></li>
-											<li class="notice_date">2017-12-18</li>
-										</ul>
-										<ul>
-											<li class="notice_board_num">4</li>
-											<li class="notice_title"><a href="">[공지] 북적북적 앱 apk 파일 다운로드 안내</a></li>
-											<li class="notice_date">2017-11-13</li>
-										</ul>
-										<ul>
-											<li class="notice_board_num">3</li>
-											<li class="notice_title"><a href="">[공지] 기기관리 기능 추가 안내</a></li>
-											<li class="notice_date">2017-11-08</li>
-										</ul>
-										<ul>
-											<li class="notice_board_num">2</li>
-											<li class="notice_title"><a href="">[공지] 신규회원 첫 구매 추가혜택 변경 안내</a></li>
-											<li class="notice_date">2017-11-01</li>
-										</ul>
-										<ul>
-											<li class="notice_board_num">1</li>
-											<li class="notice_title"><a href="">[공지] 10월 회원별 혜택 지급일 변경 안내</a></li>
-											<li class="notice_date">2017-10-18</li>
-										</ul>
+										<c:forEach var="noticeDto" items="${boardList}">
+											<ul>
+												<li class="notice_board_num">${noticeDto.notice_num }</li>
+												<li class="notice_title">
+													<a href="javascript:read_notice('${root }','${noticeDto.notice_num }','${pageNumber }')">${noticeDto.notice_subject }</a>
+												</li>
+												<li class="notice_date">
+													<fmt:formatDate var="notice_date" value="${noticeDto.notice_date}" pattern="yy/MM/dd"/>${notice_date}
+												</li>
+											</ul>
+										</c:forEach>									 
 									</div>								
 									
 									
@@ -118,23 +89,25 @@
 											</c:if>
 											
 											<c:if test="${startPage>pageBlock }">
-												<a href="${root}/borad/list.do?pageNumber=${startPage-pageBlock}">[이전]</a>
+												<a href="${root}/admin/service/notice/noticeManager.do?pageNumber=${startPage-pageBlock}">[이전]</a>
 											</c:if>
 											
 											<c:forEach var="i" begin="${startPage}" end="${endPage}">
-												<a href="${root}/borad/list.do?pageNumber=${i}">[${i}]</a>
+												<a href="${root}/admin/service/notice/noticeManager.do?pageNumber=${i}" class="pagepic" id="pagepic">[${i}]</a>
 											</c:forEach>
 											
 											<c:if test="${endPage<pageCount }">
-												<a href="${root}/borad/list.do?pageNumber=${startPage+pageBlock}">[다음]</a>
+												<a href="${root}/admin/service/notice/noticeManager.do?pageNumber=${startPage+pageBlock}">[다음]</a>
 											</c:if>
 										</c:if>
 									</div>
 									<!-- 페이징 처리 끝 -->
 									
 									
+									
 								</div>
 							</div>
+							</c:if>
 						</div>
 						<!-- Content 끝 -->
 					</div>

@@ -7,7 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.bookjuk.admin.dto.AdminServiceDto;
+import com.bookjuk.admin.dto.AdminService_noticeDto;
 
 
 @Component
@@ -23,8 +23,18 @@ public class AdminServiceDaoImp implements AdminServiceDao {
 	}
 
 	@Override
-	public List<AdminServiceDto> getList(HashMap<String, Integer> hmap) {		
+	public List<AdminService_noticeDto> getList(HashMap<String, Integer> hmap) {		
 		return sqlSessionTemplate.selectList("getList", hmap);
+	}
+
+	@Override
+	public int noticeInsert(AdminService_noticeDto noticeDto) {
+		return sqlSessionTemplate.insert("notice_insert", noticeDto);
+	}
+
+	@Override
+	public AdminService_noticeDto noticeSelect(String noticeNumber) {		
+		return sqlSessionTemplate.selectOne("notice_Numselect",noticeNumber);
 	}
 
 

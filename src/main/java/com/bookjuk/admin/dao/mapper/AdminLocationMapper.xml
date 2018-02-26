@@ -10,7 +10,7 @@
 	
 	<insert id="locationInsert" parameterType="com.bookjuk.admin.dto.AdminLocationDto">
 		<![CDATA[
-			insert into location values(location_num_seq.nextval, #{location_lat}, #{location_lng}, #{location_name}, #{location_post_num}, #{location_addr}, #{location_addr_detail}, #{location_callnum}, #{location_time}, #{location_comming})
+			insert into location values(location_num_seq.nextval, #{location_lat}, #{location_lng}, #{location_name}, #{location_postcode}, #{location_addr}, #{location_addr_detail}, #{location_call}, #{location_fax}, #{location_hour}, #{location_comming})
 		]]>
 	</insert>
 	

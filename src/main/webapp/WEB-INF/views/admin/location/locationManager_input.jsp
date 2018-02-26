@@ -78,7 +78,9 @@
 												</li>		
 												<li class="content_li">
 													<span class="content_title_name">우편번호</span>
-													<input type="text" class="form-control" id="inputPost" name="location_post_num">
+													<input type="text" class="form-control" id="inputPost" name="location_postcode">
+													<input type="button" class="btn btn-primary" id="Post_btn" onclick="zipcodeSearch('${root}')" value="주소검색">
+													
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">주소</span>
@@ -91,31 +93,35 @@
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">전화번호</span>
-													<input type="text" class="form-control" id="inputCall" name="location_callnum">
-												</li>	
+													<input type="text" class="form-control" id="inputCall" name="location_call">
+												</li>
+												<li class="content_li">
+													<span class="content_title_name">팩스번호</span>
+													<input type="text" class="form-control" id="inputFax" name="location_fax">
+												</li>		
 												<li class="content_li">
 													<span class="content_title_name">영업시간</span>
-													<input type="text" class="form-control" id="inputTime" name="location_time">
+													<input type="text" class="form-control" id="inputTime" name="location_hour">
 												</li>	
 												<li class="content_li">
 													<span class="content_title_name">오시는길</span>
 													<textarea class="form-control" rows="3" id="textArea" name="location_comming"></textarea>
 												</li>																														
 											</ul>
-											
 									</div>							
+									<div align="center" id="btn-margin-top">
+										<button type="submit" class="btn btn-primary" id="">완료</button>
+						        		<button type="reset" class="btn btn-default" id="">취소</button>
+					        		</div>
 									<!--  -->			
 												
 									</div>									
 								</li>								
 							</ul>
 						<!-- 환불, 교환, 반품-->
-					    <div class="form-group btn-margin" align="center">
-						      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left" id="btn-margin">											      	
-							        <button type="submit" class="btn btn-primary" id="">완료</button>
-							        <button type="reset" class="btn btn-default" id="">취소</button>
-						      </div>
-					    </div>
+											      	
+							        
+
 					</form>		
 					</div><!-- content -->
 					

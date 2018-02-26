@@ -1,5 +1,6 @@
 package com.bookjuk.admin.service;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bookjuk.admin.dao.AdminServiceDao;
-import com.bookjuk.admin.dto.AdminServiceDto;
+import com.bookjuk.admin.dto.AdminService_noticeDto;
 import com.bookjuk.aop.LogAspect;
 
 @Component
@@ -90,12 +91,12 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		
 		int count=serviceDao.getCount();
 		
-		List<AdminServiceDto> boardList=null;
+		List<AdminService_noticeDto> boardList=null;
 		
 		if(count>0) {
 			boardList=serviceDao.getList(hmap);
 		}
-		LogAspect.logger.info(LogAspect.logMsg+"출력 뿅" +count +", " +boardList.size());
+		LogAspect.logger.info(LogAspect.logMsg+"count, boardList : " +count +", " +boardList.size());
 		
 		
 		mav.addObject("count", count);
@@ -111,15 +112,57 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
+		String pageNumber=request.getParameter("pageNumber");
+		String noticeNumber=request.getParameter("notice_num");
+		
+		LogAspect.logger.info(LogAspect.logMsg+pageNumber+","+noticeNumber);
+		
+		//공지사항 글번호로 조회
+		AdminService_noticeDto noticeDto=serviceDao.noticeSelect(noticeNumber);
+		LogAspect.logger.info(LogAspect.logMsg+noticeDto.toString());
+		mav.addObject("pageNumber",pageNumber);
+		mav.addObject("noticeNumber",noticeNumber);
+		mav.addObject("noticeDto", noticeDto);
 		mav.setViewName("admin/service/notice/noticeManager_read.admin");
 		
 	}
 	
+	//공지사항 쓰기
 	@Override
 	public void noticeWriteMove(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");		
 		mav.setViewName("admin/service/notice/noticeManager_write.admin");		
+	}
+	
+
+	//공지사항 쓰기 완료
+	@Override
+	public void noticeWriteOkMove(ModelAndView mav) {		
+		AdminService_noticeDto noticeDto=(AdminService_noticeDto)mav.getModel().get("noticeDto");
+		
+		//SimpleDateFormat으로 수정여부? --18/02/23 김태우
+		/*SimpleDateFormat sdf=new SimpleDateFormat("yy/MM/dd hh:mm");
+		noticeDto.setNotice_date(sdf.format(new Date()));
+		
+		list 페이지 자체에서 fmt: ... pattern으로 받겠음
+		*/
+		
+		//제목 앞에 공지사항을 자동적으로 추가하게 만듬
+		
+		String alert="[공지사항]";
+		String subj=noticeDto.getNotice_subject();
+				
+		noticeDto.setNotice_content(noticeDto.getNotice_content().replace("\r\n", "<br/>"));
+		noticeDto.setNotice_subject(alert+subj);
+		noticeDto.setNotice_date(new Date());
+		LogAspect.logger.info(LogAspect.logMsg+noticeDto.toString());
+		
+		int check=serviceDao.noticeInsert(noticeDto);
+		LogAspect.logger.info(LogAspect.logMsg+check);
+		
+		mav.addObject("check", check);
+		mav.setViewName("admin/service/notice/noticeManager_writeOk.admin");		
 	}
 	
 	
@@ -192,6 +235,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		mav.setViewName("admin/service/contact/contactManager_delete.admin");
 		
 	}
+
 
 	
 	/** 1:1문의 끝*/

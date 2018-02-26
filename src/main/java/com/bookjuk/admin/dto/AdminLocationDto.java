@@ -1,22 +1,24 @@
 package com.bookjuk.admin.dto;
 
 public class AdminLocationDto {
-	private int num;
+	private int location_num;
 	private String location_lat;
 	private String location_lng;
 	private String location_name;
-	private String location_post_num;
+	private String location_postcode;
 	private String location_addr;
 	private String location_addr_detail;
-	private String location_callnum;
-	private String location_time;
+	private String location_call;
+	private String location_fax;
+	private String location_hour;
 	private String location_comming;
 	
-	public int getNum() {
-		return num;
+	
+	public int getLocation_num() {
+		return location_num;
 	}
-	public void setNum(int num) {
-		this.num = num;
+	public void setLocation_num(int location_num) {
+		this.location_num = location_num;
 	}
 	public String getLocation_lat() {
 		return location_lat;
@@ -36,11 +38,11 @@ public class AdminLocationDto {
 	public void setLocation_name(String location_name) {
 		this.location_name = location_name;
 	}
-	public String getLocation_post_num() {
-		return location_post_num;
+	public String getLocation_postcode() {
+		return location_postcode;
 	}
-	public void setLocation_post_num(String location_post_num) {
-		this.location_post_num = location_post_num;
+	public void setLocation_postcode(String location_postcode) {
+		this.location_postcode = location_postcode;
 	}
 	public String getLocation_addr() {
 		return location_addr;
@@ -54,17 +56,23 @@ public class AdminLocationDto {
 	public void setLocation_addr_detail(String location_addr_detail) {
 		this.location_addr_detail = location_addr_detail;
 	}
-	public String getLocation_callnum() {
-		return location_callnum;
+	public String getLocation_call() {
+		return location_call;
 	}
-	public void setLocation_callnum(String location_callnum) {
-		this.location_callnum = location_callnum;
+	public void setLocation_call(String location_call) {
+		this.location_call = location_call;
 	}
-	public String getLocation_time() {
-		return location_time;
+	public String getLocation_fax() {
+		return location_fax;
 	}
-	public void setLocation_time(String location_time) {
-		this.location_time = location_time;
+	public void setLocation_fax(String location_fax) {
+		this.location_fax = location_fax;
+	}
+	public String getLocation_hour() {
+		return location_hour;
+	}
+	public void setLocation_hour(String location_hour) {
+		this.location_hour = location_hour;
 	}
 	public String getLocation_comming() {
 		return location_comming;
@@ -74,13 +82,14 @@ public class AdminLocationDto {
 	}
 	@Override
 	public String toString() {
-		return "AdminLocationDto [num=" + num + ", location_lat=" + location_lat + ", location_lng=" + location_lng
-				+ ", location_name=" + location_name + ", location_post_num=" + location_post_num + ", location_addr="
-				+ location_addr + ", location_addr_detail=" + location_addr_detail + ", location_callnum="
-				+ location_callnum + ", location_time=" + location_time + ", location_comming=" + location_comming
-				+ "]";
+		return "AdminLocationDto [location_num=" + location_num + ", location_lat=" + location_lat + ", location_lng="
+				+ location_lng + ", location_name=" + location_name + ", location_postcode=" + location_postcode
+				+ ", location_addr=" + location_addr + ", location_addr_detail=" + location_addr_detail
+				+ ", location_call=" + location_call + ", location_fax=" + location_fax + ", location_hour="
+				+ location_hour + ", location_comming=" + location_comming + "]";
 	}
-
+	
+	
 	
 	
 }

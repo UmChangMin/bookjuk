@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="${root }/css/admin/commons/main.css">
 <link rel="stylesheet" type="text/css" href="${root }/css/admin/service/notice/noticeManager_read.css">
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="${root }/js/admin/service.js"></script>
+<script type="text/javascript" src="${root }/js/admin/service_commons.js"></script>
 
 </head>   
 
@@ -37,34 +38,20 @@
 									<div class="notice_content">
 										<ul>											
 											<li class="notice_title">제목</li>
-											<li class="notice_title_value">												
-												(공 지)1월 12일 고객센터 운영시간 변경 안내
-												<!-- <input type="text" class="value_input" id="" placeholder="내용"> -->
-											</li>
+											<li class="notice_title_value">${noticeDto.notice_subject }</li>
 										</ul>
 										<ul>											
 											<li class="notice_title">작성자</li>
-											<li class="notice_writer_value">관리자</li>
+											<li class="notice_writer_value">${noticeDto.notice_writer }</li>
 											<li class="notice_title">작성일</li>
-											<li class="notice_date">Sysdate</li>
+											<li class="notice_date">
+												<fmt:formatDate var="notice_date" value="${noticeDto.notice_date}" pattern="yyyy-MM-dd"/>${notice_date}
+											</li>
 										</ul>
 										<ul>											
 											<li class="notice_content_title">내용</li>
-											<li class="notice_content_value">
-												<p>
-												안녕하세요. 북적북적입니다. <br>
-												워크샵 진행으로 인하여 2018년 1월12일 당일 고객센터 운영시간이 변경될 
-												예정입니다.<br>
-												고객센터 운영시간 2018년 1월 12일 오전 9시 ~ 오후 3시 30분<br>
-												운영시간 외 문의사항에 대해서는 PC 또는 모바일 1:1게시판에 남겨주시면, <br>
-												1월 15일부터 순차적으로 답변드리겠습니다.<br>
-												회원 여러분들의 많은 양해 부탁드리며, 건강하시길 바랍니다.<br>
-												<br>
-												감사합니다.<br>
-																								
-												북적북적 드림.
-
-												</p>
+											<li class="notice_content_value">									
+												${noticeDto.notice_content }
 											</li>
 										</ul>
 										

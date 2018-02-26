@@ -20,8 +20,7 @@
 <body>
 	<div id="header">
 		<div class="header_top">
-			<div class="header_top_inner">
-			
+			<div class="header_top_inner">			
 			<c:if test="${member_level == null && member_id==null}">
 				<ul class="header_lnb_right">
 					<li><a href="" class="openMask" onclick="login('${root}')">로그인</a></li>
@@ -33,9 +32,9 @@
 				</ul>
 			</c:if>
 			
-			<c:if test="${member_level != null && member_id!=null}">
+			<c:if test="${member_level=='admin'}">
 				<ul class="header_lnb_right">
-					<li><a href="" class="openMask" onclick="login('${root}')">[${member_id}]</a></li>
+					<li><strong><a href="${root}/admin/sales/salesManager.do">관리자모드</a></strong></li>
 					<li><a class="openMask2" href="${root}/member/logout.do" >로그아웃</a></li>
 					<li><a class="" href="${root}/order/cart.do">장바구니</a></li>
 					<li><a class="openMask3" href="${root}/order/list.do" onclick="orderdelivery('${root}')">주문/배송조회</a></li>
@@ -44,13 +43,17 @@
 				</ul>
 			</c:if>
 			
-			<c:if test="${member_level=='admin' && member_id=='admin'}">
-					<li><strong><a href="${root}/admin/sales/salesManager.do">관리자모드</a></strong></li>
+			<c:if test="${member_level=='member'}">
+				<ul class="header_lnb_right">
+					<li><a href="#" class="openMask" onclick="">[${member_name}]</a></li>
+					<li><a class="openMask2" href="${root}/member/logout.do" >로그아웃</a></li>
 					<li><a class="" href="${root}/order/cart.do">장바구니</a></li>
 					<li><a class="openMask3" href="${root}/order/list.do" onclick="orderdelivery('${root}')">주문/배송조회</a></li>
 					<li><a class="" href="${root}/service/question.do">고객센터</a></li>
 					<li><a class="" href="${root}/location.do">영업점 안내</a></li>
-			</c:if>
+				</ul>
+			</c:if>	
+			
 			</div>
 		</div>
 

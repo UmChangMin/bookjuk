@@ -14,6 +14,7 @@ public interface AdminServiceService {
 	public void noticeMove(ModelAndView mav);
 	public void noticeReadMove(ModelAndView mav);
 	public void noticeWriteMove(ModelAndView mav);
+	public void noticeWriteOkMove(ModelAndView mav);
 	public void noticeUpdateMove(ModelAndView mav);
 	public void noticeDeleteMove(ModelAndView mav);
 	

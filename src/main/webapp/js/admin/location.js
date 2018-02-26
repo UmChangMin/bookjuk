@@ -51,15 +51,11 @@
 	
 	
 	/**주소 읽음*/
-	/*function readURL(input){ 
-		if(input.files&&input.files[0]){ 	
-			var reader=new FileReader(); 
-			reader.onload=function(e){ 
-				$("#imgFrame").attr("src", e.target.result); 
-			} 
-			reader.readAsDataURL(input.files[0]); 
-		} 
-	} */
+	function zipcodeSearch(root) {
+		//alert("root:"+root);
+		var url=root+"/admin/location/zipcode.do";
+		open(url,"","width=550, height=400, scrollbars=yes");
+	}
 	
 	/**상단 타이틀 메뉴 active ->font-Weight:bold*/
 	$(function(){

@@ -122,7 +122,7 @@
 .notice_title_value>input{
 	border:1px solid;
 	width: 541px;
-	height: 37px;
+	height: 36px;
 }
 
 .notice_writer_value{
@@ -153,9 +153,16 @@
 	height:364px;
 }
 
+/*18/02/23 추가*/
+.value_input_small{
+	width: 144px;
+	height: 36px;
+}
 
-
-
+.value_input_middle{
+	width: 239px;
+	height: 36px;
+}
 
 
 

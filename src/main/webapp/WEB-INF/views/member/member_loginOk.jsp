@@ -10,19 +10,19 @@
 <title>로그인</title>
 </head>
 <body>
-	<C:if test="${member_level != null && member_id!=null}">
-		<C:set var="member_id" scope="session"/>
-		<C:set var="member_level" scope="session"/>
+	<C:if test="${member_level != null && member_name!=null}">
+		
+		<C:set var="member_name" value="${member_name }" scope="session"/>
+		<C:set var="member_level" value="${member_level }" scope="session"/>
 		
 		<script type="text/javascript">
 			alert("로그인 성공하셨습니다.");
 			window.close();
-			 opener.location.reload();		//부모창 새로고침
-			
+			opener.location.reload();		//부모창 새로고침			
 		</script>
 	</C:if>
 	
-	<C:if test="${member_level != null && member_id==null}">
+	<C:if test="${member_level != null && member_name==null}">
 		<script type="text/javascript">
 			alert("아이디와 비밀번호를 확인하세요");
 			$(location).attr("href","${root}/login.do");
