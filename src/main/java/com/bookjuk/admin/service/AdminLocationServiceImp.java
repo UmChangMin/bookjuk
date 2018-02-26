@@ -11,13 +11,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bookjuk.admin.dao.AdminLocationDao;
 import com.bookjuk.admin.dto.AdminLocationDto;
+import com.bookjuk.admin.dto.ZipCodeDto;
 import com.bookjuk.aop.LogAspect;
 
 @Component
 public class AdminLocationServiceImp implements AdminLocationService {
 
 	@Autowired
-	private AdminLocationDao LocationDao;	
+	private AdminLocationDao locationDao;	
 
 	
 	
@@ -37,7 +38,7 @@ public class AdminLocationServiceImp implements AdminLocationService {
 		
 		LogAspect.logger.info(LogAspect.logMsg+locationDto);
 		
-		int check=LocationDao.locationInsert(locationDto);
+		int check=locationDao.locationInsert(locationDto);
 		LogAspect.logger.info(LogAspect.logMsg+check);
 		
 		mav.addObject("check", check);
@@ -53,7 +54,7 @@ public class AdminLocationServiceImp implements AdminLocationService {
 		String location_name=request.getParameter("location");
 		LogAspect.logger.info(LogAspect.logMsg+location_name);
 		
-		AdminLocationDto locationDto=LocationDao.locationSelect(location_name);
+		AdminLocationDto locationDto=locationDao.locationSelect(location_name);
 		LogAspect.logger.info(LogAspect.logMsg+locationDto.toString());
 		
 		mav.addObject("locationDto", locationDto);
@@ -66,7 +67,7 @@ public class AdminLocationServiceImp implements AdminLocationService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		List<AdminLocationDto>LocationList=LocationDao.locationList();
+		List<AdminLocationDto>LocationList=locationDao.locationList();
 		
 		LogAspect.logger.info(LogAspect.logMsg+LocationList.size());
 		
@@ -79,7 +80,26 @@ public class AdminLocationServiceImp implements AdminLocationService {
 		Map<String, Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
+		String dong=request.getParameter("dong");
+		
+		List<ZipCodeDto> zipcodeList=null;
+		
+		if(dong!=null) {
+			zipcodeList=locationDao.selectZipcode(dong.replaceAll(" ", ""));
+			LogAspect.logger.info(LogAspect.logMsg + "zipcode "+ zipcodeList.size());
+		}
+		
+		mav.addObject("zipcodeList", zipcodeList);
+		
 		mav.setViewName("admin/location/zipcode.empty");
+	}
+
+	@Override
+	public void jusoMove(ModelAndView mav) {
+		
+		
+		mav.setViewName("admin/location/jusoPopup.empty");
+		
 	}
 
 

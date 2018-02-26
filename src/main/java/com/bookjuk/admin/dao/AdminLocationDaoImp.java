@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.bookjuk.admin.dto.AdminLocationDto;
+import com.bookjuk.admin.dto.ZipCodeDto;
 
 @Component
 public class AdminLocationDaoImp implements AdminLocationDao {
@@ -36,11 +37,10 @@ public class AdminLocationDaoImp implements AdminLocationDao {
 		
 	}
 
-	/*@Override
-	public int locationList(List<AdminShopDto> locationList) {
-		// TODO Auto-generated method stub
-		return 0;
-	}*/
-
+	@Override
+	public List<ZipCodeDto> selectZipcode(String dong) {
+		
+		return sqlSessionTemplate.selectList("locationZipCode",dong);
+	}
 	
 }

@@ -28,7 +28,7 @@
 					<div class="content_title">영업점관리</div>
 					
 					<div class="content">
-						<form class="content_box3_formtag" action="locationManager_inputOk.do" method="get">	
+						<form class="content_box3_formtag" action="locationManager_inputOk.do" method="post" name="location_Info">	
 						<ul>
 							<li class="content_part content_part_move1">
 							<div class="content_wrap_body_left">
@@ -79,7 +79,7 @@
 												<li class="content_li">
 													<span class="content_title_name">우편번호</span>
 													<input type="text" class="form-control" id="inputPost" name="location_postcode">
-													<input type="button" class="btn btn-primary" id="Post_btn" onclick="zipcodeSearch('${root}')" value="주소검색">
+													<input type="button" class="btn btn-primary" id="Post_btn" onclick="goPopup('${root}')" value="주소검색">
 													
 												</li>
 												<li class="content_li">
@@ -88,8 +88,8 @@
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">상세주소</span>
-													<input type="text" class="form-control" id="inputAddr_detail" name="location_addr_detail">
-													<input type="button" class="btn btn-primary" id="input_map" onclick="toServer()" value="지도">													
+													<input type="text" class="form-control" id="inputAddr_detail" name="location_addr_detail" placeholder="상세주소 입력 후 '지도' 버튼 클릭">
+													<input type="button" class="btn btn-primary" id="input_map" onclick="" value="지도">													
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">전화번호</span>

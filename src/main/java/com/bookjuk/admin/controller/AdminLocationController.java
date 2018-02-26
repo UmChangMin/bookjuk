@@ -83,5 +83,17 @@ public class AdminLocationController{
 		return mav;
 	}
 	
+	@RequestMapping(value="/admin/location/jusoPopup.do",method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView JusoPopup(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"jusoPopup?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminLocationService.jusoMove(mav);
+		
+		return mav;
+	}
+	
 	
 }

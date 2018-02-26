@@ -17,4 +17,8 @@
 	<select id="locationList" resultType="com.bookjuk.admin.dto.AdminLocationDto">
 		select * from location
 	</select>
+	
+	<select id="locationZipCode" parameterType="String" resultType="com.bookjuk.admin.dto.ZipCodeDto">
+		select * from zipcode where dong=#{dong}
+	</select>
 </mapper>
