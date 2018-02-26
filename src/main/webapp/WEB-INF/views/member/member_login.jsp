@@ -8,7 +8,7 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <link type="text/css" rel="stylesheet" href="${root}/css/member/member_login.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
-<script type="text/javascript" src="${root}/js/member/member_regist.js"></script>
+<script type="text/javascript" src="${root}/js/member/member_login.js"></script>
 <!-- 로그인 뷰: 엄창민  수정:허단비 -->
 <title>Insert title here</title>
 </head>
@@ -24,16 +24,16 @@
 				</div>
 				<!-- 로그인 메인 -->
 				<div class="login_main">
-					<form action="#" method="post">
+					<form action="${root}/member/login.do" method="post">
 						<fieldset>
 							<legend>로그인</legend>
 							<div class="login_wrap">
 								<div class="login_info">
 									<div class="login_input">
-										<input type="text" placeholder="아이디" maxlength="20" class="login_id"/>
+										<input type="text" placeholder="아이디" maxlength="20" class="login_id" name="member_id"/>
 									</div>
 									<div class="login_input">
-										<input type="password" placeholder="비밀번호" maxlength="20" class="login_pwd"/>
+										<input type="password" placeholder="비밀번호" maxlength="20" class="login_pwd" name="member_password"/>
 									</div>
 								</div>
 								<div class="login_mod">
@@ -48,7 +48,7 @@
 									</p>
 								</div>
 								<div class="login_btn">
-									<input type="submit" id="submit" value="로그인">
+									<input type="submit" id="submit" value="로그인" >
 								</div>
 							</div>
 						</fieldset>

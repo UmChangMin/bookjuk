@@ -24,9 +24,21 @@ public class MemberServiceImp implements MemberService {
 	public void loginOk(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		String member_id=request.getParameter("member_id");
+		String member_password=request.getParameter("member_password");
+		LogAspect.logger.info(LogAspect.logMsg+"아이디&비밀번호:"+member_id+"&"+member_password);
+		
+		String member_level=memberDao.loginOk(member_id,member_password);
+		LogAspect.logger.info(LogAspect.logMsg+member_level);
+		
+		mav.addObject("member_id",member_id);
+		mav.addObject("member_password", member_password);
+		mav.addObject("member_level", member_level);
 
-		mav.setViewName("member/member_login.empty");
+		mav.setViewName("member/member_loginOk.empty");
 	}
+	
 
 	@Override
 	public void registOk(ModelAndView mav) {

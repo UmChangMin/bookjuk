@@ -1,20 +1,20 @@
 package com.bookjuk.member.dto;
 
 public class MemberDto {
-	private int member_num;				// ÀÚµ¿Áõ°¡¹øÈ£
-	private String member_id;			// ¾ÆÀÌµğ
-	private String member_password; 	// ºñ¹Ğ¹øÈ£
-	private String member_name;			// ÀÌ¸§
-	private String member_email;		// ÀÌ¸ŞÀÏ
-	private String member_mailing;		// ÀÌ¸ŞÀÏ ¼ö½Å¿©ºÎ
-	private int member_birth;			// »ı³â¿ùÀÏ
-	private int member_postcode;		// ¿ìÆí¹øÈ£
-	private String member_address;		// ÁÖ¼Ò
-	private String member_phone;		// ÇÚµåÆù¹øÈ£
-	private int member_point;			// Àû¸³±İ
-	private int birthday_coupon;		// »ıÀÏÄíÆù
-	private int delivery_coupon;		// ¹«·á¹è¼Û ÄíÆù
-	private String member_level;		// È¸¿ø·¹º§
+	private int member_num;				// ìë™ì¦ê°€ë²ˆí˜¸
+	private String member_id;			// ì•„ì´ë””
+	private String member_password; 	// ë¹„ë°€ë²ˆí˜¸
+	private String member_name;			// ì´ë¦„
+	private String member_email;		// ì´ë©”ì¼
+	private String member_mailing;		// ì´ë©”ì¼ ìˆ˜ì‹ ì—¬ë¶€
+	private int member_birth;			// ìƒë…„ì›”ì¼
+	private int member_postcode;		// ìš°í¸ë²ˆí˜¸
+	private String member_address;		// ì£¼ì†Œ
+	private String member_phone;		// í•¸ë“œí°ë²ˆí˜¸
+	private int member_point;			// ì ë¦½ê¸ˆ
+	private int birthday_coupon;		// ìƒì¼ì¿ í°
+	private int delivery_coupon;		// ë¬´ë£Œë°°ì†¡ì¿ í°
+	private String member_level;		// íšŒì›ë ˆë²¨
 	
 	public int getMember_num() {
 		return member_num;

@@ -33,6 +33,12 @@ public class MemberController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/logout.do", method = RequestMethod.GET)
+	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) {
+		
+		return new ModelAndView("member/member_logout.empty");
+	}
+	
 	@RequestMapping(value = "/regist.do", method = RequestMethod.GET)
 	public ModelAndView registe(HttpServletRequest request, HttpServletResponse response) {
 		return new ModelAndView("member/member_regist.empty");
