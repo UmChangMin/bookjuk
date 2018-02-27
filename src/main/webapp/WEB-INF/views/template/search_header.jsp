@@ -8,46 +8,55 @@
 <c:set var="root" value="${pageContext.request.contextPath}" />
 <!-- header뷰: 강민아 ,실시간 급상승 :허단비,  플로팅 메뉴 : 엄창민 /수정: 허단비  -->
 <title>북적북적</title>
-<link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css" />
-<link rel="stylesheet" type="text/css" href="${root}/css/template/header.css" />
-<link rel="stylesheet" type="text/css" href="${root}/css/template/real_time.css" />
+<link rel="stylesheet" type="text/css"
+	href="${root}/css/template/basic.css" />
+<link rel="stylesheet" type="text/css"
+	href="${root}/css/template/header.css" />
+<link rel="stylesheet" type="text/css"
+	href="${root}/css/template/real_time.css" />
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/main/main_header.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"
+	type="text/javascript"></script>
 </head>
 <body>
 	<div id="header">
 		<div class="header_top">
 			<div class="header_top_inner">
-			
-			<c:if test="${member_level == null && member_id==null}">
-				<ul class="header_lnb_right">
-					<li><a href="" class="openMask" onclick="login('${root}')">로그인</a></li>
-					<li><a class="openMask2" href="" onclick="registe('${root}')">회원가입</a></li>
-					<li><a class="" href="${root}/order/cart.do">장바구니</a></li>
-					<li><a class="openMask3" href="${root}/order/list.do" onclick="orderdelivery('${root}')">주문/배송조회</a></li>
-					<li><a class="" href="${root}/service/question.do">고객센터</a></li>
-					<li><a class="" href="${root}/location.do">영업점 안내</a></li>
-				</ul>
+
+				<c:if test="${member_level == null && member_id==null}">
+					<ul class="header_lnb_right">
+						<li><a href="" class="openMask" onclick="login('${root}')">로그인</a></li>
+						<li><a class="openMask2" href="" onclick="registe('${root}')">회원가입</a></li>
+						<li><a class="" href="${root}/order/cart.do">장바구니</a></li>
+						<li><a class="openMask3" href="${root}/order/list.do" onclick="orderdelivery('${root}')">주문/배송조회</a></li>
+						<li><a class="" href="${root}/service/question.do">고객센터</a></li>
+						<li><a class="" href="${root}/location.do">영업점 안내</a></li>
+					</ul>
 				</c:if>
-			<c:if test="${member_level != null && member_id!=null}">
-				<ul class="header_lnb_right">
-					<li><a href="" class="openMask" onclick="">[${member_name}]</a></li>
-					<li><a class="openMask2" href="${root}/member/logout.do" >로그아웃</a></li>
-					<li><a class="" href="${root}/order/cart.do">장바구니</a></li>
-					<li><a class="openMask3" href="${root}/order/list.do" onclick="orderdelivery('${root}')">주문/배송조회</a></li>
-					<li><a class="" href="${root}/service/question.do">고객센터</a></li>
-					<li><a class="" href="${root}/location.do">영업점 안내</a></li>
-				</ul>
-			</c:if>
-			<c:if test="${member_level=='admin'}">
-					<li><strong><a href="${root}/admin/sales/salesManager.do">관리자모드</a></strong></li>
-					<li><a class="openMask2" href="${root}/member/logout.do" >로그아웃</a></li>
-					<li><a class="" href="${root}/order/cart.do">장바구니</a></li>
-					<li><a class="openMask3" href="${root}/order/list.do" onclick="orderdelivery('${root}')">주문/배송조회</a></li>
-					<li><a class="" href="${root}/service/question.do">고객센터</a></li>
-					<li><a class="" href="${root}/location.do">영업점 안내</a></li>
-			</c:if>
+				<c:if test="${member_level=='admin'}">
+					<ul class="header_lnb_right">
+						<li><strong><a href="${root}/admin/sales/salesManager.do">[관리자모드]</a></strong></li>
+						<li><a class="openMask2" href="${root}/member/logout.do">로그아웃</a></li>
+						<li><a class="" href="${root}/order/cart.do">장바구니</a></li>
+						<li><a class="openMask3" href="${root}/order/list.do" onclick="orderdelivery('${root}')">주문/배송조회</a></li>
+						<li><a class="" href="${root}/service/question.do">고객센터</a></li>
+						<li><a class="" href="${root}/location.do">영업점 안내</a></li>
+					</ul>
+				</c:if>
+				<c:if test="${member_level != null && member_id!=null}">
+					<ul class="header_lnb_right">
+						<li><a href="${root}/member/mypage.do" class="openMask" style="color: #F15F5F">[${member_name}]</a></li>
+						<li><a class="openMask2" href="${root}/member/logout.do">로그아웃</a></li>
+						<li><a class="" href="${root}/member/mypage.do">마이페이지</a></li>
+						<li><a class="" href="${root}/order/cart.do">장바구니</a></li>
+						<li><a class="openMask3" href="${root}/order/list.do" onclick="orderdelivery('${root}')">주문/배송조회</a></li>
+						<li><a class="" href="${root}/service/question.do">고객센터</a></li>
+						<li><a class="" href="${root}/location.do">영업점 안내</a></li>
+					</ul>
+				</c:if>
+
 			</div>
 		</div>
 
@@ -88,22 +97,33 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- 플로팅 메뉴 -->
 	<div id="floatMenu" align="center">
 		<div class="today_view" align="center">
-			<div class="today_title"><h3 align="center">최근 본 목록</h3></div>
+			<div class="today_title">
+				<h3 align="center">최근 본 목록</h3>
+			</div>
 			<div class="tv_container">
-				<div class="tv_prod"><a href="#"><img src="http://bookimg.bookcube.com/94/1308/130801548.jpg"></a></div>
-				<div class="tv_prod"><a href="#"><img src="http://bookimg.bookcube.com/94/1712/171201262.jpg"></a></div>
-				<div class="tv_prod"><a href="#"><img src="http://bookimg.bookcube.com/94/1607/160704046.jpg"></a></div>
+				<div class="tv_prod">
+					<a href="#"><img
+						src="http://bookimg.bookcube.com/94/1308/130801548.jpg"></a>
+				</div>
+				<div class="tv_prod">
+					<a href="#"><img
+						src="http://bookimg.bookcube.com/94/1712/171201262.jpg"></a>
+				</div>
+				<div class="tv_prod">
+					<a href="#"><img
+						src="http://bookimg.bookcube.com/94/1607/160704046.jpg"></a>
+				</div>
 			</div>
 		</div>
 		<div class="float_btn">
-			<a href="${root}/order/cart.do" class="cart_btn">장바구니</a><br/>
-			<a href="#" class="top_btn">TOP</a>
+			<a href="${root}/order/cart.do" class="cart_btn">장바구니</a><br /> <a
+				href="#" class="top_btn">TOP</a>
 		</div>
-	</div>	
+	</div>
 
 </body>
 </html>

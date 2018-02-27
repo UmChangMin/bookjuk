@@ -87,23 +87,7 @@ $(function (){
 
    
 });
-/*
-$(function (){
-	
-	var book_new = ["너와 함께한 모든 길이 좋았다","공존을 위한 길 고양이 안내서","거의 모든 재난에서 살아남는 법","기네스 세계기록 2018","안티포렌식","한 권으로 끝내는 포토샵","허단비","강민아","김태우","엄창민"];
-	
-	$(".header_SearchString").autocomplete({
-		source : book_new,
-		minLength:2,
-		select : function(event,ui){
-			console.log(ui.item);
-		},
-		focus : function (event,ui){
-			return false;
-			//event.preventDefault();
-		}
-	});
-});*/
+
 
 
 

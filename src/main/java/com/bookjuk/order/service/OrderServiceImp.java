@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bookjuk.aop.LogAspect;
 import com.bookjuk.order.dao.OrderDao;
 
 @Component
@@ -60,6 +61,10 @@ public class OrderServiceImp implements OrderService {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
+		String phone = request.getParameter("phone");
+		String member_password=request.getParameter("member_password");
+		LogAspect.logger.info(LogAspect.logMsg+"핸드폰번호&&비밀번호"+phone+"\t"+member_password);
+		
 		mav.setViewName("order/order_main.empty");
 	}
 	
@@ -78,4 +83,10 @@ public class OrderServiceImp implements OrderService {
 		
 		mav.setViewName("order/order_cancle.search");
 	}
+
+/*	@Override
+	public void orderOk(ModelAndView mav) {
+		Map<>
+		
+	}*/
 }

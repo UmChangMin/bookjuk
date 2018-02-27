@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css"href="${root}/css/template/basic.css" />
 <link rel="stylesheet" type="text/css"href="${root}/css/order/order_main.css" />
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
-<script type="text/javascript" src="${root}/js/registe/registe.js"></script>
+<script type="text/javascript" src="${root}/js/member/member_login.js"></script>
 <!-- 주문배송조회 뷰:허단비 -->
 </head>
 <body>
@@ -20,12 +20,11 @@
 			<div id="order_content">
 			
 				<div class="order_title">
-					<img alt="닫기" src="${root}/img/main/cancel.png"  onclick='self.close()' class="order_close">
 					<h3>주문배송조회</h3>
 				</div>
 
 				<div class="order_main">
-					<form action="#" method="post">
+					<form action="${root}/order/order_mainOk.do" method="post">
 						<div class="order_wrap">
 							<div class="order_info">
 								<div class="order_input">

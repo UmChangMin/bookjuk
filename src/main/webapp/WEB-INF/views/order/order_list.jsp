@@ -33,9 +33,9 @@
 				<!-- 개월수 시작 -->
 				<div class="order_monthbox">
 					<div class="order_month">
-						<a class="" href="#">1주일	</a>
-						<a class="" href="#">1개월	</a>
-						<a class="" href="#">6개월	</a>
+						<a class="" href="#">1주일</a>
+						<a class="" href="#">1개월</a>
+						<a class="" href="#">6개월</a>
 						<a class="" href="#">1년</a>
 					</div>
 					<div class="calendar"> 

@@ -9,8 +9,8 @@
 <link type="text/css" rel="stylesheet" href="${root}/css/member/member_login.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/member/member_login.js"></script>
-<!-- 로그인 뷰: 엄창민  수정:허단비 -->
 <title>Insert title here</title>
+
 </head>
 <body>
 <div id="login_all">
@@ -18,37 +18,26 @@
 		<div id="login_container">
 			<!--  content -->
 			<div id="login_content">
-				<!-- 로그인 타이틀 -->
+				<!-- 아이디찾기 타이틀 -->
 				<div class="login_title">
-					<h3>로그인</h3>
+					<h3>아이디찾기</h3>
 				</div>
-				<!-- 로그인 메인 -->
+				<!-- 아이디찾기 메인 -->
 				<div class="login_main">
-					<form action="${root}/member/login.do" method="post">
+					<form action="${root}/member/findId.do" method="post">
 						<fieldset>
 							<legend>로그인</legend>
 							<div class="login_wrap">
 								<div class="login_info">
 									<div class="login_input">
-										<input type="text" placeholder="아이디" maxlength="20" class="login_id" name="member_id"/>
+										<input type="text" name="member_name" placeholder="이름" class="registe_name" />
 									</div>
 									<div class="login_input">
-										<input type="password" placeholder="비밀번호" maxlength="20" class="login_pwd" name="member_password"/>
+										<input type="text" name="member_email" placeholder="이메일" class="registe_email" />
 									</div>
-								</div>
-								<div class="login_mod">
-									<div class="login_keep">
-										<input type="checkbox">
-										<p>로그인유지</p>
-									</div>
-									<p>
-										<a href="${root}/member/findId.do" class="find_id">아이디 찾기</a>
-										<em>|</em>
-										<a href="#" class="find_pwd" onclick="find_pwd('${root}')">비밀번호 찾기</a>
-									</p>
 								</div>
 								<div class="login_btn">
-									<input type="submit" id="submit" value="로그인" >
+									<input type="submit" id="submit" value="확인" >
 								</div>
 							</div>
 						</fieldset>
@@ -57,6 +46,5 @@
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>

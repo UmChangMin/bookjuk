@@ -6,4 +6,5 @@ public interface MemberDao {
 	public int checkId(String id);
 	public int insert(MemberDto memberDto);
 	public MemberDto loginOk(String member_id, String member_password);
+	public String findId(String name, String email);
 }

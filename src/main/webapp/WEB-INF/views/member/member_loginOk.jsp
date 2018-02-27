@@ -10,13 +10,12 @@
 <title>로그인</title>
 </head>
 <body>
-	<input type="text" value="${member_level }" disabled="disabled">
 	<C:if test="${member_level != null && member_name!=null}">
 		
-		<C:set var="member_name" value="${member_name }" scope="session"/>
-		<C:set var="member_level" value="${member_level }" scope="session"/>
-		
-		
+		<C:set var="member_name" value="${member_name}" scope="session"/>
+		<C:set var="member_level" value="${member_level}" scope="session"/>
+		<C:set var="member_id" value="${member_id}" scope="session"/>
+	
 		<script type="text/javascript">
 			alert("로그인 성공하셨습니다.");
 			window.close();

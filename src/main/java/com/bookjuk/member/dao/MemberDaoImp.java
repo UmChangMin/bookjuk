@@ -32,9 +32,18 @@ public class MemberDaoImp implements MemberDao {
 		
 		hMap.put("member_id", member_id);
 		hMap.put("member_password", member_password);
-		System.out.println(member_id+","+member_password);
 		
 		return sqlSession.selectOne("memberLogin", hMap);
 		
+	}
+
+	@Override
+	public String findId(String name, String email) {
+		Map<String, String> hMap = new HashMap<String, String>();
+		
+		hMap.put("member_name", name);
+		hMap.put("member_email", email);
+
+		return sqlSession.selectOne("memberFindId", hMap);
 	}
 }

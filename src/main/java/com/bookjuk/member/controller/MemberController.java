@@ -2,6 +2,7 @@ package com.bookjuk.member.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,17 +26,34 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
-	public ModelAndView loginOk(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView loginOk(HttpServletRequest request, HttpServletResponse response,HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
+		mav.addObject("session", session);
+
 		memberService.loginOk(mav);
 		
 		return mav;
 	}
 	
-	@RequestMapping(value="/logout.do", method = RequestMethod.GET)
-	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value = "/findId.do",method=RequestMethod.GET)
+	public ModelAndView findId(HttpServletRequest request, HttpServletResponse response) {
+		return new ModelAndView("/member/member_find_id.empty");
+	}
+	
+	@RequestMapping(value = "/findId.do",method=RequestMethod.POST)
+	public ModelAndView findIdOk(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+
+		memberService.findId(mav);
 		
+		return mav;
+	}
+	
+	@RequestMapping(value="/logout.do", method = RequestMethod.GET)
+	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		session.invalidate();
 		return new ModelAndView("member/member_logout.empty");
 	}
 	
@@ -118,4 +136,5 @@ public class MemberController {
 		mav.setViewName("member/member_coupon.empty");
 		return mav;
 	}
+	
 }

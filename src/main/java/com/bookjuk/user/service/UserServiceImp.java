@@ -24,10 +24,12 @@ public class UserServiceImp implements UserService {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		HttpSession session=(HttpSession)map.get("session");
+		
 		String member_level=(String) session.getAttribute("member_level");
-		String member_id=request.getParameter("member_id");
+		String member_name=(String) session.getAttribute("member_name");
+		
 		//String member_level=request.getParameter("member_level");
-		LogAspect.logger.info(LogAspect.logMsg+member_id+","+member_level);
+		LogAspect.logger.info(LogAspect.logMsg+member_name+","+member_level);
 		
 		mav.setViewName("main/main.tiles");
 	}

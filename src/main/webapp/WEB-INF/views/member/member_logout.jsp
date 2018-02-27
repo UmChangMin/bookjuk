@@ -10,11 +10,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:remove var="member_id" scope="session"/>
-	<c:remove var="member_level" scope="session"/>
 	<script type="text/javascript">
 		alert("로그아웃 되었습니다.");
-		$(location).attr("href","${root}/main.do");
+		location.replace("${root}/main.do");
 	</script>
 </body>
 </html>
