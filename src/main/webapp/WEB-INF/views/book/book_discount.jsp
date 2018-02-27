@@ -56,7 +56,7 @@
 										<div class="bookList_content_inbfo">
 											<p class="bookList_content_title"><a href="${root}/book/list/detail.do">모두의 엔트리 with 엔트리파이선</a></p>
 											<p class="bookList_content_author">김슬기, 김성훈, 곽혜미 &nbsp;|&nbsp;길벗&nbsp;|&nbsp;2018.01.15</p>
-											<p class="bookList_content_buy">구매 <span>12,600원</span></p>
+											<p class="bookList_content_buy">가격 <span>12,600원</span></p>
 											<div class="bookList_content_content">이 책은 이제 막 소프트웨어(SW) 교육을 시작하는 초등학교 고학년부터 중·고등학생, 컴퓨터를 전공하지 않은 대학생, 취미로 코딩을 배우고 싶은 직장인, SW 교육에 관심이 있는...이 책은 이제 막 소프트웨어(SW) 교육을 시작하는 초등학교 고학년부터 중·고등학생, 컴퓨터를 전공하지 않은 대학생, 취미로 코딩을 배우고 싶은 직장인, SW 교육에 관심이 있는...</div>
 											
 										</div>
@@ -87,7 +87,7 @@
 											</p>
 											<div class="bookList_mid_content_cash">
 												<p>
-													구매 <span>12,150원</span>
+													가격 <span>12,150원</span>
 												</p>
 											</div>
 										</div>

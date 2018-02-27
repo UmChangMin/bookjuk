@@ -46,7 +46,6 @@ public class BookController {
 		LogAspect.logger.info(LogAspect.logMsg+"신간도서!");
 		
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("request",request);
 		
 		bookService.bookNew(mav);
 		

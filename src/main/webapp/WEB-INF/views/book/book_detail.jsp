@@ -49,7 +49,7 @@
 										<div class="bookDetail_figure">
 											<div class="bookDetail_thum_box">
 												<span class="bookDetail_rm_br"> <img
-													src="${root}/img/book/computer_com_05.jpg" />
+													src="${root}${bookDto.book_img}" />
 												</span>
 											</div>
 										</div>
@@ -59,18 +59,18 @@
 								<div class="bookDetail_info">
 									<div class="bookDetail_title">
 										<div class="bookDetail_title_inner">
-											<p>모두의 엔트리 with 엔트리파이선</p>
+											<p>${bookDto.book_name}</p>
 										</div>
 									</div>
 									<div class="bookDetail_author">
-										김슬기, 김성훈, 곽혜미<span>&nbsp;저</span>
+										${bookDto.book_author}<span>&nbsp;저</span>
 									</div>
-									<span>출판사</span>&nbsp;|&nbsp;<span>출간정보</span>
+									<span>${bookDto.book_publisher}</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span><fmt:formatDate value="${bookDto.book_date}" pattern="YYYY.MM.dd"/></span>
 
 									<div class="bookDetail_star">
 										<div>
 											<span class="bookDetail_list_star"></span>
-											<p class="bookDetail_rank_user">4.7</p>
+											<p class="bookDetail_rank_user">${bookDto.book_score}</p>
 										</div>
 									</div>
 								<!-- 	<ul>
@@ -88,18 +88,18 @@
 										<div class="bookDetail_info_content">
 											<div class="bookDetail_one">판매가</div>
 											<div class="bookDetail_two">
-												<span>12,150원</span>
+												<span><fmt:formatNumber value="${bookDto.product_price}" pattern="###,###,###"/>원</span>
 											</div>
 										</div>
 										<div class="bookDetail_point">
 											<div class="bookDetail_one">포인트</div>
 											<div class="bookDetail_two">
-												<span>10% 적립</span>
+												<span><fmt:formatNumber value="${bookDto.product_point}" pattern="###,###,###"/>P</span>
 											</div>
 										</div>
 										<div class="bookDetail_delivery">
 											<div class="bookDetail_one">배송료</div>
-											<div class="bookDetail_two">무료배송</div>
+											<div class="bookDetail_two"><fmt:formatNumber value="${bookDto.product_delivery}" pattern="###,###,###"/>원</div>
 										</div>
 										
 									</div>
@@ -116,7 +116,7 @@
 						<!-- 에디터의 한마디 시작 -->
 						<div class="bookDetail_MD">
 							<span><img src="${root}/img/book/good.png" width="25" height="25"/>&nbsp;에디터의 한마디</span>
-							<div>컴퓨터 과학의 개념을 이해하고 코딩할 수 있다!컴퓨터 과학의 개념을 이해하고 코딩할 수 있다! 컴퓨터 과학의 개념을 이해하고 코딩할 수 있다! 컴퓨터 과학의 개념을 이해하고 코딩할 수 있다!  </div>
+							<div><p>${bookDto.book_editor}</p></div>
 						</div>
 									
 						<!-- 도서 정보 top 끝 -->
@@ -143,11 +143,7 @@
 							<div class="bookDetail_intro bookDetail_one_page">
 								<h3>책소개</h3>
 								<div>
-									이 책은 이제 막 소프트웨어(SW) 교육을 시작하는 초등학교 고학년부터 중·고등학생, 컴퓨터를 전공하지 않은
-									대학생, 취미로 코딩을 배우고 싶은 직장인, SW 교육에 관심이 있는 선생님이나 부모님을 대상으로 합니다.
-									엔트리를 처음 접하는 사람도 쉽게 따라 할 수 있도록 차근차근 설명하였습니다. 또한 ‘엔트리파이선’ 모드를 활용해
-									파이썬 언어를 익힐 수 있게 구성해서 블록 코딩에서 텍스트 코딩으로 넘어가려는 사람에게 징검다리 역할을 할 수
-									있습니다. 
+									${bookDto.book_intro}
 								</div>
 							</div>
 						
@@ -156,11 +152,7 @@
 						<div class="bookDetail_intro bookDetail_second_page">
 						<h3>목차</h3>
 							<div>
-								[첫째 마당] 엔트리 기초 <br>Day 01. 엔트리 시작하기 <br>Day 02. 순서대로
-								실행되는 명령어, 순차 <br>Day 03. 정보를 담는 그릇, 변수 <br>Day 04.
-								컴퓨터가 가장 잘하는 반복 <br>Day 05. 상황에 따라 다른 명령어를 실행하는 선택 <br>Day
-								06. 명령어를 시작하는 방아쇠, 이벤트 <br>Day 07. 특정 기능을 하며 언제든 다시 사용할 수
-								있는 함수 <br>Day 08. 정보를 저장하는 책꽂이, 함수 <br>
+								${bookDto.book_contents}
 							</div>
 						</div>
 						<!-- 도서 목차 소개 끝 -->
@@ -168,9 +160,7 @@
 						<div class="bookDetail_intro bookDetail_author_intro">
 							<h3>저자소개</h3>
 							<div class="bookDetail_intro bookDetail_author_intro_text">
-								김슬기 <br> <br>저자소개 <br>즐거운 소프트웨어 교육을 학생들과 함께 나누기
-								위해 노력하는 현직 교사입니다. 모든 사람의 컴퓨팅 사고력 향상을 위해 다양한 교육 자료를 개발하고 폭넓은 활동을
-								하고 있습니다.
+								${bookDto.book_author_info}
 							</div>
 						</div>
 						<!-- 도서 저자 소개 끝 -->
@@ -178,9 +168,7 @@
 						<div class="bookDetail_intro bookDetail_one_content">
 						<h3>출판사리뷰</h3>
 							<div>
-								[첫째 마당] 엔트리 기초 <br>Day 01. 엔트리 시작하기 <br>Day 02. 순서대로
-								실행되는 명령어, 순차 <br>Day 03. 정보를 담는 그릇, 변수 <br>Day 04.
-								컴퓨터가 가장 잘하는 반복 
+								${bookDto.book_publisher_review}
 							</div>
 						</div>
 						<!-- 책 속한문장 끝 -->

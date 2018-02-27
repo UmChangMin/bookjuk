@@ -100,7 +100,7 @@
 	float: left;
     padding: 0;
     margin-left: 35px;
-    width: 700px;
+    width: 770px;
     text-align: left;
     height: 210px;
     line-height: 20px;
@@ -136,8 +136,10 @@
 
 .bookList_content_content{
 	margin: 20px auto;
-	border: 1px solid #eaeaea;
-	padding: 10px 10px 10px 12px;
+    border: 1px solid #eaeaea;
+    padding: 10px 10px 10px 12px;
+    height: 94px;
+    overflow: hidden;
 }
 
 .bookList_pageNumber{
@@ -261,6 +263,10 @@
     line-height: 22px;
     color: #333;
     font-size: 15px;
+}
+
+.bookList_mid_content_title{
+	height: 45px;
 }
 
 .bookList_mid_content_author{
