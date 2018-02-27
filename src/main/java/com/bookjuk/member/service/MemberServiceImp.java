@@ -1,18 +1,15 @@
 package com.bookjuk.member.service;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bookjuk.aop.LogAspect;
 import com.bookjuk.member.dao.MemberDao;
 import com.bookjuk.member.dto.MemberDto;
 
@@ -26,7 +23,6 @@ public class MemberServiceImp implements MemberService {
 	public void loginOk(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		HttpSession session = (HttpSession) map.get("session");
 		
 		String member_id=request.getParameter("member_id");
 		String member_password=request.getParameter("member_password");

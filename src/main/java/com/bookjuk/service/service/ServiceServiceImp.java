@@ -1,14 +1,22 @@
 package com.bookjuk.service.service;
 
+import java.io.File;
+import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bookjuk.aop.LogAspect;
 import com.bookjuk.service.dao.ServiceDao;
+import com.bookjuk.service.dto.ServiceContactDto;
 
 @Component
 public class ServiceServiceImp implements ServiceService {
@@ -20,6 +28,12 @@ public class ServiceServiceImp implements ServiceService {
 	public void customer(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+	
+		/*LogAspect.logger.info(LogAspect.logMsg+"넘어오니?");
+		int count = serviceDao.listCount();
+		LogAspect.logger.info(LogAspect.logMsg + "count :" + count);*/
+		
 		
 		mav.setViewName("service/service_question/service_question.search");
 	}
@@ -40,27 +54,55 @@ public class ServiceServiceImp implements ServiceService {
 		mav.setViewName("service/service_notice/service_notice_read.search");
 	}
 
-	@Override
+	@Override	// 180227 강민아 1:1문의 리스트
 	public void contactList(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null) {pageNumber="1";}
+		
+		int currentPage=Integer.parseInt(pageNumber);
+		
+		int boardSize=5;
+		
+		int startRow=(currentPage-1)*boardSize+1;
+		int endRow=currentPage*boardSize;
+		
+		int count=serviceDao.getBoardCount();
+		LogAspect.logger.info(LogAspect.logMsg+"count :"+count);
+		
+
+		List<ServiceContactDto>ServiceContactList=null;
+		if(count>0) {
+			ServiceContactList=serviceDao.ServiceContactList(startRow,endRow);
+			LogAspect.logger.info(LogAspect.logMsg+"글 총개수( ServiceContactList ) :"+ServiceContactList.size());
+		}
+		
+		
+		mav.addObject("pageNumber",pageNumber);
+		mav.addObject("currentPage",currentPage);
+		mav.addObject("boardSize",boardSize);
+		mav.addObject("count",count);
+		mav.addObject("ServiceContactList",ServiceContactList);
+		
+		
 		mav.setViewName("service/service_contact/service_contact_list.search");
 	}
 
-	@Override
-	public void contactWrite(ModelAndView mav) {
-		Map<String, Object> map = mav.getModelMap();
-		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		
-		mav.setViewName("service/service_contact/service_contact_write.search");
-	}
-
-	@Override
+	@Override	//180227 강민아 1:1문의 읽기
 	public void contactRead(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
+		/*long contact_num=Long.parseLong(request.getParameter("contact_num"));
+		String pageNumber = request.getParameter("pageNumber");
+		LogAspect.logger.info(LogAspect.logMsg+"contact_num & pageNumber : "+contact_num+","+pageNumber);
+		
+		ServiceContactDto serviceContactDto=serviceDao.ServiceRead(contact_num);
+		LogAspect.logger.info(LogAspect.logMsg+serviceContactDto.toString());
+		*/
+				
 		mav.setViewName("service/service_contact/service_contact_read.search");
 	}
 
@@ -70,5 +112,62 @@ public class ServiceServiceImp implements ServiceService {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
 		mav.setViewName("service/service_contact/service_contact_update.search");
+	}
+	
+	@Override	
+	public void contactWrite(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		mav.setViewName("service/service_contact/service_contact_write.search");
+	}
+
+
+	@Override	//180226 강민아 1:1문의 작성
+	public void contactWriteOk(ModelAndView mav) {
+		
+		Map<String,Object>map=mav.getModelMap();
+		MultipartHttpServletRequest request=(MultipartHttpServletRequest)map.get("request");
+		HttpSession session = (HttpSession) map.get("session");
+		ServiceContactDto serviceContactDto=(ServiceContactDto)map.get("serviceContactDto");
+		//System.out.println("넘어와?");
+		
+		serviceContactDto.setContact_date(new Date());
+		
+		MultipartFile upFile=request.getFile("file");
+		String contact_file_name=Long.toString(System.currentTimeMillis())+"_"+upFile.getOriginalFilename();
+		long contact_file_size=upFile.getSize();
+		
+		LogAspect.logger.info(LogAspect.logMsg+"파일name&size : "+contact_file_name+","+contact_file_size);
+		
+		if(contact_file_size!=0) {
+			File path=new File("C:\\bookjuk\\");	//파일이 들어갈 경로지정
+			path.mkdir();	
+			
+			if(path.exists()&&path.isDirectory()) {
+				File file=new File(path,contact_file_name);
+				try {
+					upFile.transferTo(file);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+				serviceContactDto.setContact_file_path(file.getAbsolutePath());
+				serviceContactDto.setContact_file_name(contact_file_name);
+				serviceContactDto.setContact_file_size(contact_file_size);
+				
+			}
+		}
+		
+		String member_id = (String) session.getAttribute("member_id");
+		serviceContactDto.setMember_id(member_id);
+		
+		//LogAspect.logger.info(LogAspect.logMsg+serviceContactDto.toString());
+		serviceContactDto.setContact_answer_whether("답변대기중");
+		int check=serviceDao.ServiceWrite(serviceContactDto);
+		LogAspect.logger.info(LogAspect.logMsg+"잘 들어갔니? "+check);
+		
+		mav.addObject("check",check);
+		mav.setViewName("service/service_contact/service_contact_writeOk.search");
 	}
 }

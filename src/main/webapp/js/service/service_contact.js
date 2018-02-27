@@ -16,13 +16,13 @@ function contactForm(obj){
 	}
 	
 	
-	if(obj.title.value==""){
+	if(obj.contact_subject.value==""){
 		alert("제목을 입력하세요");
 		obj.title.focus();
 		return false;
 	}
 	
-	if(obj.content.value==""){
+	if(obj.contact_content.value==""){
 		alert("내용을 입력하세요");
 		obj.content.focus();
 		return false;
@@ -37,3 +37,12 @@ function contactDelete(obj){
 $(function(){
 	$(".service_contact").css("color","#F15F5F");
 });
+
+function readFunction(root, contact_num, currentPage){
+	//	alert("ok");
+		var url=root + "/service/contact/read.do?contact_num="+contact_num+"&pageNumber="+currentPage;
+	//	alert(url);
+				
+		location.href=url;
+	}
+

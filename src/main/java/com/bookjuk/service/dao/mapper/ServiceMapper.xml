@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bookjuk.book.dao.mapper.ServiceMapper">
+	
+	<!-- 자주묻는질문 리스트 뿌리기 -->
+	<select id="listCount" resultType="int">
+  	<![CDATA[select count(*) from service_question]]>
+	</select>
+
+	<!-- 1:1문의 쓰기-->
+	<insert id="boardInsert" parameterType="com.bookjuk.service.dto.ServiceContactDto">
+		insert into
+		service_contact(contact_num,contact_subject,contact_content,member_id,contact_date,contact_type,contact_answer_whether,contact_group_num,contact_sequence_num,contact_sequence_level)
+		values(contact_num_seq.nextval,#{contact_subject},#{contact_content},#{member_id},#{contact_date},#{contact_type},#{contact_answer_whether},#{contact_group_num},#{contact_sequence_num},#{contact_sequence_level})
+	</insert>
+
+	<insert id="fileBoardInsert" parameterType="com.bookjuk.service.dto.ServiceContactDto">
+		insert into
+		service_contact(contact_num,contact_subject,contact_content,contact_date,member_id,contact_type,contact_answer_whether,contact_group_num,contact_sequence_num,contact_sequence_level,contact_file_name,contact_file_path,contact_file_size)
+		values(contact_num_seq.nextval,#{contact_subject},#{contact_content},#{contact_date},#{member_id},#{contact_type},#{contact_answer_whether},#{contact_group_num},#{contact_sequence_num},#{contact_sequence_level},#{contact_file_name},#{contact_file_path},#{contact_file_size})
+	</insert>
+	
+	<!-- 1:1문의 리스트 -->
+	<select id="getBoardCount" resultType="int" >
+  		<![CDATA[select count(*) from service_contact]]>
+  	</select>
+	
+	<select id="ServiceContactList" parameterType="java.util.Map" resultType="com.bookjuk.service.dto.ServiceContactDto">
+  	<![CDATA[select * from(
+  					select rownum rnum,a.* from(
+  						select * from service_contact order by contact_num desc, contact_sequence_num asc) a)
+  						where rnum>=#{startRow} and rnum<=#{endRow}
+  	]]>
+  </select> 
+  
+  <!-- 1:1문의 -->
+</mapper>

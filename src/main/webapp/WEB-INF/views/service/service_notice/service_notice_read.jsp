@@ -28,7 +28,7 @@
 			<div class="service_warp">고객센터</div>
 			<div class="service_tab">
 				<ul>
-					<li><a href="${root}/service/customer.do" class="service_fna"><img src="${root}/img/service/question.png">자주하는질문</a></li>
+					<li><a href="${root}/service/question.do" class="service_fna"><img src="${root}/img/service/question.png">자주하는질문</a></li>
 					<li><a href="${root}/service/notice/list.do" class="service_notice"><img src="${root}/img/service/information_pink.png">공지사항</a></li>
 					<li><a href="${root}/service/contact/list.do" class="service_inquiry"><img src="${root}/img/service/service_contact.png">1:1문의</a></li>
 				</ul>

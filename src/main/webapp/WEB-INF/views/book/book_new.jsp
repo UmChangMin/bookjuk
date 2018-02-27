@@ -16,6 +16,7 @@
 <body>
 <!-- 도서 목록 리스트 시작 강민아 -->
 		<form action="">
+		<input type="hidden" name="pageNumber" value="${pageNumber}">
 		<div id="bookList_all">
 			<div class="bookLists">
 				<div class="bookList">
@@ -101,9 +102,31 @@
 						
 						<!-- 페이지 번호 시작 -->
 						<div class="bookList_pageNumber">
-							<a href="#" class="bookList_num_before">이전</a>	
-							<a href="#" class="bookList_num01">1</a>
-							<a href="#" class="bookList_num_next">다음</a>
+							<c:if test="${count > 0 }">
+								<fmt:parseNumber var="pageCount" value="${count/listPage+(count%boardSize==0?0:1)}" integerOnly="true" />
+
+								<c:set var="pageBlock" value="${2}" />
+
+								<fmt:parseNumber var="sp" value="${(courrentPage-1)/pageBlock }" integerOnly="true" />
+								<c:set var="startPage" value="${sp*pageBlock+1 }" />
+								<c:set var="endPage" value="${startPage+pageBlock-1 }" />
+
+								<c:if test="${endPage > pageCount}">
+									<c:set var="endPage" value="${pageCount }" />
+								</c:if>
+
+								<c:if test="${startPage > pageBlock }">
+									<a href="${root}/book/book_new.do?pageNumber=${startPage-pageBlock}" class="bookList_num_before">이전</a>	
+								</c:if>
+
+								<c:forEach var="i" begin="${startPage}" end="${endPage}">
+									<a href="${root}/book/book_new.do?pageNumber=${i}" class="bookList_num01">${i}</a>
+								</c:forEach>
+
+								<c:if test="${endPage < pageCount }">
+									<a href="${root}/book/book_new.do?pageNumber=${startPage+pageBlock}" class="bookList_num_next">다음</a>
+								</c:if>
+							</c:if>
 						</div>
 						<!-- 페이지 번호 끝 -->
 					</div>

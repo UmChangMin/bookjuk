@@ -40,6 +40,11 @@
 					<div class="service_content02"><div>주문취소</div></div>
 				</div>
 				
+				<div class="service_kind">
+					<div class="service_content01"><span>파일첨부</span></div>
+					<div class="service_content02"><div><input type="file" name="file" title="찾아보기"></div></div>
+				</div>
+				
 				<div class="service_contact_content">
 					<div class="service_content01"><span>내용</span></div>
 					<div class="service_content02"><div>내용.내용.내용.2MB 이하의 이미지파일 및 5MB 이하의 *hwp, *doc, *docx 확장자만 첨부 가능합니다.2MB 이하의 이미지2MB 이하의 이미지파일 및 5MB 이하의 *hwp, *doc, *docx 확장자만 첨부 가능합니다.2MB 이하의 이미지2MB 이하의 이미지파일 및 5MB 이하의 *hwp, *doc, *docx 확장자만 첨부 가능합니다.2MB 이하의 이미지파일 및 5MB 이하의 *hwp, *doc, *docx 확장자만 첨부 가능합니다.</div></div>
