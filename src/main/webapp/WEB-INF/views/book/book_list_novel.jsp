@@ -21,7 +21,7 @@
 				<div class="bookList">
 					<!-- 도서분류 시작 -->
 					<div class="bookList_select">
-						<span>HOME ></span><span>&nbsp;소설</span>
+						<span><a href="${root}/main.do">HOME</a> > </span><span><a href="${root}/book/list/novel.do">소설</a></span>
 					</div>
 					<!-- 도서분류 끝 -->
 					<div class="bookList_mid">
@@ -30,12 +30,12 @@
 							<h3>소설</h3>
 							<div class="bookList_top">
 								<ul class="bookList_top_list">
-									<li><a href="#" class="">현대소설</a></li>
-									<li><a href="#" class="">고전소설</a></li>
-									<li><a href="#" class="">추리소설</a></li>
-									<li><a href="#" class="">로맨스소설</a></li>
-									<li><a href="#" class="">역사소설</a></li>
-									<li><a href="#" class="">판타지소설</a></li>
+									<li><a href="${root}/book/list/novel/modern.do">현대소설</a></li>
+									<li><a href="${root}/book/list/novel/classic.do">고전소설</a></li>
+									<li><a href="${root}/book/list/novel/mystery.do">추리소설</a></li>
+									<li><a href="${root}/book/list/novel/romance.do">로맨스소설</a></li>
+									<li><a href="${root}/book/list/novel/history.do">역사소설</a></li>
+									<li><a href="${root}/book/list/novel/fantasy.do">판타지소설</a></li>
 								</ul>
 							</div>
 						</div>

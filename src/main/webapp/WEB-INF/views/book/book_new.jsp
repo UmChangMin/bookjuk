@@ -22,7 +22,7 @@
 				<div class="bookList">
 					<!-- 도서분류 시작 -->
 					<div class="bookList_select">
-						<span>HOME ></span> <span>&nbsp;신간도서</span>
+						<span><a href="${root}/main.do">HOME</a> > </span> <span><a href="${root}/book/list/new.do">신간도서</a></span>
 					</div>
 					<!-- 도서분류 끝 -->
 					<div class="bookList_mid">
@@ -102,30 +102,20 @@
 						
 						<!-- 페이지 번호 시작 -->
 						<div class="bookList_pageNumber">
-							<c:if test="${count > 0 }">
-								<fmt:parseNumber var="pageCount" value="${count/listPage+(count%boardSize==0?0:1)}" integerOnly="true" />
-
-								<c:set var="pageBlock" value="${2}" />
-
-								<fmt:parseNumber var="sp" value="${(courrentPage-1)/pageBlock }" integerOnly="true" />
-								<c:set var="startPage" value="${sp*pageBlock+1 }" />
-								<c:set var="endPage" value="${startPage+pageBlock-1 }" />
-
-								<c:if test="${endPage > pageCount}">
-									<c:set var="endPage" value="${pageCount }" />
-								</c:if>
-
-								<c:if test="${startPage > pageBlock }">
-									<a href="${root}/book/book_new.do?pageNumber=${startPage-pageBlock}" class="bookList_num_before">이전</a>	
-								</c:if>
-
-								<c:forEach var="i" begin="${startPage}" end="${endPage}">
-									<a href="${root}/book/book_new.do?pageNumber=${i}" class="bookList_num01">${i}</a>
-								</c:forEach>
-
-								<c:if test="${endPage < pageCount }">
-									<a href="${root}/book/book_new.do?pageNumber=${startPage+pageBlock}" class="bookList_num_next">다음</a>
-								</c:if>
+							<c:if test="${endPage > pageCount}">
+								<c:set var="endPage" value="${pageCount}"/>
+							</c:if>
+							
+							<c:if test="${startPage > pageBlock}">
+								<a href="${root}/book/list/new.do?pageNumber=${startPage - pageBlock}" class="bookList_num_before">이전</a>
+							</c:if>
+							
+							<c:forEach var="i" begin="${startPage}" end="${endPage}" >
+								<a href="${root}/book/list/new.do?pageNumber=${i}" class="bookList_num01">${i}</a>
+							</c:forEach>
+							
+							<c:if test="${endPage < pageCount}">
+								<a href="${root}/book/list/new.do?pageNumber=${startPage + pageBlock}" class="bookList_num_next">다음</a>
 							</c:if>
 						</div>
 						<!-- 페이지 번호 끝 -->

@@ -3,20 +3,25 @@ package com.bookjuk.book.dto;
 import java.util.Date;
 
 public class BookDto {
+	/*book*/
 	private int book_num;					// 상품번호
 	private String book_img;				// 도서이미지
 	private String book_name;				// 책 제목
 	private String book_author;				// 저자 
 	private String book_publisher;			// 출판사
 	private Date book_date;					// 발행일
-	private int book_score;					// 평점
+	private float book_score;				// 평점
 	private String book_editor;				// 에디터 한마디
 	private String book_contents;			// 목차
 	private String book_intro;				// 책 소개
 	private String book_author_info;		// 저자소개
 	private String book_publisher_review;	// 리뷰
-	private String category_main;			// 타이틀 분야
-	private String category_sub;			// 서브분야
+	/*category*/
+	private String category_main_kor;		// 분야 메인(kor)
+	private String category_sub_kor;		// 분야 서브(kor)
+	private String category_main_eng;		// 분야 메인(eng)
+	private String category_sub_eng;		// 분야 서브(eng)
+	/*product*/
 	private int product_amount;				// 재고
 	private int product_price;				// 가격
 	private int product_dicount;			// 할인율
@@ -24,6 +29,12 @@ public class BookDto {
 	private int product_sales;				// 판매량
 	private int product_count;				// 조회수
 	private int product_delivery;			// 배송료
+	/*review*/
+	private int review_num;					// 리뷰번호
+	private float review_score;				// 별점
+	private String member_id;				// 사용자 ID
+	private String review_content;			// 리뷰내용
+	private Date review_date;               // 작성일
 	
 	public int getBook_num() {
 		return book_num;
@@ -61,10 +72,10 @@ public class BookDto {
 	public void setBook_date(Date book_date) {
 		this.book_date = book_date;
 	}
-	public int getBook_score() {
+	public float getBook_score() {
 		return book_score;
 	}
-	public void setBook_score(int book_score) {
+	public void setBook_score(float book_score) {
 		this.book_score = book_score;
 	}
 	public String getBook_editor() {
@@ -97,17 +108,29 @@ public class BookDto {
 	public void setBook_publisher_review(String book_publisher_review) {
 		this.book_publisher_review = book_publisher_review;
 	}
-	public String getCategory_main() {
-		return category_main;
+	public String getCategory_main_kor() {
+		return category_main_kor;
 	}
-	public void setCategory_main(String category_main) {
-		this.category_main = category_main;
+	public void setCategory_main_kor(String category_main_kor) {
+		this.category_main_kor = category_main_kor;
 	}
-	public String getCategory_sub() {
-		return category_sub;
+	public String getCategory_sub_kor() {
+		return category_sub_kor;
 	}
-	public void setCategory_sub(String category_sub) {
-		this.category_sub = category_sub;
+	public void setCategory_sub_kor(String category_sub_kor) {
+		this.category_sub_kor = category_sub_kor;
+	}
+	public String getCategory_main_eng() {
+		return category_main_eng;
+	}
+	public void setCategory_main_eng(String category_main_eng) {
+		this.category_main_eng = category_main_eng;
+	}
+	public String getCategory_sub_eng() {
+		return category_sub_eng;
+	}
+	public void setCategory_sub_eng(String category_sub_eng) {
+		this.category_sub_eng = category_sub_eng;
 	}
 	public int getProduct_amount() {
 		return product_amount;
@@ -151,16 +174,49 @@ public class BookDto {
 	public void setProduct_delivery(int product_delivery) {
 		this.product_delivery = product_delivery;
 	}
+	public int getReview_num() {
+		return review_num;
+	}
+	public void setReview_num(int review_num) {
+		this.review_num = review_num;
+	}
+	public float getReview_score() {
+		return review_score;
+	}
+	public void setReview_score(float review_score) {
+		this.review_score = review_score;
+	}
+	public String getMember_id() {
+		return member_id;
+	}
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
+	}
+	public String getReview_content() {
+		return review_content;
+	}
+	public void setReview_content(String review_content) {
+		this.review_content = review_content;
+	}
+	public Date getReview_date() {
+		return review_date;
+	}
+	public void setReview_date(Date review_date) {
+		this.review_date = review_date;
+	}
+	
 	@Override
 	public String toString() {
 		return "BookDto [book_num=" + book_num + ", book_img=" + book_img + ", book_name=" + book_name
 				+ ", book_author=" + book_author + ", book_publisher=" + book_publisher + ", book_date=" + book_date
 				+ ", book_score=" + book_score + ", book_editor=" + book_editor + ", book_contents=" + book_contents
 				+ ", book_intro=" + book_intro + ", book_author_info=" + book_author_info + ", book_publisher_review="
-				+ book_publisher_review + ", category_main=" + category_main + ", category_sub=" + category_sub
-				+ ", product_amount=" + product_amount + ", product_price=" + product_price + ", product_dicount="
-				+ product_dicount + ", product_point=" + product_point + ", product_sales=" + product_sales
-				+ ", product_count=" + product_count + ", product_delivery=" + product_delivery + "]";
+				+ book_publisher_review + ", category_main_kor=" + category_main_kor + ", category_sub_kor="
+				+ category_sub_kor + ", category_main_eng=" + category_main_eng + ", category_sub_eng="
+				+ category_sub_eng + ", product_amount=" + product_amount + ", product_price=" + product_price
+				+ ", product_dicount=" + product_dicount + ", product_point=" + product_point + ", product_sales="
+				+ product_sales + ", product_count=" + product_count + ", product_delivery=" + product_delivery
+				+ ", review_num=" + review_num + ", review_score=" + review_score + ", member_id=" + member_id
+				+ ", review_content=" + review_content + ", review_date=" + review_date + "]";
 	}
-	
 }

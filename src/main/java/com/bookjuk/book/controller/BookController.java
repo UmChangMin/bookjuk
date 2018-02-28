@@ -42,11 +42,9 @@ public class BookController {
 	
 	@RequestMapping(value="/list/new.do", method=RequestMethod.GET)
 	public ModelAndView bookNew(HttpServletRequest request, HttpServletResponse response) {
-		
-		LogAspect.logger.info(LogAspect.logMsg+"신간도서!");
-		
 		ModelAndView mav=new ModelAndView();
-		
+		mav.addObject("request",request);
+
 		bookService.bookNew(mav);
 		
 		return mav;

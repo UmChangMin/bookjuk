@@ -21,7 +21,7 @@
 				<div class="bookList">
 					<!-- 도서분류 시작 -->
 					<div class="bookList_select">
-						<span>HOME ></span><span>&nbsp;컴퓨터 / IT</span>
+						<span><a href="${root}/main.do">HOME</a> > </span><span><a href="${root}/book/list/computer.do">컴퓨터 / IT</a></span>
 					</div>
 					<!-- 도서분류 끝 -->
 					<div class="bookList_mid">
@@ -30,12 +30,12 @@
 							<h3>컴퓨터/IT</h3>
 							<div class="bookList_top">
 								<ul class="bookList_top_list">
-									<li><a href="#" class="">컴퓨터공학</a></li>
-									<li><a href="#" class="">네트워크</a></li>
-									<li><a href="#" class="">보안/해킹</a></li>
-									<li><a href="#" class="">데이터베이스</a></li>
-									<li><a href="#" class="">프로그래밍언어</a></li>
-									<li><a href="#" class="">그래픽</a></li>
+									<li><a href="${root}/book/list/computer/com.do">컴퓨터공학</a></li>
+									<li><a href="${root}/book/list/computer/network.do">네트워크</a></li>
+									<li><a href="${root}/book/list/computer/security.do">보안/해킹</a></li>
+									<li><a href="${root}/book/list/computer/db.do">데이터베이스</a></li>
+									<li><a href="${root}/book/list/computer/pro.do">프로그래밍언어</a></li>
+									<li><a href="${root}/book/list/computer/graphic.do">그래픽</a></li>
 								</ul>
 							</div>
 						</div>
@@ -69,7 +69,6 @@
 											<p class="bookList_content_author">김슬기, 김성훈, 곽혜미 &nbsp;|&nbsp;길벗&nbsp;|&nbsp;2018.01.15</p>
 											<p class="bookList_content_buy">가격 <span>12,600원</span></p>
 											<div class="bookList_content_content">이 책은 이제 막 소프트웨어(SW) 교육을 시작하는 초등학교 고학년부터 중·고등학생, 컴퓨터를 전공하지 않은 대학생, 취미로 코딩을 배우고 싶은 직장인, SW 교육에 관심이 있는...이 책은 이제 막 소프트웨어(SW) 교육을 시작하는 초등학교 고학년부터 중·고등학생, 컴퓨터를 전공하지 않은 대학생, 취미로 코딩을 배우고 싶은 직장인, SW 교육에 관심이 있는...</div>
-											
 										</div>
 									</li>
 								</ul>

@@ -125,43 +125,43 @@ $(function (){
 
 									<ul>
 										<li><h3>컴퓨터/IT</h3></li>
-										<li><a href="#">컴퓨터 공학</a></li>
-										<li><a href="#">네트워크</a></li>
-										<li><a href="#">보안/해킹</a></li>
-										<li><a href="#">데이터베이스</a></li>
-										<li><a href="#">프로그래밍언어</a></li>
-										<li><a href="#">그래픽</a></li>
+										<li><a href="${root}/book/list/computer/com.do">컴퓨터공학</a></li>
+										<li><a href="${root}/book/list/computer/network.do">네트워크</a></li>
+										<li><a href="${root}/book/list/computer/security.do">보안/해킹</a></li>
+										<li><a href="${root}/book/list/computer/db.do">데이터베이스</a></li>
+										<li><a href="${root}/book/list/computer/pro.do">프로그래밍언어</a></li>
+										<li><a href="${root}/book/list/computer/graphic.do">그래픽</a></li>
 									</ul>
 								</div>
 
 								<div class="header_nav_column" align="center">
 									<ul>
 										<li><h3>소설</h3></li>
-										<li><a href="#">현대소설</a></li>
-										<li><a href="#">고전소설</a></li>
-										<li><a href="#">추리소설</a></li>
-										<li><a href="#">로맨스소설</a></li>
-										<li><a href="#">역사소설</a></li>
-										<li><a href="#">판타지소설</a></li>
+										<li><a href="${root}/book/list/novel/modern.do">현대소설</a></li>
+										<li><a href="${root}/book/list/novel/classic.do">고전소설</a></li>
+										<li><a href="${root}/book/list/novel/mystery.do">추리소설</a></li>
+										<li><a href="${root}/book/list/novel/romance.do">로맨스소설</a></li>
+										<li><a href="${root}/book/list/novel/history.do">역사소설</a></li>
+										<li><a href="${root}/book/list/novel/fantasy.do">판타지소설</a></li>
 									</ul>
 								</div>
 
 								<div class="header_nav_column" align="center">
 									<ul>
 										<li><h3>여행/취미</h3></li>
-										<li><a href="#">국내여행</a></li>
-										<li><a href="#">해외여행</a></li>
-										<li><a href="#">테마여행</a></li>
-										<li><a href="#">애완동물</a></li>
-										<li><a href="#">등산/낚시</a></li>
-										<li><a href="#">취미/일반</a></li>
+										<li><a href="${root}/book/list/hobby&trip/pet.do">애완동물</a></li>
+										<li><a href="${root}/book/list/hobby&trip/fishmount.do">등산/낚시</a></li>
+										<li><a href="${root}/book/list/hobby&trip/normal.do">취미일반</a></li>
+										<li><a href="${root}/book/list/hobby&trip/domestic.do">국내여행</a></li>
+										<li><a href="${root}/book/list/hobby&trip/abroad.do">해외여행</a></li>
+										<li><a href="${root}/book/list/hobby&trip/theme.do">테마여행</a></li>
 									</ul>
 								</div>
 							</div></li>
-						<li><a href="${root}/book/list/best.do	">베스트셀러</a></li>
-						<li><a href="${root}/book/list/issue.do">화제의도서</a></li>
-						<li><a href="${root}/book/list/new.do">신간도서</a></li>
-						<li><a href="${root}/book/list/discount.do">할인도서</a></li>
+						<li><a href="${root}/book/list/best.do?pageNumber=1">베스트셀러</a></li>
+						<li><a href="${root}/book/list/issue.do?pageNumber=1">화제의도서</a></li>
+						<li><a href="${root}/book/list/new.do?pageNumber=1">신간도서</a></li>
+						<li><a href="${root}/book/list/discount.do?pageNumber=1">할인도서</a></li>
 					</ul>
 				</div>
 			</div>

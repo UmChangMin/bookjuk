@@ -21,7 +21,7 @@
 				<div class="bookList">
 					<!-- 도서분류 시작 -->
 					<div class="bookList_select">
-						<span>HOME ></span><span>&nbsp;취미 / 여행</span>
+						<span><a href="${root}/main.do">HOME</a> > </span><span><a href="${root}/book/list/hobby&trip.do">취미 / 여행</a></span>
 					</div>
 					<!-- 도서분류 끝 -->
 					<div class="bookList_mid">
@@ -30,12 +30,12 @@
 							<h3>취미/여행</h3>
 							<div class="bookList_top">
 								<ul class="bookList_top_list">
-									<li><a href="#" class="">애완동물</a></li>
-									<li><a href="#" class="">등산/낚시</a></li>
-									<li><a href="#" class="">취미일반</a></li>
-									<li><a href="#" class="">국내여행</a></li>
-									<li><a href="#" class="">해외여행</a></li>
-									<li><a href="#" class="">테마여행</a></li>
+									<li><a href="${root}/book/list/hobby&trip/pet.do">애완동물</a></li>
+									<li><a href="${root}/book/list/hobby&trip/fishmount.do">등산/낚시</a></li>
+									<li><a href="${root}/book/list/hobby&trip/normal.do">취미일반</a></li>
+									<li><a href="${root}/book/list/hobby&trip/domestic.do">국내여행</a></li>
+									<li><a href="${root}/book/list/hobby&trip/abroad.do">해외여행</a></li>
+									<li><a href="${root}/book/list/hobby&trip/theme.do">테마여행</a></li>
 								</ul>
 							</div>
 						</div>

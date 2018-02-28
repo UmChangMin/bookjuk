@@ -21,7 +21,7 @@
 				<div class="bookList">
 					<!-- 도서분류 시작 -->
 					<div class="bookList_select">
-						<span>HOME ></span> <span>&nbsp;화제의도서</span>
+						<span><a href="${root}/main.do">HOME</a> > </span> <span><a href="${root}/book/list/issue.do">화제의도서</a></span>
 					</div>
 					<!-- 도서분류 끝 -->
 					<div class="bookList_mid">
@@ -44,20 +44,20 @@
 						<!-- 도서 리스트로 보기 시작 -->
 						<div class="bookList_mid_content1">
 						
-						 <c:forEach var="i" begin="1" end="10">
+						 <c:forEach items="${bookDtoList}" var="bookDto">
 							<div class="bookList_mid_content_inner">
 								<ul>
 									<li>
 										<div class="bookList_mid_content_figure">
-											<a href="${root}/book/list/detail.do">
-												<img src="http://bookimg.bookcube.com/150/1801/180104379.jpg">
+											<a href="${root}/book/list/detail.do?book_num=${bookDto.book_num}">
+												<img src="${root}${bookDto.book_img}">
 											</a>
 										</div>
 										<div class="bookList_content_inbfo">
-											<p class="bookList_content_title"><a href="${root}/book/list/detail.do">모두의 엔트리 with 엔트리파이선</a></p>
-											<p class="bookList_content_author">김슬기, 김성훈, 곽혜미 &nbsp;|&nbsp;길벗&nbsp;|&nbsp;2018.01.15</p>
-											<p class="bookList_content_buy">가격 <span>12,600원</span></p>
-											<div class="bookList_content_content">이 책은 이제 막 소프트웨어(SW) 교육을 시작하는 초등학교 고학년부터 중·고등학생, 컴퓨터를 전공하지 않은 대학생, 취미로 코딩을 배우고 싶은 직장인, SW 교육에 관심이 있는...이 책은 이제 막 소프트웨어(SW) 교육을 시작하는 초등학교 고학년부터 중·고등학생, 컴퓨터를 전공하지 않은 대학생, 취미로 코딩을 배우고 싶은 직장인, SW 교육에 관심이 있는...</div>
+											<p class="bookList_content_title"><a href="${root}/book/list/detail.do?book_num=${bookDto.book_num}">${bookDto.book_name}</a></p>
+											<p class="bookList_content_author">${bookDto.book_author}&nbsp;&nbsp;|&nbsp;&nbsp;${bookDto.book_publisher}&nbsp;&nbsp;|&nbsp;&nbsp;<fmt:formatDate value="${bookDto.book_date}" pattern="YYYY.MM.dd"/></p>
+											<p class="bookList_content_buy">가격 <span><fmt:formatNumber value="${bookDto.product_price}" pattern="###,###,###"/>원</span></p>
+											<div class="bookList_content_content">${bookDto.book_intro}</div>
 											
 										</div>
 									</li>
@@ -70,24 +70,24 @@
 						
 						<!-- 도서 이미지로 보기 시작 -->
 						<div class="bookList_mid_content2">
-							<c:forEach var="i" begin="1" end="20">
+							<c:forEach items="${bookDtoList}" var="bookDto">
 								<ul>
 									<li>
 										<div class="bookList_mid_content_figure2">
-											<a href="${root}/book/list/detail.do">
-												<img src="http://bookimg.bookcube.com/150/1801/180104379.jpg">
+											<a href="${root}/book/list/detail.do?book_num=${bookDto.book_num}">
+												<img src="${root}${bookDto.book_img}">
 											</a>
 										</div>
 										<div class="bookList_mid_content_hot_info">
-											<p>
-												<a href="${root}/book/list/detail.do">모두의 엔트리 with 엔트리파이선</a>
+											<p class="bookList_mid_content_title">
+												<a href="${root}/book/list/detail.do?book_num=${bookDto.book_num}">${bookDto.book_name}</a>
 											</p>
 											<p class="bookList_mid_content_author">
-												러셀 매딕스<em>&nbsp;|&nbsp;&nbsp;</em>시그마북스
+												${bookDto.book_author}<em>&nbsp;|&nbsp;&nbsp;</em>${bookDto.book_publisher}
 											</p>
 											<div class="bookList_mid_content_cash">
 												<p>
-													가격 <span>12,150원</span>
+													가격 <span><fmt:formatNumber value="${bookDto.product_price}" pattern="###,###,###"/>원</span>
 												</p>
 											</div>
 										</div>
@@ -99,13 +99,23 @@
 						<!-- 도서 이미지로 보기 끝 -->
 						
 						
-						<!-- 페이지 번호 시작 -->
 						<div class="bookList_pageNumber">
-							<a href="#" class="bookList_num_before">이전</a>	
-							<a href="#" class="bookList_num01">1</a>
-							<a href="#" class="bookList_num_next">다음</a>
+							<c:if test="${endPage > pageCount}">
+								<c:set var="endPage" value="${pageCount}"/>
+							</c:if>
+							
+							<c:if test="${startPage > pageBlock}">
+								<a href="${root}/book/list/issue.do?pageNumber=${startPage - pageBlock}" class="bookList_num_before">이전</a>
+							</c:if>
+							
+							<c:forEach var="i" begin="${startPage}" end="${endPage}" >
+								<a href="${root}/book/list/issue.do?pageNumber=${i}" class="bookList_num01">${i}</a>
+							</c:forEach>
+							
+							<c:if test="${endPage < pageCount}">
+								<a href="${root}/book/list/issue.do?pageNumber=${startPage + pageBlock}" class="bookList_num_next">다음</a>
+							</c:if>
 						</div>
-						<!-- 페이지 번호 끝 -->
 					</div>
 				</div>
 			</div>

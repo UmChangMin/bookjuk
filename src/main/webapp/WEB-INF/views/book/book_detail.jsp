@@ -12,15 +12,6 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/book/book_detail.js"></script>
-<script type="text/javascript">
-	$(function(){
-		// 컴퓨터/IT & 소설 & 취미/여행 각각의 도서목록 리스트에서 도서 클릭시 HOME > 뒤에 내용이 바뀌어야함
-		
-		
-/* 		$(".bookDetail_select span:eq(1)").replaceWith("<span><a href='${root}/view/bookList/book_list_hobby_trip.jsp'>취미 / 여행 </a>></span>");
-		$(".bookDetail_select span:eq(2)").replaceWith("<span> 취미일반</span>"); */
-	});
-</script>
 </head>
 <body>
 	<!-- 도서 상세보기 시작 강민아-->
@@ -31,14 +22,9 @@
 				<div class="bookDetail">
 					<!-- 도서분류 시작 -->
 					<div class="bookDetail_select">
-						<span>HOME ></span> <span><a href="${root}/book/list/computer.do">컴퓨터 / IT </a>></span><span>&nbsp;프로그래밍</span>
-						<%-- <span>HOME ></span> <span><a href="${root}/book/list/hobby_trip.do">취미 / 여행 </a>></span><span>&nbsp;프로그래밍</span>
-						<span>HOME ></span> <span><a href="${root}/book/list/nov
-						el.do">소설&nbsp;</a>></span><span>&nbsp;프로그래밍</span>
-						
-					 --%></div>
+						<span><a href="${root}/main.do">HOME</a> > </span> <span><a href="${root}/book/list/${bookDto.category_main_eng}.do">${bookDto.category_main_kor}</a> > </span><span><a href="${root}/book/list/${bookDto.category_main_eng}/${bookDto.category_sub_eng}.do">${bookDto.category_sub_kor}</a></span>
+					</div>
 					<!-- 도서분류 끝 -->
-
 
 					<div class="bookDetail_mid">
 						<!-- 도서 정보 top 시작 -->
@@ -200,7 +186,7 @@
 							</ul>
 							
 							<!-- 새로운/기존 댓글출력 시작 -->
-						
+							<c:if test="${bookDto.review_num != 0}">
 								<ul class="bookdetail_reviewLists">
 									<li>
 										<div>
@@ -216,13 +202,13 @@
 										</div>
 									</li>
 									<li class="bookDetail_reviewAll_content">
-										<p>아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아</p><br/>
-										<span>아이디</span>&nbsp;&nbsp;
-										<span>등록일</span>
+										<p>${bookDto.review_content}</p><br/>
+										<span>${bookDto.member_id}</span>&nbsp;&nbsp;
+										<span><fmt:formatDate value="${bookDto.review_date}" pattern="YYYY.MM.dd"/></span>
 									</li>
 									
 								</ul>
-							
+							</c:if>
 							<!-- 새로운/기존 댓글출력 끝 -->								
 						</div>
 						<!-- 회원리뷰 끝 -->

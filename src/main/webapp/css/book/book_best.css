@@ -209,6 +209,7 @@
 	display: none;
 }
 .bookList_mid_content2 ul{
+	height: 380px;
 	float: left;
 }
 
