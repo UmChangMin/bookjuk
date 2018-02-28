@@ -19,4 +19,8 @@
   	<select id="memberFindId" parameterType="java.util.Map" resultType="String">
   		SELECT member_id FROM member WHERE member_name = #{member_name} and member_email = #{member_email}
   	</select> 
+  	
+  	<select id="memberFindPwd" parameterType="java.util.Map" resultType="String">
+  		select member_password from member where member_id = #{member_id} and member_email = #{member_email}
+  	</select>
 </mapper>

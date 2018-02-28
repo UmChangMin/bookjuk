@@ -44,7 +44,7 @@
 									<p>
 										<a href="${root}/member/findId.do" class="find_id">아이디 찾기</a>
 										<em>|</em>
-										<a href="#" class="find_pwd" onclick="find_pwd('${root}')">비밀번호 찾기</a>
+										<a href="${root}/member/findPwd.do" class="find_pwd">비밀번호 찾기</a>
 									</p>
 								</div>
 								<div class="login_btn">

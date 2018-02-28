@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.tools.ant.taskdefs.condition.Http;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,6 +48,21 @@ public class MemberController {
 		mav.addObject("request", request);
 
 		memberService.findId(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/findPwd.do", method=RequestMethod.GET)
+	public ModelAndView findPwd(HttpServletRequest request, HttpServletResponse response) {
+		return new  ModelAndView("/member/member_find_pwd.empty");
+	}
+	
+	@RequestMapping(value = "/findPwd.do", method = RequestMethod.POST)
+	public ModelAndView findPwdOk(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		
+		memberService.findPwd(mav);
 		
 		return mav;
 	}

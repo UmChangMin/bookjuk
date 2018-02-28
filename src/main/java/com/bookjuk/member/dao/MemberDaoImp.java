@@ -46,4 +46,14 @@ public class MemberDaoImp implements MemberDao {
 
 		return sqlSession.selectOne("memberFindId", hMap);
 	}
+
+	@Override
+	public String finfPwd(String id, String email) {
+		Map<String, String> hMap = new HashMap<String, String>();
+		
+		hMap.put("member_id", id);
+		hMap.put("member_email", email);
+		
+		return sqlSession.selectOne("memberFindPwd", hMap);
+	}
 }

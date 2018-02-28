@@ -87,4 +87,21 @@ public class MemberServiceImp implements MemberService {
 		
 		mav.setViewName("member/member_find_idOk.empty");
 	}
+
+
+	@Override
+	public void findPwd(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		String id = request.getParameter("member_id");
+		String email = request.getParameter("member_email");
+		
+		String pwd = memberDao.finfPwd(id,email);
+		
+		mav.addObject("pwd", pwd);
+		
+		mav.setViewName("member/member_find_pwdOk.empty");
+		
+	}
 }

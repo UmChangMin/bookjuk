@@ -18,18 +18,18 @@
 		<div id="login_container">
 			<!--  content -->
 			<div id="login_content">
-				<!-- 아이디찾기 타이틀 -->
+				<!-- 비밀번호찾기 타이틀 -->
 				<div class="login_title">
-					<h3>아이디찾기</h3>
+					<h3>비밀번호찾기</h3>
 				</div>
 				<!-- 아이디찾기 메인 -->
 				<div class="login_main">
-					<form action="${root}/member/findId.do" method="post">
+					<form action="${root}/member/findPwd.do" method="post">
 						<fieldset>
 							<div class="login_wrap">
 								<div class="login_info">
 									<div class="login_input">
-										<input type="text" name="member_name" placeholder="이름" class="registe_name" />
+										<input type="text" placeholder="아이디" maxlength="20" class="login_id" name="member_id"/>
 									</div>
 									<div class="login_input">
 										<input type="text" name="member_email" placeholder="이메일" class="registe_email" />
