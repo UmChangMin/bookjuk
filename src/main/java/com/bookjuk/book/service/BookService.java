@@ -8,9 +8,9 @@ public interface BookService {
 	public void bookIssue(ModelAndView mav);
 	public void bookNew(ModelAndView mav);
 	public void bookDiscount(ModelAndView mav);
-	public void bookComputer(ModelAndView mav);
-	public void bookHobby(ModelAndView mav);
-	public void bookNovel(ModelAndView mav);
+	
+	public void bookMainCategory(ModelAndView mav);
+	public void bookSubCategory(ModelAndView mav);
 	
 	public void bookDetail(ModelAndView mav);
 

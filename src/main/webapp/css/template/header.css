@@ -280,7 +280,7 @@ img, input, button, select, textarea {
     margin-left: 41px;
 }
 
-.header_gnb_list .header_nav_column h3 {
+#header_nav_column_h3 {
     margin: 20px 0 10px 0;
     line-height: 18px;
     font-family: Helvetica, Arial, sans-serif;

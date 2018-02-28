@@ -22,31 +22,41 @@ public class BookDaoImp implements BookDao {
 	public int bookCount() {
 		return sqlSession.selectOne("bookCount");
 	}
+
+	@Override
+	public int bookMainCateCount(String category) {
+		return sqlSession.selectOne("bookMainCateCount", category);
+	}
+
+	@Override
+	public int bookSubCateCount(String category) {
+		return sqlSession.selectOne("bookSubCateCount", category);
+	}
 	
 	@Override
 	public List<BookDto> bestList(int startRow, int endRow) {
-		Map<String, Integer> map = row(startRow, endRow);
+		Map<String, Object> map = row(startRow, endRow);
 		
 		return sqlSession.selectList("bestList", map);
 	}
 	
 	@Override
 	public List<BookDto> newList(int startRow, int endRow) {
-		Map<String, Integer> map = row(startRow, endRow);
+		Map<String, Object> map = row(startRow, endRow);
 		
 		return sqlSession.selectList("newList", map);
 	}
 	
 	@Override
 	public List<BookDto> issueList(int startRow, int endRow) {
-		Map<String, Integer> map = row(startRow, endRow);
+		Map<String, Object> map = row(startRow, endRow);
 		
 		return sqlSession.selectList("issueList", map);
 	}
 	
 	@Override
 	public List<BookDto> discountList(int startRow, int endRow) {
-		Map<String, Integer> map = row(startRow, endRow);
+		Map<String, Object> map = row(startRow, endRow);
 		
 		return sqlSession.selectList("discountList", map);
 	}
@@ -61,9 +71,25 @@ public class BookDaoImp implements BookDao {
 			return sqlSession.selectOne("detail", book_num);
 		}
 	}
-
-	private Map<String, Integer> row(int startRow, int endRow){
-		Map<String, Integer> map = new HashMap<String, Integer>();
+	
+	@Override
+	public List<BookDto> bookMainCateList(int startRow, int endRow, String category) {
+		Map<String, Object> map = row(startRow, endRow);
+		map.put("category", category);
+		
+		return sqlSession.selectList("bookMainCateList", map);
+	}
+	
+	@Override
+	public List<BookDto> bookSubCateList(int startRow, int endRow, String category) {
+		Map<String, Object> map = row(startRow, endRow);
+		map.put("category", category);
+		
+		return sqlSession.selectList("bookSubCateList", map);
+	}
+	
+	private Map<String, Object> row(int startRow, int endRow){
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("startRow", startRow);
 		map.put("endRow", endRow);
 		

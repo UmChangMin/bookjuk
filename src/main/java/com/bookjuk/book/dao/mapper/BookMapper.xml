@@ -7,6 +7,26 @@
 	<select id="bookCount" resultType="int">
 		SELECT nvl(count(book_num),0) FROM book
 	</select>
+	
+	<select id="bookMainCateCount" parameterType="String" resultType="int">
+		SELECT nvl(count(b.book_num),0) FROM book b, category c WHERE b.book_num = c.book_num and c.category_main_eng = #{category}
+	</select>
+	
+	<select id="bookSubCateCount" parameterType="String" resultType="int">
+		SELECT nvl(count(b.book_num),0) FROM book b, category c WHERE b.book_num = c.book_num and c.category_sub_eng = #{category}
+	</select>
+
+	<select id="bookMainCateList" parameterType="java.util.Map" resultType="com.bookjuk.book.dto.BookDto">
+		<![CDATA[
+		SELECT j.book_num, j.book_img, j.book_name, j.book_author, j.book_publisher, j.book_date, j.book_intro, j.product_price FROM (SELECT i.*, ROWNUM rnum FROM(SELECT b.book_num, b.book_img, b.book_name, b.book_author, b.book_publisher, b.book_date, b.book_intro, p.product_price FROM book b, CATEGORY c, product p WHERE c.book_num = b.book_num AND b.book_num = p.book_num AND c.category_main_eng = #{category})i)j WHERE j.rnum >= #{startRow} AND j.rnum <= #{endRow}
+		]]>
+	</select>
+	
+	<select id="bookSubCateList" parameterType="java.util.Map" resultType="com.bookjuk.book.dto.BookDto">
+		<![CDATA[
+		SELECT j.book_num, j.book_img, j.book_name, j.book_author, j.book_publisher, j.book_date, j.book_intro, j.product_price FROM (SELECT i.*, ROWNUM rnum FROM(SELECT b.book_num, b.book_img, b.book_name, b.book_author, b.book_publisher, b.book_date, b.book_intro, p.product_price FROM book b, CATEGORY c, product p WHERE c.book_num = b.book_num AND b.book_num = p.book_num AND c.category_sub_eng = #{category})i)j WHERE j.rnum >= #{startRow} AND j.rnum <= #{endRow}
+		]]>
+	</select>
 
 	<select id="bestList" parameterType="java.util.Map" resultType="com.bookjuk.book.dto.BookDto">
 		<![CDATA[

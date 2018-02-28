@@ -127,7 +127,7 @@
 	float: left;
     padding: 0;
     margin-left: 35px;
-    width: 700px;
+    width: 770px;
     text-align: left;
     height: 210px;
     line-height: 20px;
@@ -163,8 +163,10 @@
 
 .bookList_content_content{
 	margin: 20px auto;
-	border: 1px solid #eaeaea;
-	padding: 10px 10px 10px 12px;
+    border: 1px solid #eaeaea;
+    padding: 10px 10px 10px 12px;
+    height: 94px;
+    overflow: hidden;
 }
 
 .bookList_pageNumber{
@@ -232,9 +234,10 @@
 	border: 1px solid #eaeaea;
 	overflow: hidden;
 	padding: 10px 45px;
-	display: none;
 }
+
 .bookList_mid_content2 ul{
+	height: 380px;
 	float: left;
 }
 

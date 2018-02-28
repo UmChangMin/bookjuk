@@ -11,7 +11,6 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/book/book_list.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css" />
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
-<script type="text/javascript" src="${root}/js/book/book_list.js"></script>
 </head>
 <body>
 <!-- 도서 목록 리스트 시작 강민아 -->
@@ -19,105 +18,206 @@
 		<div id="bookList_all">
 			<div class="bookLists">
 				<div class="bookList">
-					<!-- 도서분류 시작 -->
-					<div class="bookList_select">
-						<span><a href="${root}/main.do">HOME</a> > </span><span><a href="${root}/book/list/novel.do">소설</a></span>
-					</div>
-					<!-- 도서분류 끝 -->
 					<div class="bookList_mid">
 						<!-- 도서 정보 top 시작 -->
 						<div class="bookList_wrap">
 							<h3>소설</h3>
 							<div class="bookList_top">
 								<ul class="bookList_top_list">
-									<li><a href="${root}/book/list/novel/modern.do">현대소설</a></li>
-									<li><a href="${root}/book/list/novel/classic.do">고전소설</a></li>
-									<li><a href="${root}/book/list/novel/mystery.do">추리소설</a></li>
-									<li><a href="${root}/book/list/novel/romance.do">로맨스소설</a></li>
-									<li><a href="${root}/book/list/novel/history.do">역사소설</a></li>
-									<li><a href="${root}/book/list/novel/fantasy.do">판타지소설</a></li>
+									<li><a href="${root}/book/list/novel/modern.do?viewType=${viewType}">현대소설</a></li>
+									<li><a href="${root}/book/list/novel/classic.do?viewType=${viewType}">고전소설</a></li>
+									<li><a href="${root}/book/list/novel/mystery.do?viewType=${viewType}">추리소설</a></li>
+									<li><a href="${root}/book/list/novel/romance.do?viewType=${viewType}">로맨스소설</a></li>
+									<li><a href="${root}/book/list/novel/history.do?viewType=${viewType}">역사소설</a></li>
+									<li><a href="${root}/book/list/novel/fantasy.do?viewType=${viewType}">판타지소설</a></li>
 								</ul>
 							</div>
 						</div>
 						<!-- 도서 정보 top 끝 -->
 		
+						<c:choose>
+						<c:when test="${subCategory != null}">
 						<!-- 도서 보기 시작 -->
 						<div class="bookDetail_mid_images">
 							<div class="bookDetail_mid_image">
 								<ul>
-									<li class="bookDetail_mid_list_show"><a class="bookList_on"><img src="${root}/img/book/list_var_pink.png"></a></li>
-									<li class="bookDetail_mid_image_show"><a class=""><img src="${root}/img/book/grid_pink.png"></a></li>
+									<li class="bookDetail_mid_list_show"><a href="${root}/book/list/novel/${subCategory}.do?pageNumber=${pageNumber}&viewType=list"><img src="${root}/img/book/list_var_pink.png"></a></li>
+									<li class="bookDetail_mid_image_show"><a href="${root}/book/list/novel/${subCategory}.do?pageNumber=${pageNumber}&viewType=image"><img src="${root}/img/book/grid_pink.png"></a></li>
 								</ul>
 							</div>
 						</div>
 						<!-- 도서 보기 끝 -->
 						
-						<!-- 도서 리스트로 보기 시작 -->
-						<div class="bookList_mid_content1">
-						
-						 <c:forEach var="i" begin="1" end="10">
-							<div class="bookList_mid_content_inner">
-								<ul>
-									<li>
-										<div class="bookList_mid_content_figure">
-											<a href="${root}/book/list/detail.do">
-												<img src="http://bookimg.bookcube.com/150/1801/180104379.jpg">
-											</a>
-										</div>
-										<div class="bookList_content_inbfo">
-											<p class="bookList_content_title"><a href="${root}/book/list/detail.do">모두의 엔트리 with 엔트리파이선</a></p>
-											<p class="bookList_content_author">김슬기, 김성훈, 곽혜미 &nbsp;|&nbsp;길벗&nbsp;|&nbsp;2018.01.15</p>
-											<p class="bookList_content_buy">가격 <span>12,600원</span></p>
-											<div class="bookList_content_content">이 책은 이제 막 소프트웨어(SW) 교육을 시작하는 초등학교 고학년부터 중·고등학생, 컴퓨터를 전공하지 않은 대학생, 취미로 코딩을 배우고 싶은 직장인, SW 교육에 관심이 있는...이 책은 이제 막 소프트웨어(SW) 교육을 시작하는 초등학교 고학년부터 중·고등학생, 컴퓨터를 전공하지 않은 대학생, 취미로 코딩을 배우고 싶은 직장인, SW 교육에 관심이 있는...</div>
-											
-										</div>
-									</li>
-								</ul>
-							</div>
-						</c:forEach> 
-						
-						</div>
-						<!-- 도서 리스트로 보기 끝-->
-						
-						<!-- 도서 이미지로 보기 시작 -->
-						<div class="bookList_mid_content2">
-							<c:forEach var="i" begin="1" end="20">
-								<ul>
-									<li>
-										<div class="bookList_mid_content_figure2">
-											<a href="${root}/book/list/detail.do">
-												<img src="http://bookimg.bookcube.com/150/1801/180104379.jpg">
-											</a>
-										</div>
-										<div class="bookList_mid_content_hot_info">
-											<p>
-												<a href="${root}/book/list/detail.do">모두의 엔트리 with 엔트리파이선</a>
-											</p>
-											<p class="bookList_mid_content_author">
-												러셀 매딕스<em>&nbsp;|&nbsp;&nbsp;</em>시그마북스
-											</p>
-											<div class="bookList_mid_content_cash">
-												<p>
-													가격 <span>12,150원</span>
-												</p>
+						<!-- 도서 리스트로 보기 -->
+						<c:choose>
+						<c:when test="${viewType eq 'list'}">
+							<div class="bookList_mid_content1">
+							<c:forEach items="${bookDtoList}" var="bookDto">
+								<div class="bookList_mid_content_inner">
+									<ul>
+										<li>
+											<div class="bookList_mid_content_figure">
+												<a href="${root}/book/list/detail.do?book_num=${bookDto.book_num}">
+													<img src="${root}${bookDto.book_img}">
+												</a>
 											</div>
-										</div>
-									</li>
-
-								</ul>
-							</c:forEach>
-						</div>
-						<!-- 도서 이미지로 보기 끝 -->
+											<div class="bookList_content_inbfo">
+												<p class="bookList_content_title"><a href="${root}/book/list/detail.do?book_num=${bookDto.book_num}">${bookDto.book_name}</a></p>
+												<p class="bookList_content_author">${bookDto.book_author}&nbsp;&nbsp;|&nbsp;&nbsp;${bookDto.book_publisher}&nbsp;&nbsp;|&nbsp;&nbsp;<fmt:formatDate value="${bookDto.book_date}" pattern="YYYY.MM.dd"/></p>
+												<p class="bookList_content_buy">가격 <span><fmt:formatNumber value="${bookDto.product_price}" pattern="###,###,###"/>원</span></p>
+												<div class="bookList_content_content">${bookDto.book_intro}</div>
+												
+											</div>
+										</li>
+									</ul>
+								</div>
+							</c:forEach> 
+							</div>
+						</c:when>
 						
+						<c:when test="${viewType eq 'image'}">
+							<div class="bookList_mid_content2">
+								<c:forEach items="${bookDtoList}" var="bookDto">
+									<ul>
+										<li>
+											<div class="bookList_mid_content_figure2">
+												<a href="${root}/book/list/detail.do?book_num=${bookDto.book_num}">
+													<img src="${root}${bookDto.book_img}">
+												</a>
+											</div>
+											<div class="bookList_mid_content_hot_info">
+												<p class="bookList_mid_content_title">
+													<a href="${root}/book/list/detail.do?book_num=${bookDto.book_num}">${bookDto.book_name}</a>
+												</p>
+												<p class="bookList_mid_content_author">
+													${bookDto.book_author}<em>&nbsp;|&nbsp;&nbsp;</em>${bookDto.book_publisher}
+												</p>
+												<div class="bookList_mid_content_cash">
+													<p>
+														가격 <span><fmt:formatNumber value="${bookDto.product_price}" pattern="###,###,###"/>원</span>
+													</p>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</c:forEach>
+							</div>
+						</c:when>
+						</c:choose>
+						<!-- 도서 이미지로 보기 -->
 						
-						<!-- 도서목록 리스트 뿌리기 끝 -->
 						<!-- 페이지 번호 시작 -->
 						<div class="bookList_pageNumber">
-							<a href="#" class="bookList_num_before">이전</a>	
-							<a href="#" class="bookList_num01">1</a>
-							<a href="#" class="bookList_num_next">다음</a>
+							<c:if test="${endPage > pageCount}">
+								<c:set var="endPage" value="${pageCount}"/>
+							</c:if>
+							
+							<c:if test="${startPage > pageBlock}">
+								<a href="${root}/book/list/novel/${subCategory}.do?pageNumber=${startPage - pageBlock}&viewType=${viewType}" class="bookList_num_before">이전</a>
+							</c:if>
+							
+							<c:forEach var="i" begin="${startPage}" end="${endPage}" >
+								<a href="${root}/book/list/novel/${subCategory}.do?pageNumber=${i}&viewType=${viewType}" class="bookList_num01">${i}</a>
+							</c:forEach>
+							
+							<c:if test="${endPage < pageCount}">
+								<a href="${root}/book/list/novel/${subCategory}.do?pageNumber=${startPage + pageBlock}&viewType=${viewType}" class="bookList_num_next">다음</a>
+							</c:if>
 						</div>
 						<!-- 페이지 번호 끝 -->
+						</c:when>
+						
+						<c:when test="${subCategory == null}">
+						<!-- 도서 보기 시작 -->
+						<div class="bookDetail_mid_images">
+							<div class="bookDetail_mid_image">
+								<ul>
+									<li class="bookDetail_mid_list_show"><a href="${root}/book/list/novel.do?pageNumber=${pageNumber}&viewType=list"><img src="${root}/img/book/list_var_pink.png"></a></li>
+									<li class="bookDetail_mid_image_show"><a href="${root}/book/list/novel.do?pageNumber=${pageNumber}&viewType=image"><img src="${root}/img/book/grid_pink.png"></a></li>
+								</ul>
+							</div>
+						</div>
+						<!-- 도서 보기 끝 -->
+						
+						<!-- 도서 리스트로 보기 -->
+						<c:choose>
+						<c:when test="${viewType eq 'list'}">
+							<div class="bookList_mid_content1">
+							<c:forEach items="${bookDtoList}" var="bookDto">
+								<div class="bookList_mid_content_inner">
+									<ul>
+										<li>
+											<div class="bookList_mid_content_figure">
+												<a href="${root}/book/list/detail.do?book_num=${bookDto.book_num}">
+													<img src="${root}${bookDto.book_img}">
+												</a>
+											</div>
+											<div class="bookList_content_inbfo">
+												<p class="bookList_content_title"><a href="${root}/book/list/detail.do?book_num=${bookDto.book_num}">${bookDto.book_name}</a></p>
+												<p class="bookList_content_author">${bookDto.book_author}&nbsp;&nbsp;|&nbsp;&nbsp;${bookDto.book_publisher}&nbsp;&nbsp;|&nbsp;&nbsp;<fmt:formatDate value="${bookDto.book_date}" pattern="YYYY.MM.dd"/></p>
+												<p class="bookList_content_buy">가격 <span><fmt:formatNumber value="${bookDto.product_price}" pattern="###,###,###"/>원</span></p>
+												<div class="bookList_content_content">${bookDto.book_intro}</div>
+												
+											</div>
+										</li>
+									</ul>
+								</div>
+							</c:forEach> 
+							</div>
+						</c:when>
+						
+						<c:when test="${viewType eq 'image'}">
+							<div class="bookList_mid_content2">
+								<c:forEach items="${bookDtoList}" var="bookDto">
+									<ul>
+										<li>
+											<div class="bookList_mid_content_figure2">
+												<a href="${root}/book/list/detail.do?book_num=${bookDto.book_num}">
+													<img src="${root}${bookDto.book_img}">
+												</a>
+											</div>
+											<div class="bookList_mid_content_hot_info">
+												<p class="bookList_mid_content_title">
+													<a href="${root}/book/list/detail.do?book_num=${bookDto.book_num}">${bookDto.book_name}</a>
+												</p>
+												<p class="bookList_mid_content_author">
+													${bookDto.book_author}<em>&nbsp;|&nbsp;&nbsp;</em>${bookDto.book_publisher}
+												</p>
+												<div class="bookList_mid_content_cash">
+													<p>
+														가격 <span><fmt:formatNumber value="${bookDto.product_price}" pattern="###,###,###"/>원</span>
+													</p>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</c:forEach>
+							</div>
+						</c:when>
+						</c:choose>
+						<!-- 도서 이미지로 보기 -->
+						
+						<!-- 페이지 번호 시작 -->
+						<div class="bookList_pageNumber">
+							<c:if test="${endPage > pageCount}">
+								<c:set var="endPage" value="${pageCount}"/>
+							</c:if>
+							
+							<c:if test="${startPage > pageBlock}">
+								<a href="${root}/book/list/novel.do?pageNumber=${startPage - pageBlock}&viewType=${viewType}" class="bookList_num_before">이전</a>
+							</c:if>
+							
+							<c:forEach var="i" begin="${startPage}" end="${endPage}" >
+								<a href="${root}/book/list/novel.do?pageNumber=${i}&viewType=${viewType}" class="bookList_num01">${i}</a>
+							</c:forEach>
+							
+							<c:if test="${endPage < pageCount}">
+								<a href="${root}/book/list/novel.do?pageNumber=${startPage + pageBlock}&viewType=${viewType}" class="bookList_num_next">다음</a>
+							</c:if>
+						</div>
+						<!-- 페이지 번호 끝 -->
+						</c:when>
+						</c:choose>
 					</div>
 				</div>
 			</div>

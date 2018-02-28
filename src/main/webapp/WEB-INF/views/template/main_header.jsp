@@ -124,44 +124,44 @@ $(function (){
 								<div class="header_nav_column" align="center">
 
 									<ul>
-										<li><h3>컴퓨터/IT</h3></li>
-										<li><a href="${root}/book/list/computer/com.do">컴퓨터공학</a></li>
-										<li><a href="${root}/book/list/computer/network.do">네트워크</a></li>
-										<li><a href="${root}/book/list/computer/security.do">보안/해킹</a></li>
-										<li><a href="${root}/book/list/computer/db.do">데이터베이스</a></li>
-										<li><a href="${root}/book/list/computer/pro.do">프로그래밍언어</a></li>
-										<li><a href="${root}/book/list/computer/graphic.do">그래픽</a></li>
+										<li><h3><a href="${root}/book/list/computer.do?viewType=${viewType}" id="header_nav_column_h3">컴퓨터/IT</a></h3></li>
+										<li><a href="${root}/book/list/computer/com.do?viewType=${viewType}">컴퓨터공학</a></li>
+										<li><a href="${root}/book/list/computer/network.do?viewType=${viewType}">네트워크</a></li>
+										<li><a href="${root}/book/list/computer/security.do?viewType=${viewType}">보안/해킹</a></li>
+										<li><a href="${root}/book/list/computer/db.do?viewType=${viewType}">데이터베이스</a></li>
+										<li><a href="${root}/book/list/computer/pro.do?viewType=${viewType}">프로그래밍언어</a></li>
+										<li><a href="${root}/book/list/computer/graphic.do?viewType=${viewType}">그래픽</a></li>
 									</ul>
 								</div>
 
 								<div class="header_nav_column" align="center">
 									<ul>
-										<li><h3>소설</h3></li>
-										<li><a href="${root}/book/list/novel/modern.do">현대소설</a></li>
-										<li><a href="${root}/book/list/novel/classic.do">고전소설</a></li>
-										<li><a href="${root}/book/list/novel/mystery.do">추리소설</a></li>
-										<li><a href="${root}/book/list/novel/romance.do">로맨스소설</a></li>
-										<li><a href="${root}/book/list/novel/history.do">역사소설</a></li>
-										<li><a href="${root}/book/list/novel/fantasy.do">판타지소설</a></li>
+										<li><h3><a href="${root}/book/list/novel.do?viewType=${viewType}" id="header_nav_column_h3">소설</a></h3></li>
+										<li><a href="${root}/book/list/novel/modern.do?viewType=${viewType}">현대소설</a></li>
+										<li><a href="${root}/book/list/novel/classic.do?viewType=${viewType}">고전소설</a></li>
+										<li><a href="${root}/book/list/novel/mystery.do?viewType=${viewType}">추리소설</a></li>
+										<li><a href="${root}/book/list/novel/romance.do?viewType=${viewType}">로맨스소설</a></li>
+										<li><a href="${root}/book/list/novel/history.do?viewType=${viewType}">역사소설</a></li>
+										<li><a href="${root}/book/list/novel/fantasy.do?viewType=${viewType}">판타지소설</a></li>
 									</ul>
 								</div>
 
 								<div class="header_nav_column" align="center">
 									<ul>
-										<li><h3>여행/취미</h3></li>
-										<li><a href="${root}/book/list/hobby&trip/pet.do">애완동물</a></li>
-										<li><a href="${root}/book/list/hobby&trip/fishmount.do">등산/낚시</a></li>
-										<li><a href="${root}/book/list/hobby&trip/normal.do">취미일반</a></li>
-										<li><a href="${root}/book/list/hobby&trip/domestic.do">국내여행</a></li>
-										<li><a href="${root}/book/list/hobby&trip/abroad.do">해외여행</a></li>
-										<li><a href="${root}/book/list/hobby&trip/theme.do">테마여행</a></li>
+										<li><h3><a href="${root}/book/list/hobby.do?viewType=${viewType}" id="header_nav_column_h3">여행/취미</a></h3></li>
+										<li><a href="${root}/book/list/hobby/pet.do?viewType=${viewType}">애완동물</a></li>
+										<li><a href="${root}/book/list/hobby/fishmount.do?viewType=${viewType}">등산/낚시</a></li>
+										<li><a href="${root}/book/list/hobby/normal.do?viewType=${viewType}">취미일반</a></li>
+										<li><a href="${root}/book/list/hobby/domestic.do?viewType=${viewType}">국내여행</a></li>
+										<li><a href="${root}/book/list/hobby/abroad.do?viewType=${viewType}">해외여행</a></li>
+										<li><a href="${root}/book/list/hobby/theme.do?viewType=${viewType}">테마여행</a></li>
 									</ul>
 								</div>
 							</div></li>
-						<li><a href="${root}/book/list/best.do?pageNumber=1">베스트셀러</a></li>
-						<li><a href="${root}/book/list/issue.do?pageNumber=1">화제의도서</a></li>
-						<li><a href="${root}/book/list/new.do?pageNumber=1">신간도서</a></li>
-						<li><a href="${root}/book/list/discount.do?pageNumber=1">할인도서</a></li>
+						<li><a href="${root}/book/list/best.do?pageNumber=1&viewType=${viewType}">베스트셀러</a></li>
+						<li><a href="${root}/book/list/issue.do?pageNumber=1&viewType=${viewType}">화제의도서</a></li>
+						<li><a href="${root}/book/list/new.do?pageNumber=1&viewType=${viewType}">신간도서</a></li>
+						<li><a href="${root}/book/list/discount.do?pageNumber=1&viewType=${viewType}">할인도서</a></li>
 					</ul>
 				</div>
 			</div>

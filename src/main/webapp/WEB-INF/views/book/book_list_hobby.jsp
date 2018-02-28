@@ -21,15 +21,15 @@
 					<div class="bookList_mid">
 						<!-- 도서 정보 top 시작 -->
 						<div class="bookList_wrap">
-							<h3>컴퓨터/IT</h3>
+							<h3>취미/여행</h3>
 							<div class="bookList_top">
 								<ul class="bookList_top_list">
-									<li><a href="${root}/book/list/computer/com.do?viewType=${viewType}">컴퓨터공학</a></li>
-									<li><a href="${root}/book/list/computer/network.do?viewType=${viewType}">네트워크</a></li>
-									<li><a href="${root}/book/list/computer/security.do?viewType=${viewType}">보안/해킹</a></li>
-									<li><a href="${root}/book/list/computer/db.do?viewType=${viewType}">데이터베이스</a></li>
-									<li><a href="${root}/book/list/computer/pro.do?viewType=${viewType}">프로그래밍언어</a></li>
-									<li><a href="${root}/book/list/computer/graphic.do?viewType=${viewType}">그래픽</a></li>
+									<li><a href="${root}/book/list/hobby/pet.do?viewType=${viewType}">애완동물</a></li>
+									<li><a href="${root}/book/list/hobby/fishmount.do?viewType=${viewType}">등산/낚시</a></li>
+									<li><a href="${root}/book/list/hobby/normal.do?viewType=${viewType}">취미일반</a></li>
+									<li><a href="${root}/book/list/hobby/domestic.do?viewType=${viewType}">국내여행</a></li>
+									<li><a href="${root}/book/list/hobby/abroad.do?viewType=${viewType}">해외여행</a></li>
+									<li><a href="${root}/book/list/hobby/theme.do?viewType=${viewType}">테마여행</a></li>
 								</ul>
 							</div>
 						</div>
@@ -41,8 +41,8 @@
 						<div class="bookDetail_mid_images">
 							<div class="bookDetail_mid_image">
 								<ul>
-									<li class="bookDetail_mid_list_show"><a href="${root}/book/list/computer/${subCategory}.do?pageNumber=${pageNumber}&viewType=list"><img src="${root}/img/book/list_var_pink.png"></a></li>
-									<li class="bookDetail_mid_image_show"><a href="${root}/book/list/computer/${subCategory}.do?pageNumber=${pageNumber}&viewType=image"><img src="${root}/img/book/grid_pink.png"></a></li>
+									<li class="bookDetail_mid_list_show"><a href="${root}/book/list/hobby/${subCategory}.do?pageNumber=${pageNumber}&viewType=list"><img src="${root}/img/book/list_var_pink.png"></a></li>
+									<li class="bookDetail_mid_image_show"><a href="${root}/book/list/hobby/${subCategory}.do?pageNumber=${pageNumber}&viewType=image"><img src="${root}/img/book/grid_pink.png"></a></li>
 								</ul>
 							</div>
 						</div>
@@ -113,15 +113,15 @@
 							</c:if>
 							
 							<c:if test="${startPage > pageBlock}">
-								<a href="${root}/book/list/computer/${subCategory}.do?pageNumber=${startPage - pageBlock}&viewType=${viewType}" class="bookList_num_before">이전</a>
+								<a href="${root}/book/list/hobby/${subCategory}.do?pageNumber=${startPage - pageBlock}&viewType=${viewType}" class="bookList_num_before">이전</a>
 							</c:if>
 							
 							<c:forEach var="i" begin="${startPage}" end="${endPage}" >
-								<a href="${root}/book/list/computer/${subCategory}.do?pageNumber=${i}&viewType=${viewType}" class="bookList_num01">${i}</a>
+								<a href="${root}/book/list/hobby/${subCategory}.do?pageNumber=${i}&viewType=${viewType}" class="bookList_num01">${i}</a>
 							</c:forEach>
 							
 							<c:if test="${endPage < pageCount}">
-								<a href="${root}/book/list/computer/${subCategory}.do?pageNumber=${startPage + pageBlock}&viewType=${viewType}" class="bookList_num_next">다음</a>
+								<a href="${root}/book/list/hobby/${subCategory}.do?pageNumber=${startPage + pageBlock}&viewType=${viewType}" class="bookList_num_next">다음</a>
 							</c:if>
 						</div>
 						<!-- 페이지 번호 끝 -->
@@ -132,8 +132,8 @@
 						<div class="bookDetail_mid_images">
 							<div class="bookDetail_mid_image">
 								<ul>
-									<li class="bookDetail_mid_list_show"><a href="${root}/book/list/computer.do?pageNumber=${pageNumber}&viewType=list"><img src="${root}/img/book/list_var_pink.png"></a></li>
-									<li class="bookDetail_mid_image_show"><a href="${root}/book/list/computer.do?pageNumber=${pageNumber}&viewType=image"><img src="${root}/img/book/grid_pink.png"></a></li>
+									<li class="bookDetail_mid_list_show"><a href="${root}/book/list/hobby.do?pageNumber=${pageNumber}&viewType=list"><img src="${root}/img/book/list_var_pink.png"></a></li>
+									<li class="bookDetail_mid_image_show"><a href="${root}/book/list/hobby.do?pageNumber=${pageNumber}&viewType=image"><img src="${root}/img/book/grid_pink.png"></a></li>
 								</ul>
 							</div>
 						</div>
@@ -204,15 +204,15 @@
 							</c:if>
 							
 							<c:if test="${startPage > pageBlock}">
-								<a href="${root}/book/list/computer.do?pageNumber=${startPage - pageBlock}&viewType=${viewType}" class="bookList_num_before">이전</a>
+								<a href="${root}/book/list/hobby.do?pageNumber=${startPage - pageBlock}&viewType=${viewType}" class="bookList_num_before">이전</a>
 							</c:if>
 							
 							<c:forEach var="i" begin="${startPage}" end="${endPage}" >
-								<a href="${root}/book/list/computer.do?pageNumber=${i}&viewType=${viewType}" class="bookList_num01">${i}</a>
+								<a href="${root}/book/list/hobby.do?pageNumber=${i}&viewType=${viewType}" class="bookList_num01">${i}</a>
 							</c:forEach>
 							
 							<c:if test="${endPage < pageCount}">
-								<a href="${root}/book/list/computer.do?pageNumber=${startPage + pageBlock}&viewType=${viewType}" class="bookList_num_next">다음</a>
+								<a href="${root}/book/list/hobby.do?pageNumber=${startPage + pageBlock}&viewType=${viewType}" class="bookList_num_next">다음</a>
 							</c:if>
 						</div>
 						<!-- 페이지 번호 끝 -->
