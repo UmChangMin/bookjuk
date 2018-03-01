@@ -21,7 +21,12 @@
 					<div class="bookList_mid">
 						<!-- 도서 정보 top 시작 -->
 						<div class="bookList_wrap">
+							<c:if test="${bookDtoList[0].category_sub_kor == null}">
 							<h3>취미/여행</h3>
+							</c:if>
+							<c:if test="${bookDtoList[0].category_sub_kor != null}">
+							<h3>취미/여행&nbsp;&nbsp;>&nbsp;&nbsp;${bookDtoList[0].category_sub_kor}</h3>
+							</c:if>
 							<div class="bookList_top">
 								<ul class="bookList_top_list">
 									<li><a href="${root}/book/list/hobby/pet.do?viewType=${viewType}">애완동물</a></li>

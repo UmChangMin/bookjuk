@@ -71,6 +71,7 @@
 	border: 0px red solid;
 	padding: 10px 10px 10px 25px;
 	width: 130px;
+	text-align: center;
 }
 
 .bookList_top_list li a{

@@ -8,6 +8,8 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bookjuk.book.dto.BookDto;
 
@@ -60,9 +62,12 @@ public class BookDaoImp implements BookDao {
 		
 		return sqlSession.selectList("discountList", map);
 	}
-	
+
 	@Override
+	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
 	public BookDto detail(int book_num) {
+		sqlSession.update("readCount", book_num);
+		
 		int count = sqlSession.selectOne("reviewCount", book_num);
 		
 		if(count > 0) {

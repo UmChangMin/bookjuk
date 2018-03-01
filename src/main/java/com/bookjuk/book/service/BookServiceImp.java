@@ -1,5 +1,6 @@
 package com.bookjuk.book.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,9 +23,14 @@ public class BookServiceImp implements BookService {
 	private BookDao bookDao;
 
 	@Override
-	public void bookBest(ModelAndView mav) {
+	public void bookSpecial(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		List<BookDto> bookDtoList = new ArrayList<BookDto>();
+		
+		String path = request.getServletPath();
+		String categorization = path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
+		
 		
 		String viewType = viewType(request);
 
@@ -38,7 +44,17 @@ public class BookServiceImp implements BookService {
 		int startRow = page.get("startRow");
 		int endRow = page.get("endRow");
 		
-		List<BookDto> bookDtoList = bookDao.bestList(startRow, endRow);
+		if(categorization.equals("best")) {
+			bookDtoList = bookDao.bestList(startRow, endRow);
+		}else if(categorization.equals("issue")) {
+			bookDtoList = bookDao.issueList(startRow, endRow);
+		}else if(categorization.equals("new")) {
+			bookDtoList = bookDao.newList(startRow, endRow);
+		}else if(categorization.equals("discount")) {
+			bookDtoList = bookDao.discountList(startRow, endRow);
+		}
+		
+		
 		
 		mav.addObject("viewType", viewType);
 		mav.addObject("pageCount", page.get("pageCount"));
@@ -48,116 +64,29 @@ public class BookServiceImp implements BookService {
 		mav.addObject("pageNumber", currentPage);
 		mav.addObject("bookDtoList", bookDtoList);
 		
-		mav.setViewName("book/book_best.tiles");
+		mav.setViewName("book/book_" + categorization + ".tiles");
 		
 	}
-
-	@Override
-	public void bookIssue(ModelAndView mav) {
-		Map<String,Object>map=mav.getModelMap();
-		HttpServletRequest request=(HttpServletRequest)map.get("request");
-		
-		String viewType = viewType(request);
-		
-		/*책 리스트 개수*/
-		int count = bookDao.bookCount();
-
-		/*페이징 처리*/
-		HashMap<String, Integer> page = page(request, count);
-		
-		int currentPage = page.get("currentPage");
-		int startRow = page.get("startRow");
-		int endRow = page.get("endRow");
-		
-		List<BookDto> bookDtoList = bookDao.issueList(startRow, endRow);
-		
-		mav.addObject("viewType", viewType);
-		mav.addObject("pageCount", page.get("pageCount"));
-		mav.addObject("pageBlock", page.get("pageBlock"));
-		mav.addObject("startPage", page.get("startPage"));
-		mav.addObject("endPage", page.get("endPage"));
-		mav.addObject("pageNumber", currentPage);
-		mav.addObject("bookDtoList", bookDtoList);
-		
-		mav.setViewName("book/book_issue.tiles");
-	}
-
-	@Override
-	public void bookNew(ModelAndView mav) {
-		Map<String,Object>map=mav.getModelMap();
-		HttpServletRequest request=(HttpServletRequest)map.get("request");
-
-		String viewType = viewType(request);
-		
-		/*책 리스트 개수*/
-		int count = bookDao.bookCount();
-
-		/*페이징 처리*/
-		HashMap<String, Integer> page = page(request, count);
-		
-		int currentPage = page.get("currentPage");
-		int startRow = page.get("startRow");
-		int endRow = page.get("endRow");
-		
-		List<BookDto> bookDtoList = bookDao.newList(startRow, endRow);
-		
-		mav.addObject("viewType", viewType);
-		mav.addObject("pageCount", page.get("pageCount"));
-		mav.addObject("pageBlock", page.get("pageBlock"));
-		mav.addObject("startPage", page.get("startPage"));
-		mav.addObject("endPage", page.get("endPage"));
-		mav.addObject("pageNumber", currentPage);
-		mav.addObject("bookDtoList", bookDtoList);
-		
-		mav.setViewName("book/book_new.tiles");
-		
-	}
-
-	@Override
-	public void bookDiscount(ModelAndView mav) {
-		Map<String,Object>map=mav.getModelMap();
-		HttpServletRequest request=(HttpServletRequest)map.get("request");
-
-		String viewType = viewType(request);
-		
-		/*책 리스트 개수*/
-		int count = bookDao.bookCount();
-
-		/*페이징 처리*/
-		HashMap<String, Integer> page = page(request, count);
-		
-		int currentPage = page.get("currentPage");
-		int startRow = page.get("startRow");
-		int endRow = page.get("endRow");
-		
-		List<BookDto> bookDtoList = bookDao.discountList(startRow, endRow);
-		
-		mav.addObject("viewType", viewType);
-		mav.addObject("pageCount", page.get("pageCount"));
-		mav.addObject("pageBlock", page.get("pageBlock"));
-		mav.addObject("startPage", page.get("startPage"));
-		mav.addObject("endPage", page.get("endPage"));
-		mav.addObject("pageNumber", currentPage);
-		mav.addObject("bookDtoList", bookDtoList);
-		
-		mav.setViewName("book/book_discount.tiles");
-	}
-	
 
 	@Override
 	public void bookDetail(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
-		
+
 		int book_num = Integer.parseInt(request.getParameter("book_num"));
+		
 		BookDto bookDto = bookDao.detail(book_num);
+		
+		/*소개글 Enter 값 처리*/
 		String editor = bookDto.getBook_editor();
 		if(editor != null) bookDto.setBook_editor(editor.replace("\n", "<br/>"));
 		bookDto.setBook_contents(bookDto.getBook_contents().replace("\n", "<br/>"));
 		bookDto.setBook_intro(bookDto.getBook_intro().replace("\n", "<br/>"));
 		bookDto.setBook_author_info(bookDto.getBook_author_info().replace("\n", "<br/>"));
 		bookDto.setBook_publisher_review(bookDto.getBook_publisher_review().replace("\n", "<br/>"));
-		LogAspect.logger.info(LogAspect.logMsg + bookDto.toString());
+		
+		LogAspect.logger.info(LogAspect.logMsg + bookDto.getProduct_count());
+		
 		mav.addObject("bookDto", bookDto);
 		
 		mav.setViewName("book/book_detail.tiles");
@@ -236,7 +165,7 @@ public class BookServiceImp implements BookService {
 	
 	public String viewType(HttpServletRequest request) {
 		String viewType = request.getParameter("viewType");
-		if(viewType == "") viewType = "list";
+		if(viewType == null) viewType = "list";
 		
 		return viewType;
 	}

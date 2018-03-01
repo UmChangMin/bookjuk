@@ -19,10 +19,10 @@ public class UserController {
 	private UserService mainService;
 	
 	@RequestMapping(value = "main.do")
-	public ModelAndView main(HttpServletRequest request, HttpServletResponse response, HttpSession ses) {
+	public ModelAndView main(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
-		mav.addObject("session", ses);
+		mav.addObject("session", session);
 		mainService.main(mav);
 		
 		return mav;

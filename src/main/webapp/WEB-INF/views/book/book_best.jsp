@@ -28,8 +28,8 @@
 						<div class="bookDetail_mid_images">
 							<div class="bookDetail_mid_image">
 								<ul>
-									<li class="bookDetail_mid_list_show"><a href="${root}/book/list/best.do?pageNumber=${pageNumber}&viewType=list"><img src="${root}/img/book/list_var_pink.png"></a></li>
-									<li class="bookDetail_mid_image_show"><a href="${root}/book/list/best.do?pageNumber=${pageNumber}&viewType=image"><img src="${root}/img/book/grid_pink.png"></a></li>
+									<li class="bookDetail_mid_list_show"><a href="${root}/book/best.do?pageNumber=${pageNumber}&viewType=list"><img src="${root}/img/book/list_var_pink.png"></a></li>
+									<li class="bookDetail_mid_image_show"><a href="${root}/book/best.do?pageNumber=${pageNumber}&viewType=image"><img src="${root}/img/book/grid_pink.png"></a></li>
 								</ul>
 							</div>
 						</div>
@@ -101,15 +101,15 @@
 							</c:if>
 							
 							<c:if test="${startPage > pageBlock}">
-								<a href="${root}/book/list/best.do?pageNumber=${startPage - pageBlock}&viewType=${viewType}" class="bookList_num_before">이전</a>
+								<a href="${root}/book/best.do?pageNumber=${startPage - pageBlock}&viewType=${viewType}" class="bookList_num_before">이전</a>
 							</c:if>
 							
 							<c:forEach var="i" begin="${startPage}" end="${endPage}" >
-								<a href="${root}/book/list/best.do?pageNumber=${i}&viewType=${viewType}" class="bookList_num01">${i}</a>
+								<a href="${root}/book/best.do?pageNumber=${i}&viewType=${viewType}" class="bookList_num01">${i}</a>
 							</c:forEach>
 							
 							<c:if test="${endPage < pageCount}">
-								<a href="${root}/book/list/best.do?pageNumber=${startPage + pageBlock}&viewType=${viewType}" class="bookList_num_next">다음</a>
+								<a href="${root}/book/best.do?pageNumber=${startPage + pageBlock}&viewType=${viewType}" class="bookList_num_next">다음</a>
 							</c:if>
 						</div>
 						<!-- 페이지 번호 끝 -->

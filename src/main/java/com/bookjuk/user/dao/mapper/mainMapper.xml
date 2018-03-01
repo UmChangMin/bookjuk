@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bookjuk.user.dao.mapper.mainMapper">
+
+	<select id="mainBestList" resultType="com.bookjuk.book.dto.BookDto">
+		<![CDATA[
+		SELECT j.book_num, j.book_img, j.product_sales FROM(SELECT i.*, ROWNUM rnum FROM(SELECT b.book_num, book_img, book_name, product_sales FROM book b, product p WHERE b.book_num = p.book_num ORDER BY product_sales DESC)i)j WHERE j.rnum >= 1 AND j.rnum <= 5
+		]]>
+	</select>
+
+	<select id="mainNewList" resultType="com.bookjuk.book.dto.BookDto">
+		<![CDATA[
+		SELECT j.book_num, j.book_img, j.book_date FROM(SELECT i.*, ROWNUM rnum FROM(SELECT book_num, book_img, book_name, book_date FROM book ORDER BY book_date DESC)i)j WHERE j.rnum >= 1 AND j.rnum <= 5
+		]]>
+	</select>
+	
+	<select id="mainIssueList" resultType="com.bookjuk.book.dto.BookDto">
+		<![CDATA[
+		SELECT j.book_num, j.book_img, j.product_count FROM (SELECT i.*, ROWNUM rnum FROM(SELECT b.book_num, b.book_img, book_name, p.product_count FROM book b, product p WHERE b.book_num = p.book_num ORDER BY product_count DESC)i)j WHERE j.rnum >= 1 AND j.rnum <= 5
+		]]>
+	</select>
+	
+	<select id="mainDiscountList" resultType="com.bookjuk.book.dto.BookDto">
+		<![CDATA[
+		SELECT j.book_num, j.book_img, j.book_date FROM(SELECT i.*, ROWNUM rnum FROM(SELECT book_num, book_img, book_name, book_date FROM book ORDER BY book_date ASC)i)j WHERE j.rnum >= 1 AND j.rnum <= 5
+		]]>
+	</select>
+	
+	<select id="bestComputerList" resultType="com.bookjuk.book.dto.BookDto">
+		<![CDATA[
+		SELECT j.book_num, j.book_img, j.book_name, j.book_author FROM(SELECT i.*, ROWNUM rnum FROM (SELECT b.book_num, book_img, book_name, book_author, product_sales FROM book b, product p, category c WHERE b.book_num = p.book_num AND b.book_num = c.book_num AND c.category_main_eng = 'computer' ORDER BY product_sales DESC)i)j WHERE j.rnum >= 1 AND j.rnum <= 5
+		]]>
+	</select>
+	
+	<select id="bestHobbyList" resultType="com.bookjuk.book.dto.BookDto">
+		<![CDATA[
+		SELECT j.book_num, j.book_img, j.book_name, j.book_author FROM(SELECT i.*, ROWNUM rnum FROM (SELECT b.book_num, book_img, book_name, book_author, product_sales FROM book b, product p, category c WHERE b.book_num = p.book_num AND b.book_num = c.book_num AND c.category_main_eng = 'hobby' ORDER BY product_sales DESC)i)j WHERE j.rnum >= 1 AND j.rnum <= 5
+		]]>
+	</select>
+	
+	<select id="bestNovelList" resultType="com.bookjuk.book.dto.BookDto">
+		<![CDATA[
+		SELECT j.book_num, j.book_img, j.book_name, j.book_author FROM(SELECT i.*, ROWNUM rnum FROM (SELECT b.book_num, book_img, book_name, book_author, product_sales FROM book b, product p, category c WHERE b.book_num = p.book_num AND b.book_num = c.book_num AND c.category_main_eng = 'novel' ORDER BY product_sales DESC)i)j WHERE j.rnum >= 1 AND j.rnum <= 5
+		]]>
+	</select>
+
+</mapper>

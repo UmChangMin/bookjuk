@@ -45,15 +45,9 @@
 				<!-- 베스트셀러  -->
 				<div class="main_banner_list_view" style="display: block;">
 					<ul class="main_banner_list">
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="${root}/book_img/computer/com/computer_com_01.jpg"></a></li>
-
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="${root}/book_img/computer/com/computer_com_02.jpg"></a></li>
-
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/430/100726430.jpg"></a></li>
-
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/623/100710623.jpg"></a></li>
-
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/780/100735780.jpg"></a></li>
+						<c:forEach items="${bookBestList}" var="bookDto">
+							<li><a href="${root}/book/list/detail.do?book_num=${bookDto.book_num}"><img alt="${bookDto.book_name}" src="${root}${bookDto.book_img}"></a></li>
+						</c:forEach>
 					</ul>
 					</div>
 					
@@ -61,15 +55,9 @@
 				<!-- 화제의 도서  -->
 				<div class="main_banner_list_view" style="display: none;">
 					<ul class="main_banner_list">
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/large/358/l9788984373358.jpg"></a></li>
-
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/large/538/l9791161903538.jpg"></a></li>
-
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/large/845/l9791187119845.jpg"></a></li>
-
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/large/987/l9791185952987.jpg"></a></li>
-
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/large/772/l9788997092772.jpg"></a></li>
+						<c:forEach items="${bookIssueList}" var="bookDto">
+							<li><a href="${root}/book/list/detail.do?book_num=${bookDto.book_num}"><img alt="${bookDto.book_name}" src="${root}${bookDto.book_img}"></a></li>
+						</c:forEach>
 					</ul>
 					</div>
 					
@@ -78,15 +66,9 @@
 				<!-- 신간도서  -->
 				<div class="main_banner_list_view" style="display: none;">
 					<ul class="main_banner_list">
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/410/100830410.jpg"></a></li>
-
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/medium/182/m9788954650182.jpg"></a></li>
-
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/medium/796/m9788965705796.jpg"></a></li>
-
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/medium/802/m9788965705802.jpg"></a></li>
-
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/medium/876/m9791162202876.jpg"></a></li>
+						<c:forEach items="${bookNewList}" var="bookDto">
+							<li><a href="${root}/book/list/detail.do?book_num=${bookDto.book_num}"><img alt="${bookDto.book_name}" src="${root}${bookDto.book_img}"></a></li>
+						</c:forEach>
 					</ul>
 					</div>
 					
@@ -94,15 +76,9 @@
 				<!-- 할인도서  -->
 				<div class="main_banner_list_view" style="display: none;">
 					<ul class="main_banner_list">
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.ypbooks.co.kr/upload/img/book/410/100830410.jpg"></a></li>
-
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/new_ink/used/product/136/l7258706876136.jpg"></a></li>
-
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/large/299/l9788960902299.jpg"></a></li>
-
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/large/004/l9788998790004.jpg"></a></li>
-
-						<li><a href="${root}/book/list/detail.do"><img alt="책사진" src="http://image.kyobobook.co.kr/images/book/large/466/l9788954640466.jpg"></a></li>
+						<c:forEach items="${bookDiscountList}" var="bookDto">
+							<li><a href="${root}/book/list/detail.do?book_num=${bookDto.book_num}"><img alt="${bookDto.book_name}" src="${root}${bookDto.book_img}"></a></li>
+						</c:forEach>
 					</ul>
 					</div>
 				</div>
@@ -116,177 +92,63 @@
 				<div class="best_category">
 					<h1>분야별 베스트</h1>
 					<ul class="best_cate">
-						<li>소설</li>
 						<li>컴퓨터/IT</li>
+						<li>소설</li>
 						<li>취미/여행</li>
 					</ul>
 				</div>
 				<div class="best_box">
-					<!-- best_view_1 -->
+					<!-- best_view_컴퓨터 -->
 					<div class="best_view" style="display: block;">
 						<ul class="best_list">
+							<c:forEach var="i" begin="0" end="4">
 							<li>
-								<p class="b_num1 rank">1</p>
+								<p class="b_num1 rank">${i+1}</p>
 								<div class="thumBox">
-									<a href="${root}/book/list/detail.do"><img alt="그리스 로마 신화 1"
-										src="http://bookimg.bookcube.com/150/1105/110500213.jpg"></a>
+									<a href="${root}/book/list/detail.do?book_num=${bestCom[i].book_num}"><img alt="${bestCom[i].book_name}"
+										src="${root}${bestCom[i].book_img}"></a>
 									<p class="best_title">
-										<a href="${root}/book/list/detail.do">그리스 로마 신화 1</a> <br /> <a href="${root}/book/list/detail.do">허단비</a>
+										<a href="${root}/book/list/detail.do?book_num=${bestCom[i].book_num}">${bestCom[i].book_name}</a> <br /> <a href="${root}/book/list/detail.do?book_num=${bestCom[i].book_num}">${bestCom[i].book_author}</a>
 									</p>
 								</div>
 							</li>
-							<li>
-								<p class="b_num1 rank">2</p>
-								<div class="thumBox">
-									<a href="#"><img alt="미중전쟁 1"
-										src="http://bookimg.bookcube.com/94/1712/171203671.jpg"></a>
-									<p class="best_title">
-										<a href="#">미중전쟁 1</a> <br /> <a href="#">홍은영</a>
-									</p>
-								</div>
-							</li>
-							<li>
-								<p class="b_num1 rank">3</p>
-								<div class="thumBox">
-									<a href="#"><img alt="건축전기설비 총론"
-										src="http://bookimg.bookcube.com/94/1308/130801548.jpg"></a>
-									<p class="best_title">
-										<a href="#">건축전기설비 총론</a> <br /> <a href="#">강민아</a>
-									</p>
-								</div>
-							</li>
-							<li>
-								<p class="b_num1 rank">4</p>
-								<div class="thumBox">
-									<a href="#"><img alt="[세트] 보노보노"
-										src="http://bookimg.bookcube.com/94/1712/171201262.jpg"></a>
-									<p class="best_title">
-										<a href="#">[세트] 보노보노</a> <br /> <a href="#">김태우</a>
-									</p>
-								</div>
-							</li>
-							<li>
-								<p class="b_num1 rank">5</p>
-								<div class="thumBox">
-									<a href="#"><img alt="미스터 하이든"
-										src="http://bookimg.bookcube.com/94/1607/160704046.jpg"></a>
-									<p class="best_title">
-										<a href="#">미스터 하이든</a> <br /> <a href="#">박로석</a>
-									</p>
-								</div>
-							</li>
+							</c:forEach>
 						</ul>
 					</div>
 
-					<!-- best_view_2 -->
+					<!-- best_view_소설 -->
 					<div class="best_view" style="display: none;">
 						<ul class="best_list">
+							<c:forEach var="i" begin="0" end="4">
 							<li>
-								<p class="b_num1 rank">1</p>
+								<p class="b_num1 rank">${i+1}</p>
 								<div class="thumBox">
-									<a href="#"><img alt="그리스 로마 신화 1"
-										src="http://bookimg.bookcube.com/150/1105/110500213.jpg"></a>
+									<a href="${root}/book/list/detail.do?book_num=${bestNov[i].book_num}"><img alt="${bestNov[i].book_name}"
+										src="${root}${bestNov[i].book_img}"></a>
 									<p class="best_title">
-										<a href="#">그리스 로마 신화 1</a> <br /> <a href="#">ggg</a>
+										<a href="${root}/book/list/detail.do?book_num=${bestNov[i].book_num}">${bestNov[i].book_name}</a> <br /> <a href="${root}/book/list/detail.do?book_num=${bestNov[i].book_num}">${bestNov[i].book_author}</a>
 									</p>
 								</div>
 							</li>
-							<li>
-								<p class="b_num1 rank">2</p>
-								<div class="thumBox">
-									<a href="#"><img alt="미중전쟁 1"
-										src="http://bookimg.bookcube.com/94/1712/171201262.jpg"></a>
-									<p class="best_title">
-										<a href="#">미중전쟁 1</a> <br /> <a href="#">강민아</a>
-									</p>
-								</div>
-							</li>
-							<li>
-								<p class="b_num1 rank">3</p>
-								<div class="thumBox">
-									<a href="#"><img alt="건축전기설비 총론"
-										src="http://bookimg.bookcube.com/94/1308/130801548.jpg"></a>
-									<p class="best_title">
-										<a href="#">건축전기설비 총론</a> <br /> <a href="#">엄창민</a>
-									</p>
-								</div>
-							</li>
-							<li>
-								<p class="b_num1 rank">4</p>
-								<div class="thumBox">
-									<a href="#"><img alt="[세트] 보노보노"
-										src="http://bookimg.bookcube.com/94/1712/171203671.jpg"></a>
-									<p class="best_title">
-										<a href="#">[세트] 보노보노</a> <br /> <a href="#">김태우</a>
-									</p>
-								</div>
-							</li>
-							<li>
-								<p class="b_num1 rank">5</p>
-								<div class="thumBox">
-									<a href="#"><img alt="미스터 하이든"
-										src="http://bookimg.bookcube.com/94/1607/160704046.jpg"></a>
-									<p class="best_title">
-										<a href="#">미스터 하이든</a> <br /> <a href="#">박로석</a>
-									</p>
-								</div>
-							</li>
+							</c:forEach>
 						</ul>
 					</div>
 
-					<!-- best_view_3 -->
+					<!-- best_view_취미 -->
 					<div class="best_view" style="display: none;">
 						<ul class="best_list">
+							<c:forEach var="i" begin="0" end="4">
 							<li>
-								<p class="b_num1 rank">1</p>
+								<p class="b_num1 rank">${i+1}</p>
 								<div class="thumBox">
-									<a href="#"><img alt="그리스 로마 신화 1"
-										src="http://bookimg.bookcube.com/150/1105/110500213.jpg"></a>
+									<a href="${root}/book/list/detail.do?book_num=${bestHob[i].book_num}"><img alt="${bestHob[i].book_name}"
+										src="${root}${bestHob[i].book_img}"></a>
 									<p class="best_title">
-										<a href="#">그리스 로마 신화 1</a> <br /> <a href="#">ddd</a>
+										<a href="${root}/book/list/detail.do?book_num=${bestHob[i].book_num}">${bestHob[i].book_name}</a> <br /> <a href="${root}/book/list/detail.do?book_num=${bestHob[i].book_num}">${bestHob[i].book_author}</a>
 									</p>
 								</div>
 							</li>
-							<li>
-								<p class="b_num1 rank">2</p>
-								<div class="thumBox">
-									<a href="#"><img alt="미중전쟁 1"
-										src="http://bookimg.bookcube.com/94/1712/171203671.jpg"></a>
-									<p class="best_title">
-										<a href="#">미중전쟁 1</a> <br /> <a href="#">박로석</a>
-									</p>
-								</div>
-							</li>
-							<li>
-								<p class="b_num1 rank">3</p>
-								<div class="thumBox">
-									<a href="#"><img alt="건축전기설비 총론"
-										src="http://bookimg.bookcube.com/94/1308/130801548.jpg"></a>
-									<p class="best_title">
-										<a href="#">건축전기설비 총론</a> <br /> <a href="#">강민아</a>
-									</p>
-								</div>
-							</li>
-							<li>
-								<p class="b_num1 rank">4</p>
-								<div class="thumBox">
-									<a href="#"><img alt="[세트] 보노보노"
-										src="http://bookimg.bookcube.com/94/1607/160704046.jpg"></a>
-									<p class="best_title">
-										<a href="#">[세트] 보노보노</a> <br /> <a href="#">김태우</a>
-									</p>
-								</div>
-							</li>
-							<li>
-								<p class="b_num1 rank">5</p>
-								<div class="thumBox">
-									<a href="#"><img alt="미스터 하이든"
-										src="http://bookimg.bookcube.com/94/1712/171201262.jpg"></a>
-									<p class="best_title">
-										<a href="#">미스터 하이든</a> <br /> <a href="#">엄창민</a>
-									</p>
-								</div>
-							</li>
+							</c:forEach>
 						</ul>
 					</div>
 				</div>
