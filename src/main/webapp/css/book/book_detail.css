@@ -233,6 +233,17 @@
 	line-height: 40px;
 }
 
+.bookDetail_disprice{
+	color: #F15F5F;
+	font-size: 1.5em;
+}
+
+.bookDetail_discount{
+	font-size: 0.85em;
+	color: #5e6b9f;
+}
+
+.bookDetail_price,
 .bookDetail_point,
 .bookDetail_info_content{
 	float: left;

@@ -31,7 +31,6 @@ public class BookServiceImp implements BookService {
 		String path = request.getServletPath();
 		String categorization = path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
 		
-		
 		String viewType = viewType(request);
 
 		/*책 리스트 개수*/
@@ -51,10 +50,17 @@ public class BookServiceImp implements BookService {
 		}else if(categorization.equals("new")) {
 			bookDtoList = bookDao.newList(startRow, endRow);
 		}else if(categorization.equals("discount")) {
+			page = page(request, 20);
+			
+			List<BookDto> discountDtoList = bookDao.discountSelect();
+			for(int i = 0; i < discountDtoList.size(); i++) {
+				if(discountDtoList.get(i).getProduct_discount() != 80) {
+					bookDao.discountUpdate(discountDtoList.get(i).getBook_num());
+				}
+			}
+
 			bookDtoList = bookDao.discountList(startRow, endRow);
 		}
-		
-		
 		
 		mav.addObject("viewType", viewType);
 		mav.addObject("pageCount", page.get("pageCount"));
@@ -67,7 +73,8 @@ public class BookServiceImp implements BookService {
 		mav.setViewName("book/book_" + categorization + ".tiles");
 		
 	}
-
+	
+	/*도서 상세보기*/
 	@Override
 	public void bookDetail(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
@@ -84,8 +91,6 @@ public class BookServiceImp implements BookService {
 		bookDto.setBook_intro(bookDto.getBook_intro().replace("\n", "<br/>"));
 		bookDto.setBook_author_info(bookDto.getBook_author_info().replace("\n", "<br/>"));
 		bookDto.setBook_publisher_review(bookDto.getBook_publisher_review().replace("\n", "<br/>"));
-		
-		LogAspect.logger.info(LogAspect.logMsg + bookDto.getProduct_count());
 		
 		mav.addObject("bookDto", bookDto);
 		

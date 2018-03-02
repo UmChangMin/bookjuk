@@ -69,7 +69,7 @@
 											<div class="bookList_content_inbfo">
 												<p class="bookList_content_title"><a href="${root}/book/list/detail.do?book_num=${bookDto.book_num}">${bookDto.book_name}</a></p>
 												<p class="bookList_content_author">${bookDto.book_author}&nbsp;&nbsp;|&nbsp;&nbsp;${bookDto.book_publisher}&nbsp;&nbsp;|&nbsp;&nbsp;<fmt:formatDate value="${bookDto.book_date}" pattern="YYYY.MM.dd"/></p>
-												<p class="bookList_content_buy">가격 <span><fmt:formatNumber value="${bookDto.product_price}" pattern="###,###,###"/>원</span></p>
+												<p class="bookList_content_buy">가격 <span><fmt:formatNumber value="${bookDto.product_disprice}" pattern="###,###,###"/>원</span></p>
 												<div class="bookList_content_content">${bookDto.book_intro}</div>
 												
 											</div>
@@ -99,7 +99,7 @@
 												</p>
 												<div class="bookList_mid_content_cash">
 													<p>
-														가격 <span><fmt:formatNumber value="${bookDto.product_price}" pattern="###,###,###"/>원</span>
+														가격 <span><fmt:formatNumber value="${bookDto.product_disprice}" pattern="###,###,###"/>원</span>
 													</p>
 												</div>
 											</div>
@@ -160,7 +160,7 @@
 											<div class="bookList_content_inbfo">
 												<p class="bookList_content_title"><a href="${root}/book/list/detail.do?book_num=${bookDto.book_num}">${bookDto.book_name}</a></p>
 												<p class="bookList_content_author">${bookDto.book_author}&nbsp;&nbsp;|&nbsp;&nbsp;${bookDto.book_publisher}&nbsp;&nbsp;|&nbsp;&nbsp;<fmt:formatDate value="${bookDto.book_date}" pattern="YYYY.MM.dd"/></p>
-												<p class="bookList_content_buy">가격 <span><fmt:formatNumber value="${bookDto.product_price}" pattern="###,###,###"/>원</span></p>
+												<p class="bookList_content_buy">가격 <span><fmt:formatNumber value="${bookDto.product_disprice}" pattern="###,###,###"/>원</span></p>
 												<div class="bookList_content_content">${bookDto.book_intro}</div>
 												
 											</div>
@@ -190,7 +190,7 @@
 												</p>
 												<div class="bookList_mid_content_cash">
 													<p>
-														가격 <span><fmt:formatNumber value="${bookDto.product_price}" pattern="###,###,###"/>원</span>
+														가격 <span><fmt:formatNumber value="${bookDto.product_disprice}" pattern="###,###,###"/>원</span>
 													</p>
 												</div>
 											</div>

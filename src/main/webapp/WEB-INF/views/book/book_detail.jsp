@@ -72,20 +72,27 @@
 									<div class="bookDetail_info_table">
 										
 										<div class="bookDetail_info_content">
+											<div class="bookDetail_one">정가</div>
+											<div class="bookDetail_two">
+												<span><del><fmt:formatNumber value="${bookDto.product_price}" pattern="###,###,###"/></del>&nbsp;원</span>
+											</div>
+										</div>
+										<div class="bookDetail_price">
 											<div class="bookDetail_one">판매가</div>
 											<div class="bookDetail_two">
-												<span><fmt:formatNumber value="${bookDto.product_price}" pattern="###,###,###"/>원</span>
+												<span><span class="bookDetail_disprice"><fmt:formatNumber value="${bookDto.product_disprice}" pattern="###,###,###"/></span>&nbsp;원</span>&nbsp;&nbsp;
+												<span class="bookDetail_discount">[&nbsp;<span><fmt:formatNumber value="${bookDto.product_discount}" pattern="###,###,###"/>%↓</span>&nbsp;]</span>
 											</div>
 										</div>
 										<div class="bookDetail_point">
 											<div class="bookDetail_one">포인트</div>
 											<div class="bookDetail_two">
-												<span><fmt:formatNumber value="${bookDto.product_point}" pattern="###,###,###"/>P</span>
+												<span><fmt:formatNumber value="${bookDto.product_point}" pattern="###,###,###"/>&nbsp;P</span>
 											</div>
 										</div>
 										<div class="bookDetail_delivery">
 											<div class="bookDetail_one">배송료</div>
-											<div class="bookDetail_two"><fmt:formatNumber value="${bookDto.product_delivery}" pattern="###,###,###"/>원</div>
+											<div class="bookDetail_two"><fmt:formatNumber value="${bookDto.product_delivery}" pattern="###,###,###"/>&nbsp;원</div>
 										</div>
 										
 									</div>

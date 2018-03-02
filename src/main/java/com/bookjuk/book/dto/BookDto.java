@@ -24,6 +24,7 @@ public class BookDto {
 	/*product*/
 	private int product_amount;				// 재고
 	private int product_price;				// 가격
+	private int product_disprice;
 	private int product_discount;			// 할인율
 	private int product_point;				// 포인트
 	private int product_sales;				// 판매량
@@ -35,6 +36,7 @@ public class BookDto {
 	private String member_id;				// 사용자 ID
 	private String review_content;			// 리뷰내용
 	private Date review_date;               // 작성일
+	
 	public int getBook_num() {
 		return book_num;
 	}
@@ -143,6 +145,12 @@ public class BookDto {
 	public void setProduct_price(int product_price) {
 		this.product_price = product_price;
 	}
+	public int getProduct_disprice() {
+		return product_disprice;
+	}
+	public void setProduct_disprice(int product_disprice) {
+		this.product_disprice = product_disprice;
+	}
 	public int getProduct_discount() {
 		return product_discount;
 	}
@@ -203,6 +211,7 @@ public class BookDto {
 	public void setReview_date(Date review_date) {
 		this.review_date = review_date;
 	}
+	
 	@Override
 	public String toString() {
 		return "BookDto [book_num=" + book_num + ", book_img=" + book_img + ", book_name=" + book_name
@@ -212,12 +221,10 @@ public class BookDto {
 				+ book_publisher_review + ", category_main_kor=" + category_main_kor + ", category_sub_kor="
 				+ category_sub_kor + ", category_main_eng=" + category_main_eng + ", category_sub_eng="
 				+ category_sub_eng + ", product_amount=" + product_amount + ", product_price=" + product_price
-				+ ", product_discount=" + product_discount + ", product_point=" + product_point + ", product_sales="
-				+ product_sales + ", product_count=" + product_count + ", product_delivery=" + product_delivery
-				+ ", review_num=" + review_num + ", review_score=" + review_score + ", member_id=" + member_id
-				+ ", review_content=" + review_content + ", review_date=" + review_date + "]";
+				+ ", product_disprice=" + product_disprice + ", product_discount=" + product_discount
+				+ ", product_point=" + product_point + ", product_sales=" + product_sales + ", product_count="
+				+ product_count + ", product_delivery=" + product_delivery + ", review_num=" + review_num
+				+ ", review_score=" + review_score + ", member_id=" + member_id + ", review_content=" + review_content
+				+ ", review_date=" + review_date + "]";
 	}
-	
-	
-	
 }

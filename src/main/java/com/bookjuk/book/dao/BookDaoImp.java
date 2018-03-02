@@ -57,6 +57,16 @@ public class BookDaoImp implements BookDao {
 	}
 	
 	@Override
+	public List<BookDto> discountSelect() {
+		return sqlSession.selectList("discountSelect");
+	}
+
+	@Override
+	public int discountUpdate(int book_num) {
+		return sqlSession.update("discountUpdate", book_num);
+	}
+	
+	@Override
 	public List<BookDto> discountList(int startRow, int endRow) {
 		Map<String, Object> map = row(startRow, endRow);
 		
@@ -100,4 +110,5 @@ public class BookDaoImp implements BookDao {
 		
 		return map;
 	}
+
 }
