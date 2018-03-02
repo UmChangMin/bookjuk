@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,7 +19,7 @@
 </head>
 <body>
 	<!-- 고객센터 1:1문의 시작 강민아-->
-	<%-- <c:if test="${member_level != null && member_id!=null}"> --%>
+	
 	<div id="service_all">
 		<div class="service">
 			<div class="service_sub">
@@ -30,12 +31,18 @@
 					<li><a href="${root}/service/contact/list.do" class="service_contact"><img src="${root}/img/service/service_contact_pink.png">1:1문의</a></li>
 				</ul>
 			</div>
+			
+			
 			<!-- 내용부분 시작 -->
 			<div class="service_content">
 				<div class="service_inner">
-					
-					
+					<c:if test="${member_id==null}">
+						<div class="service_non1" align="center">회원 전용 게시판입니다. 회원가입 후 이용 해주세요.</div>
+					</c:if>
 					<!-- list 시작 -->
+					
+					<!-- 1:1문의 타이틀 시작-->
+					<c:if test="${member_id!=null}">
 					<div class="service_contact_list">
 						<div class="service_contact_title">
 							<div class="service_contact_title_inner">
@@ -44,13 +51,11 @@
 							</div>
 						</div>
 					</div><br/><br/><br/>
-					
-					<c:if test="${count==0 }">
-						<div align="center">게시글이 존재하지 않습니다.</div>
+					<c:if test="${fn:length(ServiceContactList)==0}">
+						<div class="service_non2" align="center">게시글이 존재하지 않습니다.</div>
 					</c:if>
+					<c:if test="${fn:length(ServiceContactList)>0}">
 					
-					<!-- 1:1문의 타이틀 시작-->
-					<c:if test="${count>0 }">
 						<div class="service_contact_list_content">
 							<div align="center">글번호</div>
 							<div align="center">제목</div>
@@ -62,7 +67,7 @@
 					<!-- 1:1문의 답변 리스트 시작 -->
 					<c:forEach var="ServiceContactDto" items="${ServiceContactList}">
 						<div class="service_contact_list_content_list">
-							<div align="center">${ServiceContactDto.contact_num}</div>
+							<div align="center">${ServiceContactDto.rnum}</div>
 							<div><a href="javascript:readFunction('${root}','${ServiceContactDto.contact_num}','${pageNumber}')">${ServiceContactDto.contact_subject}</a></div>
 							<div align="center">
 								<fmt:formatDate var="contact_date" value="${ServiceContactDto.contact_date}" pattern="yyyy-MM-dd"/>${contact_date}
@@ -70,16 +75,16 @@
 							<div align="center">${ServiceContactDto.contact_answer_whether}</div>
 						</div>
 					</c:forEach>
-					
+					</c:if>
 					<!-- 1:1문의 답변 리스트  끝-->
 					
 					<!-- 페이지번호 시작 -->
-							<div class="service_contact_list_pagenate">
-								<c:if test="${count > 0}">
+							<c:if test="${fn:length(ServiceContactList)>0}">	
+								<div class="service_contact_list_pagenate">
 									<c:set var="pageCount"
 										value="${count / boardSize + (count % boardSize == 0 ? 0:1)}" />
 
-									<c:set var="pageBlock" value="${10}" />
+									<c:set var="pageBlock" value="${5}" />
 
 									<fmt:parseNumber var="rs"
 										value="${(pageNumber - 1) / pageBlock}" integerOnly="true" />
@@ -93,8 +98,7 @@
 									</c:if>
 
 									<c:if test="${startPage > pageBlock}">
-										<a
-											href="${root}/service/contact/list.do?pageNumber=${startPage - pageBlock}">[이전]</a>
+										<a href="${root}/service/contact/list.do?pageNumber=${startPage - pageBlock}">[이전]</a>
 									</c:if>
 
 									<c:forEach var="i" begin="${startPage}" end="${endPage}">
@@ -102,17 +106,15 @@
 									</c:forEach>
 
 									<c:if test="${endPage < pageCount}">
-										<a
-											href="${root}/service/contact/list.do?pageNumber=${startPage + pageBlock}">[다음]</a>
+										<a href="${root}/service/contact/list.do?pageNumber=${startPage + pageBlock}">[다음]</a>
 									</c:if>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 							<!-- 페이지 번호 끝 -->
-					
-					</c:if>
+						</c:if>
 					<!-- list 끝-->	
 					
-
+			
 					
 				</div>
 			</div>
@@ -120,11 +122,8 @@
 		</div>
 		</div>
 	</div>
-	<%-- </c:if>
 	
-	<c:if test="${member_level == null && member_id==null}">
-		
-	</c:if> --%>
 	<!-- 고객센터 1:1문의 끝-->
+	
 </body>
 </html>

@@ -2,6 +2,10 @@
  * 
  */
 
+$(function(){
+	$(".service_contact").css("color","#F15F5F");
+});
+
 function contactForm(obj){
 	//alert("ok");
 
@@ -27,22 +31,24 @@ function contactForm(obj){
 		obj.content.focus();
 		return false;
 	}
-	
 }
 
-function contactDelete(obj){
-	alert("정말로 삭제하시겠습니까?");
+// 삭제
+function contactDelete(root,contact_num,currentPage){
+
+	alert("문의 글을 삭제하시겠습니까?");
+
+	var url=root + "/service/contact/delete.do?contact_num="+contact_num+"&pageNumber="+currentPage;
+	location.href=url;
+
 }
 
-$(function(){
-	$(".service_contact").css("color","#F15F5F");
-});
-
+// 읽기
 function readFunction(root, contact_num, currentPage){
 	//	alert("ok");
 		var url=root + "/service/contact/read.do?contact_num="+contact_num+"&pageNumber="+currentPage;
 	//	alert(url);
 				
 		location.href=url;
-	}
+}
 

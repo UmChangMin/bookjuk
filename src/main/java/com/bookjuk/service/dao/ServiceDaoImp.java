@@ -7,6 +7,8 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bookjuk.service.dto.ServiceContactDto;
@@ -45,18 +47,50 @@ public class ServiceDaoImp implements ServiceDao {
 	}
 
 	@Override
-	public List<ServiceContactDto> ServiceContactList(int startRow, int endRow) {
-		Map<String,Integer>hmap=new HashMap<String, Integer>();
+	public List<ServiceContactDto> ServiceContactList(int startRow, int endRow, String member_id) {
+		Map<String,Object>hmap=new HashMap<String, Object>();
 		hmap.put("startRow", startRow);
 		hmap.put("endRow", endRow);
+		hmap.put("member_id", member_id);
+		
 		
 		return sqlSession.selectList("ServiceContactList",hmap);
 	}
 
 	@Override
+	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
 	public ServiceContactDto ServiceRead(long contact_num) {
 		
-		return null;
+		ServiceContactDto serviceContactDto=new ServiceContactDto();
+		
+		serviceContactDto=sqlSession.selectOne("boardRead",contact_num);
+		
+		return serviceContactDto;
+		
+	}
+
+	@Override
+	public ServiceContactDto fileBoardSelect(long contact_num) {
+		
+		return sqlSession.selectOne("boardRead",contact_num);
+	}
+
+	@Override
+	public int contactDelete(long contact_num) {
+		
+		return sqlSession.delete("contactDelete",contact_num);
+	}
+
+	@Override
+	public int ServiceContactUpdate(ServiceContactDto serviceContactDto) {
+		int check=0;
+		
+		if(serviceContactDto.getContact_file_size()==0) {	
+			check = sqlSession.update("boardUpdateOk", serviceContactDto);
+		}else {		
+			check=sqlSession.insert("fileBoardUpdateOk",serviceContactDto);
+		}
+		return check;
 	}
 
 

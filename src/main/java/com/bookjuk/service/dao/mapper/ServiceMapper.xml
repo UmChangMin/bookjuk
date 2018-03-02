@@ -29,12 +29,31 @@
   	</select>
 	
 	<select id="ServiceContactList" parameterType="java.util.Map" resultType="com.bookjuk.service.dto.ServiceContactDto">
-  	<![CDATA[select * from(
-  					select rownum rnum,a.* from(
-  						select * from service_contact order by contact_num desc, contact_sequence_num asc) a)
-  						where rnum>=#{startRow} and rnum<=#{endRow}
-  	]]>
+  		<![CDATA[select * from(
+  					SELECT ROWNUM rnum,A.* FROM(
+  						SELECT * FROM service_contact WHERE member_id=#{member_id} ORDER BY contact_num DESC) A)
+  						WHERE rnum>=#{startRow} AND rnum<= #{endRow} 
+              
+  		]]>
   </select> 
   
-  <!-- 1:1문의 -->
+  <!-- 1:1문의 읽기-->
+  <select id="boardRead" resultType="com.bookjuk.service.dto.ServiceContactDto">
+  	<![CDATA[select * from service_contact where contact_num=#{contact_num}]]>
+  </select>
+  
+  <!-- 1:1문의 삭제 -->
+   <delete id="contactDelete" parameterType="Long">
+  		delete from service_contact where contact_num=#{contact_num}
+  </delete>
+  
+  <!-- 1:1문의 수정 -->
+   <update id="fileBoardUpdateOk" parameterType="com.bookjuk.service.dto.ServiceContactDto">
+  	<![CDATA[update service_contact set contact_subject=#{contact_subject},contact_type=#{contact_type},contact_content=#{contact_content},contact_file_name=#{contact_file_name},contact_file_path=#{contact_file_path},contact_file_size=#{contact_file_size} where contact_num=#{contact_num}]]>
+  </update>
+  
+  <update id="boardUpdateOk" parameterType="com.bookjuk.service.dto.ServiceContactDto">
+  	<![CDATA[update service_contact set contact_subject=#{contact_subject},contact_type=#{contact_type},contact_content=#{contact_content} where contact_num=#{contact_num}]]>
+  </update>
+  
 </mapper>

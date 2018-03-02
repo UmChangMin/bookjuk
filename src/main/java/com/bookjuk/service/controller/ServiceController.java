@@ -51,17 +51,20 @@ public class ServiceController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/contact/list.do")
-	public ModelAndView contactList(HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value = "/contact/list.do", method=RequestMethod.GET)
+	public ModelAndView contactList(HttpServletRequest request, HttpServletResponse response,ServiceContactDto serviceContactDto, HttpSession session) {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
+		mav.addObject("session",session);
+		mav.addObject("serviceContactDto", serviceContactDto);
+		
 		customerService.contactList(mav);
 		
 		return mav;
 	}
 	
-	@RequestMapping(value = "/contact/write.do")
+	@RequestMapping(value = "/contact/write.do", method=RequestMethod.GET)
 	public ModelAndView contactWrite(HttpServletRequest request, HttpServletResponse response) {
 		
 		ModelAndView mav = new ModelAndView();
@@ -72,7 +75,7 @@ public class ServiceController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/contact/writeOk.do")
+	@RequestMapping(value = "/contact/writeOk.do", method=RequestMethod.POST)
 	public ModelAndView contactWriteOk(HttpServletRequest request, HttpServletResponse response, ServiceContactDto serviceContactDto, HttpSession session) {
 		
 		ModelAndView mav=new ModelAndView();
@@ -86,7 +89,7 @@ public class ServiceController {
 		
 	}
 	
-	@RequestMapping(value = "/contact/read.do")
+	@RequestMapping(value = "/contact/read.do", method=RequestMethod.GET)
 	public ModelAndView contactRead(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
@@ -95,11 +98,45 @@ public class ServiceController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/contact/update.do")
+	@RequestMapping(value = "/contact/update.do", method=RequestMethod.GET)
 	public ModelAndView contactUpdate(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
 		customerService.contactUpdate(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/contact/updateOk.do",method=RequestMethod.POST)
+	public ModelAndView contactUpdateOk(HttpServletRequest request,HttpServletResponse response,ServiceContactDto serviceContactDto) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("serviceContactDto",serviceContactDto);
+		
+		customerService.contactUpdateOk(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/contact/download.do",method=RequestMethod.GET)
+	public ModelAndView contactDownLoad(HttpServletRequest request, HttpServletResponse response) {
+		
+		// 다운로드는 response도 !!!
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("response",response);
+	
+		customerService.contactDownLoad(mav);
+		
+		//  페이지 이동없을 시 null
+		return null;
+	}
+	
+	@RequestMapping(value = "/contact/delete.do", method=RequestMethod.GET)
+	public ModelAndView contactDelete(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		customerService.contactDelete(mav);
 		
 		return mav;
 	}

@@ -125,6 +125,15 @@
 	color: rgb(241, 95, 95);
 }
 
+/* 로그인하지 않았을 때 */
+
+.service_non1,
+.service_non2{
+	font-size: 18px;
+	color:#666;
+	font-weight: bold;
+}
+
 
 
 

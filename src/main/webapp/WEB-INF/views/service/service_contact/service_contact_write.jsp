@@ -49,7 +49,7 @@
 								<div align="center">문의유형</div>
 								<div>
 									<ul class="service_contact_select_check">
-										<li><input type="radio" name="contact_type" class="input_chk" value="취소/환불">주문취소</li>
+										<li><input type="radio" name="contact_type" class="input_chk" value="주문취소">주문취소</li>
 										<li><input type="radio" name="contact_type" class="input_chk" value="교환">교환</li>
 										<li><input type="radio" name="contact_type" class="input_chk" value="반품/환불">반품/환불</li>
 										<li><input type="radio" name="contact_type" class="input_chk" value="기타문의">기타문의</li>
