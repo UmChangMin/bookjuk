@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bookjuk.admin.dto.AdminBookDto;
 import com.bookjuk.admin.service.AdminBookService;
 import com.bookjuk.aop.LogAspect;
+
 
 @Controller
 public class AdminBookController{
@@ -82,12 +84,13 @@ public class AdminBookController{
 	}
 	
 	@RequestMapping(value="/admin/book/bookManager_updateOk.do",method=RequestMethod.GET)
-	public ModelAndView bookUpdateOk(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView bookUpdateOk(HttpServletRequest request, HttpServletResponse response, AdminBookDto adminBookDto) {
 		
 		LogAspect.logger.info(LogAspect.logMsg+"book-updateOk?");
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
+		mav.addObject("adminBookDto", adminBookDto);
 		adminBookService.bookUpdateOkMove(mav);
 		
 		return mav;

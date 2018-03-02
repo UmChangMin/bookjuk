@@ -121,7 +121,7 @@ public class AdminServiceController{
 	}
 	
 	//공지사항 쓰기
-	@RequestMapping(value="/admin/service/notice/noticeManager_writeOk.do",method=RequestMethod.GET)
+	@RequestMapping(value="/admin/service/notice/noticeManager_writeOk.do",method=RequestMethod.POST)
 	public ModelAndView noticeWriteOk(HttpServletRequest request, HttpServletResponse response, AdminService_noticeDto noticeDto) {
 		
 		LogAspect.logger.info(LogAspect.logMsg+"notice-writeOk?");
@@ -179,6 +179,7 @@ public class AdminServiceController{
 		
 		return mav;
 	}
+	
 	
 	@RequestMapping(value="/admin/service/contact/contactManager_read.do",method=RequestMethod.GET)
 	public ModelAndView contactRead(HttpServletRequest request, HttpServletResponse response) {

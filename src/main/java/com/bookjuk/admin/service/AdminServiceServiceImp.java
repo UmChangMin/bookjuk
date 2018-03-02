@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bookjuk.admin.dao.AdminServiceDao;
+import com.bookjuk.admin.dto.AdminService_contactDto;
 import com.bookjuk.admin.dto.AdminService_noticeDto;
 import com.bookjuk.aop.LogAspect;
 
@@ -80,7 +81,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		if(pageNumber==null)pageNumber="1";
 		
 		int current=Integer.parseInt(pageNumber);
-		int boardSize=3;
+		int boardSize=10;
 		int start=(current-1)*boardSize+1;
 		int end=current*boardSize;
 		
@@ -96,7 +97,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		if(count>0) {
 			boardList=serviceDao.getList(hmap);
 		}
-		LogAspect.logger.info(LogAspect.logMsg+"count, boardList : " +count +", " +boardList.size());
+		//LogAspect.logger.info(LogAspect.logMsg+"count, boardList : " +count +", " +boardList.size());
 		
 		
 		mav.addObject("count", count);
@@ -131,7 +132,14 @@ public class AdminServiceServiceImp implements AdminServiceService {
 	@Override
 	public void noticeWriteMove(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
-		HttpServletRequest request=(HttpServletRequest)map.get("request");		
+		HttpServletRequest request=(HttpServletRequest)map.get("request");	
+		
+		//페이지번호를 null로 받아서 초기 페이지번호 생성
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null)pageNumber="1";
+		
+		mav.addObject("pageNumber",pageNumber);
+		
 		mav.setViewName("admin/service/notice/noticeManager_write.admin");		
 	}
 	
@@ -140,6 +148,11 @@ public class AdminServiceServiceImp implements AdminServiceService {
 	@Override
 	public void noticeWriteOkMove(ModelAndView mav) {		
 		AdminService_noticeDto noticeDto=(AdminService_noticeDto)mav.getModel().get("noticeDto");
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");		
+		
+		String pageNumber=request.getParameter("pageNumber");
+		LogAspect.logger.info(LogAspect.logMsg+pageNumber);
 		
 		//SimpleDateFormat으로 수정여부? --18/02/23 김태우
 		/*SimpleDateFormat sdf=new SimpleDateFormat("yy/MM/dd hh:mm");
@@ -162,6 +175,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		LogAspect.logger.info(LogAspect.logMsg+check);
 		
 		mav.addObject("check", check);
+		mav.addObject("pageNumber", pageNumber);
 		mav.setViewName("admin/service/notice/noticeManager_writeOk.admin");		
 	}
 	
@@ -195,7 +209,33 @@ public class AdminServiceServiceImp implements AdminServiceService {
 	public void contactMove(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null)pageNumber="1";
 		
+		int current=Integer.parseInt(pageNumber);
+		int boardSize=10;
+		int start=(current-1)*boardSize+1;
+		int end=current*boardSize;
+		
+		HashMap<String, Integer> hmap=new HashMap<String, Integer>();
+		
+		hmap.put("start", start);
+		hmap.put("end", end);
+		
+		int count=serviceDao.getContactCount();
+		
+		List<AdminService_contactDto> contactBoardList=null;
+		
+		if(count>0) {
+			contactBoardList=serviceDao.getContactList(hmap); 
+		}
+		//LogAspect.logger.info(LogAspect.logMsg+"count, boardList : " +count +", " +boardList.size());
+		
+		
+		mav.addObject("count", count);
+		mav.addObject("boardList", contactBoardList);
+		mav.addObject("boardSize", boardSize);
+		mav.addObject("pageNumber", current);
 		mav.setViewName("admin/service/contact/contactManager.admin");
 		
 	}
@@ -205,6 +245,21 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null)pageNumber="1";
+		String contact_num=request.getParameter("contact_num");
+		
+		
+		LogAspect.logger.info(LogAspect.logMsg+pageNumber+","+contact_num);
+		
+		//공지사항 글번호로 조회
+		AdminService_contactDto contactDto=serviceDao.contactSelect(contact_num);
+		LogAspect.logger.info(LogAspect.logMsg+contactDto.toString());
+		mav.addObject("pageNumber",pageNumber);
+		mav.addObject("contact_num",contact_num);
+		mav.addObject("contactDto", contactDto);
+		
+		mav.addObject("pageNumber", pageNumber);
 		mav.setViewName("admin/service/contact/contactManager_read.admin");
 		
 	}

@@ -58,6 +58,7 @@ public class AdminLocationServiceImp implements AdminLocationService {
 		LogAspect.logger.info(LogAspect.logMsg+locationDto.toString());
 		
 		mav.addObject("locationDto", locationDto);
+		
 		mav.setViewName("admin/location/locationManager.admin");		 
 	}
 

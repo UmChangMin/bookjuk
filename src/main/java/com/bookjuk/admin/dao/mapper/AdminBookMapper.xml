@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bookjuk.admin.dao.mapper.AdminLocationMapper">
+	
+	<select id="bookSearch" parameterType="java.util.Map" resultType="com.bookjuk.admin.dto.AdminBookDto">
+		select * FROM book b, CATEGORY c WHERE c.book_num=b.book_num and book_name=#{book_name} and book_publisher=#{book_publisher} and book_author=#{book_author}
+	</select>
+	
+	<select id="book_MainCate_List" resultType="com.bookjuk.admin.dto.AdminBookDto">
+		SELECT distinct category_main_kor,category_main_eng category_main_eng FROM CATEGORY
+	</select>
+	
+	<select id="book_SubCate_List" resultType="com.bookjuk.admin.dto.AdminBookDto">
+		SELECT distinct category_sub_kor, category_sub_eng FROM CATEGORY where category_main_eng=#{category_main_eng}
+	</select>
+	<select id="book_UpSearch" parameterType="long" resultType="com.bookjuk.admin.dto.AdminBookDto">
+		select * FROM book b, CATEGORY c WHERE c.book_num=b.book_num and b.book_num=#{book_num}
+	</select>
+	<select id="change_engkor" parameterType="String" resultType="String">
+		select distinct category_main_kor from category where category_main_eng=#{category_main_eng}
+	</select>
+</mapper>

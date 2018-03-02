@@ -16,7 +16,7 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT8UWioePDnrx76CcuMrV_2M1FfUY9j0w&callback=initMap" async defer></script>
 <script type="text/javascript" src="${root}/js/xhr.js"></script>
-<script type="text/javascript" src="${root}/js/admin/location.js"></script>
+<script type="text/javascript" src="${root}/js/admin/location_search.js"></script>
 </head>   
 <script type="text/javascript"> 
 	  window.onload = function() {
@@ -32,8 +32,7 @@
 			reader.readAsDataURL(input.files[0]); 
 		} 
 	} 
-	
-	
+		
 	$(function(){
 		$(".nav-item:eq(5)").addClass("active");
 	});
@@ -42,7 +41,6 @@
 <body>
 	<!-- 타이틀메뉴 시작 -->
 	<div class="all">
-		
 		<!-- wrap시작 -->
 			<div class="wrap">
 				<div class="content_wrap">

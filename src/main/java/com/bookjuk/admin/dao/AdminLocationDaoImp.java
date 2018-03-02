@@ -32,9 +32,7 @@ public class AdminLocationDaoImp implements AdminLocationDao {
 	@Override
 	public List<AdminLocationDto> locationList() {		
 		List<AdminLocationDto>locationList=sqlSessionTemplate.selectList("locationList");
-
-		return locationList;
-		
+		return locationList;	
 	}
 
 	@Override

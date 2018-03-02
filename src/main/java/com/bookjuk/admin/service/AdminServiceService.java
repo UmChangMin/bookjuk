@@ -23,6 +23,7 @@ public interface AdminServiceService {
 	public void contactMove(ModelAndView mav);
 	public void contactReadMove(ModelAndView mav);
 	public void contactWriteMove(ModelAndView mav);
+	//public void contactWriteOkMove(ModelAndView mav);
 	public void contactUpdateMove(ModelAndView mav);
 	public void contactDeleteMove(ModelAndView mav);
 	

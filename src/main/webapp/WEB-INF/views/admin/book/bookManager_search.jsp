@@ -49,22 +49,22 @@
 										<ul class="content_box1">
 											<li class="content_box_title">도서정보조회</li>
 											<li class="">
-												<form class="form-horizontal">
+												<form class="form-horizontal" action="${root }/admin/book/bookManager.do">
 												  <fieldset>
 												  
 												    <div class="form-group">											      
 												      <div class="col-lg-10">											      											      							 
-												        <input type="text" class="form-control input_width" id="inputBookName" placeholder="도서명">											        
+												        <input type="text" class="form-control input_width" id="inputBookName" name="book_name" placeholder="도서명">											        
 												      </div>
 												    </div>
 												    <div class="form-group">											      
 												      <div class="col-lg-10">											      											      							 
-												        <input type="text" class="form-control input_width" id="inputPublisher" placeholder="출판사">											        
+												        <input type="text" class="form-control input_width" id="inputPublisher" name="book_publisher" placeholder="출판사">											        
 												      </div>
 												    </div>
 												    <div class="form-group">											      
 												      <div class="col-lg-10">											      											      							 
-												        <input type="text" class="form-control input_width" id="inputAuthor" placeholder="저자">											        
+												        <input type="text" class="form-control input_width" id="inputAuthor" name="book_author" placeholder="저자">											        
 												      </div>
 												    </div>
 												    									  

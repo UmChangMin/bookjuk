@@ -12,7 +12,6 @@
 <link rel="stylesheet" type="text/css" href="${root }/css/admin/commons/main.css">
 <link rel="stylesheet" type="text/css" href="${root }/css/admin/location/locationManager_input.css">
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT8UWioePDnrx76CcuMrV_2M1FfUY9j0w&callback=initMap" async defer></script>  
 <script type="text/javascript" src="${root}/js/xhr.js"></script>
 <script type="text/javascript" src="${root}/js/admin/location.js"></script>
@@ -28,7 +27,7 @@
 					<div class="content_title">영업점관리</div>
 					
 					<div class="content">
-						<form class="content_box3_formtag" action="locationManager_inputOk.do" method="post" name="location_Info">	
+						<form class="content_box3_formtag" action="locationManager_inputOk.do" method="get" name="location_Info">	
 						<ul>
 							<li class="content_part content_part_move1">
 							<div class="content_wrap_body_left">
@@ -84,7 +83,7 @@
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">주소</span>
-													<input type="text" class="form-control" id="inputAddr" name="location_addr">
+													<input type="text" class="form-control" id="inputAddr" name="location_addr">	
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">상세주소</span>
