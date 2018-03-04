@@ -2,6 +2,7 @@ package com.bookjuk.book.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bookjuk.aop.LogAspect;
+import com.bookjuk.book.dto.BookDto;
 import com.bookjuk.book.service.BookService;
 
 @Controller
@@ -52,14 +54,36 @@ public class BookController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/list/detail.do", method=RequestMethod.GET)
-	public ModelAndView bookDetail(HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value="/list/detail.do")
+	public ModelAndView bookDetail(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("request",request);
+		mav.addObject("request", request);
+		mav.addObject("session", session);
 		
 		bookService.bookDetail(mav);
 		
 		return mav;
+	}
+	
+	@RequestMapping(value="/list/insertReview.do", method=RequestMethod.POST)
+	public ModelAndView bookInsertReview(HttpServletRequest request, HttpServletResponse response, BookDto bookDto) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("bookDto", bookDto);
+		
+		bookService.bookInsertReview(mav);
+		
+		return null;
+	}
+	
+	@RequestMapping(value="/list/deleteReview.do", method=RequestMethod.POST)
+	public ModelAndView bookDeleteReview(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		
+		bookService.bookDeleteReview(mav);
+		
+		return null;
 	}
 	
 }

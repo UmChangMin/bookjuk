@@ -179,7 +179,7 @@
 
 .bookDetail_list_star{
 	float: left;
-    margin-top: 7px;
+    margin-top: 14px;
     margin-bottom: 0;
     display: inline-block;
     width: 84px;
@@ -199,6 +199,7 @@
 	line-height: 30px;
 	color: #F15F5F;
 	font-style: italic;
+	background-color: #fff;
 }
 
 .bookDetail_info_table {
@@ -440,7 +441,6 @@
 	float: left;
     height: 30px;
     line-height: 30px;
-    margin-left: 20px;
 }
 
 .bookDetail_star_rating a {
@@ -484,13 +484,6 @@
     overflow: hidden;
     border-right-width: 0;
 }
-
-.bookDetail_review ul:first-child{
-	overflow: hidden;
-	
-	margin-bottom: 10px;
-}
-
 
 .bookDetail_lft{
 	width: 196px;
@@ -545,9 +538,9 @@
 }
 
 .bookDetail_reviewAll_content{
-	width: 760px;
+	width: 700px;
     height: 15px;
-    padding: 22px 20px;
+    padding: 14px 20px;
     line-height: 15px;
 
 }
@@ -558,5 +551,28 @@
 
 .bookDetail_reviewAll_content span{
 	color:#666;
+	float: right;
 }
 
+.bookDetail_review_starImg{
+	float: left;
+    display: inline-block;
+    width: 200px;
+    height: 33px;
+    overflow: hidden;
+    background: url(../../img/book/star_rating.png) no-repeat scroll 0% 0% transparent;
+    text-indent: -9999px;
+    vertical-align: middle;
+}
+
+#bookDetail_reviewDelBtn{
+	display:block;
+	box-sizing: border-box;
+    text-align: center;
+    border: 1px solid #FFD8D8;
+    background: #FFD8D8;
+    box-shadow: 0 2px #FFD8D8;
+    height: 61px;
+    line-height: 61px;
+    width:84px;
+}

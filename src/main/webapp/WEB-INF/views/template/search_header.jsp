@@ -35,7 +35,7 @@
 						<li><a class="" href="${root}/location.do">영업점 안내</a></li>
 					</ul>
 				</c:if>
-				<c:if test="${member_level=='admin'}">
+				<c:if test="${member_level eq 'admin'}">
 					<ul class="header_lnb_right">
 						<li><strong><a href="${root}/admin/sales/salesManager.do">[관리자모드]</a></strong></li>
 						<li><a class="openMask2" href="${root}/member/logout.do">로그아웃</a></li>
@@ -45,7 +45,7 @@
 						<li><a class="" href="${root}/location.do">영업점 안내</a></li>
 					</ul>
 				</c:if>
-				<c:if test="${member_level != null && member_id!=null}">
+				<c:if test="${member_level eq 'member'}">
 					<ul class="header_lnb_right">
 						<li><a href="${root}/member/mypage.do" class="openMask" style="color: #F15F5F">[${member_name}]</a></li>
 						<li><a class="openMask2" href="${root}/member/logout.do">로그아웃</a></li>

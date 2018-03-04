@@ -1,12 +1,14 @@
 package com.bookjuk.book.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -78,9 +80,17 @@ public class BookServiceImp implements BookService {
 	@Override
 	public void bookDetail(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
-		HttpServletRequest request=(HttpServletRequest)map.get("request");
-
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		HttpSession session = (HttpSession) map.get("session");
+		
+		String member_id = (String) session.getAttribute("member_id");
+		
 		int book_num = Integer.parseInt(request.getParameter("book_num"));
+		
+		int review_count = bookDao.reviewCount(book_num);
+		
+		List<BookDto> reviewDtoList = new ArrayList<BookDto>();
+		if(review_count > 0) reviewDtoList = bookDao.reviewList(book_num);
 		
 		BookDto bookDto = bookDao.detail(book_num);
 		
@@ -93,6 +103,9 @@ public class BookServiceImp implements BookService {
 		bookDto.setBook_publisher_review(bookDto.getBook_publisher_review().replace("\n", "<br/>"));
 		
 		mav.addObject("bookDto", bookDto);
+		mav.addObject("member_id", member_id);
+		mav.addObject("review_count", review_count);
+		mav.addObject("reviewDtoList", reviewDtoList);
 		
 		mav.setViewName("book/book_detail.tiles");
 		
@@ -200,5 +213,25 @@ public class BookServiceImp implements BookService {
 		map.put("endPage", endPage);
 		
 		return map;
+	}
+	
+	/*회원 리뷰*/
+	@Override
+	public void bookInsertReview(ModelAndView mav) {
+		Map<String,Object>map=mav.getModelMap();
+		BookDto bookDto = (BookDto) map.get("bookDto");
+		bookDto.setReview_date(new Date());
+		
+		bookDao.insertReview(bookDto);
+	}
+
+	@Override
+	public void bookDeleteReview(ModelAndView mav) {
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		int review_num = Integer.parseInt(request.getParameter("review_num"));
+		
+		bookDao.deleteReview(review_num);
 	}
 }

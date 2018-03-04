@@ -74,17 +74,21 @@ public class BookDaoImp implements BookDao {
 	}
 
 	@Override
+	public int reviewCount(int book_num) {
+		return sqlSession.selectOne("reviewCount", book_num);
+	}
+	
+	@Override
+	public List<BookDto> reviewList(int book_num){
+		return sqlSession.selectList("reviewList", book_num);
+	}
+	
+	@Override
 	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
 	public BookDto detail(int book_num) {
 		sqlSession.update("readCount", book_num);
 		
-		int count = sqlSession.selectOne("reviewCount", book_num);
-		
-		if(count > 0) {
-			return sqlSession.selectOne("reviewDetail", book_num);
-		}else {
-			return sqlSession.selectOne("detail", book_num);
-		}
+		return sqlSession.selectOne("detail", book_num);
 	}
 	
 	@Override
@@ -109,6 +113,16 @@ public class BookDaoImp implements BookDao {
 		map.put("endRow", endRow);
 		
 		return map;
+	}
+
+	@Override
+	public int insertReview(BookDto bookDto) {
+		return sqlSession.insert("insertReview", bookDto);
+	}
+
+	@Override
+	public int deleteReview(int review_num) {
+		return sqlSession.delete("deleteReview", review_num);
 	}
 
 }

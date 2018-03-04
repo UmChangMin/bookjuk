@@ -19,5 +19,10 @@ public interface BookDao {
 	public List<BookDto> discountSelect();
 	public int discountUpdate(int book_num);
 	
+	public int reviewCount(int book_num);
+	public List<BookDto> reviewList(int book_num);
 	public BookDto detail(int book_num);
+	
+	public int insertReview(BookDto bookDto);
+	public int deleteReview(int review_num);
 }

@@ -1,32 +1,32 @@
 @charset "UTF-8";
 
-*{list-style-type: none; text-decoration: none; margin:0px; padding:0px;}
-
-body{
+.bookDetail_drag_star{
+	list-style-type: none; text-decoration: none; margin:0px; padding:0px;
 	font-family: "fontello";
 }
 
-.rating{
-	border: 1px solid;
-	height: 124px;
-	width: 720px;
+.bookDetail_reviewAll_top{
+	border: 0px solid black;
+	height: 34px;
+	width: 196px;
+	overflow: hidden;
 }
 
-.rating li{
+.bookDetail_reviewAll_top li{
 	float:left;
 	cursor: default;
 	display: inline-block;
-	height: 124px;
-	width: 144px;
+	height: 40px;
+	width: 39px;
 }
 
 /* 빈 별과, 찬 별이 아닌것을 hover했을 때, selected된 것 */
-.star, .rating:not(.change_star):hover .star:hover ~ .star, .rating.change_star .star.selected ~ .star{
-	background-image: url("../../img/star_off.png");
+.star, .bookDetail_reviewAll_top:not(.change_star):hover .star:hover ~ .star, .bookDetail_reviewAll_top.change_star .star.selected ~ .star{
+	background-image: url("../../img/book/star_off.png");
 }
 
-.rating:hover .star, .rating.change_star .star{
-  background-image: url("../../img/star_on.png");
-  height: 124px;
-  width: 144px;
+.bookDetail_reviewAll_top:hover .star, .bookDetail_reviewAll_top.change_star .star{
+  background-image: url("../../img/book/star_on.png");
+  height: 40px;
+  width: 39px;
 }

@@ -11,4 +11,6 @@ public interface BookService {
 	
 	public void bookDetail(ModelAndView mav);
 
+	public void bookInsertReview(ModelAndView mav);
+	public void bookDeleteReview(ModelAndView mav);
 }

@@ -52,7 +52,7 @@ $(function (){
 				</ul>
 			</c:if>
 			
-			<c:if test="${member_level=='admin'}">
+			<c:if test="${member_level eq 'admin'}">
 				<ul class="header_lnb_right">
 					<li><strong><a href="${root}/admin/sales/salesManager.do">관리자모드</a></strong></li>
 					<li><a class="openMask2" href="${root}/member/logout.do" >로그아웃</a></li>
@@ -63,7 +63,7 @@ $(function (){
 				</ul>
 			</c:if>
 			
-			<c:if test="${member_level=='member'}">
+			<c:if test="${member_level eq 'member'}">
 				<ul class="header_lnb_right">
 					<li><a href="${root}/member/mypage.do" class="openMask" onclick="" style="color: #F15F5F">[${member_name}]</a></li>
 					<li><a class="openMask2" href="${root}/member/logout.do" >로그아웃</a></li>

@@ -7,8 +7,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>도서 상세보기</title>
-<c:set var="root" value="${pageContext.request.contextPath }" />
+<c:set var="root" value="${pageContext.request.contextPath}"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/book/book_detail.css"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/book/star.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/book/book_detail.js"></script>
@@ -56,18 +57,9 @@
 									<div class="bookDetail_star">
 										<div>
 											<span class="bookDetail_list_star"></span>
-											<p class="bookDetail_rank_user">${bookDto.book_score}</p>
+											<p><input type="text" class="bookDetail_rank_user" value="${bookDto.book_score}" size="2" disabled="disabled"/></p>
 										</div>
 									</div>
-								<!-- 	<ul>
-										<li class="bookDetail_star_rating">
-											<a href="#">★</a> 
-											<a href="#">★</a> 
-											<a href="#">★</a> 
-											<a href="#">★</a> 
-											<a href="#">★</a>
-										</li>
-									</ul> -->
 									
 									<div class="bookDetail_info_table">
 										
@@ -166,7 +158,6 @@
 						</div>
 						<!-- 책 속한문장 끝 -->
 						<!-- 회원리뷰 시작 -->
-						
 						<div class="bookDetail_intro bookDetail_review">
 							<h3>회원리뷰</h3>		
 							<br/>
@@ -174,47 +165,66 @@
 								<li class="bookDetail_drag_star">
 									<div class="bookDetail_lft">
 										<ul class="bookDetail_reviewAll_top">
-											<li class="bookDetail_star_rating">
-												<a href="#">★</a> 
-												<a href="#">★</a> 
-												<a href="#">★</a> 
-												<a href="#">★</a> 
-												<a href="#">★</a>
-											</li>
+											<li class="star" value="1"></li>
+											<li class="star" value="2"></li>
+											<li class="star" value="3"></li>
+											<li class="star" value="4"></li>
+											<li class="star" value="5"></li>
+											<li><input type="hidden" id="review_score" name="review_score" value=""/></li>
 										</ul>
 									</div>
 								</li>
+								<c:if test="${member_id != null}">
 								<li class="bookDetail_input_textarea">
-									<textarea name="ment" cols="6" rows="2" placeholder="120자 이내로 작성해주세요." maxlength="120"></textarea>
+									<textarea id="review_content" name="review_content" cols="6" rows="2" placeholder="120자 이내로 작성해주세요." maxlength="120"></textarea>
 								</li>
 								<li>
-									<input type="button" id="bookDetail_pointAddButton" value="등록" onclick="">
+									<input type="hidden" id="member_id" name="member_id" value="${member_id}"/>
+									<input type="hidden" id="book_num" name="book_num" value="${bookDto.book_num}"/>
+									<input type="button" id="bookDetail_pointAddButton" value="등록" onclick="insertReview()">
 								</li> 
+								</c:if>
+								
+								<c:if test="${member_id == null}">
+								<li class="bookDetail_input_textarea">
+									<textarea name="review_content" style="background-color: #fff;" cols="6" rows="2" placeholder="로그인 후 작성 가능합니다." maxlength="120" disabled="disabled"></textarea>
+								</li>
+								<li>
+									<input type="button" id="bookDetail_pointAddButton" value="등록" disabled="disabled">
+								</li> 
+								</c:if>
 							</ul>
 							
 							<!-- 새로운/기존 댓글출력 시작 -->
-							<c:if test="${bookDto.review_num != 0}">
+							<c:if test="${review_count > 0}">
+								<c:forEach items="${reviewDtoList}" var="reviewDto">
 								<ul class="bookdetail_reviewLists">
-									<li>
-										<div>
-											<ul class="bookDetail_reviewAll_top bookDetail_reviewAll_top2">
-												<li class="bookDetail_star_rating">
-													<a href="#">★</a> 
-													<a href="#">★</a> 
-													<a href="#">★</a> 
-													<a href="#">★</a> 
-													<a href="#">★</a>
-												</li>
+									<li class="bookDetail_drag_star">
+										<div class="bookDetail_lft">
+											<ul class="bookDetail_review_starImg">
+												<li><input type="hidden" id="review_score" name="review_score" value="${reviewDto.review_score}"/></li>
 											</ul>
 										</div>
 									</li>
+									<c:if test="${member_id != reviewDto.member_id}">
 									<li class="bookDetail_reviewAll_content">
-										<p>${bookDto.review_content}</p><br/>
-										<span>${bookDto.member_id}</span>&nbsp;&nbsp;
-										<span><fmt:formatDate value="${bookDto.review_date}" pattern="YYYY.MM.dd"/></span>
+										<p>${reviewDto.review_content}</p>
+										<span><fmt:formatDate value="${reviewDto.review_date}" pattern="YYYY.MM.dd"/></span>
+										<span>${reviewDto.member_id}&nbsp;&nbsp;</span>
 									</li>
-									
+									</c:if>
+									<c:if test="${member_id eq reviewDto.member_id}">
+									<li style="width: 620px;" class="bookDetail_reviewAll_content">
+										<p>${reviewDto.review_content}</p>
+										<span><fmt:formatDate value="${reviewDto.review_date}" pattern="YYYY.MM.dd"/></span>
+										<span>${reviewDto.member_id}&nbsp;&nbsp;</span>
+									</li>
+									<li>
+										<input type="button" id="bookDetail_reviewDelBtn" value="삭제" onclick="deleteReview(${reviewDto.review_num})">
+									</li>
+									</c:if>
 								</ul>
+								</c:forEach>
 							</c:if>
 							<!-- 새로운/기존 댓글출력 끝 -->								
 						</div>
