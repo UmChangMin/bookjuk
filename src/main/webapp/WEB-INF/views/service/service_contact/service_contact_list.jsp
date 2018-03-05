@@ -52,7 +52,7 @@
 						</div>
 					</div><br/><br/><br/>
 					<c:if test="${fn:length(ServiceContactList)==0}">
-						<div class="service_non2" align="center">게시글이 존재하지 않습니다.</div>
+						<div class="service_non2" align="center">게시글이 존재하지 않습니다. 1:1문의로 궁금증을 해결하세요.</div>
 					</c:if>
 					<c:if test="${fn:length(ServiceContactList)>0}">
 					
@@ -83,7 +83,6 @@
 								<div class="service_contact_list_pagenate">
 									<c:set var="pageCount"
 										value="${count / boardSize + (count % boardSize == 0 ? 0:1)}" />
-
 									<c:set var="pageBlock" value="${5}" />
 
 									<fmt:parseNumber var="rs"

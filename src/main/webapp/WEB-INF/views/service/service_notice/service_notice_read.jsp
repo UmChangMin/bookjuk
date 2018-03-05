@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -41,44 +42,30 @@
 					<div class="notice_read">
 						<div class="notice_read_title">
 							<div align="center">제목</div>
-							<div>[공지] 제목입니다.</div>
+							<div>${serviceNoticeDto.notice_subject}</div>
 						</div>
 						<div class="notice_read_date">
 							<div align="center">작성일</div>
-							<div>작성일입니다.</div>
+							<div><fmt:formatDate var="notice_date" value="${serviceNoticeDto.notice_date}" pattern="yyyy-MM-dd"/>${notice_date}</div>
 						</div>
 						<div class="notice_read_content">
-							
-							<div><p>내용입니다.<br/>
-								상호 : 주식회사 OOO네트웍스대표이사 : BOOK주소 : 우) 062-35 서울 강남구 테헤란로 132,<br/>
-								한독빌딩 8층 3호사업자 등록번호 : 123-45-78910통신판매업 신고번호 : <br/><br/>
-								제 2017-서울강남-0123호개인정보 관리 책임자 : BOOKE-mail : BOOK@naver.com전화 010-0000-0000전화 010-0000-0000<br/>
-								한독빌딩 8층 3호사업자 등록번호 : 123-45-78910통신판매업 신고번호 : <br/><br/>
-								상호 : 주식회사 OOO네트웍스대표이사 : BOOK주소 : 우) 062-35 서울 강남구 테헤란로 132,<br/>
-								한독빌딩 8층 3호사업자 등록번호 : 123-45-78910통신판매업 신고번호 : <br/>
-								제 2017-서울강남-0123호개인정보 관리 책임자 : BOOKE-mail : BOOK@naver.com전화 010-0000-0000전화 010-0000-0000<br/>
-								한독빌딩 8층 3호사업자 등록번호 : 123-45-78910통신판매업 신고번호 : <br/><br/>
-								상호 : 주식회사 OOO네트웍스대표이사 : BOOK주소 : 우) 062-35 서울 강남구 테헤란로 132,<br/>
-								한독빌딩 8층 3호사업자 등록번호 : 123-45-78910통신판매업 신고번호 : <br/>
-								제 2017-서울강남-0123호개인정보 관리 책임자 : BOOKE-mail : BOOK@naver.com전화 010-0000-0000전화 010-0000-0000<br/>
-								
-								
-								</p></div>
+							<div><p>${serviceNoticeDto.notice_content}</p></div>
 						</div>
-						
 					</div>
 					
 					<!-- 이전 다음 시작 --> 
 					<div class="notice_button" align="center">
-						<input type="button" value="이전" onclick=""/>
-						<input type="button" value="목록" onclick="location.href='${root}/service/notice/list.do'"/>
-						<input type="button" value="다음" onclick=""/>
+						<c:if test="${serviceNoticeDto.notice_num > 1}">
+							<input type="button" value="이전" onclick="location.href='${root}/service/notice/read.do?pageNumber=${pageNumber}&notice_num=${serviceNoticeDto.notice_num-1}'"/>
+						</c:if>
+						<input type="button" value="목록" onclick="location.href='${root}/service/notice/list.do?pageNumber=${pageNumber}'"/>
+						<c:if test="${serviceNoticeDto.notice_num < listSize }">
+							<input type="button" value="다음" onclick="location.href='${root}/service/notice/read.do?pageNumber=${pageNumber}&notice_num=${serviceNoticeDto.notice_num+1}'"/>						
+						</c:if>
 					</div> 
 					<!-- 이전 다음 끝 -->
 					<!-- notice_read 끝-->	
-					
 
-					
 				</div>
 			</div>
 			<!-- 내용부분 끝 -->

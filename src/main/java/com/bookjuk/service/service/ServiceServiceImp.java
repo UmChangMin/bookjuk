@@ -18,9 +18,13 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bookjuk.admin.dao.AdminServiceDao;
 import com.bookjuk.aop.LogAspect;
+import com.bookjuk.book.dto.BookDto;
 import com.bookjuk.service.dao.ServiceDao;
 import com.bookjuk.service.dto.ServiceContactDto;
+import com.bookjuk.service.dto.ServiceNoticeDto;
+import com.bookjuk.service.dto.ServiceQuestionDto;
 
 @Component
 public class ServiceServiceImp implements ServiceService {
@@ -28,32 +32,79 @@ public class ServiceServiceImp implements ServiceService {
 	@Autowired
 	private ServiceDao serviceDao;
 
-	@Override
+	@Override	// 180305 강민아 자주묻는 질문 리스트 뿌리기
 	public void customer(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
-	
-		/*LogAspect.logger.info(LogAspect.logMsg+"넘어오니?");
-		int count = serviceDao.listCount();
-		LogAspect.logger.info(LogAspect.logMsg + "count :" + count);*/
+		int count = serviceDao.questionCount();
+		//LogAspect.logger.info(LogAspect.logMsg + "count :" + count);
 		
+		List<ServiceQuestionDto>questionList=null;
+		if(count>0) {
+			questionList=serviceDao.questionList();
+			//LogAspect.logger.info(LogAspect.logMsg+"( questionList ) :"+questionList.size());
+		}
+		
+		mav.addObject("count",count);
+		mav.addObject("questionList",questionList);
 		
 		mav.setViewName("service/service_question/service_question.search");
 	}
 
-	@Override
+	@Override	//	180302 강민아 공지사항 리스트 뿌리기
 	public void noticeList(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
+		//LogAspect.logger.info(LogAspect.logMsg+"넘어오니?");
+		
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null) {pageNumber="1";}
+		
+		int currentPage=Integer.parseInt(pageNumber);
+		
+		int listSize=10;
+		
+		int startRow=(currentPage-1)*listSize+1;
+		int endRow=currentPage*listSize;
+		
+		int count = serviceDao.noticeCount();
+		//LogAspect.logger.info(LogAspect.logMsg + "count :" + count);
+		
+		List<ServiceNoticeDto>noticeList=null;
+		if(count>0) {
+			noticeList=serviceDao.noticeList(startRow,endRow);
+			//LogAspect.logger.info(LogAspect.logMsg+"( noticeList ) :"+noticeList.size());
+		}
+		mav.addObject("pageNumber",pageNumber);
+		mav.addObject("currentPage",currentPage);
+		mav.addObject("listSize",listSize);
+		mav.addObject("count",count);
+		mav.addObject("noticeList",noticeList);	
+		
 		mav.setViewName("service/service_notice/service_notice_list.search");
 	}
 	
-	@Override
+	@Override	//	180302 강민아 공지사항 읽기 뿌리기
 	public void noticeRead(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		//System.out.println("ok");
+		
+		long notice_num=Long.parseLong(request.getParameter("notice_num"));
+		String pageNumber = request.getParameter("pageNumber");
+		LogAspect.logger.info(LogAspect.logMsg+"notice_num&pageNumber : "+notice_num+","+pageNumber);
+		
+		ServiceNoticeDto serviceNoticeDto=serviceDao.noticeRead(notice_num);
+		//System.out.println(serviceNoticeDto.toString());
+		
+		int count = serviceDao.noticeCount();
+		
+		mav.addObject("serviceNoticeDto",serviceNoticeDto);
+		mav.addObject("pageNumber",pageNumber);
+		mav.addObject("listSize",count);
 		
 		mav.setViewName("service/service_notice/service_notice_read.search");
 	}
@@ -122,7 +173,6 @@ public class ServiceServiceImp implements ServiceService {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
 		HttpSession session = (HttpSession) map.get("session");
-		ServiceContactDto serviceContactDto=(ServiceContactDto)map.get("serviceContactDto");
 		
 		String member_id = (String) session.getAttribute("member_id");
 		
@@ -176,7 +226,6 @@ public class ServiceServiceImp implements ServiceService {
 		String pageNumber = request.getParameter("pageNumber");
 		
 		ServiceContactDto serviceContactDto=serviceDao.ServiceRead(contact_num);
-		//LogAspect.logger.info(LogAspect.logMsg+serviceContactDto.toString());
 		
 		if(serviceContactDto.getContact_file_name()!=null) {
 			int index=serviceContactDto.getContact_file_name().indexOf("_")+1;
@@ -273,7 +322,7 @@ public class ServiceServiceImp implements ServiceService {
 		
 	}
 	
-	@Override	// 180228 강민아 1:1문의 수정
+	@Override	// 180301 강민아 1:1문의 수정
 	public void contactUpdate(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
@@ -289,7 +338,7 @@ public class ServiceServiceImp implements ServiceService {
 			int index=serviceContactDto.getContact_file_name().indexOf("_")+1;
 			serviceContactDto.setContact_file_name(serviceContactDto.getContact_file_name().substring(index));
 		}
-		
+		serviceContactDto.setContact_content(serviceContactDto.getContact_content().replace("\r\n", "<br/>"));
 		mav.addObject("contact_num",contact_num);
 		mav.addObject("pageNumber",pageNumber);
 		mav.addObject("serviceContactDto",serviceContactDto);
@@ -340,7 +389,6 @@ public class ServiceServiceImp implements ServiceService {
 		ServiceContactDto serviceContactDtos=serviceDao.fileBoardSelect(contact_num); 
 		int check=serviceDao.ServiceContactUpdate(serviceContactDto);
 		//LogAspect.logger.info(LogAspect.logMsg+check); 
-		
 		
 		LogAspect.logger.info(LogAspect.logMsg+serviceContactDtos.toString());
 		

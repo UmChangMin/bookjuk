@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bookjuk.aop.LogAspect;
 import com.bookjuk.service.dto.ServiceContactDto;
+import com.bookjuk.service.dto.ServiceQuestionDto;
 import com.bookjuk.service.service.ServiceService;
 
 @Controller
@@ -23,8 +24,6 @@ public class ServiceController {
 	
 	@RequestMapping(value = "/question.do", method = RequestMethod.GET)
 	public ModelAndView customer(HttpServletRequest request, HttpServletResponse response) {
-		
-		LogAspect.logger.info(LogAspect.logMsg+"고객센터 자주묻는 질문!");
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
@@ -52,12 +51,11 @@ public class ServiceController {
 	}
 	
 	@RequestMapping(value = "/contact/list.do", method=RequestMethod.GET)
-	public ModelAndView contactList(HttpServletRequest request, HttpServletResponse response,ServiceContactDto serviceContactDto, HttpSession session) {
+	public ModelAndView contactList(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
 		mav.addObject("session",session);
-		mav.addObject("serviceContactDto", serviceContactDto);
 		
 		customerService.contactList(mav);
 		

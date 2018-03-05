@@ -12,19 +12,14 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bookjuk.service.dto.ServiceContactDto;
+import com.bookjuk.service.dto.ServiceNoticeDto;
+import com.bookjuk.service.dto.ServiceQuestionDto;
 
 @Component
 public class ServiceDaoImp implements ServiceDao {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
-
-	@Override
-	public int listCount() {
-		// TODO Auto-generated method stub
-
-		return sqlSession.selectOne("listCount");
-	}
 
 	@Override
 	public int ServiceWrite(ServiceContactDto serviceContactDto) {
@@ -42,7 +37,7 @@ public class ServiceDaoImp implements ServiceDao {
 
 	@Override
 	public int getBoardCount() {
-		// TODO Auto-generated method stub
+		
 		return sqlSession.selectOne("getBoardCount");
 	}
 
@@ -58,7 +53,6 @@ public class ServiceDaoImp implements ServiceDao {
 	}
 
 	@Override
-	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
 	public ServiceContactDto ServiceRead(long contact_num) {
 		
 		ServiceContactDto serviceContactDto=new ServiceContactDto();
@@ -70,6 +64,7 @@ public class ServiceDaoImp implements ServiceDao {
 	}
 
 	@Override
+	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
 	public ServiceContactDto fileBoardSelect(long contact_num) {
 		
 		return sqlSession.selectOne("boardRead",contact_num);
@@ -92,6 +87,50 @@ public class ServiceDaoImp implements ServiceDao {
 		}
 		return check;
 	}
+
+	
+	// 공지사항
+	@Override
+	public int noticeCount() {
+		
+		return sqlSession.selectOne("noticeCount");
+	}
+
+	@Override
+	public List<ServiceNoticeDto> noticeList(int startRow, int endRow) {
+		Map<String,Object>hmap=new HashMap<String, Object>();
+		hmap.put("startRow", startRow);
+		hmap.put("endRow", endRow);		
+		
+		return sqlSession.selectList("noticeList",hmap);
+	}
+
+	@Override
+	public ServiceNoticeDto noticeRead(long notice_num) {
+		
+		ServiceNoticeDto serviceNoticeDto=new ServiceNoticeDto();
+		
+		serviceNoticeDto=sqlSession.selectOne("noticeRead",notice_num);
+		
+		return serviceNoticeDto;
+	}
+	
+
+	// 자주묻는 질문
+	@Override
+	public int questionCount() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("questionCount");
+	}
+
+	@Override
+	public List<ServiceQuestionDto> questionList() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("questionList");
+	}
+
+	
+	
 
 
 	

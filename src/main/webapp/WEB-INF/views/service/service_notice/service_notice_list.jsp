@@ -12,12 +12,7 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/service/service_basic.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/service/service_notice_list.css" />
 <script type="text/javascript" src="${root }/js/jquery.js"></script>
-<script type="text/javascript">
-	$(function(){
-
-		$(".service_notice").css("color","#F15F5F");
-	});
-</script>
+<script type="text/javascript" src="${root}/js/service/service_notice.js"></script>
 </head>
 <body>
 	<!-- 고객센터 공지사항 시작 강민아-->
@@ -43,21 +38,48 @@
 							<div align="center">제목</div>
 							<div align="center">작성일</div>
 						</div>
-					<c:forEach var="i" begin="1" end="10">	
+					<c:forEach var="ServiceNoticeDto" items="${noticeList}">
 						<div class="service_notices">
-							<div><a href="${root}/service/notice/read.do">[공지] 1월12일 고객센터 운영시간 변경 안내</a></div>
-							<div align="center">2018-01-11</div>
+							<div><a href="javascript:readFunction('${root}','${ServiceNoticeDto.notice_num}','${pageNumber}')">${ServiceNoticeDto.notice_subject}</a></div>
+							
+							<div align="center"><fmt:formatDate var="notice_date" value="${ServiceNoticeDto.notice_date}" pattern="yyyy-MM-dd"/>${notice_date}</div>
 						</div>
 					</c:forEach>
 					<!-- notice_list 끝-->	
-					
-
-					
+	
 				</div>
 				<!-- 페이지번호 시작 -->
-					<div class="service_notice_list_pagenate">
-						<a href="" class="service_notice_list_btn">1</a> 
-					</div>
+							<c:if test="${count>0}">	
+								<div class="service_notice_list_pagenate">
+									<c:set var="pageCount"
+										value="${count / listSize + (count % listSize == 0 ? 0:1)}" />
+
+									<c:set var="pageBlock" value="${5}" />
+
+									<fmt:parseNumber var="rs"
+										value="${(pageNumber - 1) / pageBlock}" integerOnly="true" />
+
+									<c:set var="startPage" value="${rs * pageBlock + 1}" />
+
+									<c:set var="endPage" value="${startPage + pageBlock - 1}" />
+
+									<c:if test="${endPage > pageCount}">
+										<c:set var="endPage" value="${pageCount}"></c:set>
+									</c:if>
+
+									<c:if test="${startPage > pageBlock}">
+										<a href="${root}/service/notice/list.do?pageNumber=${startPage - pageBlock}"> [ 이전 ]</a>
+									</c:if>
+
+									<c:forEach var="i" begin="${startPage}" end="${endPage}">
+										<a href="${root}/service/notice/list.do?pageNumber=${i}" class="service_notice_list_btn">${i}</a>
+									</c:forEach>
+
+									<c:if test="${endPage < pageCount}">
+										<a href="${root}/service/notice/list.do?pageNumber=${startPage + pageBlock}">[ 다음 ]</a>
+									</c:if>
+								</div>
+							</c:if>
 				<!-- 페이지 번호 끝 -->
 			</div>
 			<!-- 내용부분 끝 -->

@@ -3,11 +3,14 @@ package com.bookjuk.service.dao;
 import java.util.List;
 
 import com.bookjuk.service.dto.ServiceContactDto;
+import com.bookjuk.service.dto.ServiceNoticeDto;
+import com.bookjuk.service.dto.ServiceQuestionDto;
 
 public interface ServiceDao {
 
-	public int listCount();
+	/*public int listCount();*/
 	
+	// 1:1문의
 	public int ServiceWrite(ServiceContactDto serviceContactDto);
 	
 	public int getBoardCount();
@@ -20,4 +23,16 @@ public interface ServiceDao {
 	public int contactDelete(long contact_num);
 	
 	public int ServiceContactUpdate(ServiceContactDto serviceContactDto);
+	
+	//공지사항
+	public int noticeCount();
+	public List<ServiceNoticeDto> noticeList(int startRow,int endRow);
+	
+	public ServiceNoticeDto noticeRead(long notice_num);
+	
+	//자주묻는질문
+	public int questionCount();
+	public List<ServiceQuestionDto> questionList();
+	
+	
 }

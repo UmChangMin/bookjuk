@@ -4,11 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.bookjuk.book.dao.mapper.ServiceMapper">
-	
-	<!-- 자주묻는질문 리스트 뿌리기 -->
-	<select id="listCount" resultType="int">
-  	<![CDATA[select count(*) from service_question]]>
-	</select>
 
 	<!-- 1:1문의 쓰기-->
 	<insert id="boardInsert" parameterType="com.bookjuk.service.dto.ServiceContactDto">
@@ -55,5 +50,38 @@
   <update id="boardUpdateOk" parameterType="com.bookjuk.service.dto.ServiceContactDto">
   	<![CDATA[update service_contact set contact_subject=#{contact_subject},contact_type=#{contact_type},contact_content=#{contact_content} where contact_num=#{contact_num}]]>
   </update>
+  
+  <!-- 공지사항 리스트-->
+  <select id="noticeCount" resultType="int">
+  	<![CDATA[select nvl(count(*),0) from service_notice]]>
+	</select>
+
+	<select id="noticeList" parameterType="java.util.Map" resultType="com.bookjuk.service.dto.ServiceNoticeDto">
+  		<![CDATA[select * from(
+  					SELECT ROWNUM rnum,A.* FROM(
+  						SELECT * FROM service_notice ORDER BY notice_date DESC) A)
+  						WHERE rnum>=#{startRow} AND rnum<= #{endRow}]]>
+	</select> 
+	
+	<!-- 공지사항 읽기 -->
+	<select id="noticeRead" resultType="com.bookjuk.service.dto.ServiceNoticeDto">
+  		<![CDATA[select * from service_notice where notice_num=#{notice_num}]]>
+ 	</select>
+ 	
+
+ 	<!-- 자주묻는질문 -->
+	<select id="questionCount" resultType="int">
+  	<![CDATA[select count(*) from service_question]]>
+	</select>
+	
+	<select id="questionList" resultType="com.bookjuk.service.dto.ServiceQuestionDto">
+  		<![CDATA[select * from(
+  					SELECT ROWNUM rnum,A.* FROM(
+  						SELECT * FROM service_question ORDER BY question_num DESC) A)
+  						WHERE rnum>=1 and rnum<=10
+]]>
+ 	</select>
+ 	
+	
   
 </mapper>
