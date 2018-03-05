@@ -125,4 +125,32 @@ public class BookDaoImp implements BookDao {
 		return sqlSession.delete("deleteReview", review_num);
 	}
 
+	@Override
+	public int scoreUpdate(int book_num, float star_avg) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("book_num", book_num);
+		map.put("book_score", star_avg);
+		
+		return sqlSession.update("scoreUpdate", map);
+	}
+
+	@Override
+	public int currentBook(int book_num, String current_id, String current_img) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("book_num", book_num);
+		map.put("current_id", current_id);
+		map.put("current_img", current_img);
+		
+		return sqlSession.insert("currentBook", map);
+	}
+	
+	@Override
+	public int currentCount(String current_id) {
+		return sqlSession.selectOne("currentCount", current_id);
+	}
+
+	@Override
+	public List<BookDto> currentList(String current_id) {
+		return sqlSession.selectList("currentList", current_id);
+	}
 }

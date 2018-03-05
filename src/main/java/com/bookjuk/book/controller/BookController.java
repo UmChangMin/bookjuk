@@ -21,7 +21,6 @@ public class BookController {
 	@Autowired
 	private BookService bookService;
 	
-	
 	@RequestMapping(value="/*.do", method=RequestMethod.GET)
 	public ModelAndView bookBest(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav=new ModelAndView();

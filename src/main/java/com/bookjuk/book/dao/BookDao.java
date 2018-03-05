@@ -21,8 +21,13 @@ public interface BookDao {
 	
 	public int reviewCount(int book_num);
 	public List<BookDto> reviewList(int book_num);
+	public int scoreUpdate(int book_num, float star_avg);
 	public BookDto detail(int book_num);
 	
 	public int insertReview(BookDto bookDto);
 	public int deleteReview(int review_num);
+	
+	public int currentBook(int book_num, String current_id, String current_img);
+	public int currentCount(String current_id);
+	public List<BookDto> currentList(String current_id);
 }

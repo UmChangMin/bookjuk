@@ -70,6 +70,11 @@
 	<delete id="deleteReview" parameterType="int">
 		DELETE FROM member_review WHERE review_num = #{review_num}
 	</delete>
+	
+	<!-- 별점 업데이트 -->
+	<update id="scoreUpdate" parameterType="com.bookjuk.book.dto.BookDto">
+		UPDATE book SET book_score = #{book_score} WHERE book_num = #{book_num}
+	</update>
 
 	<!-- 도서 상세 페이지 -->
 	<update id="readCount" parameterType="int">

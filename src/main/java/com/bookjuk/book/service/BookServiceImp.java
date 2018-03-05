@@ -1,5 +1,6 @@
 package com.bookjuk.book.service;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -89,8 +90,21 @@ public class BookServiceImp implements BookService {
 		
 		int review_count = bookDao.reviewCount(book_num);
 		
+		int star_tot = 0;
+		float star_avg = 0;
 		List<BookDto> reviewDtoList = new ArrayList<BookDto>();
-		if(review_count > 0) reviewDtoList = bookDao.reviewList(book_num);
+		if(review_count > 0) {
+			reviewDtoList = bookDao.reviewList(book_num);
+			
+			for(int i=0; i<reviewDtoList.size(); i++) {
+				star_tot += reviewDtoList.get(i).getReview_score();
+			}
+			
+			star_avg = (float) star_tot / review_count;
+			star_avg = Float.parseFloat(String.format("%.1f", star_avg));
+			
+			bookDao.scoreUpdate(book_num, star_avg);
+		}
 		
 		BookDto bookDto = bookDao.detail(book_num);
 		
@@ -108,7 +122,6 @@ public class BookServiceImp implements BookService {
 		mav.addObject("reviewDtoList", reviewDtoList);
 		
 		mav.setViewName("book/book_detail.tiles");
-		
 	}
 	
 	/*메인 카테고리*/
