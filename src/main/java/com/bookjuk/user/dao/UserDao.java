@@ -12,4 +12,5 @@ public interface UserDao {
 	public List<BookDto> bestComputerList();
 	public List<BookDto> bestHobbyList();
 	public List<BookDto> bestNovelList();
+	public List<BookDto> mdList();
 }

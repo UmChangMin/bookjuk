@@ -48,4 +48,9 @@ public class UserDaoImp implements UserDao {
 	public List<BookDto> bestNovelList() {
 		return sqlSession.selectList("bestNovelList");
 	}
+
+	@Override
+	public List<BookDto> mdList() {
+		return sqlSession.selectList("mdList");
+	}
 }

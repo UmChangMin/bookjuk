@@ -46,4 +46,10 @@
 		]]>
 	</select>
 
+	<select id="mdList" resultType="com.bookjuk.book.dto.BookDto">
+		<![CDATA[
+			SELECT * FROM book b, md_recommend m WHERE b.book_num = m.book_num
+		]]>
+	</select>
+
 </mapper>

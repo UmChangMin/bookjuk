@@ -52,6 +52,9 @@ public class UserServiceImp implements UserService {
 		List<BookDto> bookBestHobbyList = mainDao.bestHobbyList();
 		List<BookDto> bookBestNovelList = mainDao.bestNovelList();
 		
+		/*MD 추천*/
+		List<BookDto> bookMdList = mainDao.mdList();
+		
 		mav.addObject("bookBestList", bookBestList);
 		mav.addObject("bookIssueList", bookIssueList);
 		mav.addObject("bookNewList", bookNewList);
@@ -60,6 +63,8 @@ public class UserServiceImp implements UserService {
 		mav.addObject("bestCom", bookBestComputerList);
 		mav.addObject("bestHob", bookBestHobbyList);
 		mav.addObject("bestNov", bookBestNovelList);
+		
+		mav.addObject("bookMdList", bookMdList);
 		
 		mav.setViewName("main/main.tiles");
 	}

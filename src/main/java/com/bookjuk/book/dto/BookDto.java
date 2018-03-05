@@ -36,6 +36,9 @@ public class BookDto {
 	private String member_id;				// 사용자 ID
 	private String review_content;			// 리뷰내용
 	private Date review_date;               // 작성일
+	/*MD 추천*/
+	private String md_reason;				// MD 추천 이유
+	private String md_content;				// MD 추천 내용
 	
 	public int getBook_num() {
 		return book_num;
@@ -211,6 +214,18 @@ public class BookDto {
 	public void setReview_date(Date review_date) {
 		this.review_date = review_date;
 	}
+	public String getMd_reason() {
+		return md_reason;
+	}
+	public void setMd_reason(String md_reason) {
+		this.md_reason = md_reason;
+	}
+	public String getMd_content() {
+		return md_content;
+	}
+	public void setMd_content(String md_content) {
+		this.md_content = md_content;
+	}
 	
 	@Override
 	public String toString() {
@@ -225,6 +240,6 @@ public class BookDto {
 				+ ", product_point=" + product_point + ", product_sales=" + product_sales + ", product_count="
 				+ product_count + ", product_delivery=" + product_delivery + ", review_num=" + review_num
 				+ ", review_score=" + review_score + ", member_id=" + member_id + ", review_content=" + review_content
-				+ ", review_date=" + review_date + "]";
+				+ ", review_date=" + review_date + ", md_reason=" + md_reason + ", md_content=" + md_content + "]";
 	}
 }
