@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.bookjuk.book.dto.BookDto;
+import com.bookjuk.user.dto.UserDto;
 
 @Component
 public class UserDaoImp implements UserDao {
@@ -52,5 +53,10 @@ public class UserDaoImp implements UserDao {
 	@Override
 	public List<BookDto> mdList() {
 		return sqlSession.selectList("mdList");
+	}
+
+	@Override
+	public List<UserDto> locationDtoList() {
+		return  sqlSession.selectList("locationDtoList");
 	}
 }

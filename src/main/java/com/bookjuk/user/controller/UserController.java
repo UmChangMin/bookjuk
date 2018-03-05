@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bookjuk.aop.LogAspect;
 import com.bookjuk.user.service.UserService;
 
 @Controller
@@ -30,7 +31,11 @@ public class UserController {
 	
 	@RequestMapping(value = "location.do")
 	public ModelAndView location(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"userlocation");
+		
 		ModelAndView mav = new ModelAndView();
+		
 		mav.addObject("request", request);
 		mainService.location(mav);
 		

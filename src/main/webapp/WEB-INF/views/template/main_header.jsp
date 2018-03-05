@@ -14,8 +14,39 @@
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/jqueryUI/jquery-ui2.js"></script>
 <script type="text/javascript" src="${root}/js/main/main_header.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script> -->
 <!-- header뷰: 강민아 ,실시간 급상승,전체카테고리 :허단비 /수정: 허단비  -->
+<!-- <script>
+$( function() {
+  var availableTags = [
+    "ActionScript",
+    "AppleScript",
+    "Asp",
+    "BASIC",
+    "C",
+    "C++",
+    "Clojure",
+    "COBOL",
+    "ColdFusion",
+    "Erlang",
+    "Fortran",
+    "Groovy",
+    "Haskell",
+    "Java",
+    "JavaScript",
+    "Lisp",
+    "Perl",
+    "PHP",
+    "Python",
+    "Ruby",
+    "Scala",
+    "Scheme"
+  ];
+  $( "#Search" ).autocomplete({
+    source: availableTags
+  });
+} );
+</script> -->
 </head>
 <body>
 	<div id="header">
@@ -65,7 +96,7 @@
 			</div>
 			<div class="header_mid_search">
 				<div class="header_mid_search_inner">
-					<input type="text" name="SearchString" class="header_SearchString">
+					<input type="text" name="SearchString" class="header_SearchString" id="Search">
 					<input type="button" name="Search_btn" class="header_Search_btn"
 						onclick="">
 				</div>

@@ -3,6 +3,7 @@ package com.bookjuk.user.dao;
 import java.util.List;
 
 import com.bookjuk.book.dto.BookDto;
+import com.bookjuk.user.dto.UserDto;
 
 public interface UserDao {
 	public List<BookDto> bestList();
@@ -13,4 +14,5 @@ public interface UserDao {
 	public List<BookDto> bestHobbyList();
 	public List<BookDto> bestNovelList();
 	public List<BookDto> mdList();
+	public List<UserDto> locationDtoList();
 }

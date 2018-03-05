@@ -8,17 +8,12 @@
 <c:set var="root" value="${pageContext.request.contextPath}" />
 <!-- header뷰: 강민아 ,실시간 급상승 :허단비,  플로팅 메뉴 : 엄창민 /수정: 허단비  -->
 <title>북적북적</title>
-<link rel="stylesheet" type="text/css"
-	href="${root}/css/template/basic.css" />
-<link rel="stylesheet" type="text/css"
-	href="${root}/css/template/header.css" />
-<link rel="stylesheet" type="text/css"
-	href="${root}/css/template/real_time.css" />
+<link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css" />
+<link rel="stylesheet" type="text/css" href="${root}/css/template/header.css" />
+<link rel="stylesheet" type="text/css" href="${root}/css/template/real_time.css" />
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/main/main_header.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"
-	type="text/javascript"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script> -->
 </head>
 <body>
 	<div id="header">

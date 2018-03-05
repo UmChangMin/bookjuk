@@ -52,4 +52,8 @@
 		]]>
 	</select>
 
+	<select id="locationDtoList" resultType="com.bookjuk.user.dto.UserDto">
+		select * from location
+	</select>
+
 </mapper>

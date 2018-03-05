@@ -1,13 +1,11 @@
 package com.bookjuk.user.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bookjuk.aop.LogAspect;
 import com.bookjuk.book.dto.BookDto;
 import com.bookjuk.user.dao.UserDao;
+import com.bookjuk.user.dto.UserDto;
 
 @Component
 public class UserServiceImp implements UserService {
@@ -74,6 +73,10 @@ public class UserServiceImp implements UserService {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
+		List<UserDto> locationDtoList = mainDao.locationDtoList();
+		LogAspect.logger.info(LogAspect.logMsg+locationDtoList.toString());
+		
+		mav.addObject("locationDtoList", locationDtoList);	
 		mav.setViewName("main/location.search");
 	}
 
