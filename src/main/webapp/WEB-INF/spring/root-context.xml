@@ -27,7 +27,8 @@
 				<value>classpath:com/bookjuk/member/dao/mapper/MemberMapper.xml</value>
 				<value>classpath:com/bookjuk/book/dao/mapper/BookMapper.xml</value>
 				<value>classpath:com/bookjuk/service/dao/mapper/ServiceMapper.xml</value>
-				<value>classpath:/com/bookjuk/user/dao/mapper/mainMapper.xml</value>
+				<value>classpath:com/bookjuk/user/dao/mapper/MainMapper.xml</value>
+				<value>classpath:com/bookjuk/order/dao/mapper/OrderMapper.xml</value>
 			</list>
 		</property>
 	</bean>

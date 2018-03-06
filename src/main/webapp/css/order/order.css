@@ -98,7 +98,7 @@ caption{
     margin-left: 15px;
 }
 
-.order_product_info a {
+.order_book_name{
     line-height: 150px;
 }
 
@@ -196,18 +196,15 @@ b.point{
     height: 19px;
 }
 
-#phone1, #phone2, #phone3 {
+input#phone {
     border: 1px solid #e9e9e9;
     width: 60px;
     height: 19px;
-}
-.order_phone > label {
     margin-right: 50px;
 }
 
 .order_address > label {
     margin-right: 22px;
-
 }
 
 #zipcode {

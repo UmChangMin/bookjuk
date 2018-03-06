@@ -98,7 +98,7 @@ caption{
     margin-left: 15px;
 }
 
-.order_non_product_info a {
+.order_non_product_info > span {
     line-height: 150px;
 }
 
@@ -201,9 +201,9 @@ b.point{
     height: 19px;
 }
 
-#phone1, #phone2, #phone3 {
+#phone {
     border: 1px solid #e9e9e9;
-    width: 60px;
+    width: 200px;
     height: 19px;
 }
 .order_non_phone > label {
@@ -273,14 +273,11 @@ b.point{
     margin-left: 20px;
 }
 
-#user_phone1, #user_phone2, #user_phone3{
-    border: 1px solid #e9e9e9;
-    width: 40px;
-    height: 19px;
-}
-
-#user_phone1{
+#user_phone{
 	margin-left: 48px;
+    border: 1px solid #e9e9e9;
+    width: 140px;
+    height: 19px;
 }
 
 #user_email {

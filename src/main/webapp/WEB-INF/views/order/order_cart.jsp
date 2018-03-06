@@ -10,37 +10,7 @@
 <link type="text/css" rel="stylesheet" href="${root}/css/order/order_cart.css"/>
 <link type="text/css" rel="stylesheet" href="${root}/css/template/basic.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
-<script type="text/javascript">
-	$(function(){ 
-	  $('.bt_up').click(function(){ 
-	    var n = $('.bt_up').index(this);
-	    var num = $(".amount:eq("+n+")").val();
-	    num = $(".amount:eq("+n+")").val(num*1+1); 
-	  });
-	  $('.bt_down').click(function(){ 
-	    var n = $('.bt_down').index(this);
-	    var num = $(".amount:eq("+n+")").val();
-	    num = $(".amount:eq("+n+")").val(num*1-1); 
-	  });
-	  
-	  $("input[type=checkbox]").prop("checked",true);
-	  
-	  $("#checkbox_all").click(function(){
-		 if($("#checkbox_all").prop("checked")){
-			 $("input[type=checkbox]").prop("checked",true);
-		 }else{
-			 $("input[type=checkbox]").prop("checked",false);
-		 }
-	  });
-	  
-	  $(".cart_btn_delete").click(function(){
-		 $("input[name=chkObj]:checked").each(function(){
-			 $(this).parent().parent().remove();
-		 })
-	  });
-
-	})
-</script>
+<script type="text/javascript" src="${root}/js/order/order_cart.js"></script>
 <title>장바구니</title>
 </head>
 <body>	
@@ -103,15 +73,15 @@
 										<ul>
 											<li>
 												<strong>총 상품금액</strong>
-												<p><em class="totalOrderAmount"><fmt:formatNumber pattern="###,###,###" value="1111"/></em> 원</p>
+												<p><em class="totalOrderAmount"><fmt:formatNumber pattern="###,###,###" value="${tot_price}"/></em> 원</p>
 											</li>
 											<li>
 												<strong>배송비</strong>
-												<p><em class="totalDeliveryAmount">0</em> 원</p>
+												<p><em class="totalDeliveryAmount"><fmt:formatNumber pattern="###,###,###" value="${tot_delivery}"/></em> 원</p>
 											</li>
 											<li>
 												<strong>적립 예상 금액</strong>
-												<p><em class="totalPointAmount"><fmt:formatNumber pattern="###,###,###" value="1111"/></em> 원</p>
+												<p><em class="totalPointAmount"><fmt:formatNumber pattern="###,###,###" value="${tot_point}"/></em> 원</p>
 											</li>
 										</ul>
 									</dd>
@@ -119,7 +89,7 @@
 										<ul>
 											<li>
 												<strong style="font-weight: bold">결제금액</strong>
-												<p><em class="subTotal"><fmt:formatNumber pattern="###,###,###" value="1111111"/></em> 원</p>
+												<p><em class="subTotal"><fmt:formatNumber pattern="###,###,###" value="${tot_price}"/></em> 원</p>
 											</li>
 										</ul>
 									</dd>
@@ -128,31 +98,32 @@
 								</tr>
 							</tfoot>
 							<tbody>
-								<c:forEach var="i" begin="1" end="5">
+								<c:forEach items="${cartList}" var="cartDto" varStatus="index">
 									<tr>
 										<td>
 											<input type="checkbox" name="chkObj" id="checkbox" class="cart_order_checkbox">
+											<input type="hidden" name="book_num" class="cart_book_num" value="${cartDto.book_num}"/>
 											<label for="checkbox" class="cart_blind">상품선택</label>
 										</td>
 										<td>
 											<div class="cart_product_info">
-												<img alt="말의 품격" src="http://image.kyobobook.co.kr/images/book/large/772/l9788997092772.jpg">
-												<a href="#">말의 품격</a>
+												<img alt="${cartDto.book_name}" src="${root}${cartDto.book_img}">
+												<a href="#">${cartDto.book_name}</a>
 											</div>
 										</td>
 										<td>
-											<input type="text" name="amount" value="1" class="amount"/><a class="bt_up">▲</a><a class="bt_down">▼</a><br/>
-											<a href="#" class="btn_pd_edit">변경</a>
+											<input type="text" name="amount" value="${cartDto.cart_amount}" class="amount"/><a class="bt_up">▲</a><a class="bt_down">▼</a><br/>
+											<a href="javascript:updateAmount(${cartDto.book_num}, ${index.index})" id="${cartDto.book_num}" class="btn_pd_edit">변경</a>
 										</td>
 										<td>
-											<strong><fmt:formatNumber pattern="###,###,###" value="13500"/>원</strong><br/>
-											<span><fmt:formatNumber pattern="###,###" value="750"/></span><b class="point">P</b>
+											<strong><fmt:formatNumber pattern="###,###,###" value="${cartDto.product_disprice}"/>원</strong><br/>
+											<span><fmt:formatNumber pattern="###,###" value="${cartDto.product_point}"/></span><b class="point">P</b>
 										</td>
 										<td>
-											<span>무료배송</span>
+											<span><fmt:formatNumber pattern="###,###" value="${cartDto.product_delivery}"/></span>
 										</td>
 										<td>
-											<strong><fmt:formatNumber pattern="###,###,###" value="13500"/>원</strong>
+											<strong><fmt:formatNumber pattern="###,###,###" value="${cartDto.product_disprice * cartDto.cart_amount}"/>원</strong>
 										</td>
 									</tr>
 								</c:forEach>
@@ -162,8 +133,14 @@
 					<div class="cart_btn_section" align="center">
 						<a href="${root}/main.do" class="cart_btn_home">쇼핑 계속하기</a>
 						<a href="javascript:void(0);" class="cart_btn_delete">선택상품 삭제하기</a>
-						<a href="${root}/order/order_non.do" class="cart_btn_non_order">비회원 주문하기</a>
-						<a href="${root}/order/order.do" class="cart_btn_order">회원 주문하기</a>
+						<form action="${root}/order/order_non.do" method="post">
+							<input type="hidden" name="nonmember_id" value="${nonmember_id}">
+							<button class="cart_btn_non_order">비회원 주문하기</button>
+						</form>
+						<form action="${root}/order/order.do" method="post">
+							<input type="hidden" name="member_id" value="${member_id}">
+							<button class="cart_btn_order">회원 주문하기</button>
+						</form>
 					</div>
 				</div>
 			</div>

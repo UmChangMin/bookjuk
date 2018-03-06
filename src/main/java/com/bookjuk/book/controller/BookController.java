@@ -85,4 +85,13 @@ public class BookController {
 		return null;
 	}
 	
+	@RequestMapping(value="/list/insertCart.do", method=RequestMethod.POST)
+	public ModelAndView bookInsertCart(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		
+		bookService.insertCart(mav);
+		
+		return null;
+	}
 }

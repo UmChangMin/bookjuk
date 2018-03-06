@@ -153,4 +153,8 @@ public class BookDaoImp implements BookDao {
 	public List<BookDto> currentList(String current_id) {
 		return sqlSession.selectList("currentList", current_id);
 	}
+	
+	public int insertCart(BookDto bookDto) {
+		return sqlSession.insert("insertCart", bookDto);
+	}
 }

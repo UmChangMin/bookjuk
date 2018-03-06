@@ -272,3 +272,31 @@ b.point{
     margin-left: 10px;
     color: black;
 }
+
+.cart_btn_non_order{
+	width: 120px;
+    height: 40px;
+    display: block;
+    float: left;
+    border: 0px solid #e5e6e7;
+    background: #FFD8D8;
+    text-align: center;
+    line-height: 40px;
+    margin-left: 10px;
+    color: black;
+    cursor: pointer;
+}
+
+.cart_btn_order{
+	width: 120px;
+    height: 40px;
+    display: block;
+    float: left;
+    border: 0px solid #e5e6e7;
+    background: #FFD8D8;
+    text-align: center;
+    line-height: 40px;
+    margin-left: 10px;
+    color: black;
+    cursor: pointer;
+}

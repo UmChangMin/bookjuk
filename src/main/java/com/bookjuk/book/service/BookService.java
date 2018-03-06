@@ -13,4 +13,6 @@ public interface BookService {
 
 	public void bookInsertReview(ModelAndView mav);
 	public void bookDeleteReview(ModelAndView mav);
+	
+	public void insertCart(ModelAndView mav);
 }

@@ -39,6 +39,7 @@ public class BookDto {
 	/*MD 추천*/
 	private String md_reason;				// MD 추천 이유
 	private String md_content;				// MD 추천 내용
+	private String nonmember_id;			// 비회원 ID
 	
 	public int getBook_num() {
 		return book_num;
@@ -226,6 +227,12 @@ public class BookDto {
 	public void setMd_content(String md_content) {
 		this.md_content = md_content;
 	}
+	public String getNonmember_id() {
+		return nonmember_id;
+	}
+	public void setNonmember_id(String nonmember_id) {
+		this.nonmember_id = nonmember_id;
+	}
 	
 	@Override
 	public String toString() {
@@ -240,6 +247,7 @@ public class BookDto {
 				+ ", product_point=" + product_point + ", product_sales=" + product_sales + ", product_count="
 				+ product_count + ", product_delivery=" + product_delivery + ", review_num=" + review_num
 				+ ", review_score=" + review_score + ", member_id=" + member_id + ", review_content=" + review_content
-				+ ", review_date=" + review_date + ", md_reason=" + md_reason + ", md_content=" + md_content + "]";
+				+ ", review_date=" + review_date + ", md_reason=" + md_reason + ", md_content=" + md_content
+				+ ", nonmember_id=" + nonmember_id + "]";
 	}
 }

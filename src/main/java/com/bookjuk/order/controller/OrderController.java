@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bookjuk.order.dto.OrderDto;
 import com.bookjuk.order.service.OrderService;
 
 @Controller
@@ -27,7 +28,25 @@ public class OrderController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/order_non.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/updateAmount.do", method = RequestMethod.GET)
+	public ModelAndView updateAmount(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		orderService.updateAmount(mav);
+		
+		return null;
+	}
+	
+	@RequestMapping(value = "/deleteCart.do", method = RequestMethod.GET)
+	public ModelAndView deleteCart(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		orderService.deleteCart(mav);
+		
+		return null;
+	}
+	
+	@RequestMapping(value = "/order_non.do")
 	public ModelAndView orderNon(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
@@ -36,7 +55,7 @@ public class OrderController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/order.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/order.do")
 	public ModelAndView order(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
@@ -47,7 +66,7 @@ public class OrderController {
 	
 
 	
-	@RequestMapping(value = "/zipcode.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/zipcode.do")
 	public ModelAndView zipcode(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
@@ -56,10 +75,12 @@ public class OrderController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/complete.do", method = RequestMethod.GET)
-	public ModelAndView complete(HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value = "/complete.do")
+	public ModelAndView complete(HttpServletRequest request, HttpServletResponse response, OrderDto orderDto) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
+		mav.addObject("orderDto", orderDto);
+		
 		orderService.complete(mav);
 		
 		return mav;

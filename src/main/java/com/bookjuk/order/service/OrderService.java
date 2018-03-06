@@ -4,6 +4,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 public interface OrderService {
 	public void cart(ModelAndView mav);
+	public void updateAmount(ModelAndView mav);
+	public void deleteCart(ModelAndView mav);
 	
 	public void orderNon(ModelAndView mav);
 	public void order(ModelAndView mav);

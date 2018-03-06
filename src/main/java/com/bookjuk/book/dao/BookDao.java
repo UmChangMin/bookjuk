@@ -30,4 +30,6 @@ public interface BookDao {
 	public int currentBook(int book_num, String current_id, String current_img);
 	public int currentCount(String current_id);
 	public List<BookDto> currentList(String current_id);
+	
+	public int insertCart(BookDto bookDto);
 }

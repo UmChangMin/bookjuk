@@ -89,7 +89,7 @@
 										
 									</div>
 									<div class="bookDetail_btn">
-										<a href="javascript:cartFunction()" class="bookDetail_cart"><span>책바구니</span></a> 
+										<a href="javascript:insertCart(${bookDto.book_num})" class="bookDetail_cart"><span>책바구니</span></a> 
 										<a href="#" class="bookDetail_buy">구매</a>
 									</div>
 								</div>

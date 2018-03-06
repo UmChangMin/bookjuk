@@ -1,12 +1,10 @@
 package com.bookjuk.book.service;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -246,5 +244,23 @@ public class BookServiceImp implements BookService {
 		int review_num = Integer.parseInt(request.getParameter("review_num"));
 		
 		bookDao.deleteReview(review_num);
+	}
+
+	/*장바구니 담기*/
+	@Override
+	public void insertCart(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		HttpSession session = request.getSession();
+		String nonmember_id = (String) session.getId();
+		String member_id = (String) session.getAttribute("member_id");
+		
+		int book_num = Integer.parseInt(request.getParameter("book_num"));
+		BookDto bookDto = bookDao.detail(book_num);
+		if(member_id == null) member_id = "비회원";
+		bookDto.setMember_id(member_id);
+		bookDto.setNonmember_id(nonmember_id);
+		
+		bookDao.insertCart(bookDto);
 	}
 }

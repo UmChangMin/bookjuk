@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bookjuk.aop.LogAspect;
 import com.bookjuk.service.dto.ServiceContactDto;
-import com.bookjuk.service.dto.ServiceQuestionDto;
 import com.bookjuk.service.service.ServiceService;
 
 @Controller

@@ -156,3 +156,16 @@ function deleteReview(review_num) {
 		});
 	}	
 }
+
+function insertCart(book_num){
+	$.ajax({
+		url : "insertCart.do",
+		type : "POST",
+		data : "book_num=" + book_num,
+		success : function(data){
+			var result = confirm("장바구니로 바로 이동하시겠습니까 ?");
+			
+			if(result) {location.replace("/bookjuk/order/cart.do");}
+		}
+	})
+}

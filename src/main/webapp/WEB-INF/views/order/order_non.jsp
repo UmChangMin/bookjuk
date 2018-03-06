@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,18 +11,7 @@
 <link type="text/css" rel="stylesheet" href="${root}/css/template/basic.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/order/order_zipcode.js"></script>
-<script type="text/javascript">
-	$(function(){
-		$("#btn_order").click(function(){
-			if($("#agree").is(":checked") == false){
-				alert("주문 항목 동의해주세요.");
-				return false;
-			}else{
-				location.href = "${root}/order/complete.do";
-			}
-		});
-	});
-</script>
+<script type="text/javascript" src="${root}/js/order/order.js"></script>
 <title>비회원 주문</title>
 </head>
 <body>
@@ -69,33 +59,33 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="i" begin="1" end="5">
+							<c:forEach items="${cartList}" var="cartDto">
 								<tr>
 									<td>
 										<div class="order_non_product_info">
-											<img alt="말의 품격" src="http://image.kyobobook.co.kr/images/book/large/772/l9788997092772.jpg">
-											<a href="#">말의 품격</a>
+											<img alt="${cartDto.book_name}" src="${root}${cartDto.book_img}">
+											<span>${cartDto.book_name}</span>
 										</div>
 									</td>
 									<td>
 										<div class="order_non_product_amount">
-											<span>1</span>
+											<span>${cartDto.cart_amount}</span>
 										</div>
 									</td>
 									<td>
 										<div class="order_non_product_price">
-											<strong>13,500원</strong><br/>
-											<del>750</del><b class="point">P</b>
+											<strong><fmt:formatNumber pattern="###,###,###" value="${cartDto.product_disprice}"/>원</strong><br/>
+											<del><fmt:formatNumber pattern="###,###" value="${cartDto.product_point}"/></del><b class="point">P</b>
 										</div>
 									</td>
 									<td>
 										<div class="order_non_product_delfee">
-											<span>무료배송</span>
+											<span><fmt:formatNumber pattern="###,###" value="${cartDto.product_delivery}"/></span>
 										</div>
 									</td>
 									<td>
 										<div class="order_non_product_total">
-											<strong><span>13,500</span>원</strong>
+											<strong><span><fmt:formatNumber pattern="###,###,###" value="${cartDto.product_disprice * cartDto.cart_amount}"/></span>원</strong>
 										</div>
 									</td>
 								</tr>
@@ -103,6 +93,7 @@
 						</tbody>
 					</table>
 					<!-- 배송지 정보 -->
+					<form action="${root}/order/complete.do" method="post" id="non_order">
 					<div class="order_non_destination_wrap">
 						<div class="order_non_deliver_wrap">
 							<div class="order_non_title">
@@ -111,20 +102,20 @@
 							</div>
 							<div class="order_non_name">
 								<label>수령인</label>
-								<input type="text" id="name" value=""/>
+								<input type="text" name="order_name" id="name" value=""/>
 							</div>
 							<div class="order_non_phone">
 								<label>연락처</label>
-								<input type="text" id="phone1" value=""/> - <input type="text" id="phone2" value=""/> - <input type="text" id="phone3" value=""/>
+								<input type="text" name="order_phone" id="phone" maxlength="13" value=""/>
 							</div>
 							<div class="order_non_address">
 								<label>배송지 주소</label>
-								<input type="text" id="zipcode" value=""/><button id="btn_zipcode" onclick="zipcodeRead('${root}')">우편번호</button><br/>
-								<input type="text" id="address1" value=""/><input type="text" id="address2" value=""/>
+								<input type="text" name="order_postcode" id="zipcode" value=""/><button type="button" id="btn_zipcode" onclick="zipcodeRead('${root}')">우편번호</button><br/>
+								<input type="text" name="order_address" id="address1" value=""/><input type="text" name="order_address_detail" id="address2" value=""/>
 							</div>
 							<div class="order_non_memo">
 								<label>배송메모</label>
-								<input type="text" id="memo" value=""/>
+								<input type="text" name="order_memo" id="memo" value=""/>
 							</div>
 						</div>
 						<!-- 주문자 정보 -->
@@ -135,19 +126,19 @@
 								</div>
 								<div class="userinfo_name">
 									<label>주문자 성함</label>
-									<input type="text" id="user_name" value=""/>
+									<input type="text" name="nonmember_name" id="user_name" value=""/>
 								</div>
 								<div class="userinfo_phone">
 									<label>연락처</label>
-									<input type="text" id="user_phone1" value=""/> - <input type="text" id="user_phone2" value=""/> - <input type="text" id="user_phone3" value=""/>
+									<input type="text" name="nonmember_phone" id="user_phone" value=""/>
 								</div>
 								<div class="userinfo_address">
 									<label>이메일</label>
-									<input type="text" id="user_email" value=""/>
+									<input type="text" name="nonmember_email" id="user_email" value=""/>
 								</div>
 								<div class="userinfo_password">
 									<label>주문 비밀번호</label>
-									<input type="password" id="user_password" value=""/>
+									<input type="password" name="nonmember_password" id="user_password" value=""/>
 								</div>
 							</div>
 							<div class="info_dsc">
@@ -168,13 +159,13 @@
 								<div class="payment_option payment_select">
 									<ul class="payment_list">
 										<li>
-											<input type="radio" name="sel_payment"><label>신용카드(체크)</label>
+											<input type="radio" name="order_payment" value="card"><label>신용카드(체크)</label>
 										</li>
 										<li>
-											<input type="radio" name="sel_payment"><label>실시간 계좌이체</label>
+											<input type="radio" name="order_payment" value="account"><label>실시간 계좌이체</label>
 										</li>
 										<li>
-											<input type="radio" name="sel_payment"><label>무통장 입금</label>
+											<input type="radio" name="order_payment" value="mutong"><label>무통장 입금</label>
 										</li>
 									</ul>
 								</div>
@@ -186,11 +177,11 @@
 								</div>
 								<div class="order_non_refund_name">
 									<strong>예금주</strong>
-									<input type="text" id="refund_name"/>
+									<input type="text" name="refund_name" id="refund_name"/>
 								</div>
 								<div class="order_non_refund_bankinfo">
 									<strong>계좌번호</strong>
-									<select name="bank">
+									<select name="refund_bank">
 										<option>은행명</option>
 										<option value="국민은행">국민은행</option>
 										<option value="신한은행">신한은행</option>
@@ -198,7 +189,7 @@
 										<option value="우리은행">우리은행</option>
 										<option value="농협">농협</option>
 									</select>
-									<input type="text">
+									<input name="refund_account" type="text">
 								</div>
 							</div>
 							<div class="order_non_agree_wrap">
@@ -214,30 +205,26 @@
 							<div class="order_non_price_sum">
 								<h4>결제금액</h4>
 								<div class="total_price">
-									<span>111,111</span><h5>원</h5>
+									<span><fmt:formatNumber pattern="###,###,###" value="${tot_price}"/></span><h5>원</h5>
 								</div>
 								<ul class="calc_list">
 									<li>
 										<strong>총 상품금액</strong>
-										<p><em id="totalOrderPrice">111,111</em>원</p>
+										<p><em id="totalOrderPrice"><fmt:formatNumber pattern="###,###,###" value="${tot_price}"/></em>원</p>
 									</li>
 									<li>
 										<strong>배송비</strong>
-										<p><em id="totalDeliveryFee">0</em>원</p>
+										<p><em id="totalDeliveryFee"><fmt:formatNumber pattern="###,###,###" value="${tot_delivery}"/></em>원</p>
 									</li>
 									<li>
 										<strong>할인금액</strong>
 										<p><em id="totalDiscountPrice">0</em>원</p>
 									</li>
 									<li>
-										<strong>포인트 사용금액</strong>
-										<p><em id="totalPointPrice">0</em>원</p>
-									</li>
-									<li>
 										<strong style="margin-top: 15px; color: #F15F5F;">회원 주문시 혜택</strong>
 									</li>
 									<li>
-										<p style="float: left; color: #F15F5F;">Point <em id = point style="font-size: 1.25em">2,250</em> 적립가능</p>
+										<p style="float: left; color: #F15F5F;">Point <em id = point style="font-size: 1.25em"><fmt:formatNumber pattern="###,###,###" value="${tot_point}"/></em> 적립가능</p>
 										<button id="btn_regist">회원가입</button>
 									</li>
 								</ul>
@@ -245,9 +232,12 @@
 						</div>
 					</div>
 					<div class="order_non_payment_agree">
-						<button id="btn_cart" onclick="location='${root}/order/cart.do'">장바구니 가기</button>
+						<input type="hidden" name="nonmember_id" value="${nonmember_id}">
+						<input type="hidden" name="tot_order_price" value="${tot_price}">
+						<button type="button" id="btn_cart" onclick="location='${root}/order/cart.do'">장바구니 가기</button>
 						<button id="btn_order">결제하기</button>
 					</div>
+					</form>
 				</div>
 			</div>
 		</div>

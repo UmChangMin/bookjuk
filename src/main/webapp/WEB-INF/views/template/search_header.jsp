@@ -20,7 +20,7 @@
 		<div class="header_top">
 			<div class="header_top_inner">
 
-				<c:if test="${member_level == null && member_id==null}">
+				<c:if test="${member_level == null && member_id==null || member_id == '비회원'}">
 					<ul class="header_lnb_right">
 						<li><a href="" class="openMask" onclick="login('${root}')">로그인</a></li>
 						<li><a class="openMask2" href="" onclick="registe('${root}')">회원가입</a></li>
