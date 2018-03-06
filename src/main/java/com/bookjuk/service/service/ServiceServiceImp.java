@@ -164,7 +164,7 @@ public class ServiceServiceImp implements ServiceService {
 		//LogAspect.logger.info(LogAspect.logMsg+"잘 들어갔니? "+check);
 		
 		mav.addObject("check",check);
-		mav.setViewName("service/service_contact/service_contact_writeOk.search");
+		mav.setViewName("service/service_contact/service_contact_writeOk.empty");
 	}
 
 	@Override	// 180227 강민아 1:1문의 리스트
@@ -213,7 +213,11 @@ public class ServiceServiceImp implements ServiceService {
 			mav.setViewName("service/service_contact/service_contact_list.search");
 		}
 		
-		
+		// 답변완료시 답변완료 변경 해야함 ---> 맞는지 추후에 확인하기
+		ServiceContactDto serviceContactDto=new ServiceContactDto();
+		if(serviceContactDto.getContact_answer_whether()=="답변대기중"){
+			serviceContactDto.setContact_answer("답변완료");
+		}
 	}
 
 	@Override	//180227 강민아 1:1문의 읽기
@@ -230,6 +234,11 @@ public class ServiceServiceImp implements ServiceService {
 		if(serviceContactDto.getContact_file_name()!=null) {
 			int index=serviceContactDto.getContact_file_name().indexOf("_")+1;
 			serviceContactDto.setContact_file_name(serviceContactDto.getContact_file_name().substring(index));
+		}
+		
+		// 답변시 내용추가 해야함  ---> 맞는지 추후에 확인하기
+		if(serviceContactDto.getContact_answer()!=null) {
+			serviceContactDto.setContact_answer(serviceContactDto.getContact_answer());
 		}
 		
 		mav.addObject("contact_num",contact_num);
@@ -404,7 +413,7 @@ public class ServiceServiceImp implements ServiceService {
 		mav.addObject("contact_num",contact_num);
 		mav.addObject("pageNumber",pageNumber);
 		
-		mav.setViewName("service/service_contact/service_contact_updateOk.search");
+		mav.setViewName("service/service_contact/service_contact_updateOk.empty");
 	}
 	
 }

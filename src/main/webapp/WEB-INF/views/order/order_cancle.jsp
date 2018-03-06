@@ -9,9 +9,9 @@
 <title>취소/교환/환불</title>
 <link rel="stylesheet" type="text/css"href="${root}/css/order/order_cancle.css" />
 <link rel="stylesheet" type="text/css"href="${root}/css/template/basic.css" />
-<link rel="stylesheet" type="text/css" href="${root}/jqueryUI/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="${root}/jqueryUI/jquery-ui2.css">
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
-<script type="text/javascript" src="${root}/jqueryUI/jquery-ui.js"></script>
+<script type="text/javascript" src="${root}/jqueryUI/jquery-ui2.js"></script>
 <script type="text/javascript" src="${root}/js/order/order_cancle.js"></script>
 </head>
 <body>

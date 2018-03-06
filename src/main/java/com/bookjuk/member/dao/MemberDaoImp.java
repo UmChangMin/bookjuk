@@ -1,6 +1,7 @@
 package com.bookjuk.member.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -8,6 +9,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.bookjuk.admin.dto.ZipCodeDto;
 import com.bookjuk.member.dto.MemberDto;
 
 @Component
@@ -56,4 +58,25 @@ public class MemberDaoImp implements MemberDao {
 		
 		return sqlSession.selectOne("memberFindPwd", hMap);
 	}
+
+	@Override
+	public int delete(String member_id) {
+
+		return sqlSession.delete("delete",member_id);
+	}
+
+	@Override
+	public MemberDto upSelect(String member_id) {
+		
+		return sqlSession.selectOne("upSelect",member_id);
+	}
+
+	@Override
+	public int update(MemberDto memberDto) {
+		
+		return sqlSession.update("update",memberDto);
+	}
+
+
+	
 }

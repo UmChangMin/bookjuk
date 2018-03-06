@@ -23,4 +23,19 @@
   	<select id="memberFindPwd" parameterType="java.util.Map" resultType="String">
   		select member_password from member where member_id = #{member_id} and member_email = #{member_email}
   	</select>
+  	
+  	<!-- 회원탈퇴 -->
+  	<delete id="delete" parameterType="String">
+  		<![CDATA[delete from member where member_id=#{member_id}]]>
+  	</delete>
+  	
+  	<!-- 회원수정 -->
+  	<select id="upSelect" parameterType="String" resultType="com.bookjuk.member.dto.MemberDto">
+  		<![CDATA[select * from member where member_id=#{member_id}]]>
+  	</select>
+  	
+  	<update id="update" parameterType="com.bookjuk.member.dto.MemberDto">
+  		<![CDATA[update member set member_password=#{member_password},member_email=#{member_email},member_postcode=#{member_postcode},member_address=#{member_address},member_address_detail=#{member_address_detail},member_phone=#{member_phone} where member_num=#{member_num}]]>
+  	</update>
+  	
 </mapper>

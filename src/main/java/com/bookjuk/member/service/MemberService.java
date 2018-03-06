@@ -8,4 +8,9 @@ public interface MemberService {
 	public void checkId(ModelAndView mav);
 	public void findId(ModelAndView mav);
 	public void findPwd(ModelAndView mav);
+	
+	public void deleteOk(ModelAndView mav);
+	public void update(ModelAndView mav);
+	public void updateOk(ModelAndView mav);
+	public void zipcode(ModelAndView mav);
 }

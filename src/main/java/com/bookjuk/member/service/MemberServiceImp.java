@@ -5,11 +5,14 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
+
+import com.bookjuk.aop.LogAspect;
 import com.bookjuk.member.dao.MemberDao;
 import com.bookjuk.member.dto.MemberDto;
 
@@ -104,4 +107,68 @@ public class MemberServiceImp implements MemberService {
 		mav.setViewName("member/member_find_pwdOk.empty");
 		
 	}
+
+	
+	// 회원 탈퇴 180306 강민아
+	@Override
+	public void deleteOk(ModelAndView mav) {
+		Map<String, Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		MemberDto memberDto = (MemberDto) map.get("memberDto");
+		
+		String member_id=request.getParameter("member_id");
+		
+		int check=memberDao.delete(member_id);
+		LogAspect.logger.info(LogAspect.logMsg+member_id);
+		
+		mav.addObject("check",check);
+		mav.setViewName("member/member_deleteOk.empty");
+		
+	}
+
+	// 회원수정 180306 강민아
+	@Override
+	public void update(ModelAndView mav) {
+		Map<String, Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		HttpSession session=request.getSession();
+		String member_id=(String)session.getAttribute("member_id");
+		//LogAspect.logger.info(LogAspect.logMsg+"아이디:"+member_id);
+		
+		MemberDto memberDto=memberDao.upSelect(member_id);
+		//LogAspect.logger.info(LogAspect.logMsg+memberDto.toString());
+		
+		mav.addObject("memberDto",memberDto);
+	
+		mav.setViewName("member/member_update.search");
+		
+	}
+
+	// 우편번호 
+	@Override
+	public void zipcode(ModelAndView mav) {
+		mav.setViewName("member/member_zipcode.empty");
+	}
+
+	// 회원수정 180306 강민아
+	@Override
+	public void updateOk(ModelAndView mav) {
+		Map<String, Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		MemberDto memberDto=(MemberDto)map.get("memberDto");
+		
+		LogAspect.logger.info(LogAspect.logMsg+memberDto.toString());
+	
+		int check=memberDao.update(memberDto);
+		//LogAspect.logger.info(LogAspect.logMsg+check);
+		mav.addObject("check",check);
+		
+	
+		mav.setViewName("member/member_updateOk.search");
+		
+	}
+	
+	
+	
 }

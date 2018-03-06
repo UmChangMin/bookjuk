@@ -85,7 +85,8 @@ public class MemberController {
 		memberService.registOk(mav);
 		
 		return mav;
-	}
+	}	
+	
 	
 	@RequestMapping(value = "/checkId.do")
 	public ModelAndView checkId(HttpServletRequest request, HttpServletResponse response) {
@@ -97,24 +98,13 @@ public class MemberController {
 		return null;
 	}
 	
-	@RequestMapping(value = "zipcode.do")
+	@RequestMapping(value = "/zipcode.do")
 	public ModelAndView zipcode(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("member/member_zipcode.empty");
-		return mav;
-	}
-	
-	@RequestMapping(value = "update.do")
-	public ModelAndView update(HttpServletRequest request, HttpServletResponse response) {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("member/member_update.search");
-		return mav;
-	}
-	
-	@RequestMapping(value = "delete.do")
-	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response) {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("member/member_delete.search");
+		mav.addObject("request",request);
+		
+		memberService.zipcode(mav);
+		
 		return mav;
 	}
 	
@@ -153,4 +143,44 @@ public class MemberController {
 		return mav;
 	}
 	
+	// 회원탈퇴
+	@RequestMapping(value = "/delete.do", method = RequestMethod.GET)
+	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		
+		mav.setViewName("member/member_delete.search");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/deleteOk.do", method = RequestMethod.POST)
+	public ModelAndView deleteOk(HttpServletRequest request, HttpServletResponse response, MemberDto memberDto) {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("request", request);
+		mav.addObject("memberDto",memberDto);
+		memberService.deleteOk(mav);
+		
+		return mav;
+	}
+	
+	// 회원수정
+	@RequestMapping(value = "/update.do", method = RequestMethod.GET)
+	public ModelAndView update(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request",request);
+		
+		memberService.update(mav);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/updateOk.do", method = RequestMethod.POST)
+	public ModelAndView updateOk(HttpServletRequest request, HttpServletResponse response,MemberDto memberDto) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("memberDto",memberDto);
+		
+		memberService.updateOk(mav);
+		return mav;
+	}
 }

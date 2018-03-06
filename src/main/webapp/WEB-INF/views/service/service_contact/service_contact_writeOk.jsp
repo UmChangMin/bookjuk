@@ -13,14 +13,14 @@
 	
 	<c:if test="${check > 0 }">
 		<script type="text/javascript">
-			//alert("글쓰기가 완료 되었습니다.");
+			alert("글쓰기가 완료 되었습니다.");
 			location.href="${root}/service/contact/list.do";
 		</script>
 	</c:if>
 	
 	<c:if test="${check==0}">
 		<script type="text/javascript">
-			//alert("글쓰기가 정상처리 되지 않았습니다.");
+			alert("글쓰기가 정상처리 되지 않았습니다.");
 			location.href="${root}/service/contact/write.do";
 		</script>
 	</c:if>

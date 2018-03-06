@@ -1,20 +1,21 @@
 package com.bookjuk.member.dto;
 
 public class MemberDto {
-	private int member_num;				// 자동증가번호
-	private String member_id;			// 아이디
-	private String member_password; 	// 비밀번호
-	private String member_name;			// 이름
-	private String member_email;		// 이메일
-	private String member_mailing;		// 이메일 수신여부
-	private int member_birth;			// 생년월일
-	private int member_postcode;		// 우편번호
-	private String member_address;		// 주소
-	private String member_phone;		// 핸드폰번호
-	private int member_point;			// 적립금
-	private int birthday_coupon;		// 생일쿠폰
-	private int delivery_coupon;		// 무료배송쿠폰
-	private String member_level;		// 회원레벨
+	private int member_num;					// 자동증가번호
+	private String member_id;				// 아이디
+	private String member_password; 		// 비밀번호
+	private String member_name;				// 이름
+	private String member_email;			// 이메일
+	private String member_mailing;			// 이메일 수신여부
+	private int member_birth;				// 생년월일
+	private int member_postcode;			// 우편번호
+	private String member_address;			// 주소
+	private String member_address_detail;	// 상세주소
+	private String member_phone;			// 핸드폰번호
+	private int member_point;				// 적립금
+	private int birthday_coupon;			// 생일쿠폰
+	private int delivery_coupon;			// 무료배송쿠폰
+	private String member_level;			// 회원레벨
 	
 	public int getMember_num() {
 		return member_num;
@@ -70,6 +71,12 @@ public class MemberDto {
 	public void setMember_address(String member_address) {
 		this.member_address = member_address;
 	}
+	public String getMember_address_detail() {
+		return member_address_detail;
+	}
+	public void setMember_address_detail(String member_address_detail) {
+		this.member_address_detail = member_address_detail;
+	}
 	public String getMember_phone() {
 		return member_phone;
 	}
@@ -106,9 +113,9 @@ public class MemberDto {
 		return "MemberDto [member_num=" + member_num + ", member_id=" + member_id + ", member_password="
 				+ member_password + ", member_name=" + member_name + ", member_email=" + member_email
 				+ ", member_mailing=" + member_mailing + ", member_birth=" + member_birth + ", member_postcode="
-				+ member_postcode + ", member_address=" + member_address + ", member_phone=" + member_phone
-				+ ", member_point=" + member_point + ", birthday_coupon=" + birthday_coupon + ", delivery_coupon="
-				+ delivery_coupon + ", member_level=" + member_level + "]";
+				+ member_postcode + ", member_address=" + member_address + ", member_address_detail="
+				+ member_address_detail + ", member_phone=" + member_phone + ", member_point=" + member_point
+				+ ", birthday_coupon=" + birthday_coupon + ", delivery_coupon=" + delivery_coupon + ", member_level="
+				+ member_level + "]";
 	}
-	
 }

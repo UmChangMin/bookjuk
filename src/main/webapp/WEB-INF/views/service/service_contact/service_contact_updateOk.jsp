@@ -12,7 +12,7 @@
 
 	<c:if test="${check>0 }">
 		<script type="text/javascript">
-			//alert("게시글이 수정되었습니다.");
+			alert("게시글이 수정되었습니다.");
 			location.href = "${root}/service/contact/read.do?contact_num=${contact_num}&pageNumber=${pageNumber}";
 		</script>
 	</c:if>
@@ -20,7 +20,7 @@
 	<c:if test="${check == 0 }">
 
 		<script type="text/javascript">
-			//alert("게시글이 수정되지 않았습니다.");
+			alert("게시글이 수정되지 않았습니다.");
 			location.href = "${root}/service/contact/list.do";
 		</script>
 

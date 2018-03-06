@@ -12,20 +12,7 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/member/member_mypage.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/member/member_mypage.js"></script>
-<script type="text/javascript">
-/* $(function(){
-	$(".v-btn").on("click",function(){
-		var fname = $(this).data("fname");
-		$(".my-frame").css("visibility","hidden");
-		$(".my-frame."+ fname).css("visibility","visible");	
-		return false;
-	});	
-	$(".mpop-close").on("click",function(){
-		$(this).parent().parent().parent().css("visibility","hidden");
-		return false;
-	});
-}); */
-</script>
+
 </head>
 <body>
 	<!-- 마이페이지 시작 강민아-->

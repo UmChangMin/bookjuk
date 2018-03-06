@@ -14,7 +14,8 @@
 </head>
 <body>
 	<!-- 회원탈퇴 시작 강민아-->
-	<form action="" method="post" onsubmit="return memberDelete(this)">
+	<form action="${root}/member/deleteOk.do" method="post" onsubmit="return memberDelete(this)">
+	
 	<div id="memberDelete_all">
 		<div class="memberDeletes">
 			<div class="memberDelete">
@@ -36,13 +37,14 @@
 						<div class="memberDelete_id">
 							<div>아이디</div>
 							<div>
-								<input type="text" disabled="disabled">
+								<input type="text" value="${member_id}" disabled="disabled"/>
+								<input type="hidden" name="member_id" value="${member_id}"/>
 							</div>
 						</div>
 						<div class="memberDelete_pwd">
 							<div>비밀번호</div>
 							<div>
-								<input type="password" name="password" placeholder="비밀번호를 입력하세요.">
+								<input type="password" name="member_password" placeholder="비밀번호를 입력하세요.">
 							</div>
 						</div>
 					</div>	
