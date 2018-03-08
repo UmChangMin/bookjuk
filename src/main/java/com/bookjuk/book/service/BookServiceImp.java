@@ -83,6 +83,8 @@ public class BookServiceImp implements BookService {
 		HttpSession session = (HttpSession) map.get("session");
 		
 		String member_id = (String) session.getAttribute("member_id");
+		String order_id = session.getId();
+		if(member_id != null) order_id = member_id;
 		
 		int book_num = Integer.parseInt(request.getParameter("book_num"));
 		
@@ -115,7 +117,9 @@ public class BookServiceImp implements BookService {
 		bookDto.setBook_publisher_review(bookDto.getBook_publisher_review().replace("\n", "<br/>"));
 		
 		mav.addObject("bookDto", bookDto);
+		mav.addObject("book_num", book_num);
 		mav.addObject("member_id", member_id);
+		mav.addObject("order_id", order_id);
 		mav.addObject("review_count", review_count);
 		mav.addObject("reviewDtoList", reviewDtoList);
 		

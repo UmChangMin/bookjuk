@@ -6,7 +6,19 @@ function cartFunction(obj){
 }
 
 $(function(){
+	$(".bookDetail_buy").click(function(){
+		var order_id = $("#order_id").val();
+		var length = order_id.length;
+		var book_num = $(".book_num").val();
 		
+		if(length > 20){
+			$(location).attr('href', "/bookjuk/order/order_non.do?book_num=" + book_num + "&order_id=" + order_id);
+		}else{
+			$(location).attr('href', "/bookjuk/order/order.do?book_num=" + book_num + "&order_id=" + order_id);
+		}
+		
+	});
+	
 		// tab메뉴 따라오기
 		var tab = $(".bookDetail_tab").offset();
         $( window ).scroll( function() {
@@ -169,3 +181,4 @@ function insertCart(book_num){
 		}
 	})
 }
+

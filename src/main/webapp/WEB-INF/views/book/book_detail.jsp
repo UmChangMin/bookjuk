@@ -62,7 +62,6 @@
 									</div>
 									
 									<div class="bookDetail_info_table">
-										
 										<div class="bookDetail_info_content">
 											<div class="bookDetail_one">정가</div>
 											<div class="bookDetail_two">
@@ -89,13 +88,13 @@
 										
 									</div>
 									<div class="bookDetail_btn">
-										<a href="javascript:insertCart(${bookDto.book_num})" class="bookDetail_cart"><span>책바구니</span></a> 
-										<a href="#" class="bookDetail_buy">구매</a>
+										<a href="javascript:insertCart(${bookDto.book_num})" class="bookDetail_cart"><span>책바구니</span></a>
+										<input type="hidden" id="order_id" value="${order_id}">
+										<input type="hidden" class="book_num" value="${book_num}">
+										<button type="button" class="bookDetail_buy">구매</button>
 									</div>
 								</div>
-
 							</div>
-
 						</div>
 
 						<!-- 에디터의 한마디 시작 -->
