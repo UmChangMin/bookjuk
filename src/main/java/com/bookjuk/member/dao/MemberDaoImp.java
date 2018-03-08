@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import com.bookjuk.admin.dto.ZipCodeDto;
 import com.bookjuk.member.dto.MemberDto;
+import com.bookjuk.service.dto.ServiceContactDto;
 
 @Component
 public class MemberDaoImp implements MemberDao {
@@ -76,7 +77,5 @@ public class MemberDaoImp implements MemberDao {
 		
 		return sqlSession.update("update",memberDto);
 	}
-
-
 	
 }

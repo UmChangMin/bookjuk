@@ -99,7 +99,7 @@
 						
 					</div>
 					
-					<div class="service_contact_btn" align="center">
+					<div class="service_contact_btn1" align="center">
 						<input type="submit" value="등록">&nbsp;
 						<input type="button" value="목록" onclick="location.href='${root}/service/contact/list.do?pageNumber=${pageNumber}'"/>
 						<input type="reset" value="취소">

@@ -1,6 +1,7 @@
 package com.bookjuk.member.service;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,12 +16,17 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bookjuk.aop.LogAspect;
 import com.bookjuk.member.dao.MemberDao;
 import com.bookjuk.member.dto.MemberDto;
+import com.bookjuk.service.dao.ServiceDao;
+import com.bookjuk.service.dto.ServiceContactDto;
 
 @Component
 public class MemberServiceImp implements MemberService {
 
 	@Autowired
 	private MemberDao memberDao;
+	
+	@Autowired
+	private ServiceDao serviceDao;
 
 	@Override
 	public void loginOk(ModelAndView mav) {
@@ -163,9 +169,59 @@ public class MemberServiceImp implements MemberService {
 		int check=memberDao.update(memberDto);
 		//LogAspect.logger.info(LogAspect.logMsg+check);
 		mav.addObject("check",check);
-		
 	
 		mav.setViewName("member/member_updateOk.search");
+	}
+
+
+	@Override
+	public void mypage(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		HttpSession session = (HttpSession) map.get("session");
+		
+		String member_id = (String) session.getAttribute("member_id");
+		
+		System.out.println(member_id);
+	
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null) {pageNumber="1";}
+		
+		int currentPage=Integer.parseInt(pageNumber);
+		
+		int boardSize=5;
+		
+		int startRow=(currentPage-1)*boardSize+1;
+		int endRow=currentPage*boardSize;
+		
+		int count=serviceDao.getBoardCount(member_id);
+		//LogAspect.logger.info(LogAspect.logMsg+"count :"+count);
+		
+
+		List<ServiceContactDto>ServiceContactList=null;
+		if(member_id!=null) {
+			if(count>0) {
+				ServiceContactList=serviceDao.ServiceContactList(startRow,endRow,member_id);
+				//LogAspect.logger.info(LogAspect.logMsg+"글 총개수( ServiceContactList ) :"+ServiceContactList.size());
+				mav.addObject("pageNumber",pageNumber);
+				mav.addObject("currentPage",currentPage);
+				mav.addObject("boardSize",boardSize);
+				mav.addObject("count",count);
+				mav.addObject("ServiceContactList",ServiceContactList);
+			}
+			
+		}else {
+			mav.addObject("member_id", member_id);
+		}
+		
+		// 답변완료시 답변완료 변경 해야함 ---> 맞는지 추후에 확인하기
+		ServiceContactDto serviceContactDto=new ServiceContactDto();
+		if(serviceContactDto.getContact_answer_whether()=="답변대기중"){
+			serviceContactDto.setContact_answer("답변완료");
+		}
+		
+		mav.setViewName("member/member_mypage.search");
 		
 	}
 	

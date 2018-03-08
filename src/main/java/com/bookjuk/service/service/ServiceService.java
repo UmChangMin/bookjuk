@@ -21,6 +21,4 @@ public interface ServiceService {
 	public void contactUpdate(ModelAndView mav);
 	public void contactUpdateOk(ModelAndView mav);
 	
-	
-	
 }

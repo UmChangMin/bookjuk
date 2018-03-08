@@ -52,7 +52,7 @@
 						</div>
 					</div><br/><br/><br/>
 					<c:if test="${fn:length(ServiceContactList)==0}">
-						<div class="service_non2" align="center">게시글이 존재하지 않습니다. 1:1문의로 궁금증을 해결하세요.</div>
+						<div class="service_non2" align="center">문의 게시글이 존재하지 않습니다. 1:1문의로 궁금증을 해결하세요.</div>
 					</c:if>
 					<c:if test="${fn:length(ServiceContactList)>0}">
 					
@@ -109,12 +109,9 @@
 									</c:if>
 								</div>
 							</c:if>
-							<!-- 페이지 번호 끝 -->
+					<!-- 페이지 번호 끝 -->
 						</c:if>
 					<!-- list 끝-->	
-					
-			
-					
 				</div>
 			</div>
 			<!-- 내용부분 끝 -->

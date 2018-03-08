@@ -36,7 +36,6 @@
 
 .coupon_notice div{
 	font-weight: bold;
-    font-size: 13px;
     line-height: 22px;
     color: #999;
 }
@@ -49,7 +48,6 @@
 }
 
 .coupon_bot>ul{
-	font-size:15px;
 	font-weight: 600;
 }
 
@@ -86,7 +84,6 @@
 
 .coupon_bot_content1{
 	margin-top: 20px;
-	font-size:15px;
 	font-weight: 600;
 	color: #666;
 }
@@ -99,7 +96,6 @@
 }
 
 .coupon_bot_content2>ul{
-	font-size:15px;
 	color: #666;
 }
 

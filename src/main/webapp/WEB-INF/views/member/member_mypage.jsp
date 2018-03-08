@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/member/member_mypage.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/member/member_mypage.js"></script>
+<script type="text/javascript" src="${root}/js/service/service_contact.js"></script>
 
 </head>
 <body>
@@ -66,6 +68,11 @@
 					</div>
 				<div class="myPage_warp2">나의 문의 내역</div>
 				<div class="myPage_title1">
+					<c:if test="${fn:length(ServiceContactList)==0}">
+						<div class="service_non2" align="center" style="color: #666;">문의 게시글이 존재하지 않습니다. 1:1문의로 궁금증을 해결하세요.</div>
+					</c:if>
+					
+					<c:if test="${fn:length(ServiceContactList)>0}">
 					<!-- 1:1문의 타이틀 시작-->
 					<div class="myPage_customer_inquiry_list_content">
 						<div align="center">글번호</div>
@@ -76,20 +83,50 @@
 					<!-- 1:1문의 타이틀 끝-->
 					
 					<!-- 1:1문의 답변 리스트 시작-->
-					<c:forEach var="i" begin="1" end="5">
+					<c:forEach var="ServiceContactDto" items="${ServiceContactList}">
 					<div class="myPage_customer_inquiry_list_content_list">
-						<div align="center">0001</div>
-						<div><a href="${root}/service/contact/read.do">주문취소 문의 입니다.</a></div>
-						<div align="center">2018-01-27</div>
-						<div align="center">답변완료</div>
+						<div align="center">${ServiceContactDto.rnum}</div>
+						<div><a href="javascript:readFunction('${root}','${ServiceContactDto.contact_num}','${pageNumber}')">${ServiceContactDto.contact_subject}</a></div>
+						<div align="center">
+								<fmt:formatDate var="contact_date" value="${ServiceContactDto.contact_date}" pattern="yyyy-MM-dd"/>${contact_date}
+							</div>
+						<div align="center">${ServiceContactDto.contact_answer_whether}</div>
 					</div>
 					</c:forEach>
+					</c:if>
 					 <!-- 1:1문의 답변 리스트 끝-->
 					 
 					 <!-- 페이지번호 시작 -->
+					 <c:if test="${fn:length(ServiceContactList)>0}">
 					<div class="myPage_customer_inquiry_list_pagenate">
-						<a href="" class="myPage_customer_inquiry_list_btn">1</a> 
+						<c:set var="pageCount"
+										value="${count / boardSize + (count % boardSize == 0 ? 0:1)}" />
+									<c:set var="pageBlock" value="${5}" />
+
+									<fmt:parseNumber var="rs"
+										value="${(pageNumber - 1) / pageBlock}" integerOnly="true" />
+
+									<c:set var="startPage" value="${rs * pageBlock + 1}" />
+
+									<c:set var="endPage" value="${startPage + pageBlock - 1}" />
+
+									<c:if test="${endPage > pageCount}">
+										<c:set var="endPage" value="${pageCount}"></c:set>
+									</c:if>
+
+									<c:if test="${startPage > pageBlock}">
+										<a href="${root}/member/mypage.do?pageNumber=${startPage - pageBlock}">[이전]</a>
+									</c:if>
+									
+									<c:forEach var="i" begin="${startPage}" end="${endPage}">
+										<a href="${root}/member/mypage.do?pageNumber=${i}" class="myPage_customer_inquiry_list_btn">${i}</a> 
+									</c:forEach>
+									
+									<c:if test="${endPage < pageCount}">
+										<a href="${root}/member/mypage.do?pageNumber=${startPage + pageBlock}">[다음]</a>
+									</c:if>
 					</div>
+					</c:if>
 					<!-- 페이지 번호 끝 -->
 				</div>
 			</div>

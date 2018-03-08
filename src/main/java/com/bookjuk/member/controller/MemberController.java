@@ -122,10 +122,16 @@ public class MemberController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "mypage.do")
-	public ModelAndView mypage(HttpServletRequest request, HttpServletResponse response) {
+	// 마이페이지
+	@RequestMapping(value = "/mypage.do", method = RequestMethod.GET)
+	public ModelAndView mypage(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("member/member_mypage.search");
+		
+		mav.addObject("request", request);
+		mav.addObject("session",session);
+		
+		memberService.mypage(mav);
+		
 		return mav;
 	}
 	

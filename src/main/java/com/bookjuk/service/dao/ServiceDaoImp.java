@@ -36,9 +36,9 @@ public class ServiceDaoImp implements ServiceDao {
 	}
 
 	@Override
-	public int getBoardCount() {
+	public int getBoardCount(String member_id) {
 		
-		return sqlSession.selectOne("getBoardCount");
+		return sqlSession.selectOne("getBoardCount",member_id);
 	}
 
 	@Override
@@ -128,6 +128,8 @@ public class ServiceDaoImp implements ServiceDao {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("questionList");
 	}
+
+	
 
 	
 	

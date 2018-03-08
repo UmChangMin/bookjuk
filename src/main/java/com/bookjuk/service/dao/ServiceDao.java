@@ -13,7 +13,7 @@ public interface ServiceDao {
 	// 1:1문의
 	public int ServiceWrite(ServiceContactDto serviceContactDto);
 	
-	public int getBoardCount();
+	public int getBoardCount(String member_id);
 	public List<ServiceContactDto> ServiceContactList(int startRow,int endRow,String member_id);
 	
 	public ServiceContactDto ServiceRead(long contact_num);

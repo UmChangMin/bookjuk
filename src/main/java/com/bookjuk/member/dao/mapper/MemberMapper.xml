@@ -38,4 +38,17 @@
   		<![CDATA[update member set member_password=#{member_password},member_email=#{member_email},member_postcode=#{member_postcode},member_address=#{member_address},member_address_detail=#{member_address_detail},member_phone=#{member_phone} where member_num=#{member_num}]]>
   	</update>
   	
+  	<!-- 나의 문의 내역 -->
+  	<select id="mypageCount" resultType="int" >
+  		<![CDATA[select count(*) from service_contact where member_id=#{member_id}]]>
+  	</select>
+  	
+  	<select id="mypageList" parameterType="java.util.Map" resultType="com.bookjuk.service.dto.ServiceContactDto">
+  		<![CDATA[select * from(
+  					SELECT ROWNUM rnum,A.* FROM(
+  						SELECT * FROM service_contact WHERE member_id=#{member_id} ORDER BY contact_num DESC) A)
+  						WHERE rnum>=#{startRow} AND rnum<= #{endRow} 
+              
+  		]]>
+  </select> 
 </mapper>

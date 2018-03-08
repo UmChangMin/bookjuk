@@ -1,6 +1,9 @@
 package com.bookjuk.member.dao;
 
+import java.util.List;
+
 import com.bookjuk.member.dto.MemberDto;
+import com.bookjuk.service.dto.ServiceContactDto;
 
 public interface MemberDao {
 	public int checkId(String id);
@@ -12,4 +15,5 @@ public interface MemberDao {
 	public int delete(String member_id);
 	public MemberDto upSelect(String member_id);
 	public int update(MemberDto memberDto);
+	
 }

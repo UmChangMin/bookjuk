@@ -33,7 +33,6 @@
     margin-left: 25px;
     line-height: 28px;
     font-weight: 600;
-    font-size: 14px;
     color: #46474b;
 }
 
@@ -88,7 +87,6 @@
 	border-bottom: 1px solid #d4d5d6;
     line-height: 44px;
     cursor: pointer;
-    font-size: 14px;
     font-weight: 600;
     color: #46474b;
     overflow: hidden;
@@ -116,7 +114,6 @@
     margin-left: -1px;
     border: 1px solid #d7d7d8;
     background: #F6F6F6;
-    font-size: 16px;
     font-weight: bold;
     text-align: center;
 }
@@ -129,7 +126,6 @@
 
 .service_non1,
 .service_non2{
-	font-size: 15px;
     color: #666;
 }
 

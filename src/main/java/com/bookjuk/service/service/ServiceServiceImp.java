@@ -190,10 +190,9 @@ public class ServiceServiceImp implements ServiceService {
 		int startRow=(currentPage-1)*boardSize+1;
 		int endRow=currentPage*boardSize;
 		
-		int count=serviceDao.getBoardCount();
+		int count=serviceDao.getBoardCount(member_id);
 		//LogAspect.logger.info(LogAspect.logMsg+"count :"+count);
 		
-
 		List<ServiceContactDto>ServiceContactList=null;
 		if(member_id!=null) {
 			if(count>0) {
@@ -203,14 +202,12 @@ public class ServiceServiceImp implements ServiceService {
 				mav.addObject("currentPage",currentPage);
 				mav.addObject("boardSize",boardSize);
 				mav.addObject("count",count);
-				mav.addObject("ServiceContactList",ServiceContactList);
-								
-				mav.setViewName("service/service_contact/service_contact_list.search");
+				mav.addObject("ServiceContactList",ServiceContactList);				
 			}
 			
 		}else {
 			mav.addObject("member_id", member_id);
-			mav.setViewName("service/service_contact/service_contact_list.search");
+			
 		}
 		
 		// 답변완료시 답변완료 변경 해야함 ---> 맞는지 추후에 확인하기
@@ -218,6 +215,8 @@ public class ServiceServiceImp implements ServiceService {
 		if(serviceContactDto.getContact_answer_whether()=="답변대기중"){
 			serviceContactDto.setContact_answer("답변완료");
 		}
+		
+		mav.setViewName("service/service_contact/service_contact_list.search");
 	}
 
 	@Override	//180227 강민아 1:1문의 읽기
@@ -226,7 +225,7 @@ public class ServiceServiceImp implements ServiceService {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
 		
-		long contact_num=Long.parseLong(request.getParameter("contact_num").trim());
+		long contact_num=Long.parseLong(request.getParameter("contact_num"));
 		String pageNumber = request.getParameter("pageNumber");
 		
 		ServiceContactDto serviceContactDto=serviceDao.ServiceRead(contact_num);

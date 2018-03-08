@@ -13,4 +13,6 @@ public interface MemberService {
 	public void update(ModelAndView mav);
 	public void updateOk(ModelAndView mav);
 	public void zipcode(ModelAndView mav);
+	
+	public void mypage(ModelAndView mav);
 }
