@@ -6,25 +6,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>도서검색 리스트</title>
+<title>도서 베스트셀러</title>
 <c:set var="root" value="${pageContext.request.contextPath }" />
 <link rel="stylesheet" type="text/css" href="${root}/css/book/book_best.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css" />
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 </head>
 <body>
-	<!-- 검색 리스트  -->
+	<!-- 도서 목록 리스트 시작 강민아 -->
 	<form action="">
 		<div id="bookList_all">
 			<div class="bookLists">
 				<div class="bookList">
 					<div class="bookList_mid">
 						<!-- 도서 정보 top 시작 -->
-						<c:forEach items="${bookDtoList}" var="bookDto">
-							<div class="bookList_wrap">
-								<h3>전체 "${bookDto.book_name}"검색결과</h3>
-							</div>
-						</c:forEach>
+					<c:if test="${search!=null}">
+						<div class="bookList_wrap">
+							<h3>전체 '${bookDto.book_name}'검색결과</h3>
+						</div>
+					</c:if>
 						<!-- 도서 정보 top 끝 -->
 						<!-- 도서 보기 시작 -->
 						<div class="bookDetail_mid_images">
@@ -103,14 +103,15 @@
 							</c:if>
 							
 							<c:if test="${startPage > pageBlock}">
-								<a href="${root}/book/book_search_List?pageNumber=${startPage - pageBlock}&viewType=${viewType}" class="bookList_num_before">이전</a>
+								<a href="${root}/book/best.do?pageNumber=${startPage - pageBlock}&viewType=${viewType}" class="bookList_num_before">이전</a>
 							</c:if>
 							
 							<c:forEach var="i" begin="${startPage}" end="${endPage}" >
+								<a href="${root}/book/best.do?pageNumber=${i}&viewType=${viewType}" class="bookList_num01">${i}</a>
 							</c:forEach>
 							
 							<c:if test="${endPage < pageCount}">
-								<a href="${root}/book/book_search_List?pageNumber=${startPage + pageBlock}&viewType=${viewType}" class="bookList_num_next">다음</a>
+								<a href="${root}/book/best.do?pageNumber=${startPage + pageBlock}&viewType=${viewType}" class="bookList_num_next">다음</a>
 							</c:if>
 						</div>
 						<!-- 페이지 번호 끝 -->

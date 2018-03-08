@@ -62,7 +62,7 @@
                src="${root}/img/template/header/bookjuk_headlogo.png" /></a>
          </div>
          <div class="header_mid_search">
-            <form action="${root}/list/detail.do" method="get">
+            <form action="${root}/book/book_search_List.do" method="get">
 					<div class="header_mid_search_inner">
 						<input type="text" name="SearchString" id="header_SearchString" class="header_SearchString"/>
 						<input type="button" name="Search_btn" class="header_Search_btn" />

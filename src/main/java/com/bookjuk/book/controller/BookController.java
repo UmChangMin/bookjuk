@@ -95,7 +95,7 @@ public class BookController {
 		return null;
 	}
 	
-	@RequestMapping(value="/book_search_List.do")
+	@RequestMapping(value="/book_search_List.do",method=RequestMethod.GET)
 	public ModelAndView book_search_List(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);

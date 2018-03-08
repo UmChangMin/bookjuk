@@ -268,10 +268,33 @@ public class BookServiceImp implements BookService {
 
 	@Override
 	public void book_search_List(ModelAndView mav) {
-		Map<String, Object> map = mav.getModelMap();
-		HttpServletRequest request =(HttpServletRequest) map.get("request");
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+
+		String viewType = viewType(request);
+
+		String path = request.getServletPath();
+		String category = path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
+
+		/*책 리스트 개수*/
+		int count = bookDao.bookMainCateCount(category);
+
+		/*페이징 처리*/
+		HashMap<String, Integer> page = page(request, count);
 		
-		String pageNumber = request.getParameter("pageNumber")==null ? "1" : request.getParameter("pageNumber");
+		int currentPage = page.get("currentPage");
+		int startRow = page.get("startRow");
+		int endRow = page.get("endRow");
+		
+		List<BookDto> bookDtoList = bookDao.bookMainCateList(startRow, endRow, category);
+		
+		mav.addObject("viewType", viewType);
+		mav.addObject("pageCount", page.get("pageCount"));
+		mav.addObject("pageBlock", page.get("pageBlock"));
+		mav.addObject("startPage", page.get("startPage"));
+		mav.addObject("endPage", page.get("endPage"));
+		mav.addObject("pageNumber", currentPage);
+		mav.addObject("bookDtoList", bookDtoList);
 		
 		
 		mav.setViewName("book/book_search_List.tiles");
