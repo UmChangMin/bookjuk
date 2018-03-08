@@ -15,4 +15,8 @@ public interface UserDao {
 	public List<BookDto> bestNovelList();
 	public List<BookDto> mdList();
 	public List<UserDto> locationDtoList();
+	public List<BookDto> bookList(); 
+	public List<BookDto> search_bookList(); 
+
+
 }

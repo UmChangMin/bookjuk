@@ -11,7 +11,9 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/template/header.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/template/real_time.css" />
+<link rel="stylesheet" type="text/css" href="${root}/jqueryUI/jquery-ui.css">
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
+<script type="text/javascript" src="${root}/jqueryUI/jquery-ui.js"></script>
 <script type="text/javascript" src="${root}/js/main/main_header.js"></script>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script> -->
 </head>
@@ -20,9 +22,9 @@
 		<div class="header_top">
 			<div class="header_top_inner">
 
-				<c:if test="${member_level == null && member_id==null || member_id == '비회원' || member_level == 'none'}">
+				<c:if test="${member_level == null && member_id==null || member_id == '비회원'}">
 					<ul class="header_lnb_right">
-						<li><a href="" class="openMask" onclick="login('${root}', ${nonmember_id})">로그인</a></li>
+						<li><a href="" class="openMask" onclick="login('${root}')">로그인</a></li>
 						<li><a class="openMask2" href="" onclick="registe('${root}')">회원가입</a></li>
 						<li><a class="" href="${root}/order/cart.do">장바구니</a></li>
 						<li><a class="openMask3" href="${root}/order/list.do" onclick="orderdelivery('${root}')">주문/배송조회</a></li>
@@ -61,11 +63,12 @@
 					src="${root}/img/template/header/bookjuk_headlogo.png" /></a>
 			</div>
 			<div class="header_mid_search">
-				<div class="header_mid_search_inner">
-					<input type="text" name="SearchString" class="header_SearchString">
-					<input type="button" name="Search_btn" class="header_Search_btn"
-						onclick="">
-				</div>
+				<form action="${root}/list/detail.do" method="get">
+					<div class="header_mid_search_inner">
+						<input type="text" name="SearchString" id="header_SearchString" class="header_SearchString"/>
+						<input type="button" name="Search_btn" class="header_Search_btn" />
+					</div>
+				</form>
 
 				<!-- 실시간 급상승 : 허단비 -->
 				<!-- 실시간 시작  -->
@@ -101,12 +104,10 @@
 			</div>
 			<div class="tv_container">
 				<div class="tv_prod">
-					<a href="#"><img
-						src="http://bookimg.bookcube.com/94/1308/130801548.jpg"></a>
+					<a href="#"><img src="http://bookimg.bookcube.com/94/1308/130801548.jpg"></a>
 				</div>
 				<div class="tv_prod">
-					<a href="#"><img
-						src="http://bookimg.bookcube.com/94/1712/171201262.jpg"></a>
+					<a href="#"><img src="http://bookimg.bookcube.com/94/1712/171201262.jpg"></a>
 				</div>
 				<div class="tv_prod">
 					<a href="#"><img

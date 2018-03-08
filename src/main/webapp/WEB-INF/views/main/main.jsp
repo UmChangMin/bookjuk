@@ -9,7 +9,7 @@
 <title>북적북적</title>
 <link rel="stylesheet" type="text/css" href="${root}/css/main/main.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css"/>
-<script type="text/javascript" src="${root}/js/jquery.js"></script>
+<%-- <script type="text/javascript" src="${root}/js/jquery.js"></script> --%>
 <script type="text/javascript" src="${root}/js/main/main_header.js"></script>
 <script type="text/javascript" src="${root}/js/main/main_banner.js"></script>
 </head>

@@ -261,4 +261,16 @@ public class BookServiceImp implements BookService {
 		
 		bookDao.insertCart(bookDto);
 	}
+
+	@Override
+	public void book_search_List(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request =(HttpServletRequest) map.get("request");
+		
+		String pageNumber = request.getParameter("pageNumber")==null ? "1" : request.getParameter("pageNumber");
+		
+		
+		mav.setViewName("book/book_search_List.tiles");
+		
+	}
 }

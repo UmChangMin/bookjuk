@@ -1,11 +1,16 @@
 package com.bookjuk.user.service;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
@@ -77,6 +82,77 @@ public class UserServiceImp implements UserService {
 		
 		mav.addObject("locationDtoList", locationDtoList);	
 		mav.setViewName("main/location.search");
+	}
+
+	@Override
+	public void main_header(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+
+		HttpServletResponse response = (HttpServletResponse) map.get("response");
+
+		List<BookDto> bookList = mainDao.bookList();
+		LogAspect.logger.info(LogAspect.logMsg + bookList.size());
+
+		try {
+
+			JSONArray arrTitle = new JSONArray();
+			JSONArray arrName = new JSONArray();
+			String jsonStr = null;
+
+			for (int i = 0; i < bookList.size(); i++) {
+				BookDto bookDto = bookList.get(i);
+
+				String searchValue = bookDto.getBook_name() + "-" + bookDto.getBook_author();
+
+				arrTitle.add(searchValue);
+			}
+
+			jsonStr = JSONValue.toJSONString(arrTitle);
+			response.setContentType("application/x-json;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.print(jsonStr);
+			out.flush();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		
+	}
+
+	@Override
+	public void search_header(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+
+		HttpServletResponse response = (HttpServletResponse) map.get("response");
+
+		List<BookDto> search_bookList = mainDao.search_bookList();
+		LogAspect.logger.info(LogAspect.logMsg + search_bookList.size());
+
+		try {
+
+			JSONArray arrTitle = new JSONArray();
+			JSONArray arrName = new JSONArray();
+			String jsonStr = null;
+
+			for (int i = 0; i < search_bookList.size(); i++) {
+				BookDto bookDto = search_bookList.get(i);
+
+				String searchValue = bookDto.getBook_name() + "-" + bookDto.getBook_author();
+
+				arrTitle.add(searchValue);
+			}
+
+			jsonStr = JSONValue.toJSONString(arrTitle);
+			response.setContentType("application/x-json;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.print(jsonStr);
+			out.flush();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	/* �̺�Ʈ �̱���

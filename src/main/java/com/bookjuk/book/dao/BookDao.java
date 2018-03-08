@@ -15,6 +15,7 @@ public interface BookDao {
 	public List<BookDto> discountList(int startRow, int endRow);
 	public List<BookDto> bookMainCateList(int startRow, int endRow, String category);
 	public List<BookDto> bookSubCateList(int startRow, int endRow, String category);
+	public List<BookDto> search_List(int startRow, int endRow);
 	
 	public List<BookDto> discountSelect();
 	public int discountUpdate(int book_num);

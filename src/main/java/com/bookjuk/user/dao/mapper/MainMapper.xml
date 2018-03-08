@@ -55,5 +55,9 @@
 	<select id="locationDtoList" resultType="com.bookjuk.user.dto.UserDto">
 		select * from location
 	</select>
+	
+	<select id="bookList" resultType="com.bookjuk.book.dto.BookDto">
+		select book_name,book_author from book
+	</select>
 
 </mapper>

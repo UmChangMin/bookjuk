@@ -86,5 +86,71 @@ $(function() {
 
 });
 
+//검색창 자동완성 허단비
+$( function() {
+   var arr=[];
+    $.ajax({
+        type:"post",
+        url:"main_header.do",
+        dataType:"json",
+        success: function(data){
+           Array(data)
+        }
+     });
+   
+    function  Array(data){
+       for(var i=0; i<data.length; i++){
+          arr.push(data[i]);
+       }
+       /*alert(arr.length);*/
+       
+        $( "#header_SearchString" ).autocomplete({
+            source: arr,
+            autoFocus:true   //첫번째 값을 자동 focus한다.
+             
+             /*  var request = $.ul.autocomplete.filter(arr);*/
+               
+              /* response(request.slice(0,10));*/
+            
+          });
+    }
+ 
+} );
+
+$(function(){
+   $(".header_Search_btn").click(function(){
+      $(location).attr("href","${root}/book/book_search_List.do");
+   });
+});
+
+$( function() {
+   var arr=[];
+    $.ajax({
+        type:"post",
+        url:"search_header.do",
+        dataType:"json",
+        success: function(data){
+           Array(data)
+        }
+     });
+   
+    function  Array(data){
+       for(var i=0; i<data.length; i++){
+          arr.push(data[i]);
+       }
+       /*alert(arr.length);*/
+       
+        $( "#header_SearchString" ).autocomplete({
+            source: arr,
+            autoFocus:true   //첫번째 값을 자동 focus한다.
+             
+          /*var request = $.ul.autocomplete.filter(arr,response.term);*/
+               
+              /* response(request.slice(0,10));*/
+            
+          });
+    }
+ 
+} );
 
 

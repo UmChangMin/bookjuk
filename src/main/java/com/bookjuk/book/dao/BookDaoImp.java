@@ -157,4 +157,10 @@ public class BookDaoImp implements BookDao {
 	public int insertCart(BookDto bookDto) {
 		return sqlSession.insert("insertCart", bookDto);
 	}
+
+	@Override
+	public List<BookDto> search_List(int startRow, int endRow) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
