@@ -36,7 +36,7 @@ label {
 }
 
 .content_box1 {
-	margin-top: 110px;
+	margin-top: 60px;
 }
 
 .content_admin_alert {
@@ -59,7 +59,7 @@ label {
 .content_wrap_body_left {
 	width: 900px;
 	border: 1px solid #CCCCCC;
-	height: 500px;	
+	height: auto;	
 	margin-left: 50px;
 }
 
@@ -77,6 +77,9 @@ label {
 	width: 410px;
 }
 
+.content_form{
+	    margin-bottom: 100px
+}
 .content_middle_line_h_move1 {
 	margin: 0px 359px;
 }
@@ -243,4 +246,77 @@ label {
 	height: 252px;
 	border: 1px solid #CCCCCC;
 	margin-top: 10px;
+}
+
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+
+.book_content, .book_header{
+	border: 1px solid;
+	height: auto;
+	line-height: 40px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.book_content>ul, , .book_header>ul{
+	margin-bottom:0px;
+}
+
+.book_content li, .book_header li{
+	float:left;
+}
+
+.book_book_num{
+	width:70px;
+	border-right:1px solid;
+	border-bottom: 1px solid;
+}
+
+.book_book_title{
+	width:380px;
+	border-bottom: 1px solid;
+}
+
+.book_book_pub{
+	width:150px;
+	border-left:1px solid;
+	border-bottom: 1px solid;
+}
+
+.book_book_author{
+	width:170px;
+	border-left:1px solid;
+	border-bottom: 1px solid;
+}
+
+.book_book_date{
+	width:98px;
+	border-left:1px solid;
+	border-bottom: 1px solid;
+}
+
+.book_box_area{
+	width:800px;
+}
+
+.book_content>ul:last-child>li {
+	border-bottom: 0px;
+}
+
+/**/
+
+.book_content ul[visible='false'],
+.no-result{
+  display:none;
+}
+
+.book_content ul[visible='true']{
+  display:table-row;
 }

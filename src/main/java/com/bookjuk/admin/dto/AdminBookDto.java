@@ -3,7 +3,7 @@ package com.bookjuk.admin.dto;
 import java.util.Date;
 
 public class AdminBookDto {
-	  private long book_num; //NUMBER(10) PRIMARY KEY,    --상품번호
+	  private int book_num; //NUMBER(10) PRIMARY KEY,    --상품번호
 	  private String book_img; //VARCHAR2(100) NOT NULL,    --도서이미지
 	  private String book_name; //VARCHAR2(100) NOT NULL,   --책 제목
 	  private String book_author; //VARCHAR2(30) NOT NULL,    --저자 
@@ -12,6 +12,7 @@ public class AdminBookDto {
 	  private int book_score; //NUMBER(2) NOT NULL,        --평점
 	  private String book_editor; //VARCHAR2(4000),           --에디터 한마디
 	  private String book_intro; //VARCHAR2(4000),            --목차
+	  private String book_contents; //VARCHAR2(4000),         --책소개
 	  private String book_author_info; //VARCHAR2(4000),      --저자소개
 	  private String book_publisher_review; //VARCHAR2(4000)    --출판사 리뷰
 	  
@@ -20,10 +21,10 @@ public class AdminBookDto {
 	  
 	  private String category_main_eng;
 	  private String category_sub_eng;
-	public long getBook_num() {
+	public int getBook_num() {
 		return book_num;
 	}
-	public void setBook_num(long book_num) {
+	public void setBook_num(int book_num) {
 		this.book_num = book_num;
 	}
 	public String getBook_img() {
@@ -74,6 +75,12 @@ public class AdminBookDto {
 	public void setBook_intro(String book_intro) {
 		this.book_intro = book_intro;
 	}
+	public String getBook_contents() {
+		return book_contents;
+	}
+	public void setBook_contents(String book_contents) {
+		this.book_contents = book_contents;
+	}
 	public String getBook_author_info() {
 		return book_author_info;
 	}
@@ -115,9 +122,10 @@ public class AdminBookDto {
 		return "AdminBookDto [book_num=" + book_num + ", book_img=" + book_img + ", book_name=" + book_name
 				+ ", book_author=" + book_author + ", book_publisher=" + book_publisher + ", book_date=" + book_date
 				+ ", book_score=" + book_score + ", book_editor=" + book_editor + ", book_intro=" + book_intro
-				+ ", book_author_info=" + book_author_info + ", book_publisher_review=" + book_publisher_review
-				+ ", category_main_kor=" + category_main_kor + ", category_sub_kor=" + category_sub_kor
-				+ ", category_main_eng=" + category_main_eng + ", category_sub_eng=" + category_sub_eng + "]";
+				+ ", book_contents=" + book_contents + ", book_author_info=" + book_author_info
+				+ ", book_publisher_review=" + book_publisher_review + ", category_main_kor=" + category_main_kor
+				+ ", category_sub_kor=" + category_sub_kor + ", category_main_eng=" + category_main_eng
+				+ ", category_sub_eng=" + category_sub_eng + "]";
 	}
 	  
 	  

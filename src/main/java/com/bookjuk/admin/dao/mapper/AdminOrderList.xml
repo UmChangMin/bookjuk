@@ -3,29 +3,8 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bookjuk.admin.dao.mapper">
-<resultMap type="com.bookjuk.admin.dto.AdminOrderDto" id="orderDto">
-		<result property="num" column="num"/>
-		<result property="name" column="name"/>
-		<result property="email" column="email"/>
-		<result property="phone" column="phone"/>
-		
-		<result property="postNum" column="post_num"/>
-		<result property="addr" column="addr"/>
-		<result property="detailAddr" column="detailAddr"/>
-		
-		<result property="bookName" column="book_name"/>
-		<result property="bookOrderCount" column="book_order_count"/>
-		<result property="orderDate" column="order_date"/>
-		
-		<result property="credit" column="credit"/>
-		<result property="refundAccount" column="refund_account"/>
-		<result property="useCoupon" column="use_coupon"/>
-		<result property="orderStatus" column="order_status"/>
-		
-	</resultMap>
-
 	
-	<select id="orderListCheck" resultMap="com.bookjuk.admin.dto.AdminOrderDto" parameterType="Stirng">
+	<select id="orderListCheck" resultType="com.bookjuk.admin.dto.AdminOrderDto" parameterType="Stirng">
 		<![CDATA[
 			select * from orderlist where phone=#{phone} and name=#{name} and email=#{email} and order_date=#{orderDate}
 		]]>

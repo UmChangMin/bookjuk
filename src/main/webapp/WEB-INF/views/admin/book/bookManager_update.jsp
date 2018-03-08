@@ -64,8 +64,12 @@
 									
 									
 									<!--  -->
-									<form class="content_box3_formtag" action="${root }/admin/book/bookManager_update.do">	
-									<input type="hidden" value="${bookList.book_num }">
+									<form class="content_box3_formtag" action="${root }/admin/book/bookManager_updateOk.do" method="post">	
+									
+									<input type="hidden" value="${bookList.book_num }" name="book_num">
+									<input type="hidden" value="${bookList.category_main_kor }" name="category_main_kor">
+									<input type="hidden" value="${bookList.category_sub_kor }" name="category_sub_kor">
+									<%-- <input type="hidden" value="${bookList.book_date }" name="book_date"> --%>
 									<div class="content_box3_form" align="center">
 											<ul class="content_box3">					
 												<li class="content_li">
@@ -84,7 +88,7 @@
 												<li class="content_li">
 													<span class="content_title_name category" style="float:left;">분야</span>
 													
-													<select class="form-control input_width" id="select1" name="book" style="float:left;" onchange="changeValue('${root }','${bookList.book_num }')">														  													 												
+													<select class="form-control input_width" id="select1" name="category_main_eng" style="float:left;" onchange="changeValue('${root }','${bookList.book_num }')">														  													 												
 												      <c:forEach var="book" items="${book_MainCate_List }">
 												      	<option value="${book.category_main_eng }" id="cate_select">${book.category_main_kor}</option>
 												      </c:forEach>					          									         
@@ -96,17 +100,16 @@
 											        	$("select[id='select1'] option[value='"+category_main_eng+"']").attr("selected","selected");
 											        </script>
 											        
-											        <select class="form-control input_width" id="select2" name="book">														  
-													  <%-- <option value="${bookList.category_sub_kor }">${bookList.category_sub_kor }</option> --%>												  											
+											        <select class="form-control input_width" id="select2" name="category_sub_eng">														  													  											  										
 												      <c:forEach var="book" items="${book_SubCate_List }">
-												      	<option value="${book.category_sub_kor }">${book.category_sub_kor}</option>
+												      	<option value="${book.category_sub_eng }">${book.category_sub_kor}</option>
 												      </c:forEach>						          									        
 											        </select>														
 												</li>
 												
 												<li class="content_li" style="margin-top: 2px;">
 													<span class="content_title_name">발행일</span>
-													<input type="text" class="form-control" id="inputBookDate" name="book_date" value="<fmt:formatDate var="book_date" value="${bookList.book_date}" pattern="yyyy-MM-dd"/>${book_date}">												
+													<input type="text" class="form-control" id="inputBookDate" name="book_date" value="${sdfBookDate}">												
 												</li>		
 												<li class="content_li">
 													<span class="content_title_name">평점</span>
@@ -128,9 +131,9 @@
 											<!-- 환불, 교환, 반품-->
 										    <div class="form-group btn-margin" align="center">
 											      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left" id="btn-margin">
-												        <button type="submit" class="btn btn-default" id="">수정</button>												        
-												        <button type="button" class="btn btn-default" id="">취소</button>
-												        <button type="button" class="btn btn-default" id="">삭제</button>
+												        <button type="submit" class="btn btn-default" id="">완료</button>												        
+												        <button type="reset" class="btn btn-default" id="">취소</button>
+												        <button type="button" class="btn btn-default" id="" onclick="location.href='${root}/admin/book/bookManager_search.do?pageNumber='+${pageNumber}">목록</button>
 											      </div>
 										    </div>	
 									</div>		
@@ -145,6 +148,10 @@
 											</li>
 											<li class="content_li textarea_height">
 												<span class="content_title_name">목차</span>
+												<textarea class="form-control textarea_height" id="inputIntro" name="book_contents">${bookList.book_contents }</textarea>
+											</li>	
+											<li class="content_li textarea_height">
+												<span class="content_title_name">책소개</span>
 												<textarea class="form-control textarea_height" id="inputIntro" name="book_intro">${bookList.book_intro }</textarea>
 											</li>	
 											<li class="content_li textarea_height">

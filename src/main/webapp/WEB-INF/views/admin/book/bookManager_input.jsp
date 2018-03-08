@@ -61,7 +61,7 @@
 									
 									
 									<!--  -->
-									<form class="content_box3_formtag">	
+									<form class="content_box3_formtag" action="${root }/admin/book/bookManager_inputOk.do" method="POST">	
 									<div class="content_box3_form" align="center">
 											<ul class="content_box3">					
 												<li class="content_li">
@@ -78,40 +78,41 @@
 												</li>
 												<li class="content_li">
 													<span class="content_title_name category" style="float:left;">분야</span>
-													<select class="form-control input_width" id="select1" name="book" style="float:left;" onchange="changeValue()">	
-													  
+													
+													<select class="form-control input_width" id="select1" name="category_main_eng" style="float:left;" onchange="changeValue('${root }','${bookList.book_num }')">													  
 													  <option value="hide">-- 대분야 --</option>													
-												      <option value="테스트1">테스트1</option>
-												      <option value="테스트2">테스트2</option>
-												      <c:forEach var="book" items="${bookList }">
-												      	<option value="${book.book_main_category }">${book.book_main_category}</option>
-												      </c:forEach>							          									         
+												      <c:forEach var="book" items="${book_MainCate_List }">
+												      	<option value="${book.category_main_eng }" id="cate_select">${book.category_main_kor}</option>
+												      </c:forEach>						          									         
 											        </select>		
-											        <select class="form-control input_width" id="select2" name="book">	
-													  
-													  <option value="hide">-- 소분야 --</option>
-													  <option value="테스트1-1">테스트1-1</option>
-													  <option value="테스트1-2">테스트1-2</option>
-													  <option value="테스트2-1">테스트2-1</option>
-													  <option value="테스트2-2">테스트2-2</option>													  											
-												      <c:forEach var="book" items="${bookList }">
-												      	<option value="${book.book_sub_category }">${book.book_sub_category}</option>
-												      </c:forEach>							          									        
-											        </select>																
+											        
+											        <!-- 승찬이형, 용기  confirm-->
+											       	<script type="text/javascript">
+											        	var category_main_eng="${category_main_eng}";
+											        	$("select[id='select1'] option[value='"+category_main_eng+"']").attr("selected","selected");
+											        </script>
+											        
+											        <select class="form-control input_width" id="select2" name="category_sub_eng">
+											        	<option value="hide">-- 소분야 --</option>														  													  											  										
+												      <c:forEach var="book" items="${book_SubCate_List }">
+												      	<option value="${book.category_sub_eng }">${book.category_sub_kor}</option>
+												      </c:forEach>						          									        
+											        </select>															
 												</li>
 												
 												<li class="content_li" style="margin-top: 2px;">
 													<span class="content_title_name">발행일</span>
-													<input type="text" class="form-control" id="inputBookDate" name="book_date">
+													<!-- <input type="text" class="form-control" id="inputBookDate" name="book_date"> -->
+													<input type="date" class="form-control" id="dateofbirth" name="book_date">
 												</li>		
-												<li class="content_li">
+												<li class="content_li" style="margin-top: 2px;">
 													<span class="content_title_name">평점</span>
 													<input type="text" class="form-control" id="inputScore" name="book_score">
 												</li>
 												
 												<li class="content_li" style="margin-top: 2px;">
 													<span class="content_title_name">이미지</span>
-													<input type="file" class="form-control" id="inputImage" onchange="readURL(this);">
+													<input type="file" class="form-control" id="inputImage" onchange="readURL(this);" name="book_img">
 												</li>		
 												<li class="c_orderlist_inputform_value img_margin">
 													<div class="form-group" align="center">											      
@@ -124,12 +125,12 @@
 											<!-- 환불, 교환, 반품-->
 										    <div class="form-group btn-margin" align="center">
 											      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left" id="btn-margin">
-												        <button type="button" class="btn btn-default" id="">추가</button>												        
+												        <button type="submit" class="btn btn-default" id="">추가</button>												        
 												        <button type="button" class="btn btn-default" id="">취소</button>
 												        <button type="button" class="btn btn-default" id="">삭제</button>
 											      </div>
 										    </div>	
-									</div>		
+										</div>		
 														
 									<!--  -->	
 									<!--  -->
@@ -163,7 +164,8 @@
 											
 										
 											
-									</div>		
+									</div>	
+										
 									</form>					
 									<!--  -->			
 												

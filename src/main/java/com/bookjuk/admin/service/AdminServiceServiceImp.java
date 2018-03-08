@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bookjuk.admin.dao.AdminServiceDao;
 import com.bookjuk.admin.dto.AdminService_contactDto;
 import com.bookjuk.admin.dto.AdminService_noticeDto;
+import com.bookjuk.admin.dto.AdminService_questionDto;
 import com.bookjuk.aop.LogAspect;
 
 @Component
@@ -31,6 +32,8 @@ public class AdminServiceServiceImp implements AdminServiceService {
 	public void serviceMove(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		//AdminService_questionDto questionDto=serviceDao.selectService();
 		
 		mav.setViewName("admin/service/service/serviceManager.admin");
 		

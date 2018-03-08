@@ -15,16 +15,21 @@ public class AdminBookDaoImp implements AdminBookDao {
 
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate; 
+	
 
 	@Override
-	public AdminBookDto search(String book_name, String book_publisher, String book_author) {
-		Map<String, String>hMap=new HashMap<String, String>();
-		
-		hMap.put("book_name", book_name);
-		hMap.put("book_publisher", book_publisher);
-		hMap.put("book_author", book_author);
-		
-		return sqlSessionTemplate.selectOne("bookSearch",hMap);
+	public List<AdminBookDto> book_keyword(String keyword) {
+		return sqlSessionTemplate.selectList("book_keyword", keyword);
+	}
+	
+	@Override
+	public int getBookCount() {
+		return sqlSessionTemplate.selectOne("getBookCount");
+	}
+	
+	@Override
+	public AdminBookDto search(String book_num) {		
+		return sqlSessionTemplate.selectOne("bookSearch",book_num);
 	}
 
 	@Override
@@ -44,10 +49,24 @@ public class AdminBookDaoImp implements AdminBookDao {
 		return sqlSessionTemplate.selectOne("book_UpSearch", book_num);
 	}
 
+
 	@Override
-	public String change_engkor(String category_main_eng) {
-		return sqlSessionTemplate.selectOne("change_engkor", category_main_eng);
+	public int updateOk(AdminBookDto adminBookDto) {		
+		return sqlSessionTemplate.update("book_Update", adminBookDto);
 	}
+
+	@Override
+	public List<AdminBookDto> book_List() {
+		List<AdminBookDto>book_List=sqlSessionTemplate.selectList("getBookCount");
+		return book_List;
+	}
+
+
+	@Override
+	public List<AdminBookDto> getBookList(HashMap<String, Integer> hmap) {	
+		return sqlSessionTemplate.selectList("getBookList", hmap);
+	}
+
 	
 
 	

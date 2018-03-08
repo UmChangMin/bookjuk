@@ -29,6 +29,7 @@ public class AdminBookController{
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
+		mav.addObject("response",response);
 		adminBookService.bookSearchMove(mav);
 		
 		return mav;
@@ -46,13 +47,14 @@ public class AdminBookController{
 		return mav;
 	}
 	
-	@RequestMapping(value="/admin/book/bookManager_inputOk.do",method=RequestMethod.GET)
-	public ModelAndView bookInputOk(HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value="/admin/book/bookManager_inputOk.do",method=RequestMethod.POST)
+	public ModelAndView bookInputOk(HttpServletRequest request, HttpServletResponse response, AdminBookDto adminBookDto) {
 		
 		LogAspect.logger.info(LogAspect.logMsg+"book-inputOk?");
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
+		mav.addObject("adminBookDto",adminBookDto);
 		adminBookService.bookInputOkMove(mav);
 		
 		return mav;
@@ -83,7 +85,7 @@ public class AdminBookController{
 		return mav;
 	}
 	
-	@RequestMapping(value="/admin/book/bookManager_updateOk.do",method=RequestMethod.GET)
+	@RequestMapping(value="/admin/book/bookManager_updateOk.do",method=RequestMethod.POST)
 	public ModelAndView bookUpdateOk(HttpServletRequest request, HttpServletResponse response, AdminBookDto adminBookDto) {
 		
 		LogAspect.logger.info(LogAspect.logMsg+"book-updateOk?");
@@ -95,4 +97,22 @@ public class AdminBookController{
 		
 		return mav;
 	}
+	
+	
+	//가상경로
+	@RequestMapping(value="/admin/book/bookManager_searchKeyword.do",method=RequestMethod.POST)
+	public ModelAndView bookSearchKeyword(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"book-search-keyword?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("response",response);
+		adminBookService.bookSearchKeyword(mav);
+		
+		return null;
+	}
+
+	
+	
 }

@@ -30,8 +30,8 @@
 		$(".nav-item:eq(3)").addClass("active");
 	});
 	
-	function upmove(root, bookNum,category_main_eng) {
-		var url=root+"/admin/book/bookManager_update.do?book_num="+bookNum+"&category_main_eng="+category_main_eng;
+	function upmove(root, bookNum,category_main_eng,pageNumber) {
+		var url=root+"/admin/book/bookManager_update.do?book_num="+bookNum+"&category_main_eng="+category_main_eng+"&pageNumber="+pageNumber;
 		location.href=url;
 	}
 </script>
@@ -92,8 +92,7 @@
 												
 												<li class="content_li" style="margin-top: 2px;">
 													<span class="content_title_name">발행일</span>
-													<input type="text" class="form-control" id="inputBookDate" name="book_date" value="<fmt:formatDate var="book_date" value="${bookList.book_date }" pattern="yyyy-MM-dd"/>${book_date}">
-													<%-- <fmt:formatDate var="book_date" value="${bookList.book_date }" pattern="yyyy-MM-dd"/>${book_date} --%>
+													<input type="text" class="form-control" id="inputBookDate" name="book_date" value="${sdfBookDate }">													
 												</li>		
 												<li class="content_li">
 													<span class="content_title_name">평점</span>
@@ -124,8 +123,12 @@
 											</li>
 											<li class="content_li textarea_height">
 												<span class="content_title_name">목차</span>
-												<textarea class="form-control textarea_height" id="inputIntro" name="book_intro">${bookList.book_intro }</textarea>
+												<textarea class="form-control textarea_height" id="inputIntro" name="book_contents">${bookList.book_contents }</textarea>
 											</li>	
+											<li class="content_li textarea_height">
+												<span class="content_title_name">책소개</span>
+												<textarea class="form-control textarea_height" id="inputIntro" name="book_intro">${bookList.book_intro }</textarea>
+											</li>
 											<li class="content_li textarea_height">
 												<span class="content_title_name">저자소개</span>
 												<textarea class="form-control textarea_height" id="inputAuthor_info" name="book_author_info">${bookList.book_author_info }</textarea>
@@ -139,8 +142,8 @@
 									<!-- 환불, 교환, 반품-->
 									    <div class="form-group btn-margin" align="center">
 										      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left" id="btn-margin">
-											        <button type="button" class="btn btn-default" onclick="upmove('${root }','${bookList.book_num}','${bookList.category_main_eng }')">수정</button>												        
-											        <button type="button" class="btn btn-default" id="">취소</button>
+											        <button type="button" class="btn btn-default" onclick="upmove('${root }','${bookList.book_num}','${bookList.category_main_eng }','${pageNumber }')">수정</button>												        
+											        <button type="button" class="btn btn-default" id="" onclick="location.href='${root}/admin/book/bookManager_search.do?pageNumber='+${pageNumber}">목록</button>
 											        <button type="button" class="btn btn-default" id="">삭제</button>
 										      </div>
 									    </div>						
