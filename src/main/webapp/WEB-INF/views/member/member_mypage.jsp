@@ -29,16 +29,18 @@
 							</li>
 							<li>
 								<div class="myPage_top"><img src="${root}/img/myPage/point.png" width="28" height="28"><span>포인트</span></div>
-								<p class="myPage_mid">0 POINT</p>
+								<p class="myPage_mid">${point} POINT</p>
 								<div class="myPage_bot">
 									<a href="javascript:pointFunction('${root}')">내역보기 &gt;</a>
+									<input type="hidden" id="member_id" name="member_id" value="${member_id}">
 								</div>
 							</li>
 							<li>
 								<div class="myPage_top"><img src="${root}/img/myPage/coupon.png" width="28" height="28"><span>쿠폰</span></div>
-								<p class="myPage_mid">0 장</p>
+								<p class="myPage_mid">${coupon} 장</p>
 								<div class="myPage_bot">
 									<a href="javascript:couponFunction('${root}')">내역보기 &gt;</a>
+									<input type="hidden" id="member_id" name="member_id" value="${member_id}">
 								</div>
 								<!-- 내역 보기 시작 -->
 								

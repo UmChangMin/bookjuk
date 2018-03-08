@@ -15,4 +15,6 @@ public interface MemberService {
 	public void zipcode(ModelAndView mav);
 	
 	public void mypage(ModelAndView mav);
+	public void coupon(ModelAndView mav);
+	public void point(ModelAndView mav);
 }

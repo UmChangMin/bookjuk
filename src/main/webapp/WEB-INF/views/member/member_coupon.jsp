@@ -14,13 +14,13 @@
 </head>
 <body>
 	<!-- 쿠폰 시작 강민아-->
-	<form action ="" method="post">
+	<form method="post" name="form">
 		<div id="couponAll">
 			<div class="coupon_title" align="center">쿠폰 상세내역</div>
 
 			<div class="coupon_mid">
 				<div>나의 쿠폰&nbsp;&nbsp;:</div>
-				<div>&nbsp;&nbsp;0장</div>
+				<div>&nbsp;&nbsp;${coupon}장</div>
 			</div>
 			
 			<div class="coupon_notice">
@@ -41,7 +41,7 @@
 				<ul>
 					<li><div align="center">생일쿠폰</div></li>
 					<li><div align="center">10%</div></li>
-					<li><div align="center">축하합니다.축하합니다.</div></li>
+					<li><div align="center">고객님의 생일을 축하합니다.</div></li>
 				</ul>
 			</div>
 		</div>

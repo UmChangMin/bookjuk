@@ -175,6 +175,7 @@ public class MemberServiceImp implements MemberService {
 	}
 
 
+	// 180308 강민아 나의문의내역
 	@Override
 	public void mypage(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
@@ -184,7 +185,7 @@ public class MemberServiceImp implements MemberService {
 		
 		String member_id = (String) session.getAttribute("member_id");
 		
-		System.out.println(member_id);
+		//System.out.println(member_id);
 	
 		String pageNumber=request.getParameter("pageNumber");
 		if(pageNumber==null) {pageNumber="1";}
@@ -196,12 +197,15 @@ public class MemberServiceImp implements MemberService {
 		int startRow=(currentPage-1)*boardSize+1;
 		int endRow=currentPage*boardSize;
 		
-		int count=serviceDao.getBoardCount(member_id);
-		//LogAspect.logger.info(LogAspect.logMsg+"count :"+count);
+		int coupon=memberDao.coupon(member_id);
+		int point=memberDao.point(member_id);
 		
-
 		List<ServiceContactDto>ServiceContactList=null;
 		if(member_id!=null) {
+			
+			int count=serviceDao.getBoardCount(member_id);
+			//LogAspect.logger.info(LogAspect.logMsg+"count :"+count);
+			
 			if(count>0) {
 				ServiceContactList=serviceDao.ServiceContactList(startRow,endRow,member_id);
 				//LogAspect.logger.info(LogAspect.logMsg+"글 총개수( ServiceContactList ) :"+ServiceContactList.size());
@@ -222,10 +226,41 @@ public class MemberServiceImp implements MemberService {
 			serviceContactDto.setContact_answer("답변완료");
 		}
 		
+		mav.addObject("point",point);
+		mav.addObject("coupon",coupon);
 		mav.setViewName("member/member_mypage.search");
 		
 	}
-	
+
+
+	// 180308 강민아 쿠폰
+	@Override
+	public void coupon(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		String member_id=request.getParameter("member_id");
+		
+		int coupon=memberDao.coupon(member_id);
+		
+		mav.addObject("coupon",coupon);
+		mav.setViewName("member/member_coupon.empty");
+	}
+
+	// 180308 강민아 포인트
+	@Override
+	public void point(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		String member_id=request.getParameter("member_id");
+		
+		int point=memberDao.point(member_id);
+		
+		mav.addObject("point",point);
+		mav.setViewName("member/member_point.empty");
+		
+	}
 	
 	
 }

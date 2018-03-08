@@ -70,7 +70,7 @@
 							<div align="center">${ServiceContactDto.rnum}</div>
 							<div><a href="javascript:readFunction('${root}','${ServiceContactDto.contact_num}','${pageNumber}')">${ServiceContactDto.contact_subject}</a></div>
 							<div align="center">
-								<fmt:formatDate var="contact_date" value="${ServiceContactDto.contact_date}" pattern="yyyy-MM-dd"/>${contact_date}
+								<fmt:formatDate var="contact_date" value="${ServiceContactDto.contact_date}" pattern="yyyy/MM/dd"/>${contact_date}
 							</div>
 							<div align="center">${ServiceContactDto.contact_answer_whether}</div>
 						</div>

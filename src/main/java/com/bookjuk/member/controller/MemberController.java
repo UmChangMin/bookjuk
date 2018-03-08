@@ -133,17 +133,23 @@ public class MemberController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "point.do")
+	@RequestMapping(value = "/point.do")
 	public ModelAndView point(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("member/member_point.empty");
+		mav.addObject("request",request);
+		
+		memberService.point(mav);
+		
 		return mav;
 	}
 	
-	@RequestMapping(value = "coupon.do")
+	@RequestMapping(value = "/coupon.do")
 	public ModelAndView coupon(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("member/member_coupon.empty");
+		mav.addObject("request",request);
+		
+		memberService.coupon(mav);
+		
 		return mav;
 	}
 	

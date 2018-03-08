@@ -51,4 +51,14 @@
               
   		]]>
   </select> 
+  
+  <!-- 쿠폰 -->
+  <select id="coupon" resultType="int">
+  	select nvl(birthday_coupon,0) from member where member_id=#{member_id}
+  </select>
+  
+  <!-- 포인트 -->
+  <select id="point" resultType="int">
+  	select nvl(member_point,0) from member where member_id=#{member_id}
+  </select>
 </mapper>

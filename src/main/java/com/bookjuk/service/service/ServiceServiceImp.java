@@ -190,11 +190,13 @@ public class ServiceServiceImp implements ServiceService {
 		int startRow=(currentPage-1)*boardSize+1;
 		int endRow=currentPage*boardSize;
 		
-		int count=serviceDao.getBoardCount(member_id);
-		//LogAspect.logger.info(LogAspect.logMsg+"count :"+count);
+		
 		
 		List<ServiceContactDto>ServiceContactList=null;
 		if(member_id!=null) {
+			
+			int count = serviceDao.getBoardCount(member_id);
+			//LogAspect.logger.info(LogAspect.logMsg+"count :"+count);
 			if(count>0) {
 				ServiceContactList=serviceDao.ServiceContactList(startRow,endRow,member_id);
 				//LogAspect.logger.info(LogAspect.logMsg+"글 총개수( ServiceContactList ) :"+ServiceContactList.size());

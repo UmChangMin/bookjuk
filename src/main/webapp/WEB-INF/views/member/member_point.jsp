@@ -20,7 +20,7 @@
 
 			<div class="point_mid">
 				<div>나의 포인트&nbsp;&nbsp;:</div>
-				<div>&nbsp;&nbsp;0원</div>
+				<div>&nbsp;&nbsp;${point}원</div>
 			</div>
 			
 			<div class="point_bot">

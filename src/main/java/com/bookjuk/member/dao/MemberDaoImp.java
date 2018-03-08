@@ -80,5 +80,17 @@ public class MemberDaoImp implements MemberDao {
 		
 		return sqlSession.update("update",memberDto);
 	}
+
+	@Override
+	public int coupon(String member_id) {
+		
+		return sqlSession.selectOne("coupon",member_id);
+	}
+
+	@Override
+	public int point(String member_id) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("point",member_id);
+	}
 	
 }

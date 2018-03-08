@@ -46,7 +46,7 @@
 						</div>
 						<div class="notice_read_date">
 							<div align="center">작성일</div>
-							<div><fmt:formatDate var="notice_date" value="${serviceNoticeDto.notice_date}" pattern="yyyy-MM-dd"/>${notice_date}</div>
+							<div><fmt:formatDate var="notice_date" value="${serviceNoticeDto.notice_date}" pattern="yyyy/MM/dd"/>${notice_date}</div>
 						</div>
 						<div class="notice_read_content">
 							<div><p>${serviceNoticeDto.notice_content}</p></div>

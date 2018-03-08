@@ -42,7 +42,7 @@
 						<div class="service_notices">
 							<div><a href="javascript:readFunction('${root}','${ServiceNoticeDto.notice_num}','${pageNumber}')">${ServiceNoticeDto.notice_subject}</a></div>
 							
-							<div align="center"><fmt:formatDate var="notice_date" value="${ServiceNoticeDto.notice_date}" pattern="yyyy-MM-dd"/>${notice_date}</div>
+							<div align="center"><fmt:formatDate var="notice_date" value="${ServiceNoticeDto.notice_date}" pattern="yyyy/MM/dd"/>${notice_date}</div>
 						</div>
 					</c:forEach>
 					<!-- notice_list 끝-->	

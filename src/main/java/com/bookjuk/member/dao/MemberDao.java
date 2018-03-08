@@ -16,4 +16,6 @@ public interface MemberDao {
 	public MemberDto upSelect(String member_id);
 	public int update(MemberDto memberDto);
 	
+	public int coupon(String member_id);
+	public int point(String member_id);
 }
