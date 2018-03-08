@@ -27,12 +27,9 @@ public class UserServiceImp implements UserService {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		HttpSession session=(HttpSession)map.get("session");
 		
-		String member_level=(String) session.getAttribute("member_level");
-		
-		String member_name=(String) session.getAttribute("member_name");
-		
-		//String member_level=request.getParameter("member_level");
-		LogAspect.logger.info(LogAspect.logMsg+member_name+","+member_level);
+		session.getAttribute("member_level");
+		session.getAttribute("member_name");
+		String nonmember_id = session.getId();
 		
 		/*베스트셀러*/
 		List<BookDto> bookBestList = mainDao.bestList();
@@ -53,6 +50,8 @@ public class UserServiceImp implements UserService {
 		
 		/*MD 추천*/
 		List<BookDto> bookMdList = mainDao.mdList();
+		
+		mav.addObject("nonmember_id", nonmember_id);
 		
 		mav.addObject("bookBestList", bookBestList);
 		mav.addObject("bookIssueList", bookIssueList);

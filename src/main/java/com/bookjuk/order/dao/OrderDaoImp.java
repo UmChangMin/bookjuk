@@ -17,59 +17,83 @@ public class OrderDaoImp implements OrderDao {
 	private SqlSessionTemplate sqlSession;
 	
 	@Override
-	public int memCartCount(String member_id) {
-		return sqlSession.selectOne("memCartCount", member_id);
+	public int cartCount(String order_id) {
+		return sqlSession.selectOne("cartCount", order_id);
 	}
 
 	@Override
-	public int nonCartCount(String nonmember_id) {
-		return sqlSession.selectOne("nonCartCount", nonmember_id);
-	}
-
-	@Override
-	public List<OrderDto> memCartList(String member_id) {
-		return sqlSession.selectList("memCartList", member_id);
-	}
-	
-	@Override
-	public List<OrderDto> nonCartList(String nonmember_id) {
-		return sqlSession.selectList("nonCartList", nonmember_id);
+	public List<OrderDto> cartList(String order_id) {
+		return sqlSession.selectList("cartList", order_id);
 	}
 
 	@Override
 	public int updateAmount(OrderDto orderDto) {
-		int check = 0;
-		
-		if(orderDto.getMember_id() != null) {
-			check = sqlSession.update("updateAmount", orderDto);
-		}else {
-			check = sqlSession.update("updateNonAmount", orderDto);
-		}
-		
-		return check;
+		return sqlSession.update("updateAmount", orderDto);
 	}
 
 	@Override
-	public int memDeleteCart(int book_num, String member_id) {
+	public int deleteCart(int book_num, String order_id) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("book_num", book_num);
-		map.put("member_id", member_id);
+		map.put("order_id", order_id);
 		
-		return sqlSession.delete("memDeleteCart", map);
+		return sqlSession.delete("deleteCart", map);
 	}
 
 	@Override
-	public int nonDeleteCart(int book_num, String nonmember_id) {
+	public OrderDto orderMember(String order_id) {
+		return sqlSession.selectOne("orderMember", order_id);
+	}
+
+	@Override
+	public int insertOrderNonmemInfo(OrderDto orderDto, int order_num) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("book_num", book_num);
-		map.put("nonmember_id", nonmember_id);
+		map.put("orderDto", orderDto);
+		map.put("order_num", order_num);
 		
-		return sqlSession.delete("nonDeleteCart", map);
+		return sqlSession.insert("insertOrderNonmemInfo", orderDto);
 	}
 
 	@Override
-	public OrderDto orderMember(String member_id) {
-		return sqlSession.selectOne("orderMember", member_id);
+	public int insertOrderDelivery(OrderDto orderDto, int order_num) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("orderDto", orderDto);
+		map.put("order_num", order_num);
+		
+		return sqlSession.insert("insertOrderDelivery", orderDto);
+	}
+
+	@Override
+	public int insertOrderInfo(OrderDto orderDto) {
+		return sqlSession.insert("insertOrderInfo", orderDto);
+	}
+
+	@Override
+	public int orderNum(OrderDto orderDto) {
+		return sqlSession.selectOne("orderNum", orderDto);
+	}
+
+	@Override
+	public int deleteCartOrder(String order_id) {
+		return sqlSession.delete("deleteCartOrder", order_id);
+	}
+
+	@Override
+	public OrderDto orderCompleteNonInfo(int order_num, String order_id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("order_num", order_num);
+		map.put("order_id", order_id);
+		
+		return sqlSession.selectOne("orderCompleteNonInfo", map);
+	}
+
+	@Override
+	public OrderDto orderCompleteMemInfo(int order_num, String order_id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("order_num", order_num);
+		map.put("order_id", order_id);
+		
+		return sqlSession.selectOne("orderCompleteMemInfo", map);
 	}
 
 	

@@ -35,21 +35,21 @@
 									<input type="text" name="member_id" placeholder="아이디" maxlength="20" class="registe_id" oninput="checkId()" id="idChk"/>
 								</div>
 								<div class="registe-input">
-									<input type="password" name="member_password" placeholder="비밀번호" class="registe_pwd" />
+									<input type="password" name="member_password" placeholder="비밀번호" class="registe_pwd" oninput="checkPwd()" id="pwdChk"/>
 								</div>
 								<div class="registe-input">
-									<input type="password" name="member_passwordChk" placeholder="비밀번호 확인" class="registe_pwdChk" />
+									<input type="password" name="member_passwordChk" placeholder="비밀번호 확인" class="registe_pwdChk" oninput="reCheckPwd()" id="rePwdChk"/>
 								</div>
 							</div>
 							<div class="registe-info mt20">
 								<div class="registe-input">
-									<input type="text" name="member_name" placeholder="이름" class="registe_name" />
+									<input type="text" name="member_name" placeholder="이름" class="registe_name" oninput="checkName()" id="nameChk"/>
 								</div>
 								<div class="registe-input">
-									<input type="text" name="member_email" placeholder="이메일" class="registe_email" />
+									<input type="text" name="member_email" placeholder="이메일" class="registe_email" oninput="checkEmail()" id="emailChk"/>
 								</div>
 								<div class="registe-input">
-									<input type="text" name="member_birth" placeholder="생년월일" class="registe_birthday" />
+									<input type="text" name="member_birth" placeholder="생년월일" class="registe_birthday" oninput="checkBirth()" id="birthChk"/>
 								</div>
 							</div>
 							<div class="registe_check">

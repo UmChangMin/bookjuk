@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -35,13 +36,16 @@
 						<h3 class="complete_basket">주문완료</h3>
 					</div>
 					<!-- 주문완료 -->
+					
 					<div class="complete_sub">
 						<div class="order_result_info">
 							<h3 class="result_title">주문이 성공적으로 접수 되었습니다.</h3>
 							<div class="oredr_info">
-								<strong>주문번호(13552618651)</strong>
-								<span class="order_col">|</span>
-								" XXX 고객님, 감사합니다. "
+								<div class="order_info_sub">
+									<strong>주문번호(${orderDto.order_num})</strong>
+									<span class="order_col">|</span>
+									<span> ${orderDto.order_name} 고객님 감사합니다. </span>
+								</div>
 								<a href="${root}/order/list.do" id="btn_blue"><strong>주문내역 상세보기</strong></a>
 							</div>
 							<div class="sub_text">
@@ -50,23 +54,24 @@
 						</div>
 						<!-- 배송지 정보 -->
 						<div class="complete_info">
+							<c:if test="${orderDto.order_payment eq 'card'}">
 							<div class="complete_info_wrap">
 								<div class="order_num">
 									<label>주문번호</label>
-									<span>13552618651</span>
+									<span>${orderDto.order_num}</span>
 								</div>
 								<div class="order_adress_info">
 									<label>배송지 정보</label>
-									<input type="text" disabled="disabled" id="name" value="강민아"><br/>
-									<input type="text" disabled="disabled" id="phone" value="010-XXXX-XXXX"><br/>
-									<input type="text" disabled="disabled" id="address" value="(15208) 경기도 안산시 상록구 오리물길 XX">
+									<span id="name">${orderDto.order_name}</span><br/>
+									<span id="phone">${orderDto.order_phone}</span><br/>
+									<span id="address">(${orderDto.order_postcode}) ${orderDto.order_address} ${orderDto.order_address_detail}</span>
 								</div>
 								<div class="order_payment_info">
 									<label>결제 정보</label>
-									<input type="text" disabled="disabled" id="card" value="신용카드"><br/>
-									<input type="text" disabled="disabled" id="card_num" value="국민카드  9495-9400-XXXX-4511"><br/>
-									<input type="text" disabled="disabled" id="month" value="일시불"><br/>
-									<input type="text" disabled="disabled" id="price" value="40,500원">
+									<span id="card">신용카드</span><br/>
+									<span id="card_num">국민카드  9495-9400-XXXX-4511</span><br/>
+									<span id="month">일시불</span><br/>
+									<span id="price"><fmt:formatNumber pattern="###,###,###" value="${orderDto.order_total_price}"/> 원</span>
 								</div>
 							</div>
 							<!-- 결제 총 금액 -->
@@ -75,106 +80,53 @@
 									<ul class="calc_list">
 										<li>
 											<strong>총 상품금액</strong>
-											<p><em id="totalOrderPrice">111,111</em>원</p>
+											<p><em id="totalOrderPrice"><fmt:formatNumber pattern="###,###,###" value="${orderDto.order_total_price}"/></em> 원</p>
 										</li>
 										<li>
 											<strong>배송비</strong>
-											<p><em id="totalDeliveryFee">0</em>원</p>
+											<p><em id="totalDeliveryFee">0</em> 원</p>
 										</li>
 										<li>
 											<strong>할인금액</strong>
-											<p><em id="totalDiscountPrice">0</em>원</p>
+											<p><em id="totalDiscountPrice">0</em> 원</p>
 										</li>
 										<li style="border-bottom: 1px solid #e2e2e2; padding-bottom:20px; margin-bottom: 20px;">
 											<strong>포인트 사용금액</strong>
-											<p><em id="totalPointPrice">0</em>원</p>
+											<p><em id="totalPointPrice">0</em> 원</p>
 										</li>
 										<li>
 											<div class="total_price">
-												<span>111,111</span><h5>원</h5>
+												<span><fmt:formatNumber pattern="###,###,###" value="${orderDto.order_total_price}"/>&nbsp;</span><h5>원</h5>
 											</div>
 											<h4>결제금액</h4>
 										</li>
 										<li>
-											<p style="color: #F15F5F;">Point <em id = "point">2,250</em> 적립예정</p>
+											<p style="color: #F15F5F;">Point <em id = "point"><fmt:formatNumber pattern="###,###,###" value="${orderDto.order_total_point}"/></em>P 적립예정</p>
 										</li>
 									</ul>
 								</div>
 							</div>
-							
-								<!-- 배송지 정보 -->
-						<div class="complete_info">
-							<div class="complete_info_wrap">
-								<div class="order_num">
-									<label>주문번호</label>
-									<span>13552618651</span>
-								</div>
-								<div class="order_adress_info">
-									<label>배송지 정보</label>
-									<input type="text" disabled="disabled" id="name" value="강민아"><br/>
-									<input type="text" disabled="disabled" id="phone" value="010-XXXX-XXXX"><br/>
-									<input type="text" disabled="disabled" id="address" value="(15208) 경기도 안산시 상록구 오리물길 XX">
-								</div>
-								<div class="order_payment_info">
-									<label>결제 정보</label>
-									<input type="text" disabled="disabled" id="card" value="무통장 입금"><br/>
-									<input type="text" disabled="disabled" id="card_num" value="입금은행  : 국민은행 (57451235968)"><br/>
-									<input type="text" disabled="disabled" id="month" value="예금주 : 허단비"><br/>
-									<input type="text" disabled="disabled" id="price" value="입금기한 : 2018.01.19">
-								</div>
-							</div>
-							<!-- 결제 총 금액 -->
-							<div class="complete_price">
-								<div class="complete_price_sum">
-									<ul class="calc_list">
-										<li>
-											<strong>총 상품금액</strong>
-											<p><em id="totalOrderPrice">111,111</em>원</p>
-										</li>
-										<li>
-											<strong>배송비</strong>
-											<p><em id="totalDeliveryFee">0</em>원</p>
-										</li>
-										<li>
-											<strong>할인금액</strong>
-											<p><em id="totalDiscountPrice">0</em>원</p>
-										</li>
-										<li style="border-bottom: 1px solid #e2e2e2; padding-bottom:20px; margin-bottom: 20px;">
-											<strong>포인트 사용금액</strong>
-											<p><em id="totalPointPrice">0</em>원</p>
-										</li>
-										<li>
-											<div class="total_price">
-												<span>111,111</span><h5>원</h5>
-											</div>
-											<h4>결제금액</h4>
-										</li>
-										<li>
-											<p style="color: #F15F5F;">Point <em id = "point">2,250</em> 적립예정</p>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-							
+							</c:if>
+							<c:if test="${orderDto.order_payment eq 'mutong'}">
 							<!-- 배송지 정보 -->
-						<div class="complete_info">
-							<div class="complete_info_wrap">
+							<div class="complete_info">
+								<div class="complete_info_wrap">
 								<div class="order_num">
 									<label>주문번호</label>
-									<span>13552618651</span>
+									<span>${orderDto.order_num}</span>
 								</div>
 								<div class="order_adress_info">
 									<label>배송지 정보</label>
-									<input type="text" disabled="disabled" id="name" value="강민아"><br/>
-									<input type="text" disabled="disabled" id="phone" value="010-XXXX-XXXX"><br/>
-									<input type="text" disabled="disabled" id="address" value="(15208) 경기도 안산시 상록구 오리물길 XX">
+									<span id="name">${orderDto.order_name}</span><br/>
+									<span id="phone">${orderDto.order_phone}</span><br/>
+									<span id="address">(${orderDto.order_postcode}) ${orderDto.order_address} ${orderDto.order_address_detail}</span>
 								</div>
 								<div class="order_payment_info">
 									<label>결제 정보</label>
-									<input type="text" disabled="disabled" id="card" value="실시간 계좌이체"><br/>
-									<input type="text" disabled="disabled" id="card_num" value="국민은행"><br/>
-									<input type="text" disabled="disabled" id="account_price" value="40,500원">
+									<span id="card">무통장 입금</span><br/>
+									<span id="card_num">입금은행  : 국민은행 (57451235968)</span><br/>
+									<span id="month">예금주 : 허단비</span><br/>
+									<span id="price">입금기한 : <fmt:formatDate value="${orderDto.order_date}" pattern="YYYY년 MM월 dd일"/>부터 7일 이내</span>
 								</div>
 							</div>
 							<!-- 결제 총 금액 -->
@@ -183,33 +135,89 @@
 									<ul class="calc_list">
 										<li>
 											<strong>총 상품금액</strong>
-											<p><em id="totalOrderPrice">111,111</em>원</p>
+											<p><em id="totalOrderPrice"><fmt:formatNumber pattern="###,###,###" value="${orderDto.order_total_price}"/></em> 원</p>
 										</li>
 										<li>
 											<strong>배송비</strong>
-											<p><em id="totalDeliveryFee">0</em>원</p>
+											<p><em id="totalDeliveryFee">0</em> 원</p>
 										</li>
 										<li>
 											<strong>할인금액</strong>
-											<p><em id="totalDiscountPrice">0</em>원</p>
+											<p><em id="totalDiscountPrice">0</em> 원</p>
 										</li>
 										<li style="border-bottom: 1px solid #e2e2e2; padding-bottom:20px; margin-bottom: 20px;">
 											<strong>포인트 사용금액</strong>
-											<p><em id="totalPointPrice">0</em>원</p>
+											<p><em id="totalPointPrice">0</em> 원</p>
 										</li>
 										<li>
 											<div class="total_price">
-												<span>111,111</span><h5>원</h5>
+												<span><fmt:formatNumber pattern="###,###,###" value="${orderDto.order_total_price}"/>&nbsp;</span><h5>원</h5>
 											</div>
 											<h4>결제금액</h4>
 										</li>
 										<li>
-											<p style="color: #F15F5F;">Point <em id = "point">2,250</em> 적립예정</p>
+											<p style="color: #F15F5F;">Point <em id = "point"><fmt:formatNumber pattern="###,###,###" value="${orderDto.order_total_point}"/></em>P 적립예정</p>
 										</li>
 									</ul>
 								</div>
 							</div>
 						</div>
+						</c:if>
+							<c:if test="${orderDto.order_payment eq 'account'}">
+							<!-- 배송지 정보 -->
+							<div class="complete_info">
+							<div class="complete_info_wrap">
+								<div class="order_num">
+									<label>주문번호</label>
+									<span>${orderDto.order_num}</span>
+								</div>
+								<div class="order_adress_info">
+									<label>배송지 정보</label>
+									<span id="name">${orderDto.order_name}</span><br/>
+									<span id="phone">${orderDto.order_phone}</span><br/>
+									<span id="address">(${orderDto.order_postcode}) ${orderDto.order_address} ${orderDto.order_address_detail}</span><br/>
+								</div>
+								<div class="order_payment_info">
+									<label>결제 정보</label>
+									<span id="card">실시간 계좌이체</span><br/>
+									<span id="card_num">${orderDto.refund_bank}</span><br/>
+									<span id="account_price"><fmt:formatNumber pattern="###,###,###" value="${orderDto.order_total_price}"/></span>
+								</div>
+							</div>
+							<!-- 결제 총 금액 -->
+							<div class="complete_price">
+								<div class="complete_price_sum">
+									<ul class="calc_list">
+										<li>
+											<strong>총 상품금액</strong>
+											<p><em id="totalOrderPrice"><fmt:formatNumber pattern="###,###,###" value="${orderDto.order_total_price}"/></em> 원</p>
+										</li>
+										<li>
+											<strong>배송비</strong>
+											<p><em id="totalDeliveryFee">0</em> 원</p>
+										</li>
+										<li>
+											<strong>할인금액</strong>
+											<p><em id="totalDiscountPrice">0</em> 원</p>
+										</li>
+										<li style="border-bottom: 1px solid #e2e2e2; padding-bottom:20px; margin-bottom: 20px;">
+											<strong>포인트 사용금액</strong>
+											<p><em id="totalPointPrice">0</em> 원</p>
+										</li>
+										<li>
+											<div class="total_price">
+												<span><fmt:formatNumber pattern="###,###,###" value="${orderDto.order_total_price}"/>&nbsp;</span><h5>원</h5>
+											</div>
+											<h4>결제금액</h4>
+										</li>
+										<li>
+											<p style="color: #F15F5F;">Point <em id = "point"><fmt:formatNumber pattern="###,###,###" value="${orderDto.order_total_point}"/></em>P 적립예정</p>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						</c:if>
 						<div class="complete_btn">
 							<button id="btn_main" onclick="location.href='${root}/main.do'">쇼핑 계속하기</button>
 							<button id="btn_cart" onclick="location.href='${root}/order/cart.do'">장바구니</button>

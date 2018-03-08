@@ -252,14 +252,12 @@ public class BookServiceImp implements BookService {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		HttpSession session = request.getSession();
-		String nonmember_id = (String) session.getId();
-		String member_id = (String) session.getAttribute("member_id");
+		String order_id = (String) session.getAttribute("member_id");
+		if(order_id == null) {order_id = session.getId();}
 		
 		int book_num = Integer.parseInt(request.getParameter("book_num"));
 		BookDto bookDto = bookDao.detail(book_num);
-		if(member_id == null) member_id = "비회원";
-		bookDto.setMember_id(member_id);
-		bookDto.setNonmember_id(nonmember_id);
+		bookDto.setOrder_id(order_id);
 		
 		bookDao.insertCart(bookDto);
 	}

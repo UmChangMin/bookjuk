@@ -98,7 +98,7 @@
 	
 	<!-- 장바구니 추가 -->
 	<insert id="insertCart" parameterType="com.bookjuk.book.dto.BookDto">
-		INSERT INTO cart VALUES (cart_num_seq.nextval, #{member_id}, #{nonmember_id}, #{book_num}, 1, sysdate)
+		INSERT INTO cart VALUES (cart_num_seq.nextval, #{order_id}, #{book_num}, 1, sysdate)
 	</insert>
 		
 </mapper>

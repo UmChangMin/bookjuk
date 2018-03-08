@@ -23,7 +23,7 @@
 
 	<c:if test="${check == 0}">
 		<script type="text/javascript">
-			alert("회원탈퇴 실패하였습니다.");
+			alert("회원탈퇴 실패하였습니다. 비밀번호를 확인해주세요.");
 			$(location).attr("href","${root}/member/delete.do");
 		</script>
 	</c:if>

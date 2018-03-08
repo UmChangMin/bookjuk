@@ -64,15 +64,9 @@ public class OrderController {
 		return mav;
 	}
 	
-
-	
 	@RequestMapping(value = "/zipcode.do")
 	public ModelAndView zipcode(HttpServletRequest request, HttpServletResponse response) {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("request", request);
-		orderService.zipcode(mav);
-		
-		return mav;
+		return new ModelAndView("order/order_zipcode.empty");
 	}
 	
 	@RequestMapping(value = "/complete.do")

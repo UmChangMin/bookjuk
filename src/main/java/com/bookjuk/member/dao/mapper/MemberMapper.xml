@@ -26,7 +26,7 @@
   	
   	<!-- 회원탈퇴 -->
   	<delete id="delete" parameterType="String">
-  		<![CDATA[delete from member where member_id=#{member_id}]]>
+  		<![CDATA[delete from member where member_id = #{member_id} and member_password = #{member_password}]]>
   	</delete>
   	
   	<!-- 회원수정 -->

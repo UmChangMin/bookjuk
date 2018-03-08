@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.tools.ant.taskdefs.condition.Http;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +21,7 @@ public class MemberController {
 	private MemberService memberService;
 	
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
-	public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView login(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		return new ModelAndView("member/member_login.empty");
 	}
 	
@@ -86,7 +85,6 @@ public class MemberController {
 		
 		return mav;
 	}	
-	
 	
 	@RequestMapping(value = "/checkId.do")
 	public ModelAndView checkId(HttpServletRequest request, HttpServletResponse response) {
@@ -160,11 +158,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/deleteOk.do", method = RequestMethod.POST)
-	public ModelAndView deleteOk(HttpServletRequest request, HttpServletResponse response, MemberDto memberDto) {
+	public ModelAndView deleteOk(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
-		
 		mav.addObject("request", request);
-		mav.addObject("memberDto",memberDto);
 		memberService.deleteOk(mav);
 		
 		return mav;

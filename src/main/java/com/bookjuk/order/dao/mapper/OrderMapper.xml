@@ -4,41 +4,58 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bookjuk.order.dao.mapper.OrderMapper">
 	<!-- 장바구니 -->
-	<select id="memCartCount" parameterType="String" resultType="int">
-		SELECT nvl(count(*),0) FROM cart WHERE member_id = #{member_id}
+	<select id="cartCount" parameterType="String" resultType="int">
+		SELECT nvl(count(*),0) FROM cart WHERE order_id = #{order_id}
 	</select>
 	
-	<select id="nonCartCount" parameterType="String" resultType="int">
-		SELECT nvl(count(*),0) FROM cart WHERE nonmember_id = #{nonmember_id}
-	</select>
-	
-	<select id="memCartList" parameterType="String" resultType="com.bookjuk.order.dto.OrderDto">
-		SELECT b.book_num, b.book_img, b.book_name, c.member_id, c.nonmember_id,  c.cart_amount, p.product_disprice, p.product_point, p.product_delivery, c.cart_date FROM book b, product p, cart c WHERE b.book_num = c.book_num and b.book_num = p.book_num and member_id = #{member_id} ORDER BY cart_date DESC
-	</select>
-	
-	<select id="nonCartList" parameterType="String" resultType="com.bookjuk.order.dto.OrderDto">
-		SELECT b.book_num, b.book_img, b.book_name, c.member_id, c.nonmember_id, c.cart_amount, p.product_disprice, p.product_point, p.product_delivery, c.cart_date FROM book b, product p, cart c WHERE b.book_num = c.book_num and b.book_num = p.book_num and nonmember_id = #{nonmember_id} ORDER BY cart_date DESC
+	<select id="cartList" parameterType="String" resultType="com.bookjuk.order.dto.OrderDto">
+		SELECT b.book_num, b.book_img, b.book_name, c.order_id, c.cart_amount, p.product_disprice, p.product_point, p.product_delivery, c.cart_date FROM book b, product p, cart c WHERE b.book_num = c.book_num and b.book_num = p.book_num and order_id = #{order_id} ORDER BY cart_date DESC
 	</select>
 	
 	<!-- 장바구니 수량 조절 -->
 	<update id="updateAmount" parameterType="com.bookjuk.order.dto.OrderDto">
-		UPDATE cart SET cart_amount = #{cart_amount} WHERE member_id = #{member_id} and book_num = #{book_num}
+		UPDATE cart SET cart_amount = #{cart_amount} WHERE order_id = #{order_id} and book_num = #{book_num}
 	</update>
 	
-	<update id="updateNonAmount" parameterType="com.bookjuk.order.dto.OrderDto">
-		UPDATE cart SET cart_amount = #{cart_amount} WHERE nonmember_id = #{nonmember_id} and book_num = #{book_num}
-	</update>
-	
-	<delete id="memDeleteCart" parameterType="java.util.Map">
-		DELETE FROM cart WHERE member_id = #{member_id} AND book_num = #{book_num}
+	<delete id="deleteCart" parameterType="java.util.Map">
+		DELETE FROM cart WHERE order_id = #{order_id} AND book_num = #{book_num}
 	</delete>
-	
-	<delete id="nonDeleteCart" parameterType="java.util.Map">
-		DELETE FROM cart WHERE nonmember_id = #{nonmember_id} AND book_num = #{book_num}
-	</delete>
-	
+
 	<!-- 주문 -->
 	<select id="orderMember" parameterType="String" resultType="com.bookjuk.order.dto.OrderDto">
-		SELECT * FROM member WHERE member_id = #{member_id}
+		SELECT * FROM member WHERE member_id = #{order_id}
+	</select>
+	
+	<insert id="insertOrderInfo" parameterType="com.bookjuk.order.dto.OrderDto">
+		<selectKey order="BEFORE" keyProperty="order_num" resultType="int">
+			SELECT to_number(to_char(sysdate,'YYMMDD') || nvl(to_char(max(substr(order_num,7))),'00'))+1 FROM book_order WHERE to_char(sysdate,'YYYYMMDD') = to_char(sysdate,'YYYYMMDD')
+		</selectKey>
+			INSERT INTO book_order VALUES (#{order_num}, #{order_id}, #{order_list}, #{amount_list}, sysdate, #{order_state}, #{order_payment}, #{order_point}, #{order_coupon}, #{order_total_price}, #{order_total_point}, #{refund_name}, #{refund_bank}, #{refund_account})
+	</insert>
+	
+	<insert id="insertOrderNonmemInfo" parameterType="java.util.Map">
+		INSERT INTO nonmember VALUES (#{order_num}, #{order_id}, #{nonmember_name}, #{nonmember_phone}, #{nonmember_email}, #{nonmember_password})
+	</insert>
+	
+	<insert id="insertOrderDelivery" parameterType="java.util.Map">
+		INSERT INTO delivery VALUES (#{order_num}, #{order_name}, #{order_phone}, #{order_postcode}, #{order_address}, #{order_address_detail}, #{order_memo})
+	</insert>
+	
+	<select id="orderNum" parameterType="com.bookjuk.order.dto.OrderDto" resultType="int">
+		SELECT MAX(order_num) FROM book_order WHERE order_id = #{order_id}
+	</select>
+	
+	<!-- 주문 후 장바구니 삭제 -->
+	<delete id="deleteCartOrder" parameterType="String">
+		DELETE FROM cart WHERE order_id = #{order_id}
+	</delete>
+	
+	<!-- 주문 목록 -->
+	<select id="orderCompleteNonInfo" parameterType="java.util.Map" resultType="com.bookjuk.order.dto.OrderDto">
+		SELECT * FROM book_order o, delivery d, nonmember n WHERE o.order_num = #{order_num} AND o.order_num = d.order_num AND n.nonmember_id = #{order_id} AND n.nonmember_id = o.order_id
+	</select>
+	
+	<select id="orderCompleteMemInfo" parameterType="java.util.Map" resultType="com.bookjuk.order.dto.OrderDto">
+		SELECT * FROM book_order o, delivery d, member m WHERE o.order_num = #{order_num} AND o.order_num = d.order_num AND m.member_id = #{order_id} AND m.member_id = o.order_id
 	</select>
 </mapper>

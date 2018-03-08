@@ -61,9 +61,12 @@ public class MemberDaoImp implements MemberDao {
 	}
 
 	@Override
-	public int delete(String member_id) {
-
-		return sqlSession.delete("delete",member_id);
+	public int delete(String member_id, String member_password) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("member_id", member_id);
+		map.put("member_password", member_password);
+		
+		return sqlSession.delete("delete", map);
 	}
 
 	@Override

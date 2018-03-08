@@ -33,11 +33,16 @@ public class OrderDto {
 	private int product_delivery;		// 배송료
 	/*주문*/
 	private int order_num;				// 주문번호
+	private String order_id;			// 주문 아이디
 	private Date order_date;			// 주문날짜
+	private String order_list;			// 상품목록
+	private String amount_list;			// 샹품주문수량
 	private String order_state;			// 주문상태
 	private String order_payment;		// 결제수단
+	private int order_point;			// 포인트 사용
 	private String order_coupon;		// 쿠폰사용여부.
 	private int order_total_price;		// 총 금액
+	private int order_total_point;		// 적립예정포인트
 	private String refund_name;			// 환불 예금주
 	private String refund_bank;			// 환불은행
 	private String refund_account;		// 환불계좌 
@@ -205,11 +210,29 @@ public class OrderDto {
 	public void setOrder_num(int order_num) {
 		this.order_num = order_num;
 	}
+	public String getOrder_id() {
+		return order_id;
+	}
+	public void setOrder_id(String order_id) {
+		this.order_id = order_id;
+	}
 	public Date getOrder_date() {
 		return order_date;
 	}
 	public void setOrder_date(Date order_date) {
 		this.order_date = order_date;
+	}
+	public String getOrder_list() {
+		return order_list;
+	}
+	public void setOrder_list(String order_list) {
+		this.order_list = order_list;
+	}
+	public String getAmount_list() {
+		return amount_list;
+	}
+	public void setAmount_list(String amount_list) {
+		this.amount_list = amount_list;
 	}
 	public String getOrder_state() {
 		return order_state;
@@ -223,6 +246,12 @@ public class OrderDto {
 	public void setOrder_payment(String order_payment) {
 		this.order_payment = order_payment;
 	}
+	public int getOrder_point() {
+		return order_point;
+	}
+	public void setOrder_point(int order_point) {
+		this.order_point = order_point;
+	}
 	public String getOrder_coupon() {
 		return order_coupon;
 	}
@@ -234,6 +263,12 @@ public class OrderDto {
 	}
 	public void setOrder_total_price(int order_total_price) {
 		this.order_total_price = order_total_price;
+	}
+	public int getOrder_total_point() {
+		return order_total_point;
+	}
+	public void setOrder_total_point(int order_total_point) {
+		this.order_total_point = order_total_point;
 	}
 	public String getRefund_name() {
 		return refund_name;
@@ -301,12 +336,13 @@ public class OrderDto {
 				+ book_img + ", book_name=" + book_name + ", cart_num=" + cart_num + ", book_num=" + book_num
 				+ ", cart_amount=" + cart_amount + ", cart_date=" + cart_date + ", product_amount=" + product_amount
 				+ ", product_disprice=" + product_disprice + ", product_point=" + product_point + ", product_sales="
-				+ product_sales + ", product_delivery=" + product_delivery + ", order_num=" + order_num
-				+ ", order_date=" + order_date + ", order_state=" + order_state + ", order_payment=" + order_payment
-				+ ", order_coupon=" + order_coupon + ", order_total_price=" + order_total_price + ", refund_name="
-				+ refund_name + ", refund_bank=" + refund_bank + ", refund_account=" + refund_account + ", order_name="
-				+ order_name + ", order_phone=" + order_phone + ", order_postcode=" + order_postcode
-				+ ", order_address=" + order_address + ", order_address_detail=" + order_address_detail
-				+ ", order_memo=" + order_memo + "]";
+				+ product_sales + ", product_delivery=" + product_delivery + ", order_num=" + order_num + ", order_id="
+				+ order_id + ", order_date=" + order_date + ", order_list=" + order_list + ", amount_list="
+				+ amount_list + ", order_state=" + order_state + ", order_payment=" + order_payment + ", order_point="
+				+ order_point + ", order_coupon=" + order_coupon + ", order_total_price=" + order_total_price
+				+ ", order_total_point=" + order_total_point + ", refund_name=" + refund_name + ", refund_bank="
+				+ refund_bank + ", refund_account=" + refund_account + ", order_name=" + order_name + ", order_phone="
+				+ order_phone + ", order_postcode=" + order_postcode + ", order_address=" + order_address
+				+ ", order_address_detail=" + order_address_detail + ", order_memo=" + order_memo + "]";
 	}
 }

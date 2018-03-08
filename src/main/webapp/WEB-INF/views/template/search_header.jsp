@@ -20,9 +20,9 @@
 		<div class="header_top">
 			<div class="header_top_inner">
 
-				<c:if test="${member_level == null && member_id==null || member_id == '비회원'}">
+				<c:if test="${member_level == null && member_id==null || member_id == '비회원' || member_level == 'none'}">
 					<ul class="header_lnb_right">
-						<li><a href="" class="openMask" onclick="login('${root}')">로그인</a></li>
+						<li><a href="" class="openMask" onclick="login('${root}', ${nonmember_id})">로그인</a></li>
 						<li><a class="openMask2" href="" onclick="registe('${root}')">회원가입</a></li>
 						<li><a class="" href="${root}/order/cart.do">장바구니</a></li>
 						<li><a class="openMask3" href="${root}/order/list.do" onclick="orderdelivery('${root}')">주문/배송조회</a></li>

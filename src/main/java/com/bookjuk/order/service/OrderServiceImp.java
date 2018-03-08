@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bookjuk.aop.LogAspect;
@@ -20,34 +21,33 @@ public class OrderServiceImp implements OrderService {
 	@Autowired
 	private OrderDao orderDao;
 	
+	/*LogAspect.logger.info(LogAspect.logMsg + );*/
+	
 	@Override
 	public void cart(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		HttpSession session = request.getSession();
-		String nonmember_id = session.getId();
-		String member_id = (String) session.getAttribute("member_id");
-		int count = 0;
-		List<OrderDto> cartList = null;
+		/*주문 아이디 생성*/
+		String order_id = getId(session);
 		
-		if(member_id != null) {
-			count = orderDao.memCartCount(member_id);
-			if(count > 0) {
-				cartList = orderDao.memCartList(member_id);
-				mav.addObject("member_id", cartList.get(0).getMember_id());
-			}
-		}else if(nonmember_id != null) {
-			member_id = "비회원";
-			count = orderDao.nonCartCount(nonmember_id);
-			if(count > 0) {
-				cartList = orderDao.nonCartList(nonmember_id);
-				mav.addObject("member_id", cartList.get(0).getMember_id());
-				mav.addObject("nonmember_id", cartList.get(0).getNonmember_id());
-			}
+		String member_level = (String) session.getAttribute("member_level");
+		
+		if(member_level == null) {member_level = "none";}
+		
+		List<OrderDto> cartList = null;
+		int count = orderDao.cartCount(order_id);
+		
+		if(count > 0) {
+			cartList = orderDao.cartList(order_id);
+			mav.addObject("order_id", cartList.get(0).getOrder_id());
 		}
+		LogAspect.logger.info(LogAspect.logMsg + cartList);
+		LogAspect.logger.info(LogAspect.logMsg + "cart : " + order_id);
 		
 		Map<String, Integer> tot_map = calculate(cartList);
 		
+		mav.addObject("member_level", member_level);
 		mav.addObject("tot_price", tot_map.get("tot_price"));
 		mav.addObject("tot_point", tot_map.get("tot_point"));
 		mav.addObject("tot_delivery", tot_map.get("tot_delivery"));
@@ -61,23 +61,15 @@ public class OrderServiceImp implements OrderService {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		HttpSession session = request.getSession();
-		String member_id = (String) session.getAttribute("member_id");
+		String order_id = getId(session);
 		int book_num = Integer.parseInt(request.getParameter("book_num"));
 		int cart_amount = Integer.parseInt(request.getParameter("cart_amount"));
-		String nonmember_id = session.getId();
 		
 		OrderDto orderDto = new OrderDto();
 		
-		if(member_id != null) {
-			orderDto.setMember_id(member_id);
-			orderDto.setBook_num(book_num);
-			orderDto.setNonmember_id(nonmember_id);
-			orderDto.setCart_amount(cart_amount);
-		}else {
-			orderDto.setBook_num(book_num);
-			orderDto.setNonmember_id(nonmember_id);
-			orderDto.setCart_amount(cart_amount);
-		}
+		orderDto.setBook_num(book_num);
+		orderDto.setOrder_id(order_id);
+		orderDto.setCart_amount(cart_amount);
 		
 		orderDao.updateAmount(orderDto);
 	}
@@ -87,29 +79,30 @@ public class OrderServiceImp implements OrderService {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		HttpSession session = request.getSession();
+		String order_id = getId(session);
 		int book_num = Integer.parseInt(request.getParameter("book_num"));
-		if(session.getAttribute("member_id") != null) {
-			String member_id = (String) session.getAttribute("member_id");
-			orderDao.memDeleteCart(book_num, member_id);
-		}else {
-			String nonmember_id = session.getId();
-			orderDao.nonDeleteCart(book_num, nonmember_id);
-		}
 		
-		
+		orderDao.deleteCart(book_num, order_id);
 	}
 
 	@Override
 	public void orderNon(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		String nonmember_id = request.getParameter("nonmember_id");
-		LogAspect.logger.info(LogAspect.logMsg + nonmember_id);
+		String order_id = request.getParameter("order_id");
+		LogAspect.logger.info(LogAspect.logMsg + "ordernon : " + order_id);
 		
-		List<OrderDto> cartList = orderDao.nonCartList(nonmember_id);
+		/*장바구니 리스트*/
+		List<OrderDto> cartList = orderDao.cartList(order_id);
+		
+		String order_list = orderList(cartList);
+		String amount_list = amountList(cartList);
 		
 		Map<String, Integer> tot_map = calculate(cartList);
 		
+		mav.addObject("order_id", order_id);
+		mav.addObject("order_list", order_list);
+		mav.addObject("amount_list", amount_list);
 		mav.addObject("tot_price", tot_map.get("tot_price"));
 		mav.addObject("tot_point", tot_map.get("tot_point"));
 		mav.addObject("tot_delivery", tot_map.get("tot_delivery"));
@@ -122,15 +115,23 @@ public class OrderServiceImp implements OrderService {
 	public void order(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		String member_id = request.getParameter("member_id");
-		LogAspect.logger.info(LogAspect.logMsg + member_id);
+		String order_id = request.getParameter("order_id");
+		LogAspect.logger.info(LogAspect.logMsg + "order : " + order_id);
 		
-		List<OrderDto> cartList = orderDao.memCartList(member_id);
+		/*장바구니 리스트*/
+		List<OrderDto> cartList = orderDao.cartList(order_id);
+		
+		String order_list = orderList(cartList);
+		String amount_list = amountList(cartList);
 		
 		Map<String, Integer> tot_map = calculate(cartList);
 		
-		OrderDto memberDto = orderDao.orderMember(member_id);
+		/*주문 항목에 뿌릴 회원 정보 받아오기*/
+		OrderDto memberDto = orderDao.orderMember(order_id);
 		
+		mav.addObject("order_id", order_id);
+		mav.addObject("order_list", order_list);
+		mav.addObject("amount_list", amount_list);
 		mav.addObject("tot_price", tot_map.get("tot_price"));
 		mav.addObject("tot_point", tot_map.get("tot_point"));
 		mav.addObject("tot_delivery", tot_map.get("tot_delivery"));
@@ -140,18 +141,48 @@ public class OrderServiceImp implements OrderService {
 		mav.setViewName("order/order.search");
 	}
 	
-	@Override
-	public void zipcode(ModelAndView mav) {
-		
-		mav.setViewName("order/order_zipcode.empty");
-	}
-
+	@Transactional
 	@Override
 	public void complete(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		OrderDto orderDto = (OrderDto) map.get("orderDto");
-		LogAspect.logger.info(LogAspect.logMsg + orderDto.toString());
+		HttpSession session = request.getSession();
+		String order_id = getId(session);
+		
+		if(orderDto.getRefund_bank().equals("mutong")) {
+			orderDto.setOrder_state("입금대기중");
+		}else {
+			orderDto.setOrder_state("상품준비중");
+		}
+		LogAspect.logger.info(LogAspect.logMsg + orderDto);
+		
+		/*주문정보 입력*/
+		int check = orderDao.insertOrderInfo(orderDto);
+		LogAspect.logger.info(LogAspect.logMsg + check);
+		
+		/*주문번호 가져오기*/
+		int order_num = orderDao.orderNum(orderDto);
+		if(order_id.length() > 25) {orderDao.insertOrderNonmemInfo(orderDto, order_num);}
+		
+		LogAspect.logger.info(LogAspect.logMsg + order_num);
+		
+		/*배송정보 입력*/
+		orderDao.insertOrderDelivery(orderDto, order_num);
+		
+		/*장바구니 비우기*/
+		if(check > 0) {orderDao.deleteCartOrder(order_id);}
+		
+		/*주문 정보*/
+		if(order_id.length() > 25) {
+			orderDto = orderDao.orderCompleteNonInfo(order_num, order_id);
+		}else {
+			orderDto = orderDao.orderCompleteMemInfo(order_num, order_id);
+		}
+		
+		/*재고 소진*/
+		
+		mav.addObject("orderDto", orderDto);
 		
 		mav.setViewName("order/order_complete.search");
 	}
@@ -184,6 +215,14 @@ public class OrderServiceImp implements OrderService {
 		mav.setViewName("order/order_cancle.search");
 	}
 	
+	public String getId(HttpSession session) {
+		String order_id = (String) session.getAttribute("member_id");
+		if(order_id == null) {order_id = session.getId();}
+		
+		return order_id;
+	}
+	
+	/*장바구니 및 주문 Total 가격, 배송비, 포인트 계산*/
 	public Map<String, Integer> calculate(List<OrderDto> cartList) {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		
@@ -211,6 +250,26 @@ public class OrderServiceImp implements OrderService {
 		map.put("tot_delivery", tot_delivery);
 		
 		return map;
+	}
+	
+	public String orderList(List<OrderDto> cartList) {
+		String order_list = "";
+		
+		for(int i=0; i<cartList.size(); i++) {
+			order_list += cartList.get(i).getBook_num() + ",";
+		}
+		
+		return order_list;
+	}
+	
+	public String amountList(List<OrderDto> cartList) {
+		String amount_list = "";
+		
+		for(int i=0; i<cartList.size(); i++) {
+			amount_list += cartList.get(i).getCart_amount() + ",";
+		}
+		
+		return amount_list;
 	}
 /*	@Override
 	public void orderOk(ModelAndView mav) {

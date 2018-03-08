@@ -93,6 +93,7 @@
 						</tbody>
 					</table>
 					<!-- 배송지 정보 -->
+					<form action="${root}/order/complete.do" method="post" id="order">
 					<div class="order_destination_wrap">
 						<div class="order_deliver_wrap">
 							<div class="order_title">
@@ -109,7 +110,7 @@
 							</div>
 							<div class="order_address">
 								<label>배송지 주소</label>
-								<input type="text" name="order_postcode" id="zipcode" value="${memberDto.member_postcode}"/><button id="btn_zipcode" onclick="zipcodeRead('${root}')">우편번호</button><br/>
+								<input type="text" name="order_postcode" id="zipcode" value="${memberDto.member_postcode}"/><button type="button" id="btn_zipcode" onclick="zipcodeRead('${root}')">우편번호</button><br/>
 								<input type="text" name="order_address" id="address1" value="${memberDto.member_address}"/><input type="text" name="order_address_detail" id="address2" value="${memberDto.member_address_detail}"/>
 							</div>
 							<div class="order_memo">
@@ -136,10 +137,10 @@
 										<th>생일축하 쿠폰</th>
 										<td>
 											<div class="input_area">
-												<input name="birthDayCouponPrice" id="birth_coupon" value="" title="생일쿠폰금액">
+												<input id="birth_coupon" value="0" disabled="disabled">
 												<span class="order_measure">원</span>
 											</div>
-											<button class="btn_coupon">쿠폰사용</button>
+											<button type="button" class="btn_coupon">쿠폰사용</button>
 											<ul class="use_list">
 												<li>
 													(사용가능 쿠폰 : <em>${memberDto.birthday_coupon}</em>장 |
@@ -156,7 +157,7 @@
 										<th>생일축하 쿠폰</th>
 										<td>
 											<div class="input_area">
-												<input name="birthDayCouponPrice" id="birth_coupon" value="0" disabled="disabled">
+												<input id="birth_coupon" value="0" disabled="disabled">
 												<span class="order_measure">원</span>
 											</div>
 											<button class="btn_coupon" disabled="disabled">쿠폰사용</button>
@@ -171,55 +172,15 @@
 										</td>
 									</tr>
 									</c:if>
-									<c:if test="${memberDto.delivery_coupon > 0}">
-									<tr>
-										<th>배송비 쿠폰</th>
-										<td>
-											<div class="input_area">
-												<input name="deliveryCouponPrice" id="delivery_coupon" value="0" disabled="disabled">
-												<span class="order_measure">원</span>
-											</div>
-											<button class="btn_coupon">쿠폰사용</button>
-											<ul class="use_list">
-												<li>
-													(사용가능 쿠폰 : <em>${memberDto.delivery_coupon}</em>장 |
-												</li>
-												<li style="margin-left: 5px;">
-													보유 쿠폰 : <em>${memberDto.delivery_coupon}</em>장)
-												</li>
-											</ul>
-										</td>
-									</tr>
-									</c:if>
-									<c:if test="${memberDto.delivery_coupon == 0}">
-									<tr>
-										<th>배송비 쿠폰</th>
-										<td>
-											<div class="input_area">
-												<input name="deliveryCouponPrice" id="delivery_coupon" value="0" title="생일쿠폰금액" disabled="disabled">
-												<span class="order_measure">원</span>
-											</div>
-											<button class="btn_coupon" disabled="disabled">쿠폰사용</button>
-											<ul class="use_list">
-												<li>
-													(사용가능 쿠폰 : <em>${memberDto.delivery_coupon}</em>장 |
-												</li>
-												<li style="margin-left: 5px;">
-													보유 쿠폰 : <em>${memberDto.delivery_coupon}</em>장)
-												</li>
-											</ul>
-										</td>
-									</tr>
-									</c:if>
-									<c:if test="${memberDto.member_point > 1000}">
+									<c:if test="${memberDto.member_point >= 1000}">
 									<tr>
 										<th>Point</th>
 										<td>
 											<div class="input_area">
-												<input name="birthDayCouponPrice" id="birth_coupon" value="0" title="생일쿠폰금액">
+												<input name="order_point" id="order_point" value="0">
 												<span class="order_measure">원</span>
 											</div>
-											<button class="btn_coupon">전액사용</button>
+											<button type="button" class="btn_coupon" onclick="usePoint(${memberDto.member_point}, ${tot_price})">포인트사용</button>
 											<ul class="use_list">
 												<li>
 													(사용가능 포인트 : <em class="pointcol">${memberDto.member_point}</em>원)
@@ -228,15 +189,15 @@
 										</td>
 									</tr>
 									</c:if>
-									<c:if test="${memberDto.member_point =< 1000}">
+									<c:if test="${memberDto.member_point >= 0 && memberDto.member_point < 1000}">
 									<tr>
 										<th>Point</th>
 										<td>
 											<div class="input_area">
-												<input name="birthDayCouponPrice" id="birth_coupon" value="0" title="생일쿠폰금액" disabled="disabled">
+												<input id="member_point" value="0" disabled="disabled">
 												<span class="order_measure">원</span>
 											</div>
-											<button class="btn_coupon" disabled="disabled">전액사용</button>
+											<button class="btn_coupon" disabled="disabled">포인트사용</button>
 											<ul class="use_list">
 												<li>
 													(사용가능 포인트 : <em class="pointcol">${memberDto.member_point}</em>원)
@@ -261,13 +222,25 @@
 								<div class="payment_option payment_select">
 									<ul class="payment_list">
 										<li>
-											<input type="radio" name="order_payment" value="card"><label>신용카드(체크)</label>
+											<label class="radio-inline">
+												<input type="radio" name="order_payment" value="card" hidden>
+												<span class="radio-style"></span>
+											</label>
+											<label>신용카드(체크)</label>
 										</li>
 										<li>
-											<input type="radio" name="order_payment" value="account"><label>실시간 계좌이체</label>
+											<label class="radio-inline">
+												<input type="radio" name="order_payment" value="card" hidden>
+												<span class="radio-style"></span>
+											</label>
+											<input type="radio" name="order_payment" value="account" hidden><label>실시간 계좌이체</label>
 										</li>
 										<li>
-											<input type="radio" name="order_payment" value="mutong"><label>무통장 입금</label>
+											<label class="radio-inline">
+												<input type="radio" name="order_payment" value="card" hidden>
+												<span class="radio-style"></span>
+											</label>
+											<input type="radio" name="order_payment" value="mutong" hidden><label>무통장 입금</label>
 										</li>
 									</ul>
 								</div>
@@ -298,7 +271,7 @@
 								<h3>주문동의</h3>
 								<span>주문할 상품의 상품명, 가격, 배송 정보에 동의하십니까?</span>
 								<div class="order_agree_required">
-									<input type="checkbox" id="agree"/><span> 확인동의 (전자상거래법 제 8조 2항)</span>
+									<label class="checkbox-inline"><input type="checkbox" id="agree" name="checkbox" hidden/><span class="checkbox-style"></span></label><span> 확인동의 (전자상거래법 제 8조 2항)</span>
 								</div>
 							</div>
 						</div>
@@ -307,7 +280,7 @@
 							<div class="order_price_sum">
 								<h4>결제금액</h4>
 								<div class="total_price">
-									<span><fmt:formatNumber pattern="###,###,###" value="${tot_price}"/></span><h5>원</h5>
+									<span><fmt:formatNumber pattern="###,###,###" value="${tot_price}"/>&nbsp;</span><h5>원</h5>
 								</div>
 								<ul class="calc_list">
 									<li>
@@ -322,10 +295,18 @@
 										<strong>할인금액</strong>
 										<p><em id="totalDiscountPrice">0</em>원</p>
 									</li>
+									<c:if test="${use_point == null}">
 									<li>
 										<strong>포인트 사용금액</strong>
-										<p><em id="totalPointPrice">0</em>원</p>
+										<p><em id="totalPointPrice"><fmt:formatNumber pattern="###,###,###" value="0"/></em>원</p>
 									</li>
+									</c:if>
+									<c:if test="${use_point != null}">
+									<li>
+										<strong>포인트 사용금액</strong>
+										<p><em id="totalPointPrice"><fmt:formatNumber pattern="###,###,###" value="${use_point}"/></em>원</p>
+									</li>
+									</c:if>
 									<li>
 										<strong style="margin-top: 15px; color: #F15F5F;">적립예상금액</strong>
 									</li>
@@ -337,11 +318,16 @@
 						</div>
 					</div>
 					<div class="order_payment_agree">
-						<input type="hidden" name="member_id" value="${member_id}">
-						<input type="hidden" name="tot_order_price" value="${tot_price}">
+						<input type="hidden" name="order_coupon" id="use_coupon" value="no">
+						<input type="hidden" name="order_id" value="${order_id}">
+						<input type="hidden" name="order_list" value="${order_list}">
+						<input type="hidden" name="amount_list" value="${amount_list}">
+						<input type="hidden" name="order_total_price" value="${tot_price}">
+						<input type="hidden" name="order_total_point" value="${tot_point}">
 						<button id="btn_cart" onclick="location='${root}/order/cart.do'">장바구니 가기</button>
 						<button id="btn_order">결제하기</button>
 					</div>
+					</form>
 				</div>
 			</div>
 		</div>

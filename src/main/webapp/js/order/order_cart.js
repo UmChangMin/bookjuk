@@ -38,7 +38,37 @@ $(function(){
 		 alert("선택한 상품이 삭제되었습니다.");
 		 location.reload();
 	  });
-	})
+	
+	$(".cart_btn_non_order").click(function(){
+		var check = $("input[name=chkObj]:checked").val();
+		var member_level = $("#member_level").val();
+		 
+		if(check == null){
+			alert("장바구니가 비어있습니다.");
+			return false;
+		}else if(member_level != "none"){
+			alert("회원 주문하기를 이용해주세요.");
+			return false;
+		}else if(member_level == "none"){
+			$("#non_order_submit").submit();
+		}
+	});
+	  
+	$(".cart_btn_order").click(function(){
+		var check = $("input[name=chkObj]:checked").val();
+		var member_level = $("#member_level").val();
+			
+		if(check == null){
+			alert("장바구니가 비어있습니다.");
+			return false;
+		}else if(member_level == "none"){
+			alert("회원이 아닙니다. 비회원 주문하기를 이용해주세요.");
+			return false;
+		}else{
+			$("#order_submit").submit();
+		}
+	});
+})
 	
 function updateAmount(book_num, index){
 	var amount = $(".amount:eq(" + index + ")").val();

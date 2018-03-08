@@ -26,7 +26,7 @@
 	<C:if test="${member_level == null && member_name==null}">
 		<script type="text/javascript">
 			alert("아이디와 비밀번호를 확인하세요");
-			$(location).attr("href","${root}/login.do");
+			$(location).attr("href","${root}/member/login.do");
 		</script>
 	</C:if>
 </body>

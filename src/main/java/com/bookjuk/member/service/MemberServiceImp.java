@@ -38,10 +38,12 @@ public class MemberServiceImp implements MemberService {
 		
 		MemberDto memberDto = memberDao.loginOk(member_id,member_password);
 		
-		mav.addObject("member_id", memberDto.getMember_id());
-		mav.addObject("member_name", memberDto.getMember_name());
-		mav.addObject("member_level", memberDto.getMember_level());
-
+		if(memberDto != null) {
+			mav.addObject("member_id", memberDto.getMember_id());
+			mav.addObject("member_name", memberDto.getMember_name());
+			mav.addObject("member_level", memberDto.getMember_level());
+		}
+		
 		mav.setViewName("member/member_loginOk.empty");
 	}
 	
@@ -120,12 +122,11 @@ public class MemberServiceImp implements MemberService {
 	public void deleteOk(ModelAndView mav) {
 		Map<String, Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
-		MemberDto memberDto = (MemberDto) map.get("memberDto");
 		
 		String member_id=request.getParameter("member_id");
+		String member_password = request.getParameter("member_password");
 		
-		int check=memberDao.delete(member_id);
-		LogAspect.logger.info(LogAspect.logMsg+member_id);
+		int check = memberDao.delete(member_id, member_password);
 		
 		mav.addObject("check",check);
 		mav.setViewName("member/member_deleteOk.empty");

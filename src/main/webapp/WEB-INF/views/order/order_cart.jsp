@@ -88,8 +88,8 @@
 									<dd style="margin-top:22px;">
 										<ul>
 											<li>
-												<strong style="font-weight: bold">결제금액</strong>
-												<p><em class="subTotal"><fmt:formatNumber pattern="###,###,###" value="${tot_price}"/></em> 원</p>
+												<strong style="font-weight: bold; color: rgb(241, 95, 95)">결제금액</strong>
+												<p style="color: rgb(241, 95, 95)"><em class="subTotal"><fmt:formatNumber pattern="###,###,###" value="${tot_price}"/></em> 원</p>
 											</li>
 										</ul>
 									</dd>
@@ -98,6 +98,11 @@
 								</tr>
 							</tfoot>
 							<tbody>
+								<c:if test="${cartList == null}">
+									<tr>
+										<td colspan="6"><strong style="font-size: 1.5em;">장바구니에 담긴 상품이 없습니다.</strong></td>
+									</tr>
+								</c:if>
 								<c:forEach items="${cartList}" var="cartDto" varStatus="index">
 									<tr>
 										<td>
@@ -108,7 +113,7 @@
 										<td>
 											<div class="cart_product_info">
 												<img alt="${cartDto.book_name}" src="${root}${cartDto.book_img}">
-												<a href="#">${cartDto.book_name}</a>
+												<span>${cartDto.book_name}</span>
 											</div>
 										</td>
 										<td>
@@ -131,14 +136,15 @@
 						</table>
 					</div>
 					<div class="cart_btn_section" align="center">
-						<a href="${root}/main.do" class="cart_btn_home">쇼핑 계속하기</a>
-						<a href="javascript:void(0);" class="cart_btn_delete">선택상품 삭제하기</a>
-						<form action="${root}/order/order_non.do" method="post">
-							<input type="hidden" name="nonmember_id" value="${nonmember_id}">
+						<button type="button" onclick="location='${root}/main.do'" class="cart_btn_home">쇼핑 계속하기</button>
+						<button type="button" class="cart_btn_delete">선택상품 삭제하기</button>
+						<input type="hidden" id="member_level" value="${member_level}"/>
+						<form action="${root}/order/order_non.do" id="non_order_submit" method="post">
+							<input type="hidden" name="order_id" value="${order_id}">
 							<button class="cart_btn_non_order">비회원 주문하기</button>
 						</form>
-						<form action="${root}/order/order.do" method="post">
-							<input type="hidden" name="member_id" value="${member_id}">
+						<form action="${root}/order/order.do" id="order_submit" method="post">
+							<input type="hidden" name="order_id" value="${order_id}">
 							<button class="cart_btn_order">회원 주문하기</button>
 						</form>
 					</div>

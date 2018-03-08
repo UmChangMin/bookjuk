@@ -1,4 +1,8 @@
-
+var regexId = /^[a-z][a-z0-9]{4,12}$/;
+var regexPwd = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+var regexName = /^[가-힣]{2,4}$/;
+var regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+var regexBirth = /^[0-9]{6}$/;
 
 function rule(root){
 	var url = root+"/member/rule1.do";
@@ -20,15 +24,69 @@ function checkId() {
         url : "checkId.do",
         type : "POST",
         success : function(data) {
-            if(inputed=="" && data=='0') {
-                $("#idChk").css("border","1px solid #F15F5F");
-            } else if (data == '0') {
-                $("#idChk").css("border","1px solid #00c73c");
-            } else if (data == '1') {
-                $("#idChk").css("border","1px solid #F15F5F");
-            } 
+        	if(!regexId.test($.trim(inputed))){
+        		$("#idChk").css("border","1px solid #F15F5F");
+    		}else{
+    			if(inputed=="" && data=='0') {
+                    $("#idChk").css("border","1px solid #F15F5F");
+                } else if (data == '0') {
+                    $("#idChk").css("border","1px solid #00c73c");
+                } else if (data == '1') {
+                    $("#idChk").css("border","1px solid #F15F5F");
+                } 
+    		}
         }
     });
+}
+
+function checkPwd(){
+	var inputed = $(".registe_pwd").val();
+
+	if(!regexPwd.test($.trim(inputed))){
+		$("#pwdChk").css("border", "1px solid #F15F5F");
+	}else{
+		$("#pwdChk").css("border", "1px solid #00c73c");
+	}
+}
+
+function reCheckPwd(){
+	var inputed = $(".registe_pwdChk").val();
+
+	if(!regexPwd.test($.trim(inputed))){
+		$("#rePwdChk").css("border", "1px solid #F15F5F");
+	}else{
+		$("#rePwdChk").css("border", "1px solid #00c73c");
+	}
+}
+
+function checkName(){
+	var inputed = $(".registe_name").val();
+	
+	if(!regexName.test($.trim(inputed))){
+		$("#nameChk").css("border", "1px solid #F15F5F");
+	}else{
+		$("#nameChk").css("border", "1px solid #00c73c");
+	}
+}
+
+function checkEmail(){
+	var inputed = $(".registe_email").val();
+	
+	if(!regexEmail.test($.trim(inputed))){
+		$("#emailChk").css("border", "1px solid #F15F5F");
+	}else{
+		$("#emailChk").css("border", "1px solid #00c73c");
+	}
+}
+
+function checkBirth(){
+	var inputed = $(".registe_birthday").val();
+	
+	if(!regexBirth.test($.trim(inputed))){
+		$("#birthChk").css("border", "1px solid #F15F5F");
+	}else{
+		$("#birthChk").css("border", "1px solid #00c73c");
+	}
 }
 
 $(function(){	
@@ -103,12 +161,6 @@ $(function(){
 	});
 	
 	$("#submit").click(function(){
-		var regexId = /^[a-z][a-z0-9]{4,12}$/;
-		var regexPwd = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
-		var regexName = /^[가-힣]{2,4}$/;
-		var regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
-		var regexBirth = /^[0-9]{6}$/;
-		
 		if($(".registe_id").val() == "") {
 	        alert("아이디를 꼭 입력하세요!");	
 	        $(".registe_id").focus();

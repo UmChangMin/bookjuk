@@ -33,6 +33,20 @@ function user_blur(user_num) {
 	$("#user_phone").val(tmp);
 }
 
+function usePoint(point, tot_price){
+	var use_point = $("#order_point").val();
+	if(use_point < 1000){
+		alert("1000 Point 이상 사용가능합니다.");
+		$("#order_point").val(0);
+	}else if(use_point > point){
+		alert("보유 Point 보다 많은 Point를 입력하셨습니다.");
+		$("#order_point").val(0);
+	}else{
+		use_point = Math.floor(use_point/10) * 10;
+		$("#order_point").val(use_point);
+	}
+}
+
 $(function() {
 	$("input#phone").blur(function(){
 	    	var num = $("#phone").val();
@@ -58,7 +72,7 @@ $(function() {
 			alert("주문 약관에 동의해주세요.");
 			return false;
 		} else {
-			$("#non_order").submit();
+			$("#order").submit();
 		}
 	});
 });

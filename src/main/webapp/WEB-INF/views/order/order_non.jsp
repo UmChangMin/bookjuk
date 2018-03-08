@@ -93,7 +93,7 @@
 						</tbody>
 					</table>
 					<!-- 배송지 정보 -->
-					<form action="${root}/order/complete.do" method="post" id="non_order">
+					<form action="${root}/order/complete.do" method="post" id="order">
 					<div class="order_non_destination_wrap">
 						<div class="order_non_deliver_wrap">
 							<div class="order_non_title">
@@ -101,20 +101,20 @@
 								<h4>배송지정보</h4>
 							</div>
 							<div class="order_non_name">
-								<label>수령인</label>
+								<strong>수령인</strong>
 								<input type="text" name="order_name" id="name" value=""/>
 							</div>
 							<div class="order_non_phone">
-								<label>연락처</label>
+								<strong>연락처</strong>
 								<input type="text" name="order_phone" id="phone" maxlength="13" value=""/>
 							</div>
 							<div class="order_non_address">
-								<label>배송지 주소</label>
+								<strong>배송지 주소</strong>
 								<input type="text" name="order_postcode" id="zipcode" value=""/><button type="button" id="btn_zipcode" onclick="zipcodeRead('${root}')">우편번호</button><br/>
 								<input type="text" name="order_address" id="address1" value=""/><input type="text" name="order_address_detail" id="address2" value=""/>
 							</div>
 							<div class="order_non_memo">
-								<label>배송메모</label>
+								<strong>배송메모</strong>
 								<input type="text" name="order_memo" id="memo" value=""/>
 							</div>
 						</div>
@@ -122,22 +122,23 @@
 						<div class="order_non_userinfo_wrap">
 							<div class="order_non_userinfo">
 								<div class="userinfo_title">
+									<h3>02</h3>
 									<h4>주문자 정보</h4>
 								</div>
 								<div class="userinfo_name">
-									<label>주문자 성함</label>
+									<strong>주문자 성함</strong>
 									<input type="text" name="nonmember_name" id="user_name" value=""/>
 								</div>
 								<div class="userinfo_phone">
-									<label>연락처</label>
+									<strong>연락처</strong>
 									<input type="text" name="nonmember_phone" id="user_phone" value=""/>
 								</div>
 								<div class="userinfo_address">
-									<label>이메일</label>
+									<strong>이메일</strong>
 									<input type="text" name="nonmember_email" id="user_email" value=""/>
 								</div>
 								<div class="userinfo_password">
-									<label>주문 비밀번호</label>
+									<strong>주문 비밀번호</strong>
 									<input type="password" name="nonmember_password" id="user_password" value=""/>
 								</div>
 							</div>
@@ -151,7 +152,7 @@
 						<!-- 결제정보 -->
 						<div class="order_non_payment_info">
 							<div class="order_non_title">
-								<h3>02</h3>
+								<h3>03</h3>
 								<h4>결제정보</h4>
 							</div>
 							<div class="order_non_payment_list">
@@ -159,13 +160,25 @@
 								<div class="payment_option payment_select">
 									<ul class="payment_list">
 										<li>
-											<input type="radio" name="order_payment" value="card"><label>신용카드(체크)</label>
+											<label class="radio-inline">
+												<input type="radio" name="order_payment" value="card" hidden>
+												<span class="radio-style"></span>
+											</label>
+											<label>신용카드(체크)</label>
 										</li>
 										<li>
-											<input type="radio" name="order_payment" value="account"><label>실시간 계좌이체</label>
+											<label class="radio-inline">
+												<input type="radio" name="order_payment" value="card" hidden>
+												<span class="radio-style"></span>
+											</label>
+											<input type="radio" name="order_payment" value="account" hidden><label>실시간 계좌이체</label>
 										</li>
 										<li>
-											<input type="radio" name="order_payment" value="mutong"><label>무통장 입금</label>
+											<label class="radio-inline">
+												<input type="radio" name="order_payment" value="card" hidden>
+												<span class="radio-style"></span>
+											</label>
+											<input type="radio" name="order_payment" value="mutong" hidden><label>무통장 입금</label>
 										</li>
 									</ul>
 								</div>
@@ -196,7 +209,7 @@
 								<h3>주문동의</h3>
 								<span>주문할 상품의 상품명, 가격, 배송 정보에 동의하십니까?</span>
 								<div class="order_non_agree_required">
-									<input type="checkbox" id="agree"/><span> 확인동의 (전자상거래법 제 8조 2항)</span>
+									<label class="checkbox-inline"><input type="checkbox" id="agree" name="checkbox" hidden/><span class="checkbox-style"></span></label><span> 확인동의 (전자상거래법 제 8조 2항)</span>
 								</div>
 							</div>
 						</div>
@@ -205,7 +218,7 @@
 							<div class="order_non_price_sum">
 								<h4>결제금액</h4>
 								<div class="total_price">
-									<span><fmt:formatNumber pattern="###,###,###" value="${tot_price}"/></span><h5>원</h5>
+									<span><fmt:formatNumber pattern="###,###,###" value="${tot_price}"/>&nbsp;</span><h5>원</h5>
 								</div>
 								<ul class="calc_list">
 									<li>
@@ -222,18 +235,25 @@
 									</li>
 									<li>
 										<strong style="margin-top: 15px; color: #F15F5F;">회원 주문시 혜택</strong>
+										
 									</li>
 									<li>
 										<p style="float: left; color: #F15F5F;">Point <em id = point style="font-size: 1.25em"><fmt:formatNumber pattern="###,###,###" value="${tot_point}"/></em> 적립가능</p>
-										<button id="btn_regist">회원가입</button>
+									</li>
+									<li>
+										<button type="button" id="btn_regist">회원가입</button>
 									</li>
 								</ul>
 							</div>
 						</div>
 					</div>
 					<div class="order_non_payment_agree">
-						<input type="hidden" name="nonmember_id" value="${nonmember_id}">
-						<input type="hidden" name="tot_order_price" value="${tot_price}">
+						<input type="hidden" name="order_coupon" value="no">
+						<input type="hidden" name="order_id" value="${order_id}">
+						<input type="hidden" name="order_list" value="${order_list}">
+						<input type="hidden" name="amount_list" value="${amount_list}">
+						<input type="hidden" name="order_total_price" value="${tot_price}">
+						<input type="hidden" name="order_total_point" value="0">
 						<button type="button" id="btn_cart" onclick="location='${root}/order/cart.do'">장바구니 가기</button>
 						<button id="btn_order">결제하기</button>
 					</div>

@@ -84,7 +84,7 @@
 										</div>
 										<div class="bookDetail_delivery">
 											<div class="bookDetail_one">배송료</div>
-											<div class="bookDetail_two"><fmt:formatNumber value="${bookDto.product_delivery}" pattern="###,###,###"/>&nbsp;원</div>
+											<div class="bookDetail_two"><fmt:formatNumber value="${bookDto.product_delivery}" pattern="###,###,###"/></div>
 										</div>
 										
 									</div>
