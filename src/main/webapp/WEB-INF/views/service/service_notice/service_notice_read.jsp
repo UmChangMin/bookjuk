@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/service/service_basic.css" />
 <link rel="stylesheet" type="text/css" href="${root}/css/service/service_notice_read.css" />
 <script type="text/javascript" src="${root }/js/jquery.js"></script>
+<script type="text/javascript" src="${root}/jqueryUI/jquery-ui.js"></script>
 <script type="text/javascript">
 	$(function(){
 

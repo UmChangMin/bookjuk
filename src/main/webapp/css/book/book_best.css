@@ -51,10 +51,7 @@
     color: #333;
     line-height: 24px;
     padding: 15px 10px 15px 25px;
-    border: 1px solid #eaeaea;
-    border-left-width: 0;
-    border-right-width: 0;
-    
+    border-bottom: 1px solid #eaeaea;
 }
 
 .bookList_mid_content{

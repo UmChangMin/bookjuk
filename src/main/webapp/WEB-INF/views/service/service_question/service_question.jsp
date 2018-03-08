@@ -8,13 +8,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>자주하는 질문</title>
 <c:set var="root" value="${pageContext.request.contextPath }" />
-<link rel="stylesheet" type="text/css"
-	href="${root}/css/template/basic.css" />
-<link rel="stylesheet" type="text/css"
-	href="${root}/css/service/service_basic.css" />
-<link rel="stylesheet" type="text/css"
-	href="${root}/css/service/service_question.css" />
+<link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css" />
+<link rel="stylesheet" type="text/css" href="${root}/css/service/service_basic.css" />
+<link rel="stylesheet" type="text/css" href="${root}/css/service/service_question.css" />
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
+<script type="text/javascript" src="${root}/jqueryUI/jquery-ui.js"></script>
 <script type="text/javascript"
 	src="${root}/js/service/service_question.js"></script>
 </head>

@@ -18,16 +18,16 @@ function rule2(root){
 }
 
 function checkId() {
-    var inputed = $('.registe_id').val();
+    var input = $('.registe_id').val();
     $.ajax({
-        data : {id : inputed},
+        data : {id : input},
         url : "checkId.do",
         type : "POST",
         success : function(data) {
-        	if(!regexId.test($.trim(inputed))){
+        	if(!regexId.test($.trim(input))){
         		$("#idChk").css("border","1px solid #F15F5F");
     		}else{
-    			if(inputed=="" && data=='0') {
+    			if(input=="" && data=='0') {
                     $("#idChk").css("border","1px solid #F15F5F");
                 } else if (data == '0') {
                     $("#idChk").css("border","1px solid #00c73c");
@@ -40,9 +40,9 @@ function checkId() {
 }
 
 function checkPwd(){
-	var inputed = $(".registe_pwd").val();
+	var input = $(".registe_pwd").val();
 
-	if(!regexPwd.test($.trim(inputed))){
+	if(!regexPwd.test($.trim(input))){
 		$("#pwdChk").css("border", "1px solid #F15F5F");
 	}else{
 		$("#pwdChk").css("border", "1px solid #00c73c");
@@ -50,9 +50,9 @@ function checkPwd(){
 }
 
 function reCheckPwd(){
-	var inputed = $(".registe_pwdChk").val();
+	var input = $(".registe_pwdChk").val();
 
-	if(!regexPwd.test($.trim(inputed))){
+	if(!regexPwd.test($.trim(input))){
 		$("#rePwdChk").css("border", "1px solid #F15F5F");
 	}else{
 		$("#rePwdChk").css("border", "1px solid #00c73c");
@@ -60,9 +60,9 @@ function reCheckPwd(){
 }
 
 function checkName(){
-	var inputed = $(".registe_name").val();
+	var input = $(".registe_name").val();
 	
-	if(!regexName.test($.trim(inputed))){
+	if(!regexName.test($.trim(input))){
 		$("#nameChk").css("border", "1px solid #F15F5F");
 	}else{
 		$("#nameChk").css("border", "1px solid #00c73c");
@@ -70,9 +70,9 @@ function checkName(){
 }
 
 function checkEmail(){
-	var inputed = $(".registe_email").val();
+	var input = $(".registe_email").val();
 	
-	if(!regexEmail.test($.trim(inputed))){
+	if(!regexEmail.test($.trim(input))){
 		$("#emailChk").css("border", "1px solid #F15F5F");
 	}else{
 		$("#emailChk").css("border", "1px solid #00c73c");
@@ -80,9 +80,9 @@ function checkEmail(){
 }
 
 function checkBirth(){
-	var inputed = $(".registe_birthday").val();
+	var input = $(".registe_birthday").val();
 	
-	if(!regexBirth.test($.trim(inputed))){
+	if(!regexBirth.test($.trim(input))){
 		$("#birthChk").css("border", "1px solid #F15F5F");
 	}else{
 		$("#birthChk").css("border", "1px solid #00c73c");

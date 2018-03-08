@@ -8,6 +8,7 @@ public interface BookDao {
 	public int bookCount();
 	public int bookMainCateCount(String category);
 	public int bookSubCateCount(String category);
+	public int bookSearchCount(String search);
 	
 	public List<BookDto> bestList(int startRow, int endRow);
 	public List<BookDto> newList(int startRow, int endRow);
@@ -15,7 +16,7 @@ public interface BookDao {
 	public List<BookDto> discountList(int startRow, int endRow);
 	public List<BookDto> bookMainCateList(int startRow, int endRow, String category);
 	public List<BookDto> bookSubCateList(int startRow, int endRow, String category);
-	public List<BookDto> search_List(int startRow, int endRow);
+	public List<BookDto> searchList(int startRow, int endRow, String search);
 	
 	public List<BookDto> discountSelect();
 	public int discountUpdate(int book_num);

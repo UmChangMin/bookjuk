@@ -101,5 +101,15 @@ public class OrderDaoImp implements OrderDao {
 		return sqlSession.selectOne("directOrder", book_num);
 	}
 
+	@Override
+	public int updateSales(String order, String amount) {
+		int book_num = Integer.parseInt(order);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("book_num", book_num);
+		map.put("amount", amount);
+		
+		return sqlSession.update("updateSales", map);
+	}
+
 	
 }

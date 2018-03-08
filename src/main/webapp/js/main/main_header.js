@@ -87,70 +87,36 @@ $(function() {
 });
 
 //검색창 자동완성 허단비
-$( function() {
-   var arr=[];
-    $.ajax({
-        type:"post",
-        url:"main_header.do",
-        dataType:"json",
-        success: function(data){
-           Array(data)
-        }
-     });
-   
-    function  Array(data){
-       for(var i=0; i<data.length; i++){
-          arr.push(data[i]);
-       }
-       /*alert(arr.length);*/
-       
-        $( "#header_SearchString" ).autocomplete({
-            source: arr,
-            autoFocus:true   //첫번째 값을 자동 focus한다.
-             
-             /*  var request = $.ul.autocomplete.filter(arr);*/
-               
-              /* response(request.slice(0,10));*/
-            
-          });
-    }
- 
-} );
-
 $(function(){
-   $(".header_Search_btn").click(function(){
-      $(location).attr("href","${root}/book/book_search_List.do");
-   });
+	$("#search_mh").focus(function(){
+		searchList = [];
+		$.ajax({
+			url : "search.do",
+			type : "post",
+			dataType : "json",
+			success : function(data){
+				search(data);
+			}
+		});
+	});
+	
+	$(".search_mh_btn").click(function(){
+		$("#search_form").submit();
+	})
 });
+var searchList = [];
 
-$( function() {
-   var arr=[];
-    $.ajax({
-        type:"post",
-        url:"search_header.do",
-        dataType:"json",
-        success: function(data){
-           Array(data)
-        }
-     });
-   
-    function  Array(data){
-       for(var i=0; i<data.length; i++){
-          arr.push(data[i]);
-       }
-       /*alert(arr.length);*/
-       
-        $( "#header_SearchString" ).autocomplete({
-            source: arr,
-            autoFocus:true   //첫번째 값을 자동 focus한다.
-             
-          /*var request = $.ul.autocomplete.filter(arr,response.term);*/
-               
-              /* response(request.slice(0,10));*/
-            
-          });
-    }
- 
-} );
-
-
+function search(data){
+	for(var i=0; i<data.length; i++){
+		searchList.push(data[i]);
+	}
+	
+	$("#search_mh").autocomplete({
+		source : function(request, response) {
+			var request = $.ui.autocomplete.filter(searchList, request.term);
+			  
+			response(request.slice(0,10));
+		},
+		autoFocus: true
+	});
+}

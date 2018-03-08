@@ -16,5 +16,5 @@ public interface BookService {
 	
 	public void insertCart(ModelAndView mav);
 	
-	public void book_search_List(ModelAndView mav);
+	public void bookSearch(ModelAndView mav);
 }

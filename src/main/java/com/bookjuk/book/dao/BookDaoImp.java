@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.bookjuk.aop.LogAspect;
 import com.bookjuk.book.dto.BookDto;
 
 
@@ -159,8 +160,17 @@ public class BookDaoImp implements BookDao {
 	}
 
 	@Override
-	public List<BookDto> search_List(int startRow, int endRow) {
-		// TODO Auto-generated method stub
-		return null;
+	public int bookSearchCount(String search) {
+		return sqlSession.selectOne("bookSearchCount", search);
+	}
+
+	@Override
+	public List<BookDto> searchList(int startRow, int endRow, String search) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("startRow", startRow);
+		map.put("endRow", endRow);
+		map.put("search", search);
+		
+		return sqlSession.selectList("searchList", map);
 	}
 }

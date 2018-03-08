@@ -7,11 +7,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>취소/교환/환불</title>
-<link rel="stylesheet" type="text/css"href="${root}/css/order/order_cancle.css" />
-<link rel="stylesheet" type="text/css"href="${root}/css/template/basic.css" />
-<link rel="stylesheet" type="text/css" href="${root}/jqueryUI/jquery-ui2.css">
+<link rel="stylesheet" type="text/css"href="${root}/css/order/order_cancle.css"/>
+<link rel="stylesheet" type="text/css"href="${root}/css/template/basic.css"/>
+<link type="text/css" rel="stylesheet" href="${root}/jqueryUI/jquery-ui.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
-<script type="text/javascript" src="${root}/jqueryUI/jquery-ui2.js"></script>
+<script type="text/javascript" src="${root}/jqueryUI/jquery-ui.js"></script>
 <script type="text/javascript" src="${root}/js/order/order_cancle.js"></script>
 </head>
 <body>

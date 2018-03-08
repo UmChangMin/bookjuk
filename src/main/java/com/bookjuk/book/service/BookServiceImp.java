@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -72,7 +73,6 @@ public class BookServiceImp implements BookService {
 		mav.addObject("bookDtoList", bookDtoList);
 		
 		mav.setViewName("book/book_" + categorization + ".tiles");
-		
 	}
 	
 	/*도서 상세보기*/
@@ -267,18 +267,26 @@ public class BookServiceImp implements BookService {
 	}
 
 	@Override
-	public void book_search_List(ModelAndView mav) {
+	public void bookSearch(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
-
+		String search = request.getParameter("search");
+		mav.addObject("search", search);
+		int count = 0;
+		String book_name = null;
+		
 		String viewType = viewType(request);
-
-		String path = request.getServletPath();
-		String category = path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
-
+		
 		/*책 리스트 개수*/
-		int count = bookDao.bookMainCateCount(category);
-
+		if(search.contains("-")) {
+			int index = search.indexOf("-");
+			search = search.substring(0, index).trim();
+			// String book_author = search.substring(index+1).trim();
+			count = bookDao.bookSearchCount(search);
+		}else {
+			count = bookDao.bookSearchCount(search);
+		}
+		
 		/*페이징 처리*/
 		HashMap<String, Integer> page = page(request, count);
 		
@@ -286,18 +294,17 @@ public class BookServiceImp implements BookService {
 		int startRow = page.get("startRow");
 		int endRow = page.get("endRow");
 		
-		List<BookDto> bookDtoList = bookDao.bookMainCateList(startRow, endRow, category);
+		List<BookDto> bookDtoList = bookDao.searchList(startRow, endRow, search);
 		
 		mav.addObject("viewType", viewType);
 		mav.addObject("pageCount", page.get("pageCount"));
 		mav.addObject("pageBlock", page.get("pageBlock"));
 		mav.addObject("startPage", page.get("startPage"));
 		mav.addObject("endPage", page.get("endPage"));
+		mav.addObject("count", count);
 		mav.addObject("pageNumber", currentPage);
 		mav.addObject("bookDtoList", bookDtoList);
 		
-		
-		mav.setViewName("book/book_search_List.tiles");
-		
+		mav.setViewName("book/book_list_search.tiles");
 	}
 }

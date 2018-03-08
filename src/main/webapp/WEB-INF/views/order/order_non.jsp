@@ -9,7 +9,9 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <link type="text/css" rel="stylesheet" href="${root}/css/order/order_non.css"/>
 <link type="text/css" rel="stylesheet" href="${root}/css/template/basic.css"/>
+<link type="text/css" rel="stylesheet" href="${root}/jqueryUI/jquery-ui.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
+<script type="text/javascript" src="${root}/jqueryUI/jquery-ui.js"></script>
 <script type="text/javascript" src="${root}/js/order/order_zipcode.js"></script>
 <script type="text/javascript" src="${root}/js/order/order.js"></script>
 <title>비회원 주문</title>
@@ -80,7 +82,8 @@
 									</td>
 									<td>
 										<div class="order_non_product_delfee">
-											<span><fmt:formatNumber pattern="###,###" value="${cartDto.product_delivery}"/></span>
+											<c:if test="${cartDto.product_delivery == 0}"><span>무료배송</span></c:if>
+											<c:if test="${cartDto.product_delivery > 0}"><span><fmt:formatNumber value="${cartDto.product_delivery}" pattern="###,###,###"/></span></c:if>
 										</div>
 									</td>
 									<td>
@@ -168,17 +171,17 @@
 										</li>
 										<li>
 											<label class="radio-inline">
-												<input type="radio" name="order_payment" value="card" hidden>
+												<input type="radio" name="order_payment" value="account" hidden>
 												<span class="radio-style"></span>
 											</label>
-											<input type="radio" name="order_payment" value="account" hidden><label>실시간 계좌이체</label>
+											<label>실시간 계좌이체</label>
 										</li>
 										<li>
 											<label class="radio-inline">
-												<input type="radio" name="order_payment" value="card" hidden>
+												<input type="radio" name="order_payment" value="mutong" hidden>
 												<span class="radio-style"></span>
 											</label>
-											<input type="radio" name="order_payment" value="mutong" hidden><label>무통장 입금</label>
+											<label>무통장 입금</label>
 										</li>
 									</ul>
 								</div>

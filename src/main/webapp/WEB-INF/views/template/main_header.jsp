@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/template/header.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/template/real_time.css"/>
-<link rel="stylesheet" type="text/css" href="${root}/jqueryUI/jquery-ui2.css">
+<link rel="stylesheet" type="text/css" href="${root}/jqueryUI/jquery-ui.css">
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
-<script type="text/javascript" src="${root}/jqueryUI/jquery-ui2.js"></script>
+<script type="text/javascript" src="${root}/jqueryUI/jquery-ui.js"></script>
 <script type="text/javascript" src="${root}/js/main/main_header.js"></script>
 </head>
 <body>
@@ -62,10 +62,10 @@
                src="${root}/img/template/header/bookjuk_headlogo.png" /></a>
          </div>
          <div class="header_mid_search">
-            <form action="${root}/book/book_search_List.do" method="get">
+            <form id="search_form" action="${root}/book/list/search.do" method="get">
 					<div class="header_mid_search_inner">
-						<input type="text" name="SearchString" id="header_SearchString" class="header_SearchString"/>
-						<input type="button" name="Search_btn" class="header_Search_btn" />
+						<input type="text" name="search" id="search_mh" class="search_mh"/>
+						<input type="button" class="search_mh_btn"/>
 					</div>
 			</form>
 

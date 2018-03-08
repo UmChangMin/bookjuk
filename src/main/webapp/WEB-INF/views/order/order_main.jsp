@@ -9,7 +9,9 @@
 <title>주문/배송조회</title>
 <link rel="stylesheet" type="text/css"href="${root}/css/template/basic.css" />
 <link rel="stylesheet" type="text/css"href="${root}/css/order/order_main.css" />
+<link type="text/css" rel="stylesheet" href="${root}/jqueryUI/jquery-ui.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
+<script type="text/javascript" src="${root}/jqueryUI/jquery-ui.js"></script>
 <script type="text/javascript" src="${root}/js/member/member_login.js"></script>
 <!-- 주문배송조회 뷰:허단비 -->
 </head>

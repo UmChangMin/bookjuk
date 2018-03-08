@@ -85,13 +85,11 @@ public class UserServiceImp implements UserService {
 	}
 
 	@Override
-	public void main_header(ModelAndView mav) {
+	public void search(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
-
 		HttpServletResponse response = (HttpServletResponse) map.get("response");
 
-		List<BookDto> bookList = mainDao.bookList();
-		LogAspect.logger.info(LogAspect.logMsg + bookList.size());
+		List<BookDto> searchList = mainDao.searchList();
 
 		try {
 
@@ -99,10 +97,10 @@ public class UserServiceImp implements UserService {
 			JSONArray arrName = new JSONArray();
 			String jsonStr = null;
 
-			for (int i = 0; i < bookList.size(); i++) {
-				BookDto bookDto = bookList.get(i);
+			for (int i = 0; i < searchList.size(); i++) {
+				BookDto bookDto = searchList.get(i);
 
-				String searchValue = bookDto.getBook_name() + "-" + bookDto.getBook_author();
+				String searchValue = bookDto.getBook_name() + " - " + bookDto.getBook_author();
 
 				arrTitle.add(searchValue);
 			}
@@ -116,53 +114,14 @@ public class UserServiceImp implements UserService {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		
 	}
 
-	@Override
-	public void search_header(ModelAndView mav) {
-		Map<String, Object> map = mav.getModelMap();
-
-		HttpServletResponse response = (HttpServletResponse) map.get("response");
-
-		List<BookDto> search_bookList = mainDao.search_bookList();
-		LogAspect.logger.info(LogAspect.logMsg + search_bookList.size());
-
-		try {
-
-			JSONArray arrTitle = new JSONArray();
-			JSONArray arrName = new JSONArray();
-			String jsonStr = null;
-
-			for (int i = 0; i < search_bookList.size(); i++) {
-				BookDto bookDto = search_bookList.get(i);
-
-				String searchValue = bookDto.getBook_name() + "-" + bookDto.getBook_author();
-
-				arrTitle.add(searchValue);
-			}
-
-			jsonStr = JSONValue.toJSONString(arrTitle);
-			response.setContentType("application/x-json;charset=utf-8");
-			PrintWriter out = response.getWriter();
-			out.print(jsonStr);
-			out.flush();
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-	}
-
-	/* �̺�Ʈ �̱���
-	@Override
+	/*@Override
 	public void event(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
 		mav.setViewName("main/event.search");
-	}
-	*/
+	}*/
 	
 }

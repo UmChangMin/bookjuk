@@ -9,7 +9,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link type="text/css" rel="stylesheet" href="${root}/css/order/order_cart.css"/>
 <link type="text/css" rel="stylesheet" href="${root}/css/template/basic.css"/>
+<link type="text/css" rel="stylesheet" href="${root}/jqueryUI/jquery-ui.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
+<script type="text/javascript" src="${root}/jqueryUI/jquery-ui.js"></script>
 <script type="text/javascript" src="${root}/js/order/order_cart.js"></script>
 <title>장바구니</title>
 </head>
@@ -125,7 +127,8 @@
 											<span><fmt:formatNumber pattern="###,###" value="${cartDto.product_point}"/></span><b class="point">P</b>
 										</td>
 										<td>
-											<span><fmt:formatNumber pattern="###,###" value="${cartDto.product_delivery}"/></span>
+											<c:if test="${cartDto.product_delivery == 0}"><span>무료배송</span></c:if>
+											<c:if test="${cartDto.product_delivery > 0}"><span><fmt:formatNumber value="${cartDto.product_delivery}" pattern="###,###,###"/></span></c:if>
 										</td>
 										<td>
 											<strong><fmt:formatNumber pattern="###,###,###" value="${cartDto.product_disprice * cartDto.cart_amount}"/>원</strong>

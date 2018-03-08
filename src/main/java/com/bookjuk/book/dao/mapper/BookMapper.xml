@@ -101,4 +101,17 @@
 		INSERT INTO cart VALUES (cart_num_seq.nextval, #{order_id}, #{book_num}, 1, sysdate)
 	</insert>
 		
+	<!-- 도서 검색 기능 -->
+	<select id="bookSearchCount" parameterType="String" resultType="int">
+		<![CDATA[
+		SELECT nvl(count(*),0) FROM book WHERE book_name LIKE '%'||#{search}||'%' OR book_author LIKE '%'||#{search}||'%' OR book_publisher LIKE '%'||#{search}||'%'
+		]]>
+	</select>
+	
+	<select id="searchList" parameterType="java.util.Map" resultType="com.bookjuk.book.dto.BookDto">
+		<![CDATA[
+		SELECT j.book_num, j.book_img, j.book_name, j.book_author, j.book_publisher, j.book_date, j.book_intro, j.product_disprice FROM(SELECT i.*, ROWNUM rnum FROM (SELECT b.book_num, b.book_img, b.book_name, b.book_author, b.book_publisher, b.book_date, b.book_intro, p.product_disprice FROM book b, CATEGORY c, product p WHERE c.book_num = b.book_num AND b.book_num = p.book_num ORDER BY book_date DESC)i WHERE book_name LIKE '%'||#{search}||'%' OR book_author LIKE '%'||#{search}||'%')j WHERE j.rnum >= #{startRow} AND j.rnum <= #{endRow}
+		]]>
+	</select>
+	
 </mapper>

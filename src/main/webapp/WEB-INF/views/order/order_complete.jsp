@@ -9,6 +9,8 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <link type="text/css" rel="stylesheet" href="${root}/css/order/order_complete.css"/>
 <link type="text/css" rel="stylesheet" href="${root}/css/template/basic.css"/>
+<link type="text/css" rel="stylesheet" href="${root}/jqueryUI/jquery-ui.css"/>
+<script type="text/javascript" src="${root}/jqueryUI/jquery-ui.js"></script>
 <title>Insert title here</title>
 </head>
 <body>	

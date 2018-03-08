@@ -95,12 +95,12 @@ public class BookController {
 		return null;
 	}
 	
-	@RequestMapping(value="/book_search_List.do",method=RequestMethod.GET)
-	public ModelAndView book_search_List(HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value="/list/search.do",method=RequestMethod.GET)
+	public ModelAndView bookSearch(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
 		
-		bookService.book_search_List(mav);
+		bookService.bookSearch(mav);
 		
 		return mav;
 	}

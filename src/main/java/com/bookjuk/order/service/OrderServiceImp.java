@@ -109,8 +109,7 @@ public class OrderServiceImp implements OrderService {
 		String amount_list = amountList(cartList);
 		
 		Map<String, Integer> tot_map = calculate(cartList);
-		LogAspect.logger.info(LogAspect.logMsg + cartList.get(0).toString());
-		LogAspect.logger.info(LogAspect.logMsg + tot_map.get("tot_price"));
+		
 		mav.addObject("order_id", order_id);
 		mav.addObject("order_list", order_list);
 		mav.addObject("amount_list", amount_list);
@@ -169,7 +168,7 @@ public class OrderServiceImp implements OrderService {
 		HttpSession session = request.getSession();
 		String order_id = getId(session);
 		
-		if(orderDto.getRefund_bank().equals("mutong")) {
+		if(orderDto.getOrder_payment().equals("mutong")) {
 			orderDto.setOrder_state("입금대기중");
 		}else {
 			orderDto.setOrder_state("상품준비중");
@@ -183,8 +182,6 @@ public class OrderServiceImp implements OrderService {
 		/*주문번호 가져오기*/
 		int order_num = orderDao.orderNum(orderDto);
 		if(order_id.length() > 25) {orderDao.insertOrderNonmemInfo(orderDto, order_num);}
-		
-		LogAspect.logger.info(LogAspect.logMsg + order_num);
 		
 		/*배송정보 입력*/
 		orderDao.insertOrderDelivery(orderDto, order_num);
@@ -207,8 +204,7 @@ public class OrderServiceImp implements OrderService {
 		String[] amount = stringToken(amount_list);
 		
 		for(int i=0; i<order.length; i++) {
-			LogAspect.logger.info(LogAspect.logMsg + order[i]);
-			LogAspect.logger.info(LogAspect.logMsg + amount[i]);
+			orderDao.updateSales(order[i], amount[i]);
 		}
 		
 		mav.addObject("orderDto", orderDto);
