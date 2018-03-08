@@ -96,5 +96,10 @@ public class OrderDaoImp implements OrderDao {
 		return sqlSession.selectOne("orderCompleteMemInfo", map);
 	}
 
+	@Override
+	public OrderDto directOrder(int book_num) {
+		return sqlSession.selectOne("directOrder", book_num);
+	}
+
 	
 }

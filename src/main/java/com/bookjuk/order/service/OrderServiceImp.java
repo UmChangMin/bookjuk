@@ -1,8 +1,10 @@
 package com.bookjuk.order.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -89,17 +91,26 @@ public class OrderServiceImp implements OrderService {
 	public void orderNon(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		String order_id = request.getParameter("order_id");
-		LogAspect.logger.info(LogAspect.logMsg + "ordernon : " + order_id);
 		
-		/*장바구니 리스트*/
-		List<OrderDto> cartList = orderDao.cartList(order_id);
+		List<OrderDto> cartList = new ArrayList<OrderDto>();
+		String order_id = request.getParameter("order_id");
+		int book_num = 0;
+		
+		if(request.getParameter("book_num") != null) {
+			/*바로 구매*/
+			book_num = Integer.parseInt(request.getParameter("book_num"));
+			cartList = directOrder(book_num);
+		}else {
+			/*장바구니 리스트*/
+			cartList = orderDao.cartList(order_id);
+		}
 		
 		String order_list = orderList(cartList);
 		String amount_list = amountList(cartList);
 		
 		Map<String, Integer> tot_map = calculate(cartList);
-		
+		LogAspect.logger.info(LogAspect.logMsg + cartList.get(0).toString());
+		LogAspect.logger.info(LogAspect.logMsg + tot_map.get("tot_price"));
 		mav.addObject("order_id", order_id);
 		mav.addObject("order_list", order_list);
 		mav.addObject("amount_list", amount_list);
@@ -115,11 +126,19 @@ public class OrderServiceImp implements OrderService {
 	public void order(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		String order_id = request.getParameter("order_id");
-		LogAspect.logger.info(LogAspect.logMsg + "order : " + order_id);
 		
-		/*장바구니 리스트*/
-		List<OrderDto> cartList = orderDao.cartList(order_id);
+		List<OrderDto> cartList = new ArrayList<OrderDto>();
+		String order_id = request.getParameter("order_id");
+		int book_num = 0;
+		
+		if(request.getParameter("book_num") != null) {
+			/*바로 구매*/
+			book_num = Integer.parseInt(request.getParameter("book_num"));
+			cartList = directOrder(book_num);
+		}else {
+			/*장바구니 리스트*/
+			cartList = orderDao.cartList(order_id);
+		}
 		
 		String order_list = orderList(cartList);
 		String amount_list = amountList(cartList);
@@ -180,7 +199,17 @@ public class OrderServiceImp implements OrderService {
 			orderDto = orderDao.orderCompleteMemInfo(order_num, order_id);
 		}
 		
-		/*재고 소진*/
+		/*판매량 업데이트*/
+		String order_list = orderDto.getOrder_list();
+		String amount_list = orderDto.getAmount_list();
+		
+		String[] order = stringToken(order_list);
+		String[] amount = stringToken(amount_list);
+		
+		for(int i=0; i<order.length; i++) {
+			LogAspect.logger.info(LogAspect.logMsg + order[i]);
+			LogAspect.logger.info(LogAspect.logMsg + amount[i]);
+		}
 		
 		mav.addObject("orderDto", orderDto);
 		
@@ -225,7 +254,7 @@ public class OrderServiceImp implements OrderService {
 	/*장바구니 및 주문 Total 가격, 배송비, 포인트 계산*/
 	public Map<String, Integer> calculate(List<OrderDto> cartList) {
 		Map<String, Integer> map = new HashMap<String, Integer>();
-		
+		LogAspect.logger.info(LogAspect.logMsg + "tot" +cartList);
 		int tot_price = 0;
 		int tot_point = 0;
 		int tot_delivery = 0;
@@ -270,6 +299,26 @@ public class OrderServiceImp implements OrderService {
 		}
 		
 		return amount_list;
+	}
+	
+	public List<OrderDto> directOrder(int book_num){
+		List<OrderDto> cartList = new ArrayList<OrderDto>();
+		OrderDto orderDto = orderDao.directOrder(book_num);
+		orderDto.setCart_amount(1);
+		cartList.add(0, orderDto);
+		
+		return cartList;
+	}
+	
+	public String[] stringToken(String list) {
+		int i = 0;
+		StringTokenizer st = new StringTokenizer(list, ",");
+		String[] tokenList = new String[st.countTokens()];
+		while(st.hasMoreElements()) {
+			tokenList[i++] = st.nextToken();
+		}
+		
+		return tokenList;
 	}
 /*	@Override
 	public void orderOk(ModelAndView mav) {

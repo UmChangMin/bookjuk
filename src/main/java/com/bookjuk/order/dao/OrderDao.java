@@ -23,4 +23,6 @@ public interface OrderDao {
 	
 	public OrderDto orderCompleteNonInfo(int order_num, String order_id);
 	public OrderDto orderCompleteMemInfo(int order_num, String order_id);
+	
+	public OrderDto directOrder(int book_num);
 }

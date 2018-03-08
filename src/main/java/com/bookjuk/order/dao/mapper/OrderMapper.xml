@@ -58,4 +58,9 @@
 	<select id="orderCompleteMemInfo" parameterType="java.util.Map" resultType="com.bookjuk.order.dto.OrderDto">
 		SELECT * FROM book_order o, delivery d, member m WHERE o.order_num = #{order_num} AND o.order_num = d.order_num AND m.member_id = #{order_id} AND m.member_id = o.order_id
 	</select>
+	
+	<!-- 바로 구매 -->
+	<select id="directOrder" parameterType="int" resultType="com.bookjuk.order.dto.OrderDto">
+		SELECT * FROM book b, product p WHERE b.book_num = #{book_num} AND b.book_num = p.book_num
+	</select>
 </mapper>
