@@ -10,10 +10,16 @@ public interface AdminBookDao {
 	//public AdminBookDto search(String book_name, String book_publisher, String book_author);	//상세검색 -search()로 수정
 	public AdminBookDto search(String book_num);
 	
+	public int InsertBook(AdminBookDto bookDto);
 	public List<AdminBookDto> book_keyword(String keyword);//키워드 검색 시
 	
 	public List<AdminBookDto>book_MainCate_List();
 	public List<AdminBookDto>book_SubCate_List(String category_main_eng);
+	public List<AdminBookDto>book_SubCate();
+	
+	public String main_en_kr(String main_cate_eng);
+	public String sub_en_kr(String sub_cate_eng);
+	
 	public List<AdminBookDto>book_List();
 	public AdminBookDto book_UpSearch(long book_num); 
 	

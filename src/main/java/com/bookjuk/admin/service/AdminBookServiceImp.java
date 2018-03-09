@@ -3,10 +3,11 @@ package com.bookjuk.admin.service;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import java.util.Random;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -35,9 +36,12 @@ public class AdminBookServiceImp implements AdminBookService {
 		
 		String pageNumber=request.getParameter("pageNumber");
 		if(pageNumber==null)pageNumber="1";
+		int count=bookDao.getBookCount();
+		LogAspect.logger.info(LogAspect.logMsg+"count:"+count);
 		
 		int current=Integer.parseInt(pageNumber);
-		int boardSize=10;
+		int boardSize=count;
+		
 		int start=(current-1)*boardSize+1;
 		int end=current*boardSize;
 		
@@ -46,8 +50,6 @@ public class AdminBookServiceImp implements AdminBookService {
 		hmap.put("start", start);
 		hmap.put("end", end);
 		
-		int count=bookDao.getBookCount();
-		LogAspect.logger.info(LogAspect.logMsg+"count:"+count);
 		
 		List<AdminBookDto> boardList=null;
 
@@ -69,7 +71,18 @@ public class AdminBookServiceImp implements AdminBookService {
 	
 	@Override
 	public void bookInputMove(ModelAndView mav) {
-				
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) mav.getModel().get("request");
+		
+		List<AdminBookDto>book_MainCate_List=bookDao.book_MainCate_List();
+		System.out.println("book_MainCate_List"+book_MainCate_List);
+		
+		List<AdminBookDto>book_SubCate_List=bookDao.book_SubCate();
+		System.out.println("book_MainCate_List"+book_SubCate_List);
+		
+		
+		mav.addObject("book_MainCate_List", book_MainCate_List);
+		mav.addObject("book_SubCate_List", book_SubCate_List);
 		mav.setViewName("admin/book/bookManager_input.admin");
 		
 	}
@@ -78,10 +91,40 @@ public class AdminBookServiceImp implements AdminBookService {
 	public void bookInputOkMove(ModelAndView mav) {		
 		HttpServletRequest request=(HttpServletRequest) mav.getModel().get("request");
 		AdminBookDto bookDto=(AdminBookDto) mav.getModel().get("adminBookDto");
+		
 		//MultipartHttpServletRequest request=(MultipartHttpServletRequest) mav.getModel().get("request");
+		Random random=new Random();
+		
+		LogAspect.logger.info(LogAspect.logMsg+"바꾸기전:"+bookDto.toString()); 
 		
 		
-		System.out.println(bookDto.toString());
+		String main_cate_eng=request.getParameter("category_main_eng");
+		String sub_cate_eng=request.getParameter("category_sub_eng");
+		
+		String main_en_kr=bookDao.main_en_kr(main_cate_eng);
+		String sub_en_kr=bookDao.sub_en_kr(sub_cate_eng);
+		
+		bookDto.setCategory_main_kor(main_en_kr);
+		bookDto.setCategory_sub_kor(sub_en_kr);
+		
+		bookDto.setBook_num(random.nextInt(100000));
+		
+		int rand=random.nextInt(1000);
+		String img_path="/book_img/"+main_cate_eng+"/"+sub_cate_eng+"/"+main_cate_eng+"_"+sub_cate_eng+"_"+rand;
+		
+		bookDto.setBook_img(img_path+bookDto.getBook_img());
+		
+		bookDto.setBook_date(new Date());
+		LogAspect.logger.info(LogAspect.logMsg+"바꾸는 중:"+bookDto.toString());
+		
+		//C:\taewoo\bookjuk\workspace\bookjuk\src\main\webapp\book_img
+		
+		int check=bookDao.InsertBook(bookDto);
+		System.out.println(check); 
+		//String bp_re=book_pattern.replace("-", "/");
+		//System.out.println(bp_re);
+		//bookDto.setBook_date(bp_re);
+		mav.addObject("check", check);
 		
 		mav.setViewName("admin/book/bookManager_inputOk.admin");
 		
@@ -150,6 +193,7 @@ public class AdminBookServiceImp implements AdminBookService {
 		adminBookDto.setBook_img(book_img);	
 		LogAspect.logger.info(LogAspect.logMsg+adminBookDto.toString());
 		
+		//LogAspect.logger.info(LogAspect.logMsg+adminBookDto.toString());
 		int check=bookDao.updateOk(adminBookDto);		
 		LogAspect.logger.info(LogAspect.logMsg+check);
 		

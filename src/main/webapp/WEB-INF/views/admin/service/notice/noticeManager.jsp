@@ -64,14 +64,7 @@
 											</ul>
 										</c:forEach>									 
 									</div>								
-									
-									
-									<!-- 버튼시작 -->
-								    <div>
-								        <button type="button" class="btn btn-default input_float_right" id="" onclick="location.href='noticeManager_write.do'">글쓰기</button>										        
-							        </div>									
-									<!-- 버튼끝 -->	
-									
+
 									<!-- 페이징 처리 -->
 									<!-- 페이지 번호 -->
 									<div align="center">
@@ -89,7 +82,7 @@
 											</c:if>
 											
 											<c:if test="${startPage>pageBlock }">
-												<a href="${root}/admin/service/notice/noticeManager.do?pageNumber=${startPage-pageBlock}">[이전]</a>
+												<a href="${root}/admin/service/noticeManager.do?pageNumber=${startPage-pageBlock}">[이전]</a>
 											</c:if>
 											
 											<c:forEach var="i" begin="${startPage}" end="${endPage}">
@@ -102,7 +95,11 @@
 										</c:if>
 									</div>
 									<!-- 페이징 처리 끝 -->
-									
+									<!-- 버튼시작 -->
+								    <div>
+								        <button type="button" class="btn btn-default input_float_right" id="" onclick="location.href='noticeManager_write.do'">글쓰기</button>										        
+							        </div>									
+									<!-- 버튼끝 -->	
 									
 									
 								</div>

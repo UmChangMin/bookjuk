@@ -1,5 +1,6 @@
 package com.bookjuk.admin.service;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -33,8 +34,34 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		//AdminService_questionDto questionDto=serviceDao.selectService();
 		
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null)pageNumber="1";
+		
+		int current=Integer.parseInt(pageNumber);
+		int boardSize=10;
+		int start=(current-1)*boardSize+1;
+		int end=current*boardSize;
+		
+		HashMap<String, Integer> hmap=new HashMap<String, Integer>();
+		
+		hmap.put("start", start);
+		hmap.put("end", end);
+		
+		int count=serviceDao.getQuestionCount();
+		
+		List<AdminService_questionDto> boardList=null;
+		
+		if(count>0) {
+			boardList=serviceDao.getQuestionList(hmap);
+		}
+		//LogAspect.logger.info(LogAspect.logMsg+"count, boardList : " +count +", " +boardList.size());
+		
+		
+		mav.addObject("count", count);
+		mav.addObject("boardList", boardList);
+		mav.addObject("boardSize", boardSize);
+		mav.addObject("pageNumber", current);
 		mav.setViewName("admin/service/service/serviceManager.admin");
 		
 	}
@@ -54,9 +81,39 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		public void serviceUpdateMove(ModelAndView mav) {
 			Map<String,Object>map=mav.getModelMap();
 			HttpServletRequest request=(HttpServletRequest)map.get("request");
+			String question_num=request.getParameter("question_num");
+			String pageNumber=request.getParameter("pageNumber");
 			
-			mav.setViewName("admin/service/service/serviceManager_update.admin");
+			AdminService_questionDto questionDto=serviceDao.questionUpSelect(question_num);
+			System.out.println(questionDto.toString());
 			
+			mav.addObject("questionDto", questionDto);
+			mav.addObject("pageNumber", pageNumber);
+			mav.setViewName("admin/service/service/serviceManager_update.admin");			
+		}
+		
+		@Override
+		public void serviceUpdateOkMove(ModelAndView mav) {		
+			AdminService_questionDto questionDto=(AdminService_questionDto)mav.getModel().get("questionDto");
+			Map<String,Object>map=mav.getModelMap();
+			HttpServletRequest request=(HttpServletRequest)map.get("request");		
+			
+			String pageNumber=request.getParameter("pageNumber");
+			
+			LogAspect.logger.info(LogAspect.logMsg+pageNumber);
+
+			//LogAspect.logger.info(LogAspect.logMsg+questionDto.toString());
+			
+			questionDto.setQuestion_date(new Date());
+			
+			LogAspect.logger.info(LogAspect.logMsg+questionDto.toString());
+			
+			int check=serviceDao.serviceUpdate(questionDto);
+			LogAspect.logger.info(LogAspect.logMsg+check);
+			
+			mav.addObject("check", check);
+			mav.addObject("pageNumber", pageNumber);
+			mav.setViewName("admin/service/service/serviceManager_updateOk.admin");
 		}
 		
 		//자주묻는질문 삭제
@@ -117,15 +174,14 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
 		String pageNumber=request.getParameter("pageNumber");
-		String noticeNumber=request.getParameter("notice_num");
+		String notice_num=request.getParameter("notice_num");
 		
-		LogAspect.logger.info(LogAspect.logMsg+pageNumber+","+noticeNumber);
+		LogAspect.logger.info(LogAspect.logMsg+pageNumber+","+notice_num);
 		
-		//공지사항 글번호로 조회
-		AdminService_noticeDto noticeDto=serviceDao.noticeSelect(noticeNumber);
+		AdminService_noticeDto noticeDto=serviceDao.noticeSelect(notice_num);
 		LogAspect.logger.info(LogAspect.logMsg+noticeDto.toString());
 		mav.addObject("pageNumber",pageNumber);
-		mav.addObject("noticeNumber",noticeNumber);
+		mav.addObject("notice_num",notice_num);
 		mav.addObject("noticeDto", noticeDto);
 		mav.setViewName("admin/service/notice/noticeManager_read.admin");
 		
@@ -141,8 +197,14 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		String pageNumber=request.getParameter("pageNumber");
 		if(pageNumber==null)pageNumber="1";
 		
-		mav.addObject("pageNumber",pageNumber);
+		String writer="관리자";
+		Date today_date=new Date();
+		SimpleDateFormat sdf=new SimpleDateFormat("yy/MM/dd");
+		String today =sdf.format(today_date);
 		
+		mav.addObject("pageNumber",pageNumber);
+		mav.addObject("today", today);
+		mav.addObject("writer", writer);
 		mav.setViewName("admin/service/notice/noticeManager_write.admin");		
 	}
 	
@@ -154,17 +216,10 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");		
 		
+		LogAspect.logger.info(LogAspect.logMsg+noticeDto.toString());
+		
 		String pageNumber=request.getParameter("pageNumber");
 		LogAspect.logger.info(LogAspect.logMsg+pageNumber);
-		
-		//SimpleDateFormat으로 수정여부? --18/02/23 김태우
-		/*SimpleDateFormat sdf=new SimpleDateFormat("yy/MM/dd hh:mm");
-		noticeDto.setNotice_date(sdf.format(new Date()));
-		
-		list 페이지 자체에서 fmt: ... pattern으로 받겠음
-		*/
-		
-		//제목 앞에 공지사항을 자동적으로 추가하게 만듬
 		
 		String alert="[공지사항]";
 		String subj=noticeDto.getNotice_subject();
@@ -172,6 +227,7 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		noticeDto.setNotice_content(noticeDto.getNotice_content().replace("\r\n", "<br/>"));
 		noticeDto.setNotice_subject(alert+subj);
 		noticeDto.setNotice_date(new Date());
+		
 		LogAspect.logger.info(LogAspect.logMsg+noticeDto.toString());
 		
 		int check=serviceDao.noticeInsert(noticeDto);
@@ -183,14 +239,47 @@ public class AdminServiceServiceImp implements AdminServiceService {
 	}
 	
 	
-	
+	//공지사항 수정
 	@Override
 	public void noticeUpdateMove(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/service/notice/noticeManager_update.admin");
+		String pageNumber=request.getParameter("pageNumber");
+		String notice_num=request.getParameter("notice_num");
 		
+		AdminService_noticeDto noticeDto=serviceDao.noticeUpSelect(notice_num);
+		LogAspect.logger.info(LogAspect.logMsg+noticeDto.toString());
+		
+		mav.addObject("noticeDto", noticeDto);
+		mav.addObject("notice_num", notice_num);
+		mav.addObject("pageNumber", pageNumber);
+		mav.setViewName("admin/service/notice/noticeManager_update.admin");	
+	}
+	
+	//공지사항 수정완료
+	@Override
+	public void noticeUpdateOkMove(ModelAndView mav) {		
+		AdminService_noticeDto noticeDto=(AdminService_noticeDto)mav.getModel().get("noticeDto");
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");		
+		
+		String notice_num=request.getParameter("notice_num");
+		String pageNumber=request.getParameter("pageNumber");
+		LogAspect.logger.info(LogAspect.logMsg+pageNumber);
+
+		LogAspect.logger.info(LogAspect.logMsg+noticeDto.toString());
+		
+		noticeDto.setNotice_date(new Date());
+		
+		LogAspect.logger.info(LogAspect.logMsg+noticeDto.toString());
+		
+		int check=serviceDao.noticeUpdate(noticeDto);
+		LogAspect.logger.info(LogAspect.logMsg+check);
+		
+		mav.addObject("check", check);
+		mav.addObject("pageNumber", pageNumber);
+		mav.setViewName("admin/service/notice/noticeManager_updateOk.admin");
 	}
 	
 	@Override
@@ -198,7 +287,33 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
+		String pageNumber=request.getParameter("pageNumber");
+		String notice_num=request.getParameter("notice_num");
+		System.out.println(pageNumber+","+notice_num);
+		
+		mav.addObject("pagenumber", pageNumber);
+		mav.addObject("notice_num", notice_num);
 		mav.setViewName("admin/service/notice/noticeManager_delete.admin");
+		
+	}
+	
+	@Override
+	public void noticeDeleteOkMove(ModelAndView mav) {
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		String pageNumber=request.getParameter("pageNumber");
+		String notice_num=request.getParameter("notice_num");
+		System.out.println(pageNumber+","+notice_num);
+		
+		int check=serviceDao.delete_notice(notice_num);
+		LogAspect.logger.info(LogAspect.logMsg+check);
+		
+		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("notice_num", notice_num);
+		mav.addObject("check", check);
+		
+		mav.setViewName("admin/service/notice/noticeManager_deleteOk.admin");
 		
 	}
 
@@ -258,10 +373,18 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		//공지사항 글번호로 조회
 		AdminService_contactDto contactDto=serviceDao.contactSelect(contact_num);
 		LogAspect.logger.info(LogAspect.logMsg+contactDto.toString());
+		
+		/*if(contactDto.getContact_answer_whether()=="답변대기중") {
+			String answer_whether=contactDto.getContact_answer_whether();
+			System.out.println(no_answer);
+			mav.addObject("no_answer", no_answer);*/
+		
+		String answer_whether=contactDto.getContact_answer_whether();
+			
 		mav.addObject("pageNumber",pageNumber);
 		mav.addObject("contact_num",contact_num);
 		mav.addObject("contactDto", contactDto);
-		
+		mav.addObject("answer_whether", answer_whether);
 		mav.addObject("pageNumber", pageNumber);
 		mav.setViewName("admin/service/contact/contactManager_read.admin");
 		
@@ -272,8 +395,30 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		mav.setViewName("admin/service/contact/contactManager_write.admin");
+		String contact_num=request.getParameter("contact_num");
+		System.out.println(contact_num);
+		AdminService_contactDto contactDto=serviceDao.contactSelect(contact_num);
+		mav.addObject("contactDto", contactDto);
 		
+		mav.setViewName("admin/service/contact/contactManager_write.admin");		
+	}
+	
+	@Override
+	public void contactWriteOkMove(ModelAndView mav) {
+		Map<String,Object>map=mav.getModelMap();
+		AdminService_contactDto contactDto=(AdminService_contactDto)map.get("contactDto");
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		long contact_num=contactDto.getContact_num();
+		
+		LogAspect.logger.info(LogAspect.logMsg+contactDto.toString());
+		
+		contactDto.setContact_answer_whether("답변완료");		
+		
+		int check=serviceDao.writeInsert(contactDto.getContact_answer(), contactDto.getContact_answer_whether(), contact_num);
+		System.out.println(check);
+		mav.addObject("check", check);
+		
+		mav.setViewName("admin/service/contact/contactManager_writeOk.admin");		
 	}
 	
 	@Override
@@ -290,7 +435,33 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
+		String pageNumber=request.getParameter("pageNumber");
+		String contact_num=request.getParameter("contact_num");
+		System.out.println(pageNumber+","+contact_num);
+		
+		mav.addObject("pagenumber", pageNumber);
+		mav.addObject("contact_num", contact_num);
 		mav.setViewName("admin/service/contact/contactManager_delete.admin");
+		
+	}
+	
+	@Override
+	public void contactDeleteOkMove(ModelAndView mav) {
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		String pageNumber=request.getParameter("pageNumber");
+		String contact_num=request.getParameter("contact_num");
+		System.out.println(pageNumber+","+contact_num);
+		
+		int check=serviceDao.delete_contact(contact_num);
+		LogAspect.logger.info(LogAspect.logMsg+check);
+		
+		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("contact_num", contact_num);
+		mav.addObject("check", check);
+		
+		mav.setViewName("admin/service/contact/contactManager_deleteOk.admin");
 		
 	}
 

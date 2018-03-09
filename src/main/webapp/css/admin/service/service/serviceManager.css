@@ -24,9 +24,10 @@ a:hover{text-decoration: none !important;}
 
 .content_wrap_body_right{
 	width:900px;
-	margin:15px 50px 30px 50px;
+	margin:15px 50px 50px 50px;
 	border: 1px solid #CCCCCC;
-	height: 720px;
+	height: auto;
+    overflow: hidden;
 }
 
 .content_title_signature{

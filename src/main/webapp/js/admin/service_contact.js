@@ -9,6 +9,11 @@
 			
 	}
 	
+	function deleteMove(root,contact_num,pageNumber) {
+		url=root+"/admin/service/contact/contactManager_delete.do?contact_num="+contact_num+"&pageNumber="+pageNumber;
+		location.href=url;
+	}
+	
 	$(function () {
 		$(".pagepic").click(function () {
 			$(".pagepic").css("color","red");

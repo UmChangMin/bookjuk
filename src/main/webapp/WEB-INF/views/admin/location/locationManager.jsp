@@ -127,7 +127,7 @@
 											<!-- 환불, 교환, 반품-->
 										    <div class="form-group btn-margin" align="center">
 											      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left" id="btn-margin">
-												        <button type="button" class="btn btn-default" id="" onsub>수정</button>
+												        <button type="button" class="btn btn-default" id="" onclick="javascript:upMove('${root}','${locationDto.location_num }')">수정</button>
 												        <button type="button" class="btn btn-default" id="">취소</button>
 												        <button type="button" class="btn btn-default" id="">삭제</button>
 											      </div>

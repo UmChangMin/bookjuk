@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="${root }/css/admin/service/service/serviceManager.css">
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="${root }/js/admin/service.js"></script>
-
+<script type="text/javascript" src="${root }/js/admin/service_question.js"></script>
 </head>   
 
 <body>
@@ -41,15 +42,26 @@
 									<!-- 아코디언 시작 -->								
 									<div>
 										<ul class="content_ul">
-									        <li class="collapsible">
+										<c:forEach var="questionDto" items="${boardList}">
+											<li class="collapsible">
+									            <h2 class="title"><a href="#">${questionDto.question_subject }</a></h2>
+									            <p class="content_value" name="">${questionDto.question_content}
+									            	<br/><br/>
+									            	<a href="#" class="service_update" onclick="javascript:upMove('${root}','${questionDto.question_num }','${pageNumber }')">수정</a>
+								            		<a href="#" class="service_delete" onclick="javascript:upMove('${root}','${questionDto.question_num }','${pageNumber }')">삭제</a>
+									            </p>									           
+									        </li>
+										</c:forEach>	
+										
+									        <!-- <li class="collapsible">
 									            <h2 class="title"><a href="#">주문 취소는 어떻게 하나요?</a></h2>
-									            <p class="content_value">1:1문의 게시판에서 신청해 주시면 됩니다.1:1문의 게시판에서 신청해 주시면 됩니다.
+									            <p class="content_value">1:1문의 게시판에서 신청해 주시면 됩니다.
 									            	<br/><br/>
 									            	<a href="serviceManager_update.do" class="service_update">수정</a>
 								            		<a href="serviceManager_delete.do" class="service_delete">삭제</a>
 									            </p>									           
-									        </li>
-									        <li class="collapsible">
+									        </li> -->
+									        <!-- <li class="collapsible">
 									            <h2 class="title"><a href="#">환불은 어떻게 하나요?</a></h2>
 									            <p class="content_value">1:1문의 게시판에서 신청해 주시면 됩니다.
 									            <br/><br/>
@@ -112,15 +124,46 @@
 									            <br/><br/>
 									            	<a href="serviceManager_update.do" class="service_update">수정</a>
 								            		<a href="serviceManager_delete.do" class="service_delete">삭제</a></p>
-									        </li>
+									        </li> -->
 									    </ul>										
 									</div>
 									<!-- 아코디언 끝 -->
+									<!-- 페이징 처리 -->
+									<!-- 페이지 번호 -->
+									<div align="center">
+										<c:if test="${count>0 }">			
+											<fmt:parseNumber var="pageCount" value="${count/boardSize+(count%boardSize==0? 0:1)}" integerOnly="true"/>
+											<c:set var="pageBlock" value="${3}"/>
+										
+											<fmt:parseNumber var="rs" value="${(pageNumber-1)/pageBlock}" integerOnly="true"/>
+											<c:set var="startPage" value="${rs*pageBlock+1}"/>
+											
+											<c:set var="endPage" value="${startPage+pageBlock-1 }"/>
+											
+											<c:if test="${endPage>pageCount }">
+												<c:set var="endPage" value="${pageCount}"/>
+											</c:if>
+											
+											<c:if test="${startPage>pageBlock }">
+												<a href="${root}/admin/service/service/serviceManager.do?pageNumber=${startPage-pageBlock}">[이전]</a>
+											</c:if>
+											
+											<c:forEach var="i" begin="${startPage}" end="${endPage}">
+												<a href="${root}/admin/service/service/serviceManager.do?pageNumber=${i}" class="pagepic" id="pagepic">[${i}]</a>
+											</c:forEach>
+											
+											<c:if test="${endPage<pageCount }">
+												<a href="${root}/admin/service/service/serviceManager.do?pageNumber=${startPage+pageBlock}">[다음]</a>
+											</c:if>
+										</c:if>
+									</div>
+									<!-- 페이징 처리 끝 -->								
 									<!-- 버튼시작 -->
 									<div>
-								        <button type="button" class="btn btn-default input_float_right" id="" onclick="location.href='serviceManager_write.do'">글쓰기</button>										        
+								        <button type="button" class="btn btn-default input_float_right" id="" onclick="location.href='serviceManager_write.do'"
+								        style="margin-bottom: 30px;">글쓰기</button>										        
 							        </div>
-									<!-- 버튼끝 -->								
+									<!-- 버튼끝 -->
 								</form>
 							</div>
 						</div>

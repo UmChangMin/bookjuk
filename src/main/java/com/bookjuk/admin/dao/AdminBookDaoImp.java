@@ -67,6 +67,29 @@ public class AdminBookDaoImp implements AdminBookDao {
 		return sqlSessionTemplate.selectList("getBookList", hmap);
 	}
 
+	@Override
+	public List<AdminBookDto> book_SubCate() {
+		List<AdminBookDto>book_SubCate=sqlSessionTemplate.selectList("book_SubCate");
+		return book_SubCate;
+	}
+
+	@Override
+	public int InsertBook(AdminBookDto bookDto) {
+		return sqlSessionTemplate.insert("book_Insert", bookDto);
+	}
+
+	@Override
+	public String main_en_kr(String main_cate_eng) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("main_cate_eng", main_cate_eng);
+	}
+
+	@Override
+	public String sub_en_kr(String sub_cate_eng) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("sub_cate_eng", sub_cate_eng);
+	}
+
 	
 
 	

@@ -21,6 +21,7 @@ public class AdminBookDto {
 	  
 	  private String category_main_eng;
 	  private String category_sub_eng;
+	  
 	public int getBook_num() {
 		return book_num;
 	}

@@ -35,18 +35,20 @@
 							<div class="content_title_signature" align="center">자주묻는질문수정</div>	
 							<div class="content_form" align="center">
 							
-								<form>
+								<form action="${root }/admin/service/service/serviceManager_updateOk.do" method="POST">
+									<input type="hidden" name="question_num" value="${questionDto.question_num }">
+									<input type="hidden" name="pageNumber" value="${pageNumber}">
+									<%-- <input type="hidden" name="question_date" value="${questionDto.question_date}"> --%>
 									
-									<input type="text" class="notice_1_write" placeholder="제목">
-									<textarea rows="8" cols="76" placeholder="  내용"></textarea>
-									
+									<input type="text" class="notice_1_write" placeholder="제목" name="question_subject" value="${questionDto.question_subject }">
+									<textarea rows="8" cols="76" name="question_content" placeholder="내용">${questionDto.question_content }</textarea>									
 									<!-- 버튼 -->
 									<div class="form-group btn-margin" align="center">
 									      <div class="col-lg-10 col-lg-offset-2" align="center" id="btn-margin">
 									      	<ul>
 									      		<li>
-											        <button type="submit" class="btn btn-default" id="" onclick="location.href='serviceManager.jsp'">완료</button>											        
-										        	<button type="reset" class="btn btn-default" id="" onclick="location.href='serviceManager.jsp'">취소</button>
+											        <button type="submit" class="btn btn-default" id="">완료</button>											        
+										        	<button type="reset" class="btn btn-default" id="">취소</button>
 										        </li>
 										    </ul>										        										     
 									      </div>

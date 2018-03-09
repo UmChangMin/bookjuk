@@ -233,14 +233,14 @@
 /*  */
 /*  */
 /*  */
-.notice_title{
+.contact_title{
 	width:152px;
 	border:1px solid;
 	border-top:0px;
 	border-left: 0px;
 }
 
-.notice_title_value{
+.contact_title_value{
 	border: 1px solid;
 	margin: -1px 0px 0px -1px;
 	border-right: 0px;
@@ -248,38 +248,36 @@
 	text-align: left;
 }
 
-.notice_title_value>input{
+.contact_title_value>input{
     border: 0px solid;
     width: 541px;
     line-height: 20px;
 }
 
-.notice_writer_value{
+.contact_writer_value{
 	width:150px;
 	border-bottom: 1px solid;
 	border-right: 1px solid;
 }
 
-.notice_date{
+.contact_date{
 	width:244px;
 	border-bottom:1px solid;
 }
 
-.notice_content_title{
-	width:151px;
-	height: 369px;
+.contact_content_title{
+	width: 151px;
+    height: auto;
 }
 
-.notice_content_value{
+.contact_content_value{
 	width:542px;
-	height:100%;
 	margin:0px;
-	border-left:1px solid;
 	text-align: left;
 }
 
-.notice_content_value>textarea{
+.contact_content_value>textarea{
 	width:543px;
-	height:364px;
+	height:auto;
 }
 

@@ -40,7 +40,7 @@
 											  
 											    <div class="form-group">											      
 											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="inputId" placeholder="아이디">											        
+											        <input type="text" class="form-control input_width" id="inputId" name="" placeholder="아이디">											        
 											      </div>
 											    </div>
 											    

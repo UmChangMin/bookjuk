@@ -16,6 +16,10 @@
 		select count(*) from service_contact
 	</select>
 	
+	<select id="getQuestionCount" resultType="int">
+		select count(*) from service_question
+	</select>
+	
 	<select id="getList" parameterType="java.util.HashMap" resultType="com.bookjuk.admin.dto.AdminService_noticeDto">
 		<![CDATA[
 			SELECT * FROM (SELECT ROWNUM rnum, A.* FROM 
@@ -31,13 +35,49 @@
 			where b.rnum >= #{start} and b.rnum <= #{end}
 		]]>
 	</select>
+	<select id="getQuestionList" parameterType="java.util.HashMap" resultType="com.bookjuk.admin.dto.AdminService_questionDto">
+		<![CDATA[
+			SELECT * FROM (SELECT ROWNUM rnum, A.* FROM 
+			(SELECT * FROM service_question ORDER BY question_num desc) A)b 
+			where b.rnum >= #{start} and b.rnum <= #{end}
+		]]>
+	</select>
+	
+	<select id="question_NumSelect" parameterType="String" resultType="com.bookjuk.admin.dto.AdminService_questionDto">
+		select * from service_question where question_num=#{question_num}
+	</select>
+	
+	<update id="service_Update" parameterType="com.bookjuk.admin.dto.AdminService_questionDto">
+		<![CDATA[
+			update service_question set question_subject=#{question_subject}, question_content=#{question_content}, question_date=#{question_date} where question_num=#{question_num}
+		]]>	
+	</update>
 	
 	<select id="notice_NumSelect" parameterType="String" resultType="com.bookjuk.admin.dto.AdminService_noticeDto">
 		select * from service_notice where notice_num=#{notice_num}
 	</select>
 	
+	<update id="notice_Update" parameterType="com.bookjuk.admin.dto.AdminService_noticeDto">
+		<![CDATA[
+			update service_notice set notice_subject=#{notice_subject}, notice_content=#{notice_content}, notice_date=#{notice_date}  where notice_num=#{notice_num}
+		]]>	
+	</update>
+	
+	<delete id="notice_Delete" parameterType="String">
+		delete from service_notice where notice_num=#{notice_num}
+	</delete>
+	
 	<select id="contact_NumSelect" parameterType="String" resultType="com.bookjuk.admin.dto.AdminService_contactDto">
 		select * from service_contact where contact_num=#{contact_num}
 	</select>
+	
+	<update id="contact_Update" parameterType="com.bookjuk.admin.dto.AdminService_contactDto">
+		update service_contact set contact_answer=#{contact_answer}, contact_answer_whether=#{contact_answer_whether} where contact_num=#{contact_num}  
+	</update>
+	
+	<delete id="contact_Delete" parameterType="String">
+		delete from service_contact where contact_num=#{contact_num}
+	</delete>
+	
 	
 </mapper>

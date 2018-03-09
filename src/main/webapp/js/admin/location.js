@@ -66,37 +66,7 @@
 	}
 
 	/**지도파싱 끝*/
-	
-	
-	
-	
-/*	*//**주소 읽음*//*
-	function zipcodeSearch(root) {
-		//alert("root:"+root);
-		var url=root+"/admin/location/jusoPopUp.do";
-		open(url,"","width=550, height=400, scrollbars=yes");
-	}
-	
-	function sendAddress(zipcode, sido, gugun, ri, bunji){
-		var addr=sido+" "+gugun+" "+ri+" "+bunji;	
-		opener.document.location_Info.location_postcode.value=zipcode;
 		
-		opener.document.location_Info.location_addr.value=addr;
-		self.close();
-	}*/
-	
-	/**/
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	/**상단 타이틀 메뉴 active ->font-Weight:bold*/
 	$(function(){

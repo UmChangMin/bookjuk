@@ -10,19 +10,18 @@
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
+	<%-- <c:set var="pageNumberV" value="${pageNumber }"/> --%>
 	<c:if test="${check>0 }">
 		<script type="text/javascript">
 			alert("공지사항 작성 완료");
-			$(location).attr("href","${root}/admin/service/notice/noticeManager.do?pageNumber=${pageNumber}");
-// 			location.href="${root}/admin/noticeManager.do?pageNumber=${pageNumber}";
+			$(location).attr("href","${root}/admin/service/service/serviceManager.do?pageNumber=1");
 		</script>
 	</c:if>
 	
 	<c:if test="${check==0 }">
 		<script type="text/javascript">
 			alert("작성 에러");
-			$(location).attr("href","${root}/admin/service/notice/noticeManager.do?pageNumber=${pageNumber}");
-// 			location.href="${root}/admin/noticeManager.do?pageNumber=${pageNumber}";
+			$(location).attr("href","${root}/admin/service/service/serviceManager.do?pageNumber=1");
 		</script>
 	</c:if>
 </body>

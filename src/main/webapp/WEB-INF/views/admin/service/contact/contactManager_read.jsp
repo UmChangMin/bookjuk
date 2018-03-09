@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>      
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,6 +14,8 @@
 <link rel="stylesheet" type="text/css" href="${root }/css/admin/service/contact/contactManager_read.css">
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="${root }/js/admin/service.js"></script>
+<script type="text/javascript" src="${root }/js/admin/service_contact.js"></script>
+
 <!-- 
 	만약 답글이 있다면 replaceWith로 읽기 하단에 답글을 추가 + 답글달기버튼 없음 // 답글이 없으면 공백상태 + 답글달기 버튼 추가	
  -->
@@ -37,85 +40,63 @@
 						<div class="content">
 							<div class="content_title_signature" align="center">1:1문의읽기</div>	
 							<div class="content_form" align="center">
-									<div class="notice_content">
+									<div class="contact_content">
 										<ul>											
-											<li class="notice_title">제목</li>
-											<li class="notice_title_value">												
-												[주문취소] 주문취소 신청합니다.
+											<li class="contact_title">제목</li>
+											<li class="contact_title_value">												
+												[주문취소]${contactDto.contact_subject }
 												<!-- <input type="text" class="value_input" id="" placeholder="내용"> -->
 											</li>
 										</ul>
 										<ul>											
-											<li class="notice_title">작성자</li>
-											<li class="notice_writer_value">박로석</li>
-											<li class="notice_title">작성일</li>
-											<li class="notice_date">Sysdate</li>
+											<li class="contact_title">작성자</li>
+											<li class="contact_writer_value">${contactDto.contact_content}</li>
+											<li class="contact_title">작성일</li>
+											<li class="contact_date">
+												<fmt:formatDate var="contact_date" value="${contactDto.contact_date}" pattern="yy/MM/dd"/>${contact_date}
+											</li>
 										</ul>
 										<ul>
-											<li class="notice_title">파일첨부</li>
-											<li class="notice_title_value"><input type="file" class="" id=""></li>										
+											<li class="contact_title">파일첨부</li>
+											<li class="contact_title_value"><input type="file" class="" id=""></li>										
 										</ul>
 										<ul>
-											<li class="notice_title">문의유형</li>
-											<li class="notice_title_value"><input type="text" class="" id="" placeholder="유형유형"></li>
+											<li class="contact_title">문의유형</li>
+											<li class="contact_title_value"><input type="text" placeholder="문의유형" value="${contactDto.contact_type}"></li>
 										</ul>
 										<ul>											
-											<li class="notice_content_title">내용</li>
-											<li class="notice_content_value">
-												<p>
-												자세한 오류 / 불편 사항<br>
-												(오류 신고의 경우 자세한 오류 페이지 정보를 제공해 주시면, 빠른 문제 해결에 도움이 됩니다.)<br>
-												-결제 관련문의일 경우 사용하신 결제수단(핸드폰, 카드, 적립금  등)에 대한 정보도 함께 보내주시면 더욱 빠른 처리가 가능합니다.<br>
-												-북적북적 서비스에 대해 좋은 제안이나 의견을 남겨주시면 더 나은 서비스 제공을 위한 밑거름으로 삼겠습니다<br>
-												
-												1. 오류 / 불편 발생 일시(예시 : 2018-01-01) <br>
-												=> 2018-01-02<br><br>
-												2. 오류 / 불편 내용
-												=>어제 책 2권을 주문했는데 오늘 한 권 더 주문하려구요~ 배송비가 2번 결제될 것 같아 재결제를 위해 기존 결제 취소부탁드립니다.<br>
-												은행: 쌍용, 카드번호 4124-1314-5315-1241 입니다.
-												<br>
-
-												</p>
-											</li>
+											<li class="contact_content_title">내용</li>
+											<li class="contact_content_value"><textarea readonly="readonly">${contactDto.contact_content }</textarea></li>
 										</ul>	
 									</div>													
 								</div>
-								<div class="content_form" align="center">
-									<div class="notice_content">
-										<div class="contact_content">
-											<ul>											
-												<li class="contact_content_title">답변</li>
-												<li class="contact_content_value">
-													<p>
-												안녕하세요. 박로석님 북적북적입니다. <br>
-												2018-01-02일에 발생한 상황에 따라 주문취소를 신청하셨습니다.<br>
-												<br>
-												고객님께서 문의하신 내역은 정상처리 되었습니다.<br>
-												카드사 측에 따라 3일 ~ 5일 안에 결제하신 계좌를 통해 환불 또는 결제 시<br>
-												자성하신 계조를 통해 환불 될 예정이며, 적립금은 즉시 환불처리 됩니다.<br>
-												<br>
-												보다 자세한 답변을 원하시거나, 다른 불편함이 있으시면 이메일 또는 <br>
-												1:1문의를 통해 접수 부탁드립니다. 빠른 시일 내에 답변드리겠습니다.<br>
-												<br>
-												앞으로도 고객님이 불편함을 느끼지 않도록 더욱 노력하는 북적북적이 되겠습니다.<br>
-												이용해 주셔서 감사합니다.<br>
-
-												</p>
-												</li>
-											</ul>
-										</div>									
-									</div>									
-								</div>
 								
+								<c:if test="${contactDto.contact_answer!=null }">
+									<div class="content_form remove_answer" align="center">
+										<div class="contact_content">
+											<div class="contact_content">
+												<ul>											
+													<li class="contact_content_title">답변</li>
+													<li class="contact_content_value"><textarea readonly="readonly">${contactDto.contact_answer }</textarea></li>
+												</ul>
+											</div>									
+										</div>									
+									</div>
+								</c:if>
 								<!-- 버튼시작 -->
 								<div class="form-group btn-margin" align="center">
 								      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left" id="btn-margin">
 								      	<ul>
 								      		<li>
 										        <button type="button" class="btn btn-default" id="" onclick="location.href='contactManager.do'">목록</button>
-										        <button type="submit" class="btn btn-default" id="" onclick="location.href='contactManager_write.do'">답글달기</button>
-										        <button type="submit" class="btn btn-default" id="" onclick="location.href='contactManager_update.do'">답글수정</button>
-										        <button type="reset" class="btn btn-default" id="" onclick="location.href='contactManager_delete.do'">답글삭제</button>
+										        <c:if test="${answer_whether=='답변완료'}">
+										        	<button type="submit" class="btn btn-default" id="" onclick="location.href='contactManager_write.do?contact_num=${contactDto.contact_num}'">답글수정</button>
+										        </c:if>
+										        
+										        <c:if test="${answer_whether=='답변대기중'}">
+										        	<button type="submit" class="btn btn-default" id="" onclick="location.href='contactManager_write.do?contact_num=${contactDto.contact_num}'">답글달기</button>
+										        </c:if>
+										        <button type="reset" class="btn btn-default" id="" onclick="javascript:deleteMove('${root }','${contactDto.contact_num}','${pageNumber}')">답글삭제</button>
 									        </li>
 									    </ul>
 								      </div>

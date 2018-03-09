@@ -92,7 +92,7 @@
 												
 												<li class="content_li" style="margin-top: 2px;">
 													<span class="content_title_name">발행일</span>
-													<input type="text" class="form-control" id="inputBookDate" name="book_date" value="${sdfBookDate }">													
+													<input type="date" class="form-control" id="inputBookDate" name="book_date" value="${sdfBookDate }">													
 												</li>		
 												<li class="content_li">
 													<span class="content_title_name">평점</span>

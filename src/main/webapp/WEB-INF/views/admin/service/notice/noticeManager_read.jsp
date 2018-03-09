@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="${root }/css/admin/service/notice/noticeManager_read.css">
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="${root }/js/admin/service_commons.js"></script>
-
+<script type="text/javascript" src="${root }/js/admin/service_notice.js"></script>
 </head>   
 
 <body>
@@ -45,7 +45,7 @@
 											<li class="notice_writer_value">${noticeDto.notice_writer }</li>
 											<li class="notice_title">작성일</li>
 											<li class="notice_date">
-												<fmt:formatDate var="notice_date" value="${noticeDto.notice_date}" pattern="yyyy-MM-dd"/>${notice_date}
+												<fmt:formatDate var="notice_date" value="${noticeDto.notice_date}" pattern="yy/MM/dd"/>${notice_date}
 											</li>
 										</ul>
 										<ul>											
@@ -53,14 +53,8 @@
 											<li class="notice_content_value">									
 												${noticeDto.notice_content }
 											</li>
-										</ul>
-										
-										
-										
-									</div>								
-									
-									
-									
+										</ul>																
+									</div>													
 								</div>
 								
 								<!-- 버튼시작 -->
@@ -69,9 +63,8 @@
 								      	<ul>
 								      		<li>
 										        <button type="button" class="btn btn-default" id="" onclick="location.href='noticeManager.do'">목록</button>
-										        <button type="submit" class="btn btn-default" id="" onclick="location.href='noticeManager_update.do'">수정</button>
-										        <button type="submit" class="btn btn-default" id="" onclick="location.href='noticeManager_delete.do'">삭제</button>
-										        <button type="reset" class="btn btn-default" id="" onclick="location.href='noticeManager_write.do'">취소</button>
+										        <button type="button" class="btn btn-default" id="" onclick="javascript:upMove('${root}','${notice_num }','${pageNumber }')">수정</button>
+										        <button type="button" class="btn btn-default" id="" onclick="javascript:deleteMove('${root }','${noticeDto.notice_num}','${pageNumber}')">삭제</button>
 									        </li>
 									    </ul>
 								      </div>

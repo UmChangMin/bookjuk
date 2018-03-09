@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -61,7 +62,7 @@
 									
 									
 									<!--  -->
-									<form class="content_box3_formtag" action="${root }/admin/book/bookManager_inputOk.do" method="POST">	
+									<form class="content_box3_formtag" action="${root}/admin/book/bookManager_inputOk.do" method="POST">	
 									<div class="content_box3_form" align="center">
 											<ul class="content_box3">					
 												<li class="content_li">
@@ -94,8 +95,8 @@
 											        
 											        <select class="form-control input_width" id="select2" name="category_sub_eng">
 											        	<option value="hide">-- 소분야 --</option>														  													  											  										
-												      <c:forEach var="book" items="${book_SubCate_List }">
-												      	<option value="${book.category_sub_eng }">${book.category_sub_kor}</option>
+												      <c:forEach var="book2" items="${book_SubCate_List }">
+												      	<option value="${book2.category_sub_eng}">${book2.category_sub_kor}</option>
 												      </c:forEach>						          									        
 											        </select>															
 												</li>
@@ -103,7 +104,8 @@
 												<li class="content_li" style="margin-top: 2px;">
 													<span class="content_title_name">발행일</span>
 													<!-- <input type="text" class="form-control" id="inputBookDate" name="book_date"> -->
-													<input type="date" class="form-control" id="dateofbirth" name="book_date">
+													<input type="text" class="form-control" id="dateofbirth" name="" readonly="readonly">
+													<%-- <fmt:formatDate var="book_date" value="${book_date}" pattern="yy/MM/dd"/> --%>
 												</li>		
 												<li class="content_li" style="margin-top: 2px;">
 													<span class="content_title_name">평점</span>
@@ -138,27 +140,23 @@
 											<ul class="content_box4">																	
 												<li class="content_li textarea_height">
 													<span class="content_title_name">에디터 한마디</span>
-													<textarea class="form-control textarea_height" id="inputEditor" name="book_editor">
-													
-													</textarea>
+													<textarea class="form-control textarea_height" id="inputEditor" name="book_editor"></textarea>
 												</li>
 												<li class="content_li textarea_height">
 													<span class="content_title_name">목차</span>
-													<textarea class="form-control textarea_height" id="inputIntro" name="book_intro">
-													
-													</textarea>
+													<textarea class="form-control textarea_height" id="inputIntro" name="book_intro"></textarea>
+												</li>
+												<li class="content_li textarea_height">
+												<span class="content_title_name">책소개</span>
+													<textarea class="form-control textarea_height" id="inputIntro" name="book_contents"></textarea>
 												</li>	
 												<li class="content_li textarea_height">
 													<span class="content_title_name">저자소개</span>
-													<textarea class="form-control textarea_height" id="inputAuthor_info" name="book_author_info">
-													
-													</textarea>
+													<textarea class="form-control textarea_height" id="inputAuthor_info" name="book_author_info"></textarea>
 												</li>	
 												<li class="content_li textarea_height">
 													<span class="content_title_name">출판사 리뷰</span>
-													<textarea class="form-control textarea_height" id="inputPublisher_review" name="book_publisher_review">
-													
-													</textarea>
+													<textarea class="form-control textarea_height" id="inputPublisher_review" name="book_publisher_review"></textarea>
 												</li>																							
 											</ul>
 											

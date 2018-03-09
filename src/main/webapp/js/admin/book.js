@@ -20,16 +20,18 @@ function readURL(input){
 	
 	$(function(){
 		$(".nav-item:eq(3)").addClass("active");
-		
+		$(".book_content ul").hide();
+		$(".book_content ul").slice(0, 10).show();		 	
 	});
 	
 	/**/
 	$(function() {
+		
 	  $("#inputKeyword").keyup(function () {
 	    var searchTerm = $("#inputKeyword").val();
 	    var listItem = $('.book_content').children('ul');
 	    var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
-	    
+ 
 	  $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
 	        return (elem.textContent||elem.innerText||'').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
 	    }
@@ -45,11 +47,13 @@ function readURL(input){
 	
 	  var jobCount=$('.book_content ul[visible="true"]').length;//검색결과길이
 	    $('.counter').text(jobCount + ' 개의 결과');
-	
+	    
 	  if(jobCount =='0') {	//검색결과
 		  $('.no-result').show();
 		  $('.pageing').hide();
 	  }else {//값이 있으면
+		  $(".book_content ul").hide();
+		  $('.book_content ul[visible="true"]').show();
 	    	$('.no-result').hide();
 	    	$('.pageing').hide();
 	    	if(jobCount=='10'){

@@ -77,51 +77,15 @@
 																	</ul>
 																</c:forEach>																				
 															</div>								
-															
-															<!-- 페이징 처리 -->
-															<!-- 페이지 번호 -->
-															<div align="center" class="pageing">
-																<c:if test="${count>0 }">			
-																	<fmt:parseNumber var="pageCount" value="${count/boardSize+(count%boardSize==0? 0:1)}" integerOnly="true"/>
-																	<c:set var="pageBlock" value="${5}"/>
-																
-																	<fmt:parseNumber var="rs" value="${(pageNumber-1)/pageBlock}" integerOnly="true"/>
-																	<c:set var="startPage" value="${rs*pageBlock+1}"/>
-																	
-																	<c:set var="endPage" value="${startPage+pageBlock-1 }"/>
-																	
-																	<c:if test="${endPage>pageCount }">
-																		<c:set var="endPage" value="${pageCount}"/>
-																	</c:if>
-																	
-																	<c:if test="${startPage>pageBlock }">
-																		<a href="${root}/admin/book/bookManager_search.do?pageNumber=${startPage-pageBlock}">[이전]</a>
-																	</c:if>
-																	
-																	<c:forEach var="i" begin="${startPage}" end="${endPage}">
-																		<a href="${root}/admin/book/bookManager_search.do?pageNumber=${i}" class="pagepic" id="pagepic">[${i}]</a>
-																	</c:forEach>
-																	
-																	<c:if test="${endPage<pageCount }">
-																		<a href="${root}/admin/book/bookManager_search.do?pageNumber=${startPage+pageBlock}">[다음]</a>
-																	</c:if>
-																</c:if>
-															</div>
-															<!-- 페이징 처리 끝 -->
-															
-															
-															
-														</div>
-													</div>		
-												    		
-												    									  
-												   <!--  <div class="form-group">
+													</div>
+													</div>											  
+												     <div class="form-group" style="margin-bottom: 30px;">
 												      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left">
-												        <button type="submit" class="btn btn-primary">조회</button>
-												        <button type="reset" class="btn btn-default">취소</button>
-												        <button type="button" class="btn btn-default" onclick="location.href='bookManager_input.do'">추가</button>
+<!-- 												        <button type="submit" class="btn btn-primary">조회</button>
+												        <button type="reset" class="btn btn-default">취소</button> -->
+												        <button type="button" class="btn btn-primary" onclick="location.href='bookManager_input.do'">도서추가</button>
 												      </div>
-												    </div> -->
+												    </div> 
 												  </fieldset>
 												</form>
 											</li>	

@@ -36,7 +36,8 @@
 							<div class="content_title_signature" align="center">공지사항작성</div>	
 							<div class="content_form" align="center">
 								<div class="form_style">
-									<form action="${root }/admin/service/notice/noticeManager_writeOk.do">
+									<form action="${root }/admin/service/notice/noticeManager_writeOk.do" method="post">
+									<input type="hidden" name="pageNumber" value="${pageNumber }"/>
 									<div class="notice_content">
 										<ul>											
 											<li class="notice_title">제목</li>
@@ -44,10 +45,10 @@
 										</ul>
 										<ul>											
 											<li class="notice_title">작성자</li>
-											<li class="notice_writer_value"><input type="text" class="value_input_small" name="notice_writer" value="관리자" readonly="readonly"></li>
+											<li class="notice_writer_value"><input type="text" class="value_input_small" name="notice_writer" value="${writer }" readonly="readonly"></li>
 											<li class="notice_title">작성일</li>
 											<li class="notice_date">
-												<input type="text" class="value_input_middle" readonly="readonly">
+												<input type="text" class="value_input_middle" name="notice_date" value="${today }" readonly="readonly">
 											</li>											
 										</ul>
 										<ul>											
@@ -66,7 +67,7 @@
 									      	<ul>
 									      		<li>
 											        <button type="submit" class="btn btn-default" id="">완료</button>
-											        <button type="reset" class="btn btn-default" id=""">취소</button>
+											        <button type="reset" class="btn btn-default" id="">취소</button>
 											        <button type="button" class="btn btn-default" id="" onclick="location.href='noticeManager.do'">목록</button>
 										        </li>
 										    </ul>

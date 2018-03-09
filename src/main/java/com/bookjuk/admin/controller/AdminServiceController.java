@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bookjuk.admin.dto.AdminService_contactDto;
 import com.bookjuk.admin.dto.AdminService_noticeDto;
+import com.bookjuk.admin.dto.AdminService_questionDto;
 import com.bookjuk.admin.service.AdminServiceService;
 import com.bookjuk.aop.LogAspect;
 
@@ -56,6 +58,20 @@ public class AdminServiceController{
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
 		adminServiceService.serviceUpdateMove(mav);
+		
+		return mav;
+	}
+	
+	
+	@RequestMapping(value="/admin/service/service/serviceManager_updateOk.do",method=RequestMethod.POST)
+	public ModelAndView serviceUpdateOk(HttpServletRequest request, HttpServletResponse response, AdminService_questionDto questionDto) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"service-updateOk?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("questionDto",questionDto);
+		adminServiceService.serviceUpdateOkMove(mav);
 		
 		return mav;
 	}
@@ -142,7 +158,19 @@ public class AdminServiceController{
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
-		adminServiceService.noticeUpdateMove(mav);
+		adminServiceService.noticeUpdateMove(mav);		
+		return mav;
+	}
+	
+	@RequestMapping(value="/admin/service/notice/noticeManager_updateOk.do",method=RequestMethod.POST)
+	public ModelAndView noticeUpdateOk(HttpServletRequest request, HttpServletResponse response, AdminService_noticeDto noticeDto) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"notice-updateOk?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("noticeDto",noticeDto);
+		adminServiceService.noticeUpdateOkMove(mav);
 		
 		return mav;
 	}
@@ -156,6 +184,18 @@ public class AdminServiceController{
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
 		adminServiceService.noticeDeleteMove(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/admin/service/notice/noticeManager_deleteOk.do",method=RequestMethod.GET)
+	public ModelAndView noticeDeleteOk(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"notice-deleteOk?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminServiceService.noticeDeleteOkMove(mav);
 		
 		return mav;
 	}
@@ -182,10 +222,9 @@ public class AdminServiceController{
 	
 	
 	@RequestMapping(value="/admin/service/contact/contactManager_read.do",method=RequestMethod.GET)
-	public ModelAndView contactRead(HttpServletRequest request, HttpServletResponse response) {
-		
+	public ModelAndView contactRead(HttpServletRequest request, HttpServletResponse response) {		
 		LogAspect.logger.info(LogAspect.logMsg+"contact-read?");
-		
+
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
 		adminServiceService.contactReadMove(mav);
@@ -201,6 +240,19 @@ public class AdminServiceController{
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
 		adminServiceService.contactWriteMove(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/admin/service/contact/contactManager_writeOk.do",method=RequestMethod.POST)
+	public ModelAndView contactWriteOk(HttpServletRequest request, HttpServletResponse response, AdminService_contactDto contactDto) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"contact-writeOk?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("contactDto", contactDto);
+		adminServiceService.contactWriteOkMove(mav);
 		
 		return mav;
 	}
@@ -228,7 +280,20 @@ public class AdminServiceController{
 		
 		return mav;
 	}
+	
 
+	@RequestMapping(value="/admin/service/contact/contactManager_deleteOk.do",method=RequestMethod.GET)
+	public ModelAndView contactDeleteOk(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"contact-deleteOk?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminServiceService.contactDeleteOkMove(mav);
+		
+		return mav;
+	}
+	
 	/*1:1문의 끝*/
 	/**/
 	/**/

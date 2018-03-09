@@ -69,6 +69,8 @@
 									<input type="hidden" value="${bookList.book_num }" name="book_num">
 									<input type="hidden" value="${bookList.category_main_kor }" name="category_main_kor">
 									<input type="hidden" value="${bookList.category_sub_kor }" name="category_sub_kor">
+									<input type="hidden" value="${bookList.category_main_eng }" name="category_main_eng">
+									<input type="hidden" value="${bookList.category_sub_eng }" name="category_sub_eng">
 									<%-- <input type="hidden" value="${bookList.book_date }" name="book_date"> --%>
 									<div class="content_box3_form" align="center">
 											<ul class="content_box3">					

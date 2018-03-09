@@ -10,10 +10,21 @@
 	<select id="getBookList" parameterType="java.util.HashMap" resultType="com.bookjuk.admin.dto.AdminBookDto">
 		<![CDATA[
 			SELECT * FROM (SELECT ROWNUM rnum, A.* FROM 
-			(SELECT * FROM book ORDER BY book_date desc) A)b 
-			where b.rnum >= #{start} and b.rnum <= #{end}
+			(SELECT * FROM book ORDER BY book_date desc) A)b 		
 		]]>
 	</select>
+	
+	<select id="main_cate_eng" resultType="String">
+		SELECT distinct category_main_kor FROM CATEGORY where category_main_eng=#{category_main_eng}
+	</select>
+	
+	<select id="sub_cate_eng" resultType="String">
+		SELECT distinct category_sub_kor FROM CATEGORY where category_sub_eng=#{category_sub_eng}
+	</select>
+	
+	<insert id="book_Insert" parameterType="com.bookjuk.admin.dto.AdminBookDto">
+		insert into book values(#{book_num}, #{book_img}, #{book_name}, #{book_author}, #{book_publisher}, #{book_date}, #{book_score}, #{book_editor}, #{book_contents}, #{book_intro}, #{book_author_info}, #{book_publisher_review})
+	</insert>
 
 	<select id="book_keyword" parameterType="String" resultType="com.bookjuk.admin.dto.AdminBookDto">
 		<![CDATA[
@@ -29,11 +40,15 @@
 	</select>
 	
 	<select id="book_MainCate_List" resultType="com.bookjuk.admin.dto.AdminBookDto">
-		SELECT distinct category_main_kor,category_main_eng category_main_eng FROM CATEGORY
+		SELECT distinct category_main_kor,category_main_eng FROM CATEGORY
 	</select>
 	
 	<select id="book_SubCate_List" resultType="com.bookjuk.admin.dto.AdminBookDto">
 		SELECT distinct category_sub_kor, category_sub_eng FROM CATEGORY where category_main_eng=#{category_main_eng}
+	</select>
+	
+	<select id="book_SubCate" resultType="com.bookjuk.admin.dto.AdminBookDto">
+		SELECT distinct category_sub_kor,category_sub_eng FROM CATEGORY
 	</select>
 	
 	<select id="book_UpSearch" parameterType="long" resultType="com.bookjuk.admin.dto.AdminBookDto">
@@ -48,8 +63,8 @@
 		<![CDATA[
 		update book set book_num=#{book_num}, book_name=#{book_name}, book_author=#{book_author}, book_publisher=#{book_publisher}, book_date=#{book_date}, 
 		book_score=#{book_score}, book_editor=#{book_editor}, book_contents=#{book_contents}, book_intro=#{book_intro}, book_author_info=#{book_author_info}, 
-		book_publisher_review=#{book_publisher_review}, category_main_kor=#{category_main_kor}, category_sub_kor=#{category_sub_kor}, category_main_eng=#{category_main_eng}, category_sub_eng=#{category_sub_eng} where book_num=#{book_num}
+		book_publisher_review=#{book_publisher_review} where book_num=#{book_num}
 		]]>
 	</update>
-	
+	<!-- , category_main_kor=#{category_main_kor}, category_sub_kor=#{category_sub_kor}, category_main_eng=#{category_main_eng}, category_sub_eng=#{category_sub_eng}  -->
 </mapper>
