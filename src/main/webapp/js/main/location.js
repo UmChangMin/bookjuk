@@ -1,12 +1,5 @@
-/**
- * 
- */
-	$(function() {
-		$("#tabs").tabs();
-		$("#tabs").tabs({
-			active : 0
-		});
+$(function (){
+	$(".btn").click(function(){
+		$(".map_content").css("display","block");
 	});
-	
-	
-	
+});
