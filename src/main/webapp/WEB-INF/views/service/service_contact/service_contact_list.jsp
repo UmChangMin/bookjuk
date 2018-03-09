@@ -13,7 +13,6 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/service/service_basic.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/service/service_contact_list.css"/>
 <script type="text/javascript" src="${root }/js/jquery.js"></script>
-<script type="text/javascript" src="${root}/jqueryUI/jquery-ui.js"></script>
 <script type="text/javascript" src="${root}/js/service/service_contact.js"></script>
 
 
@@ -37,7 +36,11 @@
 			<!-- 내용부분 시작 -->
 			<div class="service_content">
 				<div class="service_inner">
+					
 					<c:if test="${member_id==null}">
+						<div align="center">
+							<img src="${root}/img/service/one-step.jpg" alt="1.문의접수 2.문의 내용 확인 3.추가 답변 예정 4.답변 완료">
+						</div><br/><br/>
 						<div class="service_non1" align="center">회원 전용 게시판입니다. 회원가입 후 이용 해주세요.</div>
 					</c:if>
 					<!-- list 시작 -->

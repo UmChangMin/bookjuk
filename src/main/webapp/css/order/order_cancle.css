@@ -1,16 +1,12 @@
 @charset "UTF-8";
 
 .Cancel_exchange_refund{
-	background: #fff;
-    padding-bottom: 80px;
-	border-top: 1px solid #e5e6e7;
-	margin-top: 23px;
+	padding-bottom: 80px;
 }
 
 .Cancel_exchange_refund_top{
 	width: 100%;
  	margin: 0 auto;
-	padding-bottom: 210px;
 
 }
 
@@ -29,174 +25,237 @@
 } 
 
 .Cancel_exchange_refund_box{
-    border: 1px solid #e5e6e7;
-    height: 719px;
-    background-color: white;
+	border: 1px solid #e5e6e7;
+    background: white;
+    padding: 40px 40px 40px 40px;
+    overflow: hidden;
+    width: 92%;
 }
 
 .Cancel_exchange_refund_month{
-	border: 1px solid #e5e6e7;
-    width: 300px;
-    margin-left: 213px;
-    margin-top: 36px;
-    padding-top: 17px;
-    padding-bottom: 14px;
-    padding-left: 25px;
-    
+	overflow: hidden;
+    background: #f5f7f6;
+    border: 1px solid #e5e6e7;
+    box-shadow: 0 3px #f0f0f0;
 }
 
-.Cancel_exchange_refund_month a{
-    border-right: 1px solid #e5e6e7;
-    font-size: 15px;
-    padding-left: 24px;
+.Cancel_exchange_refund_month div{
+	float: left;
 }
 
-.Cancel_exchange_refund_month a:nth-child(4){
-	border-right: 0px;
-}
-
-.Cancel_exchange_refund_month a:hover{
-	color:#6799FF;
-}
-
-.Cancel_exchange_refund_monthbox{
-	border-bottom: 0px solid #e5e6e7;
-    width: 810px;
-    margin-left: 98px;
-    padding-bottom: 39px;
+.Cancel_exchange_refund_month1{
+	font-weight: 666;
+	color: #666;
+	padding: 15px 35px;
 }
 
 .Cancel_exchange_refund_calendar{
-	margin-left:197px;
+	padding: 6px 0px;
+	border: 0px solid red;
+}
+
+#Cancel_exchange_refund_calendar{
+	
+}
+
+#Cancel_exchange_refund_calendar1,
+#Cancel_exchange_refund_calendar2{
+    padding: 0 10px;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    height: 32px;
+    line-height: 32px;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    color: #333;
+    width: 230px;
+
+}
+
+.Cancel_exchange_refund_search{
+	float: right;
+    margin-left: 75px;
+    display: block;
+    padding: 0 15px;
+    line-height: 32px;
+    height: 32px;
+    width: 100px;
+    border: 1px solid #c4c4c4;
+    border-radius: 4px;
+    text-align: center;
+    background: #F6F6F6;
+}
+
+.Cancel_exchange_refund_calendar>span{
+	color: #666;
+}
+
+.Cancel_exchange_refund_contact_all{
+	border: 0px solid pink;
+	overflow: hidden;
+}
+
+.Cancel_exchange_refund_contact{
+	border-top: 1px solid #e5e6e7;
+	border-bottom:1px solid #e5e6e7;
 	margin-top: 20px;
 }
-#Cancel_exchange_refund_calendar1{
-    border: 1px solid #e5e6e7;
-    height: 28px;
 
+.Cancel_exchange_refund_contact ul,
+.Cancel_exchange_refund_info ul{
+	border: 0px solid green;
+	overflow: hidden;
+	padding:20px 10px;
 }
 
-#Cancel_exchange_refund_calendar2{
-    border: 1px solid #e5e6e7;
-    height: 28px;
-}
-
-.Cancel_exchange_refund_calendar p{
-	float: right;
-    margin-right: 152px;
-    margin-top: 6px;
-}
-
-.Cancel_exchange_refund_subtitlebox{
-	border: 1px solid #e5e6e7;
-	width: 810px;
-	margin-left: 99px;
-	padding-bottom: 19px;
-	height: 25px;
-}
-
-.Cancel_exchange_refund_subtitle p{
+.Cancel_exchange_refund_contact ul li,
+.Cancel_exchange_refund_info ul li{
 	float: left;
-    margin-right: 23px;
-    margin-left: 53px;
-    margin-top: 15px;	
+	
+
 }
 
-.Cancel_exchange_refund_listbox{
-    height: 199px;
-    margin-top: 32px;
-    width: 811px;
-    margin-left: 98px;
-    border-bottom: 1px solid #e5e6e7;
+.Cancel_exchange_refund_contact ul li:nth-child(1),
+.Cancel_exchange_refund_contact ul li:nth-child(2),
+.Cancel_exchange_refund_contact ul li:nth-child(5),
+.Cancel_exchange_refund_info ul li:nth-child(1),
+.Cancel_exchange_refund_info ul li:nth-child(2),
+.Cancel_exchange_refund_info ul li:nth-child(5),
+.Cancel_exchange_refund_contact ul li:nth-child(4),
+.Cancel_exchange_refund_info ul li:nth-child(4){
+	width: 11%;
+}
+.Cancel_exchange_refund_info ul li:nth-child(6),
+.Cancel_exchange_refund_contact ul li:nth-child(6){
+	width: 13%;
 }
 
-.Cancel_exchange_refund_listimg li{
-    margin-left: 153px;
+.Cancel_exchange_refund_contact ul li:nth-child(3),
+.Cancel_exchange_refund_info ul li:nth-child(3)
+{
+	width: 43%;
+}
+
+
+.Cancel_exchange_refund_info ul li:nth-child(5){
+	color:#F15F5F;
+}
+
+
+.Cancel_exchange_refund_info{
+	border-bottom: 1px solid #e5e6e7;
+    line-height: 150px;
+}
+
+.Cancel_exchange_refund_info_book{
+	
+}
+
+.Cancel_exchange_refund_info_book div{
+	float: left;
+}
+
+
+.Cancel_exchange_refund_info_bookimg img{
+	width: 55%;
+    overflow: visible;
     position: relative;
-    border: 1px solid #e5e6e7;
-    width: 110px;
-    height: 169px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 16px 3px rgba(0,0,0,0.4);
+    box-sizing: border-box;
 }
 
-.Cancel_exchange_refund_listimg img{
-    width: 110px;
-    height: 170px;
-
+.Cancel_exchange_refund_info_booktit{
+	width: 166px;
+    line-height: 16px;
+    border: 0px solid red;
+    padding: 66px 0;
 }
-
-
-.Cancel_exchange_refund_list_text span{
-    float: left;
-    margin-top: 67px;
-    margin-left: 51px;
-}
-
-.bookname{
-	float: left;
-    margin-right: 23px;
-    margin-left: 179px;
-    margin-top: 58px;
-}
-
-.Cancel_exchange_refund_listbox2{
-	height: 199px;
-    margin-top: 32px;
-    width: 811px;
-    margin-left: 98px;
-    border-bottom: 0px solid #e5e6e7;
-}
-
-.Cancel_exchange_refund_list_text2 p{
-	margin-left: 57px;
-    margin-right: 74px;
-    float: left;
-    margin-top: 60px;
-}
-.Cancel_exchange_refund_list_text2 span{
-	margin-top: 64px;
-    margin-right: 259px;
-    float: right;
-}
-
-.Cancel_exchange_refund_list_text2 a{
-    margin-top: 65px;
-    float: right;
-    margin-right: -179px;
-}
-
 
 
 .Cancel_exchange_refund_Precautions{
-	margin-top: 59px;
-    margin-left: -17px;
+	border-top: 1px solid #e5e6e7;
+	padding-top:40px;
+    float: left;
 }
 
-.Cancel_exchange_refund_Precautions_text{
-    border: 1px solid black;
-    width: 680px;
-    height: 85px;
-    margin-left: 10px;
+.Cancel_exchange_refund_Precautions div:first-child{
+	font-weight: 666;
+	
 }
 
-.Cancel_exchange_refund_Precautions div{
-    margin-left: 16px;
-    margin-top: 15px;
-    font-size: 13px;
+.Cancel_exchange_refund_Precautions div:nth-child(2){
+	border: 1px solid #e5e6e7;
+	border-radius: 4px;
+	margin-top:10px;
+	float: left;
 }
 
-.Cancel_exchange_refund_contact input{
-    width: 126px;
-    height: 62px;
-    border-radius: 17px;
-    border: 1px solid #ffd8d8;
-    background-color: #ffd8d8;
-    float: right;
-    margin-top: -77px;
-    margin-right: 98px;
+.Cancel_exchange_refund_Precautions div:nth-child(2)>p{
+	padding: 20px 20px;
+    line-height: 21px;
 }
 
-.Cancel_exchange_refund_Precautions_text p{
-	margin-top: 12px;
-    margin-left: 6px;
-    text-align: justify;
+.Cancel_exchange_refund_onecontact{
+		float: left;
 }
+
+.Cancel_exchange_refund_onecontact>a{
+
+    display: inline-block;
+    font-weight: normal;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #b6b7b7;
+    margin: 63px 70px;
+    overflow: hidden;
+    height: 50px;
+    width: 130px;
+    box-sizing: border-box;
+    text-align: center;
+    background: #f5f7f6;
+    box-shadow: 0 2px #f5f7f6;
+    border-radius: 15px;
+    line-height: 49px;
+    cursor: pointer;
+    color: #333;
+}
+
+.Cancel_exchange_refund_info_book_button button{
+	display: inline-block;
+    font-weight: normal;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    padding: 7px 3px;
+    border: 1px solid #b6b7b7;
+    overflow: hidden;
+    box-sizing: border-box;
+    text-align: center;
+    background: #f5f7f6;
+    box-shadow: 0 2px #f5f7f6;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #333;
+}
+
+.Cancel_exchange_refund_page{
+	padding: 25px 0;
+    border: 0px solid red;
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+}
+
+.Cancel_exchange_refund_page a{
+	padding: 0 12px;
+	font-weight: 600;
+}
+
+.Cancel_exchange_refund_page a:hover{
+	color: #F15F5F;
+}
+
+

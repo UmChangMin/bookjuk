@@ -31,14 +31,18 @@
 				</ul>
 				
 			</div>
-			<!-- <div class="point_bot_content1" align="center">포인트 내역이 없습니다.</div> -->
+			<c:if test="${point==0}">
+			 <div class="point_bot_content1" align="center">포인트 내역이 없습니다.</div>
+			</c:if>
+			<c:if test="${point!=0}">
 			<div class="point_bot_content2">
 				<ul>
-					<li><div align="center">2018-02-20</div></li>
+					<li><div align="center">2018/02/20</div></li>
 					<li><div align="center">구매적립금</div></li>
-					<li><div align="center">100P</div></li>
+					<li><div align="center">100000P</div></li>
 				</ul>
 			</div>
+			</c:if>
 		</div>
 	</form>
 </body>

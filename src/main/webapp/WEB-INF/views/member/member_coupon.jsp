@@ -36,7 +36,10 @@
 				</ul>
 				
 			</div>
-			<!-- <div class="coupon_bot_content1" align="center">쿠폰 내역이 없습니다.</div> -->
+			<c:if test="${coupon==0}">
+				<div class="coupon_bot_content1" align="center">쿠폰 내역이 없습니다.</div>
+			</c:if>
+			<c:if test="${coupon!=0}">
 			<div class="coupon_bot_content2">
 				<ul>
 					<li><div align="center">생일쿠폰</div></li>
@@ -44,6 +47,7 @@
 					<li><div align="center">고객님의 생일을 축하합니다.</div></li>
 				</ul>
 			</div>
+			</c:if>
 		</div>
 	</form>
 </body>
