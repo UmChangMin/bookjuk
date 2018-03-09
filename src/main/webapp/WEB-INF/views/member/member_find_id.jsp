@@ -10,12 +10,18 @@
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/member/member_find_id.js"></script>
 <title>Insert title here</title>
+<script type="text/javascript">
+	
+function goBack(){
+    location.href="login.do";
+}
 
+</script>
 </head>
 <body>
 <div id="login_all">
-		<!-- container --><br/>
-		<img src="${root}/img/myPage/return.png" width="35" height="35">
+		<!-- container -->
+		<a href="javascript:goBack()"><img src="${root}/img/myPage/return.png" width="35" height="35"></a>
 		<div id="login_container">
 			<!--  content -->
 			<div id="login_content">
