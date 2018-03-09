@@ -8,11 +8,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>주문/배송조회</title>
 <link rel="stylesheet" type="text/css"href="${root}/css/template/basic.css" />
-<link rel="stylesheet" type="text/css"href="${root}/css/order/order_main.css" />
+<link rel="stylesheet" type="text/css"href="${root}/css/order/order_login.css" />
 <link type="text/css" rel="stylesheet" href="${root}/jqueryUI/jquery-ui.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/jqueryUI/jquery-ui.js"></script>
-<script type="text/javascript" src="${root}/js/member/member_login.js"></script>
+<script type="text/javascript" src="${root}/js/order/order_login.js"></script>
 <!-- 주문배송조회 뷰:허단비 -->
 </head>
 <body>
@@ -26,14 +26,17 @@
 				</div>
 
 				<div class="order_main">
-					<form action="${root}/order/order_mainOk.do" method="post">
+					<form action="${root}/order/login.do" method="post">
 						<div class="order_wrap">
 							<div class="order_info">
 								<div class="order_input">
-									<input type="text" placeholder="핸드폰 번호" maxlength="20" class="order_phonenumber"/>
+									<input type="text" placeholder="이름" class="order_name" name="nonmember_name"/>
 								</div>
 								<div class="order_input">
-									<input type="password" placeholder="비밀번호" maxlength="20" class="order_pwd"/>
+									<input type="text" placeholder="핸드폰 번호" class="order_phone" name="nonmember_phone"/>
+								</div>
+								<div class="order_input">
+									<input type="password" placeholder="비밀번호" class="order_pwd" name="nonmember_password"/>
 								</div>
 							</div>
 							<br/>

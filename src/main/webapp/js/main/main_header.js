@@ -3,7 +3,7 @@
  */
 
 function orderDelivery(root) { // 주문,배송 조회
-	var url = root + "/order/main.do";
+	var url = root + "/order/login.do";
 	window.open(url, "", "width=630, height=400, left=620px, top=225px, scrollbars=no");
 }
 

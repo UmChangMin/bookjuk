@@ -72,4 +72,13 @@
 	<update id="updateSales" parameterType="java.util.Map">
 		UPDATE product SET PRODUCT_SALES = PRODUCT_SALES + #{amount} where book_num = #{book_num}
 	</update>
+	
+	<!-- 주문 배송 조회 -->
+	<select id="getOrderList" parameterType="java.util.Map" resultType="com.bookjuk.order.dto.OrderDto">
+		SELECT order_num FROM nonmember WHERE nonmember_name = #{nonmember_name} AND nonmember_phone = #{nonmember_phone} AND nonmember_password = #{nonmember_password}
+	</select>
+	
+	<select id="getOrderId" parameterType="int" resultType="String">
+		SELECT order_id FROM book_order WHERE order_num = #{order_num}
+	</select>
 </mapper>

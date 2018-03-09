@@ -28,4 +28,7 @@ public interface OrderDao {
 	public int insertDirectCart(OrderDto orderDto);
 	
 	public int updateSales(String order, String amount);
+	
+	public List<OrderDto> getOrderList(String nonmember_name, String nonmember_phone, String nonmember_password);
+	public String getOrderId(int order_num);
 }

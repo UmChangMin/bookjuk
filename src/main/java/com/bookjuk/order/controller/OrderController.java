@@ -80,11 +80,16 @@ public class OrderController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
-	public ModelAndView orderMain(HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
+	public ModelAndView orderLogin(HttpServletRequest request, HttpServletResponse response) {
+		return new ModelAndView("order/order_login.empty");
+	}
+	
+	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+	public ModelAndView orderLoginOk(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
-		orderService.orderMain(mav);
+		orderService.orderLoginOk(mav);
 		
 		return mav;
 	}

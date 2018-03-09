@@ -115,4 +115,19 @@ public class OrderDaoImp implements OrderDao {
 		
 		return sqlSession.update("updateSales", map);
 	}
+
+	@Override
+	public List<OrderDto> getOrderList(String nonmember_name, String nonmember_phone, String nonmember_password) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("nonmember_name", nonmember_name);
+		map.put("nonmember_phone", nonmember_phone);
+		map.put("nonmember_password", nonmember_password);
+		
+		return sqlSession.selectList("getOrderList", map);
+	}
+
+	@Override
+	public String getOrderId(int order_num) {
+		return sqlSession.selectOne("getOrderId", order_num);
+	}
 }

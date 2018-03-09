@@ -72,7 +72,7 @@ $(function() {
 			$(this).attr("placeholder","반드시 입력해주세요!");
 		}
 		if($(this).hasClass("user_phone")){
-			$(this).attr("placeholder","'-'제외하고 핸드폰번호를 입력해 주세요");
+			$(this).attr("placeholder","' - ' 제외하고 핸드폰번호를 입력해 주세요");
 		}
 		if($(this).hasClass("user_email")){
 			$(this).attr("placeholder","반드시 입력해주세요!");

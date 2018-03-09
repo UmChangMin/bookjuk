@@ -178,7 +178,6 @@ public class OrderServiceImp implements OrderService {
 		
 		/*주문정보 입력*/
 		int check = orderDao.insertOrderInfo(orderDto);
-		LogAspect.logger.info(LogAspect.logMsg + check);
 		
 		/*주문번호 가져오기*/
 		int order_num = orderDao.orderNum(orderDto);
@@ -214,21 +213,34 @@ public class OrderServiceImp implements OrderService {
 	}
 	
 	@Override
-	public void orderMain(ModelAndView mav) {
+	public void orderLoginOk(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
-		String phone = request.getParameter("phone");
-		String member_password=request.getParameter("member_password");
-		LogAspect.logger.info(LogAspect.logMsg+"핸드폰번호&&비밀번호"+phone+"\t"+member_password);
+		String nonmember_name = request.getParameter("nonmember_name");
+		String nonmember_phone = request.getParameter("nonmember_phone");
+		String nonmember_password = request.getParameter("nonmember_password");
 		
-		mav.setViewName("order/order_main.empty");
-	}
-	
+		int order_num = 0;
+		List<OrderDto> orderList = orderDao.getOrderList(nonmember_name, nonmember_phone, nonmember_password);
+		if(orderList.size() > 0) {
+			order_num = orderList.get(0).getOrder_num();
+		}
+
+		mav.addObject("order_num", order_num);
+		mav.setViewName("order/order_loginOk.empty");;
+	}	
 	@Override
 	public void orderList(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		String num = request.getParameter("order_num");
+		int order_num = 0;
+		String order_id = request.getParameter("order_id");
+		if(num != null) {
+			order_num = Integer.parseInt(num);
+			order_id = orderDao.getOrderId(order_num);
+		}
 		
 		mav.setViewName("order/order_list.search");
 	}
