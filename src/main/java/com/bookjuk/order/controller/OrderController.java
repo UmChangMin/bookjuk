@@ -89,15 +89,6 @@ public class OrderController {
 		return mav;
 	}
 	
-/*	@RequestMapping(value="/mainOk.do",method=RequestMethod.POST)
-	public ModelAndView orderOk(HttpServletRequest request, HttpServletResponse response) {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("request", request);
-		orderService.orderOk(mav);
-		
-		return mav;
-	}*/
-	
 	@RequestMapping(value="/list.do",method=RequestMethod.GET)
 	public ModelAndView orderList(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();

@@ -1,6 +1,9 @@
 package com.bookjuk.member.dto;
 
+import java.util.Date;
+
 public class MemberDto {
+	/*회원정보*/
 	private int member_num;					// 자동증가번호
 	private String member_id;				// 아이디
 	private String member_password; 		// 비밀번호
@@ -15,6 +18,12 @@ public class MemberDto {
 	private int member_point;				// 적립금
 	private int birthday_coupon;			// 생일쿠폰
 	private String member_level;			// 회원레벨
+	/*장바구니*/
+	private int cart_num;					// 장바구니 번호
+	private String order_id;				// 주문 아이디 
+	private int book_num;					// 상품번호
+	private int cart_amount;				// 수량
+	private Date cart_date;					// 담긴시간
 	
 	public int getMember_num() {
 		return member_num;
@@ -100,6 +109,36 @@ public class MemberDto {
 	public void setMember_level(String member_level) {
 		this.member_level = member_level;
 	}
+	public int getCart_num() {
+		return cart_num;
+	}
+	public void setCart_num(int cart_num) {
+		this.cart_num = cart_num;
+	}
+	public String getOrder_id() {
+		return order_id;
+	}
+	public void setOrder_id(String order_id) {
+		this.order_id = order_id;
+	}
+	public int getBook_num() {
+		return book_num;
+	}
+	public void setBook_num(int book_num) {
+		this.book_num = book_num;
+	}
+	public int getCart_amount() {
+		return cart_amount;
+	}
+	public void setCart_amount(int cart_amount) {
+		this.cart_amount = cart_amount;
+	}
+	public Date getCart_date() {
+		return cart_date;
+	}
+	public void setCart_date(Date cart_date) {
+		this.cart_date = cart_date;
+	}
 	
 	@Override
 	public String toString() {
@@ -108,7 +147,8 @@ public class MemberDto {
 				+ ", member_mailing=" + member_mailing + ", member_birth=" + member_birth + ", member_postcode="
 				+ member_postcode + ", member_address=" + member_address + ", member_address_detail="
 				+ member_address_detail + ", member_phone=" + member_phone + ", member_point=" + member_point
-				+ ", birthday_coupon=" + birthday_coupon + ", member_level="
-				+ member_level + "]";
+				+ ", birthday_coupon=" + birthday_coupon + ", member_level=" + member_level + ", cart_num=" + cart_num
+				+ ", order_id=" + order_id + ", book_num=" + book_num + ", cart_amount=" + cart_amount + ", cart_date="
+				+ cart_date + "]";
 	}
 }

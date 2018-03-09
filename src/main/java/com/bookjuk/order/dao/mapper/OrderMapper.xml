@@ -64,6 +64,10 @@
 		SELECT * FROM book b, product p WHERE b.book_num = #{book_num} AND b.book_num = p.book_num
 	</select>
 	
+	<insert id="insertDirectCart" parameterType="com.bookjuk.order.dto.OrderDto">
+		INSERT INTO cart VALUES (cart_num_seq.nextval, #{order_id}, #{book_num}, 1, #{cart_date})
+	</insert>
+	
 	<!-- 구매 후 판매량 업데이트 -->
 	<update id="updateSales" parameterType="java.util.Map">
 		UPDATE product SET PRODUCT_SALES = PRODUCT_SALES + #{amount} where book_num = #{book_num}

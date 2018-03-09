@@ -13,7 +13,7 @@
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/jqueryUI/jquery-ui.js"></script>
 <script type="text/javascript" src="${root}/js/order/order_zipcode.js"></script>
-<script type="text/javascript" src="${root}/js/order/order.js"></script>
+<script type="text/javascript" src="${root}/js/order/order_non.js"></script>
 <title>비회원 주문</title>
 </head>
 <body>
@@ -103,22 +103,22 @@
 								<h3>01</h3>
 								<h4>배송지정보</h4>
 							</div>
-							<div class="order_non_name">
+							<div class="order_non_input">
 								<strong>수령인</strong>
-								<input type="text" name="order_name" id="name" value=""/>
+								<input type="text" name="order_name" class="order_name" id="name" placeholder="수령인"/>
 							</div>
-							<div class="order_non_phone">
+							<div class="order_non_input">
 								<strong>연락처</strong>
-								<input type="text" name="order_phone" id="phone" maxlength="13" value=""/>
+								<input type="text" name="order_phone" class="order_phone" id="phone" placeholder="연락처" maxlength="13"/>
 							</div>
-							<div class="order_non_address">
+							<div class="order_non_input">
 								<strong>배송지 주소</strong>
-								<input type="text" name="order_postcode" id="zipcode" value=""/><button type="button" id="btn_zipcode" onclick="zipcodeRead('${root}')">우편번호</button><br/>
-								<input type="text" name="order_address" id="address1" value=""/><input type="text" name="order_address_detail" id="address2" value=""/>
+								<input type="text" name="order_postcode" id="zipcode" placeholder="우편번호" class="order_postcode" /><button type="button" id="btn_zipcode" onclick="zipcodeRead('${root}')">우편번호</button><br/>
+								<input type="text" name="order_address" id="address1" class="order_address" placeholder="주소" /><input type="text" name="order_address_detail" id="address2" class="order_address_detail" placeholder="상세주소"/>
 							</div>
-							<div class="order_non_memo">
+							<div class="order_non_input">
 								<strong>배송메모</strong>
-								<input type="text" name="order_memo" id="memo" value=""/>
+								<input type="text" name="order_memo" id="memo" placeholder="배송 메모"/>
 							</div>
 						</div>
 						<!-- 주문자 정보 -->
@@ -128,21 +128,21 @@
 									<h3>02</h3>
 									<h4>주문자 정보</h4>
 								</div>
-								<div class="userinfo_name">
+								<div class="order_non_input">
 									<strong>주문자 성함</strong>
-									<input type="text" name="nonmember_name" id="user_name" value=""/>
+									<input type="text" name="nonmember_name" class="user_name" id="user_name" placeholder="주문자 성함"/>
 								</div>
-								<div class="userinfo_phone">
+								<div class="order_non_input">
 									<strong>연락처</strong>
-									<input type="text" name="nonmember_phone" id="user_phone" value=""/>
+									<input type="text" name="nonmember_phone" class="user_phone" id="user_phone" placeholder="연락처"/>
 								</div>
-								<div class="userinfo_address">
+								<div class="order_non_input">
 									<strong>이메일</strong>
-									<input type="text" name="nonmember_email" id="user_email" value=""/>
+									<input type="text" name="nonmember_email" class="user_email" id="user_email" placeholder="이메일"/>
 								</div>
-								<div class="userinfo_password">
+								<div class="order_non_input">
 									<strong>주문 비밀번호</strong>
-									<input type="password" name="nonmember_password" id="user_password" value=""/>
+									<input type="password" name="nonmember_password" class="user_password" id="user_password" placeholder="주문 비밀번호"/>
 								</div>
 							</div>
 							<div class="info_dsc">
@@ -191,11 +191,11 @@
 									<strong>환불계좌정보</strong>
 									<span>입력하신 환불정보는 환불처리 이외의 목적으로는 이용되지 않으며 환불대상이 아닌 환불정보는 1개월 후 파기됩니다.</span>
 								</div>
-								<div class="order_non_refund_name">
+								<div class="order_non_input" id="order_non_refund_name">
 									<strong>예금주</strong>
-									<input type="text" name="refund_name" id="refund_name"/>
+									<input type="text" name="refund_name" class="refund_name" id="refund_name" placeholder="예금주"/>
 								</div>
-								<div class="order_non_refund_bankinfo">
+								<div class="order_non_input" id="order_non_refund_bankinfo">
 									<strong>계좌번호</strong>
 									<select name="refund_bank">
 										<option>은행명</option>
@@ -205,7 +205,7 @@
 										<option value="우리은행">우리은행</option>
 										<option value="농협">농협</option>
 									</select>
-									<input name="refund_account" type="text">
+									<input id="refund_account" name="refund_account" class="refund_account" type="text" placeholder="환불 계좌번호">
 								</div>
 							</div>
 							<div class="order_non_agree_wrap">
@@ -244,7 +244,7 @@
 										<p style="float: left; color: #F15F5F;">Point <em id = point style="font-size: 1.25em"><fmt:formatNumber pattern="###,###,###" value="${tot_point}"/></em> 적립가능</p>
 									</li>
 									<li>
-										<button type="button" id="btn_regist">회원가입</button>
+										<button type="button" id="btn_regist" onclick="registe('${root}')">회원가입</button>
 									</li>
 								</ul>
 							</div>

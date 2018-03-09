@@ -89,8 +89,21 @@ public class MemberDaoImp implements MemberDao {
 
 	@Override
 	public int point(String member_id) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectOne("point",member_id);
+	}
+
+	@Override
+	public int getCart(String session_id) {
+		return sqlSession.selectOne("getCart", session_id);
+	}
+
+	@Override
+	public int updateCart(String member_id, String session_id) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("member_id", member_id);
+		map.put("session_id", session_id);
+		
+		return sqlSession.update("updateCart", map);
 	}
 	
 }

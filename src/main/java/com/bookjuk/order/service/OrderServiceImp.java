@@ -1,6 +1,7 @@
 package com.bookjuk.order.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,7 +9,6 @@ import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,8 +44,6 @@ public class OrderServiceImp implements OrderService {
 			cartList = orderDao.cartList(order_id);
 			mav.addObject("order_id", cartList.get(0).getOrder_id());
 		}
-		LogAspect.logger.info(LogAspect.logMsg + cartList);
-		LogAspect.logger.info(LogAspect.logMsg + "cart : " + order_id);
 		
 		Map<String, Integer> tot_map = calculate(cartList);
 		
@@ -91,6 +89,7 @@ public class OrderServiceImp implements OrderService {
 	public void orderNon(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		HttpSession session = request.getSession();
 		
 		List<OrderDto> cartList = new ArrayList<OrderDto>();
 		String order_id = request.getParameter("order_id");
@@ -98,8 +97,10 @@ public class OrderServiceImp implements OrderService {
 		
 		if(request.getParameter("book_num") != null) {
 			/*바로 구매*/
+			String session_id = session.getId();
 			book_num = Integer.parseInt(request.getParameter("book_num"));
-			cartList = directOrder(book_num);
+			cartList = directOrder(book_num, session_id);
+			orderDao.insertDirectCart(cartList.get(0));
 		}else {
 			/*장바구니 리스트*/
 			cartList = orderDao.cartList(order_id);
@@ -133,7 +134,7 @@ public class OrderServiceImp implements OrderService {
 		if(request.getParameter("book_num") != null) {
 			/*바로 구매*/
 			book_num = Integer.parseInt(request.getParameter("book_num"));
-			cartList = directOrder(book_num);
+			cartList = directOrder(book_num, order_id);
 		}else {
 			/*장바구니 리스트*/
 			cartList = orderDao.cartList(order_id);
@@ -250,7 +251,7 @@ public class OrderServiceImp implements OrderService {
 	/*장바구니 및 주문 Total 가격, 배송비, 포인트 계산*/
 	public Map<String, Integer> calculate(List<OrderDto> cartList) {
 		Map<String, Integer> map = new HashMap<String, Integer>();
-		LogAspect.logger.info(LogAspect.logMsg + "tot" +cartList);
+		
 		int tot_price = 0;
 		int tot_point = 0;
 		int tot_delivery = 0;
@@ -297,9 +298,11 @@ public class OrderServiceImp implements OrderService {
 		return amount_list;
 	}
 	
-	public List<OrderDto> directOrder(int book_num){
+	public List<OrderDto> directOrder(int book_num, String order_id){
 		List<OrderDto> cartList = new ArrayList<OrderDto>();
 		OrderDto orderDto = orderDao.directOrder(book_num);
+		orderDto.setOrder_id(order_id);
+		orderDto.setCart_date(new Date());
 		orderDto.setCart_amount(1);
 		cartList.add(0, orderDto);
 		
@@ -316,9 +319,4 @@ public class OrderServiceImp implements OrderService {
 		
 		return tokenList;
 	}
-/*	@Override
-	public void orderOk(ModelAndView mav) {
-		Map<>
-		
-	}*/
 }

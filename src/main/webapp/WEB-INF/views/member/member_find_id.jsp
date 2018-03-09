@@ -8,7 +8,7 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <link type="text/css" rel="stylesheet" href="${root}/css/member/member_login.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
-<script type="text/javascript" src="${root}/js/member/member_login.js"></script>
+<script type="text/javascript" src="${root}/js/member/member_find_id.js"></script>
 <title>Insert title here</title>
 
 </head>

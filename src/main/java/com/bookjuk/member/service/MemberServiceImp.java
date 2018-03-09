@@ -32,11 +32,19 @@ public class MemberServiceImp implements MemberService {
 	public void loginOk(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		HttpSession session = request.getSession();
+		String session_id = session.getId();
+		
+		int count = memberDao.getCart(session_id);
 		
 		String member_id=request.getParameter("member_id");
 		String member_password=request.getParameter("member_password");
 		
 		MemberDto memberDto = memberDao.loginOk(member_id,member_password);
+		if(count > 0) {
+			memberDao.updateCart(member_id, session_id);
+			mav.addObject("cart", "cart");
+		}
 		
 		if(memberDto != null) {
 			mav.addObject("member_id", memberDto.getMember_id());

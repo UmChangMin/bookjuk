@@ -25,6 +25,7 @@ public interface OrderDao {
 	public OrderDto orderCompleteMemInfo(int order_num, String order_id);
 	
 	public OrderDto directOrder(int book_num);
+	public int insertDirectCart(OrderDto orderDto);
 	
 	public int updateSales(String order, String amount);
 }

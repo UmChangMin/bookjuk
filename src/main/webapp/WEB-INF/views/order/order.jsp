@@ -105,22 +105,22 @@
 								<h3>01</h3>
 								<h4>배송지정보</h4>
 							</div>
-							<div class="order_name">
-								<label>수령인</label>
-								<input type="text" name="order_name" id="name" value="${memberDto.member_name}"/>
+							<div class="order_input">
+								<label><strong>수령인</strong></label>
+								<input type="text" name="order_name" class="order_name" id="name" placeholder="수령인" value="${memberDto.member_name}"/>
 							</div>
-							<div class="order_phone">
-								<label>연락처</label>
-								<input type="text" name="order_phone" name="phone" id="phone" maxlength="13" value="${memberDto.member_phone}"/>
+							<div class="order_input">
+								<label><strong>연락처</strong></label>
+								<input type="text" name="order_phone" class="order_phone" name="phone" id="phone" maxlength="13" placeholder="연락처" value="${memberDto.member_phone}"/>
 							</div>
-							<div class="order_address">
-								<label>배송지 주소</label>
-								<input type="text" name="order_postcode" id="zipcode" value="${memberDto.member_postcode}"/><button type="button" id="btn_zipcode" onclick="zipcodeRead('${root}')">우편번호</button><br/>
-								<input type="text" name="order_address" id="address1" value="${memberDto.member_address}"/><input type="text" name="order_address_detail" id="address2" value="${memberDto.member_address_detail}"/>
+							<div class="order_input">
+								<label><strong>배송지 주소</strong></label>
+								<input type="text" name="order_postcode" class="order_postcode" id="zipcode" placeholder="우편번호" value="${memberDto.member_postcode}"/><button type="button" id="btn_zipcode" onclick="zipcodeRead('${root}')">우편번호</button><br/>
+								<input type="text" name="order_address" class="order_address" id="address1" placeholder="주소" value="${memberDto.member_address}"/><input type="text" name="order_address_detail" id="address2" placeholder="상세 주소" value="${memberDto.member_address_detail}"/>
 							</div>
-							<div class="order_memo">
-								<label>배송메모</label>
-								<input type="text" name="order_memo" id="memo" value=""/>
+							<div class="order_input">
+								<label><strong>배송메모</strong></label>
+								<input type="text" name="order_memo" id="memo" placeholder="배송 메모"/>
 							</div>
 						</div>
 					</div>
@@ -255,11 +255,11 @@
 									<strong>환불계좌정보</strong>
 									<span>입력하신 환불정보는 환불처리 이외의 목적으로는 이용되지 않으며 환불대상이 아닌 환불정보는 1개월 후 파기됩니다.</span>
 								</div>
-								<div class="order_refund_name">
+								<div class="order_input" id="order_refund_name">
 									<strong>예금주</strong>
-									<input type="text" name="refund_name" id="refund_name"/>
+									<input type="text" name="refund_name" class="refund_name" id="refund_name" placeholder="환불 예금주"/>
 								</div>
-								<div class="order_refund_bankinfo">
+								<div class="order_input" id="order_refund_bankinfo">
 									<strong>계좌번호</strong>
 									<select name="refund_bank">
 										<option>은행명</option>
@@ -269,7 +269,7 @@
 										<option value="우리은행">우리은행</option>
 										<option value="농협">농협</option>
 									</select>
-									<input name="refund_account" type="text">
+									<input id="refund_account" name="refund_account" class="refund_account" placeholder="환불 계좌번호" type="text">
 								</div>
 							</div>
 							<div class="order_agree_wrap">
@@ -329,7 +329,7 @@
 						<input type="hidden" name="amount_list" value="${amount_list}">
 						<input type="hidden" name="order_total_price" value="${tot_price}">
 						<input type="hidden" name="order_total_point" value="${tot_point}">
-						<button id="btn_cart" onclick="location='${root}/order/cart.do'">장바구니 가기</button>
+						<button type="button" id="btn_cart" onclick="location='${root}/order/cart.do'">장바구니 가기</button>
 						<button id="btn_order">결제하기</button>
 					</div>
 					</form>

@@ -36,31 +36,16 @@ function user_blur(user_num) {
 	$("#user_phone").val(tmp);
 }
 
-function usePoint(point, tot_price){
-	var use_point = $("#order_point").val();
-	if(use_point < 1000){
-		alert("1000 Point 이상 사용가능합니다.");
-		$("#order_point").val(0);
-	}else if(use_point > point){
-		alert("보유 Point 보다 많은 Point를 입력하셨습니다.");
-		$("#order_point").val(0);
-	}else{
-		use_point = Math.floor(use_point/10) * 10;
-		$("#order_point").val(use_point);
-	}
-}
-
 $(function() {
 	$("input#phone").blur(function(){
 	    	var num = $("#phone").val();
 	    	blur(num)
 	});
-	
 	$("input#phone").click(function(){
 	    	var num = $("#phone").val();
 	    	focus(num);
     });
-	    
+	
 	$("input#user_phone").blur(function(){
 	    	var user_num = $("#user_phone").val();
 	    	user_blur(user_num)
@@ -70,7 +55,7 @@ $(function() {
 	    	user_focus(user_num);
     });
 	
-	$(".order_input input").on("focus", function(){
+	$(".order_non_input input").on("focus", function(){
 		if($(this).hasClass("order_name")){
 			$(this).attr("placeholder","반드시 입력해주세요!");
 		}
@@ -83,6 +68,18 @@ $(function() {
 		if($(this).hasClass("order_address")){
 			$(this).attr("placeholder","반드시 입력해주세요!");
 		}
+		if($(this).hasClass("user_name")){
+			$(this).attr("placeholder","반드시 입력해주세요!");
+		}
+		if($(this).hasClass("user_phone")){
+			$(this).attr("placeholder","'-'제외하고 핸드폰번호를 입력해 주세요");
+		}
+		if($(this).hasClass("user_email")){
+			$(this).attr("placeholder","반드시 입력해주세요!");
+		}
+		if($(this).hasClass("user_password")){
+			$(this).attr("placeholder","최소 8자 이상 특수문자 포함");
+		}
 		if($(this).hasClass("refund_name")){
 			$(this).attr("placeholder","반드시 입력해주세요!");
 		}
@@ -91,7 +88,7 @@ $(function() {
 		}
 	});
 	
-	$(".order_input input").on("blur",function(){
+	$(".order_non_input input").on("blur",function(){
 		if($(this).hasClass("order_name")){
 			$(this).attr("placeholder","수령인");
 		}
@@ -104,8 +101,20 @@ $(function() {
 		if($(this).hasClass("order_address")){
 			$(this).attr("placeholder","주소");
 		}
+		if($(this).hasClass("user_name")){
+			$(this).attr("placeholder","주문자 성함");
+		}
+		if($(this).hasClass("user_phone")){
+			$(this).attr("placeholder","연락처");
+		}
+		if($(this).hasClass("user_email")){
+			$(this).attr("placeholder","이메일");
+		}
+		if($(this).hasClass("user_password")){
+			$(this).attr("placeholder","최소 8자 이상 특수문자 포함");
+		}
 		if($(this).hasClass("refund_name")){
-			$(this).attr("placeholder","환불 예금주");
+			$(this).attr("placeholder","예금주");
 		}
 		if($(this).hasClass("refund_account")){
 			$(this).attr("placeholder","환불 계좌번호");
@@ -113,6 +122,26 @@ $(function() {
 	});
 	
 	$("#btn_order").click(function() {
+		if($("#user_name").val() == "") {
+	        alert("주문자 성함를 꼭 입력해주세요!");	
+	        $("#user_name").focus();
+	        return false;
+	    }
+		if($("#user_phone").val() == "") {
+	        alert("연락처를 꼭 입력해주세요!");	
+	        $("#user_phone").focus();
+	        return false;
+	    }
+		if($("#user_email").val() == "") {
+	        alert("이메일을 꼭 입력해주세요!");	
+	        $("#user_email").focus();
+	        return false;
+	    }
+		if($("#user_password").val() == "") {
+	        alert("주문 비밀번호를 꼭 입력해주세요!");	
+	        $("#user_password").focus();
+	        return false;
+	    }
 		if($("#name").val() == "") {
 	        alert("이름를 꼭 입력해주세요!");	
 	        $("#name").focus();
@@ -152,6 +181,18 @@ $(function() {
 			return false;
 		}
 		
+		if(!regexPwd.test($.trim($("#user_password").val()))){
+			alert("비밀번호 : 특수문자, 영문 소문자, 숫자 포함, 8~15자 입력해주세요.");
+			$("#user_password").focus();
+			return false;
+		}
+		
+		if(!regexEmail.test($.trim($("#user_email").val()))){
+			alert("이메일 형식이 잘못되었습니다.");
+			$("#user_email").focus();
+			return false;
+		}
+		
 		if($("#agree").is(":checked") == false) {
 			alert("주문 약관에 동의해주세요!");
 			return false;
@@ -160,4 +201,3 @@ $(function() {
 		}
 	});
 });
-

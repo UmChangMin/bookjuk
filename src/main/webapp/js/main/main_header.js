@@ -2,26 +2,20 @@
  * 
  */
 
-function orderdelivery(root) { // 주문,배송 조회
+function orderDelivery(root) { // 주문,배송 조회
 	var url = root + "/order/main.do";
-	/* alert("제발~"+url); */
-	window.open(url, "",
-			"width=630, height=400,left=620px, top=225px,scrollbars=no");
+	window.open(url, "", "width=630, height=400, left=620px, top=225px, scrollbars=no");
 }
 
 function login(root) { // 로그인
 	var url = root + "/member/login.do";
-	// alert("나와라 로그인"+url);
-	window.open(url, "",
-			"width=550, height=410,left=620px, top=225px,scrollbars=no");
+	window.open(url, "", "width=550, height=410, left=620px, top=225px, scrollbars=no");
 }
 
 function registe(root) { // 회원가입
 	var url = root + "/member/regist.do";
-	/* alert("회원가입이라능"+url); */
-	window.open(url, "", "width=550, height=810,left=620px, top=225px");
+	window.open(url, "", "width=550, height=810, left=620px, top=225px");
 }
-
 // window.open창 완료(허단비)
 
 $(function() {

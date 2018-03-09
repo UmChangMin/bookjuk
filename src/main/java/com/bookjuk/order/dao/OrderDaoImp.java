@@ -100,6 +100,11 @@ public class OrderDaoImp implements OrderDao {
 	public OrderDto directOrder(int book_num) {
 		return sqlSession.selectOne("directOrder", book_num);
 	}
+	
+	@Override
+	public int insertDirectCart(OrderDto orderDto) {
+		return sqlSession.insert("insertDirectCart", orderDto);
+	}
 
 	@Override
 	public int updateSales(String order, String amount) {
@@ -110,6 +115,4 @@ public class OrderDaoImp implements OrderDao {
 		
 		return sqlSession.update("updateSales", map);
 	}
-
-	
 }

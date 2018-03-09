@@ -15,12 +15,19 @@
 		<C:set var="member_name" value="${member_name}" scope="session"/>
 		<C:set var="member_level" value="${member_level}" scope="session"/>
 		<C:set var="member_id" value="${member_id}" scope="session"/>
-	
+		<C:if test="${cart eq 'cart'}">
+		<script type="text/javascript">
+			/* alert("로그인 성공하셨습니다."); */
+			window.close();
+			opener.location.replace("${root}/order/order.do?order_id=${member_id}");		//부모창 새로고침			
+		</script>
+		</C:if>
 		<script type="text/javascript">
 			/* alert("로그인 성공하셨습니다."); */
 			window.close();
 			opener.location.reload();		//부모창 새로고침			
 		</script>
+		
 	</C:if>
 	
 	<C:if test="${member_level == null && member_name==null}">

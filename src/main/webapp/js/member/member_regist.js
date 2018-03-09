@@ -6,14 +6,11 @@ var regexBirth = /^[0-9]{6}$/;
 
 function rule(root){
 	var url = root+"/member/rule1.do";
-	//alert("자세히보기");
 	window.open(url,"","width=730, height=800,left=620px, top=100px,scrollbars=no");
 }
 
-
 function rule2(root){
 	var url = root+"/member/rule2.do";
-	/*alert("나와주세여");*/
 	window.open(url,"","width=730, height=360,left=620px, top=100px,scrollbars=no");
 }
 
@@ -162,17 +159,17 @@ $(function(){
 	
 	$("#submit").click(function(){
 		if($(".registe_id").val() == "") {
-	        alert("아이디를 꼭 입력하세요!");	
+	        alert("아이디를 꼭 입력해주세요!");	
 	        $(".registe_id").focus();
 	        return false;
 	    }
 		if($(".registe_pwd").val() == "") {
-	        alert("비밀번호를 꼭 입력하세요!");
+	        alert("비밀번호를 꼭 입력해주세요!");
 	        $(".registe_pwd").focus();
 	        return false;
 	    }
 		if($(".registe_pwdChk").val() == "") {
-	        alert("동일한 비밀번호를 입력하세요!");
+	        alert("동일한 비밀번호를 입력해주세요!");
 	        $(".registe_pwdChk").focus();
 	        return false;
 	    }
@@ -184,17 +181,17 @@ $(function(){
             return false;
         }
 		if($(".registe_name").val() == "") {
-	        alert("이름을 꼭 입력하세요!");
+	        alert("이름을 꼭 입력해주세요!");
 	        $(".registe_name").focus();
 	        return false;
 	    }
 		if($(".registe_email").val() == "") {
-	        alert("이메일을 꼭 입력하세요!");
+	        alert("이메일을 꼭 입력해주세요!");
 	        $(".registe_email").focus();
 	        return false;
 	    }
 		if($(".registe_birthday").val() == "") {
-	        alert("생년월일을 꼭 입력하세요!");
+	        alert("생년월일을 꼭 입력해주세요!");
 	        $(".registe_birthday").focus();
 	        return false;
 	    }

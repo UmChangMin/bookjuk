@@ -1,9 +1,6 @@
 package com.bookjuk.member.dao;
 
-import java.util.List;
-
 import com.bookjuk.member.dto.MemberDto;
-import com.bookjuk.service.dto.ServiceContactDto;
 
 public interface MemberDao {
 	public int checkId(String id);
@@ -18,4 +15,8 @@ public interface MemberDao {
 	
 	public int coupon(String member_id);
 	public int point(String member_id);
+	
+	/*장바구니 확인*/
+	public int getCart(String session_id);
+	public int updateCart(String member_id, String session_id);
 }
