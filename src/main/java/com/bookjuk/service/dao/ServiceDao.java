@@ -29,6 +29,8 @@ public interface ServiceDao {
 	public List<ServiceNoticeDto> noticeList(int startRow,int endRow);
 	
 	public ServiceNoticeDto noticeRead(long notice_num);
+	public int maxNum(long notice_num);
+	public int minNum(long notice_num);
 	
 	//자주묻는질문
 	public int questionCount();

@@ -15,6 +15,7 @@
 <body>
 <div id="login_all">
 		<!-- container -->
+		<img src="${root}/img/myPage/return.png" width="35" height="35">
 		<div id="login_container">
 			<!--  content -->
 			<div id="login_content">

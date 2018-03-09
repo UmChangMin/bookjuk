@@ -9,7 +9,7 @@ function orderDelivery(root) { // 주문,배송 조회
 
 function login(root) { // 로그인
 	var url = root + "/member/login.do";
-	window.open(url, "", "width=550, height=410, left=620px, top=225px, scrollbars=no");
+	window.open(url, "", "width=550, height=400, left=620px, top=225px, scrollbars=no");
 }
 
 function registe(root) { // 회원가입

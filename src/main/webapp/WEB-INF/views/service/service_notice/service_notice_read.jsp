@@ -56,11 +56,11 @@
 					
 					<!-- 이전 다음 시작 --> 
 					<div class="notice_button" align="center">
-						<c:if test="${serviceNoticeDto.notice_num > 1}">
+						<c:if test="${serviceNoticeDto.notice_num>minNum}">
 							<input type="button" value="이전" onclick="location.href='${root}/service/notice/read.do?pageNumber=${pageNumber}&notice_num=${serviceNoticeDto.notice_num-1}'"/>
 						</c:if>
 						<input type="button" value="목록" onclick="location.href='${root}/service/notice/list.do?pageNumber=${pageNumber}'"/>
-						<c:if test="${serviceNoticeDto.notice_num < listSize }">
+						<c:if test="${serviceNoticeDto.notice_num < maxNum}">
 							<input type="button" value="다음" onclick="location.href='${root}/service/notice/read.do?pageNumber=${pageNumber}&notice_num=${serviceNoticeDto.notice_num+1}'"/>						
 						</c:if>
 					</div> 

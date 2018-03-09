@@ -70,7 +70,14 @@
   		<![CDATA[select * from service_notice where notice_num=#{notice_num}]]>
  	</select>
  	
-
+	  <select id="maxNum" resultType="int">
+  	<![CDATA[SELECT MAX(notice_num) FROM service_notice]]>
+	</select>
+	
+	  <select id="minNum" resultType="int">
+  	<![CDATA[SELECT MIN(notice_num) FROM service_notice]]>
+	</select>
+	
  	<!-- 자주묻는질문 -->
 	<select id="questionCount" resultType="int">
   	<![CDATA[select count(*) from service_question]]>

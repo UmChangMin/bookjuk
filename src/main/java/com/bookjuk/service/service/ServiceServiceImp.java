@@ -100,11 +100,14 @@ public class ServiceServiceImp implements ServiceService {
 		ServiceNoticeDto serviceNoticeDto=serviceDao.noticeRead(notice_num);
 		//System.out.println(serviceNoticeDto.toString());
 		
-		int count = serviceDao.noticeCount();
+		int maxNum=serviceDao.maxNum(notice_num);
+		int minNum=serviceDao.minNum(notice_num);
+		System.out.println(maxNum+","+minNum);
 		
 		mav.addObject("serviceNoticeDto",serviceNoticeDto);
 		mav.addObject("pageNumber",pageNumber);
-		mav.addObject("listSize",count);
+		mav.addObject("maxNum",maxNum);
+		mav.addObject("minNum",minNum);
 		
 		mav.setViewName("service/service_notice/service_notice_read.search");
 	}

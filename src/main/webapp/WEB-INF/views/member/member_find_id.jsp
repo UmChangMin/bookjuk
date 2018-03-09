@@ -14,7 +14,8 @@
 </head>
 <body>
 <div id="login_all">
-		<!-- container -->
+		<!-- container --><br/>
+		<img src="${root}/img/myPage/return.png" width="35" height="35">
 		<div id="login_container">
 			<!--  content -->
 			<div id="login_content">
@@ -29,7 +30,7 @@
 							<div class="login_wrap">
 								<div class="login_info">
 									<div class="login_input">
-										<input type="text" name="member_name" placeholder="이름" class="registe_name" />
+										<input type="text" name="member_name" placeholder="이름" class="registe_name"/>
 									</div>
 									<div class="login_input">
 										<input type="text" name="member_email" placeholder="이메일" class="registe_email" />

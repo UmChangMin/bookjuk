@@ -129,6 +129,18 @@ public class ServiceDaoImp implements ServiceDao {
 		return sqlSession.selectList("questionList");
 	}
 
+	@Override
+	public int maxNum(long notice_num) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("maxNum",notice_num);
+	}
+
+	@Override
+	public int minNum(long notice_num) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("minNum",notice_num);
+	}
+
 	
 
 	
