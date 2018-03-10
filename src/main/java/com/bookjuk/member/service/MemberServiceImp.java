@@ -228,12 +228,6 @@ public class MemberServiceImp implements MemberService {
 			mav.addObject("member_id", member_id);
 		}
 		
-		// 답변완료시 답변완료 변경 해야함 ---> 맞는지 추후에 확인하기
-		ServiceContactDto serviceContactDto=new ServiceContactDto();
-		if(serviceContactDto.getContact_answer_whether()=="답변대기중"){
-			serviceContactDto.setContact_answer("답변완료");
-		}
-		
 		mav.addObject("point",point);
 		mav.addObject("coupon",coupon);
 		mav.setViewName("member/member_mypage.search");
@@ -269,6 +263,4 @@ public class MemberServiceImp implements MemberService {
 		mav.setViewName("member/member_point.empty");
 		
 	}
-	
-	
 }

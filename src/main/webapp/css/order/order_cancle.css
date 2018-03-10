@@ -156,11 +156,13 @@
 
 .Cancel_exchange_refund_info_book div{
 	float: left;
+    margin-left: 25px;
 }
 
 
 .Cancel_exchange_refund_info_bookimg img{
-	width: 55%;
+	width: 121px;
+    height: 163px;
     overflow: visible;
     position: relative;
     border-radius: 8px;

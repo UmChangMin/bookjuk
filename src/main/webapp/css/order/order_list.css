@@ -140,7 +140,7 @@
 }
 
 
-.order_info ul li:nth-child(5){
+.order_info ul li:nth-child(6){
 	color:#F15F5F;
 }
 
@@ -156,11 +156,13 @@
 
 .order_info_book div{
 	float: left;
+	margin-left: 25px;
 }
 
 
 .order_info_bookimg img{
-	width: 55%;
+	width: 121px;
+    height: 163px;
     overflow: visible;
     position: relative;
     border-radius: 8px;
