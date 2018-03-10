@@ -156,4 +156,14 @@ public class OrderDaoImp implements OrderDao {
 		
 		return sqlSession.update("updateState", map);
 	}
+
+	@Override
+	public int insertRefund(int order_num, String order_state, int order_total_price) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("order_num", order_num);
+		map.put("order_state", order_state);
+		map.put("order_total_price", order_total_price);
+		
+		return sqlSession.insert("insertRefund", map);
+	}
 }

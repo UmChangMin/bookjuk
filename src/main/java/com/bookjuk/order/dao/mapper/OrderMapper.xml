@@ -96,4 +96,8 @@
 	<update id="updateState" parameterType="java.util.Map">
 		UPDATE book_order SET order_state = #{order_state}, order_total_price = #{order_total_price} WHERE order_num = #{order_num}
 	</update>
+	
+	<insert id="insertRefund" parameterType="java.util.Map">
+		INSERT INTO refund VALUES (#{order_num}, #{order_total_price}, #{order_state}, sysdate)
+	</insert>
 </mapper>
