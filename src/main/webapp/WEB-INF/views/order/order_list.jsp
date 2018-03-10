@@ -31,9 +31,11 @@
 						<div class="order_month1">기간조회</div>
 						<div class="order_calendar"> 
 							<!-- 제이쿼리ui달력 -->
-							<input type="text" id="order_calendar1"/> ~ <input type="text" id="order_calendar2">
-							<span>까지의 주문일자</span>
-							<button class="order_search">조회</button>
+							<form id="search_calendar" action="${root}/order/list.do" method="get">
+								<input type="text" name="start_date" id="order_calendar1"/> ~ <input type="text" name="end_date" id="order_calendar2">
+								<span>까지의 주문일자</span>
+								<button type="button" class="order_search">조회</button>
+							</form>
 						</div>
 					</div>
 					<!-- 기간조회 끝-->
@@ -54,7 +56,7 @@
 					</div>
 					
 					<!-- 책내용 시작 -->
-					<c:forEach items="${orderList}" var="orderDto" begin="${startRow}" end="${endRow}">
+					<c:forEach items="${orderList}" var="orderDto" begin="${startRow - 1}" end="${endRow - 1}">
 					<div class="order_info" align="center">
 						<ul>
 							<li>${orderDto.order_num}</li>

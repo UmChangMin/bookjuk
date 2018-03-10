@@ -1,5 +1,6 @@
 package com.bookjuk.order.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import com.bookjuk.order.dto.OrderDto;
@@ -31,6 +32,6 @@ public interface OrderDao {
 	
 	public List<OrderDto> getOrderLog(String nonmember_name, String nonmember_phone, String nonmember_password);
 	public String getOrderId(int order_num);
-	public List<OrderDto> getOrderList(String order_id);
+	public List<OrderDto> getOrderList(String order_id, Date start_date, Date end_date);
 	public OrderDto getBookInfo(int book_num);
 }

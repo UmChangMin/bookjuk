@@ -1,5 +1,6 @@
 package com.bookjuk.order.dao;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -132,8 +133,13 @@ public class OrderDaoImp implements OrderDao {
 	}
 
 	@Override
-	public List<OrderDto> getOrderList(String order_id) {
-		return sqlSession.selectList("getOrderList", order_id);
+	public List<OrderDto> getOrderList(String order_id, Date start_date, Date end_date) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("order_id", order_id);
+		map.put("start_date", start_date);
+		map.put("end_date", end_date);
+		
+		return sqlSession.selectList("getOrderList", map);
 	}
 
 	@Override

@@ -1,6 +1,9 @@
 package com.bookjuk.order.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -234,7 +237,8 @@ public class OrderServiceImp implements OrderService {
 
 		mav.addObject("order_num", order_num);
 		mav.setViewName("order/order_loginOk.empty");;
-	}	
+	}
+	
 	@Override
 	public void orderList(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
@@ -242,6 +246,10 @@ public class OrderServiceImp implements OrderService {
 		HttpSession session = request.getSession();
 		String order_id = getId(session);
 		String num = request.getParameter("order_num");
+		String start_string = request.getParameter("start_date");
+		String end_string = request.getParameter("end_date");
+		Date start_date = null;
+		Date end_date = new Date();
 		int order_num = 0;
 		
 		if(num != null) {
@@ -249,12 +257,27 @@ public class OrderServiceImp implements OrderService {
 			order_id = orderDao.getOrderId(order_num);
 		}
 		
-		List<OrderDto> orderList = orderDao.getOrderList(order_id);
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			if(start_string == null) {start_string = "2000-01-01";}
+			start_date = sdf.parse(start_string);
+			
+			if(end_string != null) {
+				end_date = sdf.parse(end_string);
+				Calendar calendar = Calendar.getInstance();
+				calendar.setTime(end_date);
+				calendar.add(Calendar.DATE, 1);
+				end_date = calendar.getTime();
+			}
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		
+		List<OrderDto> orderList = orderDao.getOrderList(order_id, start_date, end_date);
+
 		for(int i=0; i<orderList.size(); i++) {
 			setOrderList(orderList.get(i));
 		}
-		
 		int count = orderList.size();
 		
 		/*페이징 처리*/
@@ -263,7 +286,6 @@ public class OrderServiceImp implements OrderService {
 		int currentPage = page.get("currentPage");
 		int startRow = page.get("startRow");
 		int endRow = page.get("endRow");
-		
 		mav.addObject("startRow", startRow);
 		mav.addObject("endRow", endRow);
 		mav.addObject("pageCount", page.get("pageCount"));
@@ -283,14 +305,34 @@ public class OrderServiceImp implements OrderService {
 		HttpSession session = request.getSession();
 		String order_id = getId(session);
 		String num = request.getParameter("order_num");
+		String start_string = request.getParameter("start_date");
+		String end_string = request.getParameter("end_date");
+		Date start_date = null;
+		Date end_date = new Date();
 		int order_num = 0;
 		
 		if(num != null) {
 			order_num = Integer.parseInt(num);
 			order_id = orderDao.getOrderId(order_num);
 		}
+
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			if(start_string == null) {start_string = "2000-01-01";}
+			start_date = sdf.parse(start_string);
+			
+			if(end_string != null) {
+				end_date = sdf.parse(end_string);
+				Calendar calendar = Calendar.getInstance();
+				calendar.setTime(end_date);
+				calendar.add(Calendar.DATE, 1);
+				end_date = calendar.getTime();
+			}
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		
-		List<OrderDto> orderList = orderDao.getOrderList(order_id);
+		List<OrderDto> orderList = orderDao.getOrderList(order_id, start_date, end_date);
 		
 		for(int i=0; i<orderList.size(); i++) {
 			setOrderList(orderList.get(i));

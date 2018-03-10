@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="${root}/jqueryUI/jquery-ui.css">
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
 <script type="text/javascript" src="${root}/jqueryUI/jquery-ui.js"></script>
-<script type="text/javascript" src="${root}/js/order/order_list.js"></script>
+<script type="text/javascript" src="${root}/js/order/order_cancle.js"></script>
 </head>
 <body>
 	<div class="Cancel_exchange_refund">
@@ -31,9 +31,11 @@
 						<div class="Cancel_exchange_refund_month1">기간조회</div>
 						<div class="Cancel_exchange_refund_calendar"> 
 							<!-- 제이쿼리ui달력 -->
-							<input type="text" id="Cancel_exchange_refund_calendar1"/> ~ <input type="text" id="Cancel_exchange_refund_calendar2">
-							<span>까지의 주문일자</span>
-							<button class="Cancel_exchange_refund_search">조회</button>
+							<form id="search_calendar" action="${root}/order/cancle.do" method="get">
+								<input type="text" name="start_date" id="Cancel_exchange_refund_calendar1"/> ~ <input type="text" name="end_date" id="Cancel_exchange_refund_calendar2">
+								<span>까지의 주문일자</span>
+								<button type="button" class="Cancel_exchange_refund_search">조회</button>
+							</form>
 						</div>
 					</div>
 					<!-- 기간조회 끝-->
