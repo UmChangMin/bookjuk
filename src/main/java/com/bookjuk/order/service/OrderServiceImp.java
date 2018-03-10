@@ -45,8 +45,11 @@ public class OrderServiceImp implements OrderService {
 			mav.addObject("order_id", cartList.get(0).getOrder_id());
 		}
 		
+		int length = order_id.length();
+		
 		Map<String, Integer> tot_map = calculate(cartList);
 		
+		mav.addObject("id_length", length);
 		mav.addObject("member_level", member_level);
 		mav.addObject("tot_price", tot_map.get("tot_price"));
 		mav.addObject("tot_point", tot_map.get("tot_point"));
@@ -222,7 +225,7 @@ public class OrderServiceImp implements OrderService {
 		String nonmember_password = request.getParameter("nonmember_password");
 		
 		int order_num = 0;
-		List<OrderDto> orderList = orderDao.getOrderList(nonmember_name, nonmember_phone, nonmember_password);
+		List<OrderDto> orderList = orderDao.getOrderLog(nonmember_name, nonmember_phone, nonmember_password);
 		if(orderList.size() > 0) {
 			order_num = orderList.get(0).getOrder_num();
 		}
@@ -234,13 +237,68 @@ public class OrderServiceImp implements OrderService {
 	public void orderList(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		HttpSession session = request.getSession();
+		String order_id = getId(session);
 		String num = request.getParameter("order_num");
 		int order_num = 0;
-		String order_id = request.getParameter("order_id");
+		String book_img = "";
+		OrderDto orderDto = null;
+		List<OrderDto> orderList = null;
+		
+		
 		if(num != null) {
 			order_num = Integer.parseInt(num);
 			order_id = orderDao.getOrderId(order_num);
 		}
+		
+		orderList = orderDao.getOrderList(order_id);
+		
+		for(int i=0; i<orderList.size(); i++) {
+			int temp = 0;
+			String order_list = orderList.get(i).getOrder_list();
+			String amount_list = orderList.get(i).getAmount_list();
+			
+			String[] order = stringToken(order_list);
+			String[] count = stringToken(amount_list);
+			
+			int orderLen = order.length;
+			int book_num = Integer.parseInt(order[0]);
+			orderDto = orderDao.getBookInfo(book_num);
+			if(orderLen > 1) {
+				order_list = orderDto.getBook_name() + " 외 " + (orderLen - 1) + "권";
+				
+				for(int j=0; j<count.length; j++) {
+					temp += Integer.parseInt(count[j]);
+				}
+				amount_list = String.valueOf(temp);
+				
+				orderList.get(i).setOrder_list(order_list);
+				orderList.get(i).setAmount_list(amount_list);
+			}else {
+				orderList.get(i).setOrder_list(orderDto.getBook_name());
+				orderList.get(i).setAmount_list(count[0]);
+			}
+			book_img = orderDto.getBook_img();
+			orderList.get(i).setBook_img(book_img);
+		}
+		
+		int count = orderList.size();
+		
+		/*페이징 처리*/
+		HashMap<String, Integer> page = page(request, count);
+		
+		int currentPage = page.get("currentPage");
+		int startRow = page.get("startRow");
+		int endRow = page.get("endRow");
+		
+		mav.addObject("startRow", startRow);
+		mav.addObject("endRow", endRow);
+		mav.addObject("pageCount", page.get("pageCount"));
+		mav.addObject("pageBlock", page.get("pageBlock"));
+		mav.addObject("startPage", page.get("startPage"));
+		mav.addObject("endPage", page.get("endPage"));
+		mav.addObject("pageNumber", currentPage);
+		mav.addObject("orderList", orderList);
 		
 		mav.setViewName("order/order_list.search");
 	}
@@ -330,5 +388,32 @@ public class OrderServiceImp implements OrderService {
 		}
 		
 		return tokenList;
+	}
+	
+	public HashMap<String, Integer> page(HttpServletRequest request, int count) {
+		String pageNumber = request.getParameter("pageNumber");
+		if(pageNumber == null) pageNumber = "1";
+		int currentPage = Integer.parseInt(pageNumber);
+		
+		int boardSize = 10;
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		
+		int startRow = (currentPage - 1) * boardSize + 1;
+		int endRow = currentPage * boardSize;
+		
+		int pageCount = count / boardSize + (count % boardSize == 0 ? 0:1);
+		int pageBlock = 10;
+		int startPage = (currentPage - 1) / pageBlock * pageBlock + 1;
+		int endPage = startPage + pageBlock - 1;
+
+		map.put("currentPage", currentPage);
+		map.put("startRow", startRow);
+		map.put("endRow", endRow);
+		map.put("pageCount", pageCount);
+		map.put("pageBlock", pageBlock);
+		map.put("startPage", startPage);
+		map.put("endPage", endPage);
+		
+		return map;
 	}
 }

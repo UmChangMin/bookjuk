@@ -138,18 +138,29 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="cart_btn_section" align="center">
-						<button type="button" onclick="location='${root}/main.do'" class="cart_btn_home">쇼핑 계속하기</button>
-						<button type="button" class="cart_btn_delete">선택상품 삭제하기</button>
-						<input type="hidden" id="member_level" value="${member_level}"/>
-						<form action="${root}/order/order_non.do" id="non_order_submit" method="post">
-							<input type="hidden" name="order_id" value="${order_id}">
-							<button class="cart_btn_non_order">비회원 주문하기</button>
-						</form>
-						<form action="${root}/order/order.do" id="order_submit" method="post">
-							<input type="hidden" name="order_id" value="${order_id}">
-							<button class="cart_btn_order">회원 주문하기</button>
-						</form>
+					<div class="cart_btn_section">
+						<c:if test="${id_length < 25}">
+							<button style="margin-left: 60px;" type="button" onclick="location='${root}/main.do'" class="cart_btn_home">쇼핑 계속하기</button>
+							<button type="button" class="cart_btn_delete">선택상품 삭제하기</button>
+							<input type="hidden" id="member_level" value="${member_level}"/>
+							<form action="${root}/order/order.do" id="order_submit" method="post">
+								<input type="hidden" name="order_id" value="${order_id}">
+								<button class="cart_btn_order">회원 주문하기</button>
+							</form>
+						</c:if>
+						<c:if test="${id_length > 25}">
+							<button type="button" onclick="location='${root}/main.do'" class="cart_btn_home">쇼핑 계속하기</button>
+							<button type="button" class="cart_btn_delete">선택상품 삭제하기</button>
+							<input type="hidden" id="member_level" value="${member_level}"/>
+							<form action="${root}/order/order_non.do" id="non_order_submit" method="post">
+								<input type="hidden" name="order_id" value="${order_id}">
+								<button class="cart_btn_non_order">비회원 주문하기</button>
+							</form>
+							<form action="${root}/order/order.do" id="order_submit" method="post">
+								<input type="hidden" name="order_id" value="${order_id}">
+								<button class="cart_btn_order">회원 주문하기</button>
+							</form>
+						</c:if>
 					</div>
 				</div>
 			</div>

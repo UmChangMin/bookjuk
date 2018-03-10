@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
@@ -45,30 +46,28 @@
 							<li>주문번호</li>
 							<li>접수일자</li>
 							<li>상품정보</li>
-							<li>수량</li>
-							<li>판매가</li>
+							<li>전체 수량</li>
+							<li>전체 주문금액</li>
 							<li>상태</li>
-							
 						</ul>
 						<!-- 타이틀 끝 -->
 					</div>
 					
 					<!-- 책내용 시작 -->
-					<c:forEach var="i" begin="1" end="5">
+					<c:forEach items="${orderList}" var="orderDto" begin="${startRow}" end="${endRow}">
 					<div class="order_info" align="center">
 						<ul>
-							<li>20180309</li>
-							<li>2018/03/09</li>
+							<li>${orderDto.order_num}</li>
+							<li><fmt:formatDate value="${orderDto.order_date}" pattern="YYYY/MM/dd"/></li>
 							<li class="order_info_book">
-								<div class="order_info_bookimg"><img src="http://image.kyobobook.co.kr/images/book/large/245/l9788984059245.jpg"></div>
+								<div class="order_info_bookimg"><img src="${root}${orderDto.book_img}"></div>
 								<div class="order_info_booktit">
-									모두의 아두이노 모두의 아두이노 모두의 아두이노
+									${orderDto.order_list}
 								</div>
 							</li>
-							<li>1</li>
-							<li>15000</li>
-							<li>상품준비중</li>
-							
+							<li>${orderDto.amount_list}</li>
+							<li><fmt:formatNumber value="${orderDto.order_total_price}" pattern="###,###,###"></fmt:formatNumber>&nbsp;원</li>
+							<li>${orderDto.order_state}</li>
 						</ul>
 					</div>
 					</c:forEach>
@@ -76,7 +75,21 @@
 					
 					<!-- 페이지번호 -->
 					<div class="order_page">
-						<a href="#" class="">1</a>
+						<c:if test="${endPage > pageCount}">
+							<c:set var="endPage" value="${pageCount}"/>
+						</c:if>
+						
+						<c:if test="${startPage > pageBlock}">
+							<a href="${root}/order/list.do?pageNumber=${startPage - pageBlock}" class="orderList_num_before">이전</a>
+						</c:if>
+						
+						<c:forEach var="i" begin="${startPage}" end="${endPage}" >
+							<a href="${root}/order/list.do?pageNumber=${i}" class="orderList_num">${i}</a>
+						</c:forEach>
+						
+						<c:if test="${endPage < pageCount}">
+							<a href="${root}/order/list.do?pageNumber=${startPage + pageBlock}" class="orderList_num_next">다음</a>
+						</c:if>
 					</div>
 					<!-- 페이지 번호 끝 -->
 					</div>

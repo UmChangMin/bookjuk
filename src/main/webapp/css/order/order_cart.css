@@ -260,7 +260,30 @@ b.point{
     display: inline-block;
 }
 
-.cart_btn_section > button{
+.cart_btn_home{
+	font-size: 13px;
+    font-weight: normal;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #b6b7b7;
+    float: left;
+    margin-right: 10px;
+    overflow: hidden;
+    display: block;
+    height: 50px;
+    width: 130px;
+    box-sizing: border-box;
+    text-align: center;
+    background: #f5f7f6;
+    box-shadow: 0 2px #f5f7f6;
+    border-radius: 15px;
+    line-height: 49px;
+    cursor: pointer;
+    color: #333;
+}
+
+.cart_btn_delete{
 	font-size: 13px;
     font-weight: normal;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;

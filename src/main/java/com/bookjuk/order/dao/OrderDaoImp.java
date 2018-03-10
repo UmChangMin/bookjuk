@@ -117,17 +117,27 @@ public class OrderDaoImp implements OrderDao {
 	}
 
 	@Override
-	public List<OrderDto> getOrderList(String nonmember_name, String nonmember_phone, String nonmember_password) {
+	public List<OrderDto> getOrderLog(String nonmember_name, String nonmember_phone, String nonmember_password) {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("nonmember_name", nonmember_name);
 		map.put("nonmember_phone", nonmember_phone);
 		map.put("nonmember_password", nonmember_password);
 		
-		return sqlSession.selectList("getOrderList", map);
+		return sqlSession.selectList("getOrderLog", map);
 	}
 
 	@Override
 	public String getOrderId(int order_num) {
 		return sqlSession.selectOne("getOrderId", order_num);
+	}
+
+	@Override
+	public List<OrderDto> getOrderList(String order_id) {
+		return sqlSession.selectList("getOrderList", order_id);
+	}
+
+	@Override
+	public OrderDto getBookInfo(int book_num) {
+		return sqlSession.selectOne("getBookInfo", book_num);
 	}
 }

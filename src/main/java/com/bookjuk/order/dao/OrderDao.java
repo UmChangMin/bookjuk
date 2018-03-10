@@ -29,6 +29,8 @@ public interface OrderDao {
 	
 	public int updateSales(String order, String amount);
 	
-	public List<OrderDto> getOrderList(String nonmember_name, String nonmember_phone, String nonmember_password);
+	public List<OrderDto> getOrderLog(String nonmember_name, String nonmember_phone, String nonmember_password);
 	public String getOrderId(int order_num);
+	public List<OrderDto> getOrderList(String order_id);
+	public OrderDto getBookInfo(int book_num);
 }
