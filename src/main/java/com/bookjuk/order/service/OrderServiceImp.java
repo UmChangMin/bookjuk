@@ -9,6 +9,8 @@ import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -241,45 +243,16 @@ public class OrderServiceImp implements OrderService {
 		String order_id = getId(session);
 		String num = request.getParameter("order_num");
 		int order_num = 0;
-		String book_img = "";
-		OrderDto orderDto = null;
-		List<OrderDto> orderList = null;
-		
 		
 		if(num != null) {
 			order_num = Integer.parseInt(num);
 			order_id = orderDao.getOrderId(order_num);
 		}
 		
-		orderList = orderDao.getOrderList(order_id);
+		List<OrderDto> orderList = orderDao.getOrderList(order_id);
 		
 		for(int i=0; i<orderList.size(); i++) {
-			int temp = 0;
-			String order_list = orderList.get(i).getOrder_list();
-			String amount_list = orderList.get(i).getAmount_list();
-			
-			String[] order = stringToken(order_list);
-			String[] count = stringToken(amount_list);
-			
-			int orderLen = order.length;
-			int book_num = Integer.parseInt(order[0]);
-			orderDto = orderDao.getBookInfo(book_num);
-			if(orderLen > 1) {
-				order_list = orderDto.getBook_name() + " 외 " + (orderLen - 1) + "권";
-				
-				for(int j=0; j<count.length; j++) {
-					temp += Integer.parseInt(count[j]);
-				}
-				amount_list = String.valueOf(temp);
-				
-				orderList.get(i).setOrder_list(order_list);
-				orderList.get(i).setAmount_list(amount_list);
-			}else {
-				orderList.get(i).setOrder_list(orderDto.getBook_name());
-				orderList.get(i).setAmount_list(count[0]);
-			}
-			book_img = orderDto.getBook_img();
-			orderList.get(i).setBook_img(book_img);
+			setOrderList(orderList.get(i));
 		}
 		
 		int count = orderList.size();
@@ -307,6 +280,39 @@ public class OrderServiceImp implements OrderService {
 	public void orderCancle(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		HttpSession session = request.getSession();
+		String order_id = getId(session);
+		String num = request.getParameter("order_num");
+		int order_num = 0;
+		
+		if(num != null) {
+			order_num = Integer.parseInt(num);
+			order_id = orderDao.getOrderId(order_num);
+		}
+		
+		List<OrderDto> orderList = orderDao.getOrderList(order_id);
+		
+		for(int i=0; i<orderList.size(); i++) {
+			setOrderList(orderList.get(i));
+		}
+		
+		int count = orderList.size();
+		
+		/*페이징 처리*/
+		HashMap<String, Integer> page = page(request, count);
+		
+		int currentPage = page.get("currentPage");
+		int startRow = page.get("startRow");
+		int endRow = page.get("endRow");
+		
+		mav.addObject("startRow", startRow);
+		mav.addObject("endRow", endRow);
+		mav.addObject("pageCount", page.get("pageCount"));
+		mav.addObject("pageBlock", page.get("pageBlock"));
+		mav.addObject("startPage", page.get("startPage"));
+		mav.addObject("endPage", page.get("endPage"));
+		mav.addObject("pageNumber", currentPage);
+		mav.addObject("orderList", orderList);
 		
 		mav.setViewName("order/order_cancle.search");
 	}
@@ -337,9 +343,7 @@ public class OrderServiceImp implements OrderService {
 			}
 		}
 		
-		if(tot_price > 10000) {
-			tot_delivery = 0;
-		}
+		if(tot_price > 10000) {tot_delivery = 0;}
 		
 		map.put("tot_price", tot_price);
 		map.put("tot_point", tot_point);
@@ -390,6 +394,40 @@ public class OrderServiceImp implements OrderService {
 		return tokenList;
 	}
 	
+	public OrderDto setOrderList(OrderDto orderList){
+		int temp = 0;
+		String book_img = "";
+		OrderDto orderDto = null;
+		
+		String order_list = orderList.getOrder_list();
+		String amount_list = orderList.getAmount_list();
+		
+		String[] order = stringToken(order_list);
+		String[] count = stringToken(amount_list);
+		
+		int orderLen = order.length;
+		int book_num = Integer.parseInt(order[0]);
+		orderDto = orderDao.getBookInfo(book_num);
+		if(orderLen > 1) {
+			order_list = orderDto.getBook_name() + " 외 " + (orderLen - 1) + "권";
+			
+			for(int j=0; j<count.length; j++) {
+				temp += Integer.parseInt(count[j]);
+			}
+			amount_list = String.valueOf(temp);
+			
+			orderList.setOrder_list(order_list);
+			orderList.setAmount_list(amount_list);
+		}else {
+			orderList.setOrder_list(orderDto.getBook_name());
+			orderList.setAmount_list(count[0]);
+		}
+		book_img = orderDto.getBook_img();
+		orderList.setBook_img(book_img);
+		
+		return orderList;
+	}
+	
 	public HashMap<String, Integer> page(HttpServletRequest request, int count) {
 		String pageNumber = request.getParameter("pageNumber");
 		if(pageNumber == null) pageNumber = "1";
@@ -405,7 +443,7 @@ public class OrderServiceImp implements OrderService {
 		int pageBlock = 10;
 		int startPage = (currentPage - 1) / pageBlock * pageBlock + 1;
 		int endPage = startPage + pageBlock - 1;
-
+		
 		map.put("currentPage", currentPage);
 		map.put("startRow", startRow);
 		map.put("endRow", endRow);

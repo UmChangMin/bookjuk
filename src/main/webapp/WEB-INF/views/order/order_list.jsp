@@ -60,7 +60,7 @@
 							<li>${orderDto.order_num}</li>
 							<li><fmt:formatDate value="${orderDto.order_date}" pattern="YYYY/MM/dd"/></li>
 							<li class="order_info_book">
-								<div class="order_info_bookimg"><img src="${root}${orderDto.book_img}"></div>
+								<div class="order_info_bookimg"><img alt="${orderDto.order_list}" src="${root}${orderDto.book_img}"></div>
 								<div class="order_info_booktit">
 									${orderDto.order_list}
 								</div>

@@ -83,7 +83,7 @@
 	</select>
 	
 	<select id="getOrderList" parameterType="String" resultType="com.bookjuk.order.dto.OrderDto">
-		SELECT * FROM book_order WHERE order_id = #{order_id}
+		SELECT * FROM book_order WHERE order_id = #{order_id} ORDER BY order_num DESC
 	</select>
 	
 	<select id="getBookInfo" parameterType="int" resultType="com.bookjuk.order.dto.OrderDto">

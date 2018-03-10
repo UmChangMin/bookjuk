@@ -156,16 +156,13 @@
          </div>
          <div class="tv_container">
             <div class="tv_prod">
-               <a href="#"><img
-                  src="http://bookimg.bookcube.com/94/1308/130801548.jpg"></a>
+               <a href="#"><img src="${root}/book_img/computer/pro/computer_pro_02.jpg"></a>
             </div>
             <div class="tv_prod">
-               <a href="#"><img
-                  src="http://bookimg.bookcube.com/94/1712/171201262.jpg"></a>
+               <a href="#"><img src="${root}/book_img/computer/pro/computer_pro_03.jpg"></a>
             </div>
             <div class="tv_prod">
-               <a href="#"><img
-                  src="http://bookimg.bookcube.com/94/1607/160704046.jpg"></a>
+               <a href="#"><img src="${root}/book_img/computer/pro/computer_pro_04.jpg"></a>
             </div>
          </div>
       </div>
