@@ -27,7 +27,7 @@
 .Cancel_exchange_refund_box{
 	border: 1px solid #e5e6e7;
     background: white;
-    padding: 40px 40px 40px 40px;
+    padding: 40px 40px 0px 40px;
     overflow: hidden;
     width: 92%;
 }
@@ -179,9 +179,10 @@
 
 
 .Cancel_exchange_refund_Precautions{
-	border-top: 1px solid #e5e6e7;
-	padding-top:40px;
+	padding-top: 40px;
     float: left;
+    border-bottom: 1px solid #e5e6e7;
+    padding-bottom: 40px;
 }
 
 .Cancel_exchange_refund_Precautions div:first-child{
