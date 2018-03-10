@@ -31,7 +31,7 @@
 						<div class="Cancel_exchange_refund_month1">기간조회</div>
 						<div class="Cancel_exchange_refund_calendar"> 
 							<!-- 제이쿼리ui달력 -->
-							<form id="search_calendar" action="${root}/order/cancle.do" method="get">
+							<form id="search_calendar" action="${root}/order/list/cancle.do" method="get">
 								<input type="text" name="start_date" id="Cancel_exchange_refund_calendar1"/> ~ <input type="text" name="end_date" id="Cancel_exchange_refund_calendar2">
 								<span>까지의 주문일자</span>
 								<button type="button" class="Cancel_exchange_refund_search">조회</button>
@@ -56,7 +56,7 @@
 					</div>
 					
 					<!-- 책내용 시작 -->
-					<c:forEach items="${orderList}" var="orderDto" begin="${startRow}" end="${endRow}">
+					<c:forEach items="${orderList}" var="orderDto" begin="${startRow - 1}" end="${endRow - 1}">
 					<div class="Cancel_exchange_refund_info" align="center">
 						<ul>
 							<li>${orderDto.order_num}</li>
@@ -66,14 +66,26 @@
 								<div class="Cancel_exchange_refund_info_booktit">
 									${orderDto.order_list}
 								</div>
-								
 							</li>
 							<li><fmt:formatNumber value="${orderDto.order_total_price}" pattern="###,###,###"></fmt:formatNumber>&nbsp;원</li>
 							<li>${orderDto.order_state}</li>
 							<li class="Cancel_exchange_refund_info_book_button">
-								<button>취소</button>
-								<button>교환</button>
-								<button>반품</button>
+								<c:choose>
+									<c:when test="${orderDto.order_state eq '상품준비중'}">
+										<button type="button" id="order_cancle" onclick="location.href='${root}/order/cancle.do?order_num=${orderDto.order_num}&order_total_price=${orderDto.order_total_price}'">취소</button>
+									</c:when>
+									
+									<c:when test="${orderDto.order_state eq '입금대기중'}">
+										<button type="button" id="order_cancle" onclick="location.href='${root}/order/cancle.do?order_num=${orderDto.order_num}&order_total_price=${orderDto.order_total_price}'">취소</button>
+									</c:when>
+									
+									<c:when test="${orderDto.order_state eq '주문취소'}"></c:when>
+									
+									<c:otherwise>
+										<button type="button" id="order_exchange" onclick="location.href='${root}/order/exchange.do?order_num=${orderDto.order_num}&order_total_price=${orderDto.order_total_price}'">교환</button>
+										<button type="button" id="order_return" onclick="location.href='${root}/order/return.do?order_num=${orderDto.order_num}&order_total_price=${orderDto.order_total_price}'">반품</button>
+									</c:otherwise>
+								</c:choose>
 							</li>
 						</ul>
 					</div>
@@ -93,7 +105,7 @@
 								반품/교환신청건은 접수 이전 상태에서 신청취소가 가능합니다.</p>
 							</div>
 							<div class="Cancel_exchange_refund_onecontact">
-								<a href="">1:1문의</a>
+								<a href="${root}/service/contact/list.do">1:1문의</a>
 							</div>
 					</div>
 					<!-- 주의사항 끝 -->

@@ -13,6 +13,9 @@ public interface OrderService {
 	
 	public void orderLoginOk(ModelAndView mav);
 	public void orderList(ModelAndView mav);
-	public void orderCancle(ModelAndView mav);
+	public void orderCancleList(ModelAndView mav);
 	
+	public void orderCancle(ModelAndView mav);
+	/*public void orderExchange(ModelAndView mav);
+	public void orderReturn(ModelAndView mav);*/
 }

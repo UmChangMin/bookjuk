@@ -34,4 +34,5 @@ public interface OrderDao {
 	public String getOrderId(int order_num);
 	public List<OrderDto> getOrderList(String order_id, Date start_date, Date end_date);
 	public OrderDto getBookInfo(int book_num);
+	public int updateState(int order_num, String order_state, int order_total_price);
 }

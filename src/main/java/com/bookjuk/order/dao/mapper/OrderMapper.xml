@@ -91,4 +91,9 @@
 	<select id="getBookInfo" parameterType="int" resultType="com.bookjuk.order.dto.OrderDto">
 		SELECT * FROM book WHERE book_num = #{book_num}
 	</select>
+	
+	<!-- 주문 취소/교환/반품 -->
+	<update id="updateState" parameterType="java.util.Map">
+		UPDATE book_order SET order_state = #{order_state}, order_total_price = #{order_total_price} WHERE order_num = #{order_num}
+	</update>
 </mapper>

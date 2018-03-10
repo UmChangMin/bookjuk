@@ -146,4 +146,14 @@ public class OrderDaoImp implements OrderDao {
 	public OrderDto getBookInfo(int book_num) {
 		return sqlSession.selectOne("getBookInfo", book_num);
 	}
+
+	@Override
+	public int updateState(int order_num, String order_state, int order_total_price) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("order_num", order_num);
+		map.put("order_state", order_state);
+		map.put("order_total_price", order_total_price);
+		
+		return sqlSession.update("updateState", map);
+	}
 }

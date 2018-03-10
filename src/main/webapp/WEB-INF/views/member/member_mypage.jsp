@@ -55,7 +55,7 @@
 									<h4>도서 주문 관리</h4>
 									<ul>
 										<li><a href="${root}/order/list.do">주문 / 배송 조회</a></li>
-										<li><a href="${root}/order/cancle.do">취소 / 교환 / 반품 조회</a></li>
+										<li><a href="${root}/order/list/cancle.do">취소 / 교환 / 반품 조회</a></li>
 									</ul>
 								</li>
 								<li>

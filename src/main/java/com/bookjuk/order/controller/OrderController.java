@@ -104,8 +104,35 @@ public class OrderController {
 	}
 	
 	
+	@RequestMapping(value = "/list/cancle.do", method = RequestMethod.GET)
+	public ModelAndView orderCancleList(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		orderService.orderCancleList(mav);
+		
+		return mav;
+	}
+	
 	@RequestMapping(value = "/cancle.do", method = RequestMethod.GET)
 	public ModelAndView orderCancle(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		orderService.orderCancle(mav);
+		
+		return mav;
+	}
+
+	@RequestMapping(value = "/exchange.do", method = RequestMethod.GET)
+	public ModelAndView orderExchange(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		orderService.orderCancle(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/return.do", method = RequestMethod.GET)
+	public ModelAndView orderReturn(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
 		orderService.orderCancle(mav);

@@ -299,7 +299,7 @@ public class OrderServiceImp implements OrderService {
 	}
 
 	@Override
-	public void orderCancle(ModelAndView mav) {
+	public void orderCancleList(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		HttpSession session = request.getSession();
@@ -357,6 +357,32 @@ public class OrderServiceImp implements OrderService {
 		mav.addObject("orderList", orderList);
 		
 		mav.setViewName("order/order_cancle.search");
+	}
+	
+	@Override
+	public void orderCancle(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		int order_num = Integer.parseInt(request.getParameter("order_num"));
+		int order_total_price = Integer.parseInt(request.getParameter("order_total_price"));
+		
+		String path = request.getServletPath();
+		String order_state = path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
+		
+		if(order_state.equals("cancle")) {
+			order_state = "주문취소";
+			order_total_price = 0;
+		}else if(order_state.equals("exchange")) {
+			order_state = "교환요청중";
+		}else if(order_state.equals("return")) {
+			order_state = "반품요청중";
+		}
+		
+		orderDao.updateState(order_num, order_state, order_total_price);
+		
+		mav.addObject("order_state", order_state);
+		
+		mav.setViewName("order/order_cancleOk.empty");
 	}
 	
 	public String getId(HttpSession session) {
