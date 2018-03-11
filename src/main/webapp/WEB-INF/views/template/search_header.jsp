@@ -112,8 +112,8 @@
 	         </div>
 		</div>
 		<div class="float_btn">
-			<a href="${root}/order/cart.do" class="cart_btn">장바구니</a><br /> <a
-				href="javascript:void(0)" class="top_btn">TOP</a>
+			<a href="${root}/order/cart.do" class="cart_btn">장바구니</a><br/>
+			<a href="#" class="top_btn">TOP</a>
 		</div>
 	</div>
 
