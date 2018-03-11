@@ -179,8 +179,10 @@
 
 
 .order_Precautions{
-	margin-top: 40px;
+	padding-top: 40px;
     float: left;
+    border-bottom: 1px solid #e5e6e7;
+    padding-bottom: 40px;
 }
 
 .order_Precautions div:first-child{
@@ -212,7 +214,7 @@
     padding-left: 10px;
     padding-right: 10px;
     border: 1px solid #b6b7b7;
-    margin: 63px 70px;
+    margin: 35px 70px;
     overflow: hidden;
     height: 50px;
     width: 130px;

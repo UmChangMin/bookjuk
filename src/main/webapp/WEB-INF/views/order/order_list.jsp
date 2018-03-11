@@ -74,6 +74,21 @@
 					</div>
 					</c:forEach>
 					<!-- 책내용 끝 -->
+					<!-- 주의사항시작 -->
+					<div class="order_Precautions">
+							<div>※배송 조회시 주의사항※</div>
+							<div>
+								<p>교환신청은 상품의 결함 및 계약내용과 다를 경우 문제점 발견 후 30일 이내 가능합니다.<br/>
+								변심반품의 경우 수령 후 7일 이내, 상품의 결함 및 계약내용과 다를 경우 문제점 발견 후 30일 이내 가능합니다.<br/>
+								<strong>비회원이신 경우</strong> 고객센터의 전화문의로 반품, 교환, 주문취소 접수 가능합니다.<br/>
+							</div>
+							<div class="order_onecontact">
+								<a href="${root}/service/contact/list.do">031-482-2148</a>
+							</div>
+					</div>
+					<!-- 주의사항 끝 -->
+					
+					</div>
 					
 					<!-- 페이지번호 -->
 					<div class="order_page">
@@ -94,7 +109,6 @@
 						</c:if>
 					</div>
 					<!-- 페이지 번호 끝 -->
-					</div>
 					<!-- 본문 contact 끝 -->
 				</div>
 				<!-- 내용끝 -->
