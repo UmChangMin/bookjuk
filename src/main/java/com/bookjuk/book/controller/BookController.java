@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bookjuk.aop.LogAspect;
 import com.bookjuk.book.dto.BookDto;
 import com.bookjuk.book.service.BookService;
+import com.bookjuk.user.service.UserService;
 
 @Controller
 @RequestMapping(value = "/book")
@@ -21,6 +22,16 @@ public class BookController {
 	@Autowired
 	private BookService bookService;
 	
+	@Autowired
+	private UserService mainService;
+	
+	public ModelAndView floating(ModelAndView mav, HttpServletRequest request) {
+		mav.addObject("request", request);
+		mainService.floating(mav);
+		
+		return mav;
+	}
+	
 	@RequestMapping(value="/*.do", method=RequestMethod.GET)
 	public ModelAndView bookBest(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav=new ModelAndView();
@@ -28,7 +39,7 @@ public class BookController {
 		
 		bookService.bookSpecial(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	/*메인 카테고리*/
@@ -39,7 +50,7 @@ public class BookController {
 		
 		bookService.bookMainCategory(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	/*서브 카테고리*/
@@ -50,7 +61,7 @@ public class BookController {
 		
 		bookService.bookSubCategory(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value="/list/detail.do")
@@ -61,7 +72,7 @@ public class BookController {
 		
 		bookService.bookDetail(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value="/list/insertReview.do", method=RequestMethod.POST)
@@ -102,6 +113,6 @@ public class BookController {
 		
 		bookService.bookSearch(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 }

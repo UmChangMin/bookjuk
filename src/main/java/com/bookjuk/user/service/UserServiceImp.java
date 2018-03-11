@@ -134,6 +134,11 @@ public class UserServiceImp implements UserService {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		HttpSession session = request.getSession();
 		String current_id = session.getId();
+		String member_id = (String) session.getAttribute("member_id");
+		
+		if(member_id != null) {
+			current_id = member_id;
+		}
 		
 		List<UserDto> currentList = userDao.currentList(current_id);
 		

@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bookjuk.member.dto.MemberDto;
 import com.bookjuk.member.service.MemberService;
+import com.bookjuk.user.service.UserService;
 
 @Controller
 @RequestMapping(value = "/member")
@@ -19,6 +20,16 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private UserService mainService;
+	
+	public ModelAndView floating(ModelAndView mav, HttpServletRequest request) {
+		mav.addObject("request", request);
+		mainService.floating(mav);
+		
+		return mav;
+	}
 	
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public ModelAndView login(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
@@ -130,7 +141,7 @@ public class MemberController {
 		
 		memberService.mypage(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value = "/point.do")
@@ -160,7 +171,7 @@ public class MemberController {
 		mav.addObject("request", request);
 		
 		mav.setViewName("member/member_delete.search");
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value = "/deleteOk.do", method = RequestMethod.POST)
@@ -179,7 +190,7 @@ public class MemberController {
 		mav.addObject("request",request);
 		
 		memberService.update(mav);
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value = "/updateOk.do", method = RequestMethod.POST)

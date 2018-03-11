@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bookjuk.aop.LogAspect;
 import com.bookjuk.service.dto.ServiceContactDto;
 import com.bookjuk.service.service.ServiceService;
+import com.bookjuk.user.service.UserService;
 
 @Controller
 @RequestMapping(value = "/service")
@@ -21,6 +22,16 @@ public class ServiceController {
 	@Autowired
 	private ServiceService customerService;
 	
+	@Autowired
+	private UserService mainService;
+	
+	public ModelAndView floating(ModelAndView mav, HttpServletRequest request) {
+		mav.addObject("request", request);
+		mainService.floating(mav);
+		
+		return mav;
+	}
+	
 	@RequestMapping(value = "/question.do", method = RequestMethod.GET)
 	public ModelAndView customer(HttpServletRequest request, HttpServletResponse response) {
 		
@@ -28,7 +39,7 @@ public class ServiceController {
 		mav.addObject("request", request);
 		customerService.customer(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value = "/notice/list.do", method = RequestMethod.GET)
@@ -37,7 +48,7 @@ public class ServiceController {
 		mav.addObject("request", request);
 		customerService.noticeList(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value = "/notice/read.do", method = RequestMethod.GET)
@@ -46,7 +57,7 @@ public class ServiceController {
 		mav.addObject("request", request);
 		customerService.noticeRead(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value = "/contact/list.do", method=RequestMethod.GET)
@@ -58,7 +69,7 @@ public class ServiceController {
 		
 		customerService.contactList(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value = "/contact/write.do", method=RequestMethod.GET)
@@ -69,7 +80,7 @@ public class ServiceController {
 		
 		customerService.contactWrite(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value = "/contact/writeOk.do", method=RequestMethod.POST)
@@ -82,7 +93,7 @@ public class ServiceController {
 		
 		customerService.contactWriteOk(mav);
 		
-		return mav;
+		return floating(mav, request);
 		
 	}
 	
@@ -92,7 +103,7 @@ public class ServiceController {
 		mav.addObject("request", request);
 		customerService.contactRead(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value = "/contact/update.do", method=RequestMethod.GET)
@@ -101,7 +112,7 @@ public class ServiceController {
 		mav.addObject("request", request);
 		customerService.contactUpdate(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value="/contact/updateOk.do",method=RequestMethod.POST)
@@ -112,7 +123,7 @@ public class ServiceController {
 		
 		customerService.contactUpdateOk(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value="/contact/download.do",method=RequestMethod.GET)
@@ -135,6 +146,6 @@ public class ServiceController {
 		mav.addObject("request", request);
 		customerService.contactDelete(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 }

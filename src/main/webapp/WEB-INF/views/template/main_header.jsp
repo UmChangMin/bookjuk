@@ -156,9 +156,9 @@
          </div>
          <div class="tv_container">
          	<c:if test="${currentList ne null}">
-	         	<c:forEach var="currentDto" items="${currentList}">
+	         	<c:forEach var="currentDto" items="${currentList}" begin="0" end="2">
 		            <div class="tv_prod">
-		               <a href="${root}/book/detail.do?book_num=${currentDto.book_num}"><img src="${root}${currentDto.current_img}"/></a>
+		               <a href="${root}/book/list/detail.do?book_num=${currentDto.book_num}"><img src="${root}${currentDto.current_img}"/></a>
 		            </div>
 	            </c:forEach>
             </c:if>

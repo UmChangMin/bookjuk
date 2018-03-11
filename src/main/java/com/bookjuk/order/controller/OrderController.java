@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bookjuk.order.dto.OrderDto;
 import com.bookjuk.order.service.OrderService;
+import com.bookjuk.user.service.UserService;
 
 @Controller
 @RequestMapping(value = "/order")
@@ -19,13 +20,23 @@ public class OrderController {
 	@Autowired
 	private OrderService orderService;
 	
+	@Autowired
+	private UserService mainService;
+	
+	public ModelAndView floating(ModelAndView mav, HttpServletRequest request) {
+		mav.addObject("request", request);
+		mainService.floating(mav);
+		
+		return mav;
+	}
+	
 	@RequestMapping(value = "/cart.do", method = RequestMethod.GET)
 	public ModelAndView cart(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
 		orderService.cart(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value = "/updateAmount.do", method = RequestMethod.GET)
@@ -52,7 +63,7 @@ public class OrderController {
 		mav.addObject("request", request);
 		orderService.orderNon(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value = "/order.do")
@@ -61,7 +72,7 @@ public class OrderController {
 		mav.addObject("request", request);
 		orderService.order(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value = "/zipcode.do")
@@ -77,7 +88,7 @@ public class OrderController {
 		
 		orderService.complete(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
@@ -91,7 +102,7 @@ public class OrderController {
 		mav.addObject("request", request);
 		orderService.orderLoginOk(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value="/list.do",method=RequestMethod.GET)
@@ -100,7 +111,7 @@ public class OrderController {
 		mav.addObject("request", request);
 		orderService.orderList(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	
@@ -110,7 +121,7 @@ public class OrderController {
 		mav.addObject("request", request);
 		orderService.orderCancleList(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value = "/cancle.do", method = RequestMethod.GET)
@@ -119,7 +130,7 @@ public class OrderController {
 		mav.addObject("request", request);
 		orderService.orderCancle(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 
 	@RequestMapping(value = "/exchange.do", method = RequestMethod.GET)
@@ -128,7 +139,7 @@ public class OrderController {
 		mav.addObject("request", request);
 		orderService.orderCancle(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value = "/return.do", method = RequestMethod.GET)
@@ -137,6 +148,6 @@ public class OrderController {
 		mav.addObject("request", request);
 		orderService.orderCancle(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 }

@@ -33,7 +33,7 @@
 				</c:if>
 				<c:if test="${member_level eq 'admin'}">
 					<ul class="header_lnb_right">
-						<li><strong><a href="${root}/admin/sales/salesManager.do">[관리자모드]</a></strong></li>
+						<li><strong><a href="${root}/admin/sales/salesManager.do">관리자모드</a></strong></li>
 						<li><a href="${root}/member/logout.do" class="openMask2">로그아웃</a></li>
 						<li><a href="${root}/order/cart.do">장바구니</a></li>
 						<li><a href="${root}/order/list.do" class="openMask3">주문/배송조회</a></li>
@@ -103,9 +103,9 @@
 			</div>
 			<div class="tv_container">
 	           	 <c:if test="${currentList ne null}">
-		         	  <c:forEach var="currentDto" items="${currentList}">
+		         	  <c:forEach var="currentDto" items="${currentList}" begin="0" end="2">
 			            <div class="tv_prod">
-			               <a href="${root}/book/detail.do?book_num=${currentDto.book_num}"><img src="${root}${currentDto.current_img}"/></a>
+			               <a href="${root}/book/list/detail.do?book_num=${currentDto.book_num}"><img src="${root}${currentDto.current_img}"/></a>
 			            </div>
 	          		  </c:forEach>
            		 </c:if>
