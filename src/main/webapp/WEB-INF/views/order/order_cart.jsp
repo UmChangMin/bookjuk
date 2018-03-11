@@ -58,11 +58,11 @@
 										<input type="checkbox" id="checkbox_all" class="checkbox_all">
 										<label for="checkbox_all" class="blind">전체 상품선택</label>
 									</th>
-									<th scope="col"><strong>상품정보</strong></th>
-									<th scope="col">수량</th>
-									<th scope="col">판매가</th>
-									<th scope="col">배송비</th>
-									<th scope="col">합계</th>
+									<th scope="col"><strong style="float: left;">전체선택</strong><strong>상품정보</strong></th>
+									<th scope="col"><strong>수량</strong></th>
+									<th scope="col"><strong>판매가</strong></th>
+									<th scope="col"><strong>배송비</strong></th>
+									<th scope="col"><strong>합계</strong></th>
 								</tr>
 							</thead>
 							<tfoot>
@@ -140,7 +140,7 @@
 					</div>
 					<div class="cart_btn_section">
 						<c:if test="${id_length < 25}">
-							<button style="margin-left: 60px;" type="button" onclick="location='${root}/main.do'" class="cart_btn_home">쇼핑 계속하기</button>
+							<button style="margin-left: 70px;" type="button" onclick="location='${root}/main.do'" class="cart_btn_home">쇼핑 계속하기</button>
 							<button type="button" class="cart_btn_delete">선택상품 삭제하기</button>
 							<input type="hidden" id="member_level" value="${member_level}"/>
 							<form action="${root}/order/order.do" id="order_submit" method="post">
@@ -149,16 +149,12 @@
 							</form>
 						</c:if>
 						<c:if test="${id_length > 25}">
-							<button type="button" onclick="location='${root}/main.do'" class="cart_btn_home">쇼핑 계속하기</button>
+							<button style="margin-left: 70px;" type="button" onclick="location='${root}/main.do'" class="cart_btn_home">쇼핑 계속하기</button>
 							<button type="button" class="cart_btn_delete">선택상품 삭제하기</button>
 							<input type="hidden" id="member_level" value="${member_level}"/>
 							<form action="${root}/order/order_non.do" id="non_order_submit" method="post">
 								<input type="hidden" name="order_id" value="${order_id}">
 								<button class="cart_btn_non_order">비회원 주문하기</button>
-							</form>
-							<form action="${root}/order/order.do" id="order_submit" method="post">
-								<input type="hidden" name="order_id" value="${order_id}">
-								<button class="cart_btn_order">회원 주문하기</button>
 							</form>
 						</c:if>
 					</div>

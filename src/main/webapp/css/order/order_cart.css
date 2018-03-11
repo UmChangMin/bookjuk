@@ -19,7 +19,7 @@
 .cart_sub {
 	margin-top: 25px;
 	background: white;
-	padding: 20px 30px 0px 30px;
+	padding: 0px 30px 0px 30px;
     border: 1px solid #e5e6e7;
 }
 
@@ -82,6 +82,14 @@
     border: 0;
     text-align: center;
     border-top: 0;
+}
+
+.bt_up{
+	cursor: pointer;	
+}
+
+.bt_down{
+	cursor: pointer;
 }
 
 caption{
@@ -180,11 +188,12 @@ em.subTotal{
 }
 
 .cart_product_info > img{
-	border: 1px solid #e9e9e9;
 	width: 100px;
     height: 150px;
     float: left;
     margin-left: 15px;
+    box-shadow: 0px 3px 16px 3px rgba(0,0,0,0.4);
+    border-radius: 6px;
 }
 
 .cart_product_info > span {
