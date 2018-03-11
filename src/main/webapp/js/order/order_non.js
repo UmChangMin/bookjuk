@@ -3,6 +3,7 @@
  */
 var regexPwd = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
 var regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+var regexName = /^[가-힣]{2,4}$/;
 
 function focus(num) {
 	num = num.replace(/[^0-9]/g, '');
@@ -72,7 +73,7 @@ $(function() {
 			$(this).attr("placeholder","반드시 입력해주세요!");
 		}
 		if($(this).hasClass("user_phone")){
-			$(this).attr("placeholder","' - ' 제외하고 핸드폰번호를 입력해 주세요");
+			$(this).attr("placeholder","' - ' 제외하고 핸드폰번호를 입력해주세요");
 		}
 		if($(this).hasClass("user_email")){
 			$(this).attr("placeholder","반드시 입력해주세요!");
@@ -90,34 +91,37 @@ $(function() {
 	
 	$(".order_non_input input").on("blur",function(){
 		if($(this).hasClass("order_name")){
-			$(this).attr("placeholder","수령인");
+			$(this).attr("placeholder","수령인을 입력해주세요");
 		}
 		if($(this).hasClass("order_phone")){
-			$(this).attr("placeholder","연락처");
+			$(this).attr("placeholder","연락처를 입력해주세요");
 		}
 		if($(this).hasClass("order_postcode")){
-			$(this).attr("placeholder","우편번호");
+			$(this).attr("placeholder","우편번호를 입력해주세요");
 		}
 		if($(this).hasClass("order_address")){
-			$(this).attr("placeholder","주소");
+			$(this).attr("placeholder","주소를 입력해주세요");
+		}
+		if($(this).hasClass("order_address_detail")){
+			$(this).attr("placeholder","상세 주소를 입력해주세요");
 		}
 		if($(this).hasClass("user_name")){
-			$(this).attr("placeholder","주문자 성함");
+			$(this).attr("placeholder","주문자 성함을 입력해주세요");
 		}
 		if($(this).hasClass("user_phone")){
-			$(this).attr("placeholder","연락처");
+			$(this).attr("placeholder","연락처를 입력해주세요");
 		}
 		if($(this).hasClass("user_email")){
-			$(this).attr("placeholder","이메일");
+			$(this).attr("placeholder","이메일을 입력해주세요");
 		}
 		if($(this).hasClass("user_password")){
 			$(this).attr("placeholder","최소 8자 이상 특수문자 포함");
 		}
 		if($(this).hasClass("refund_name")){
-			$(this).attr("placeholder","예금주");
+			$(this).attr("placeholder","예금주를 입력해주세요");
 		}
 		if($(this).hasClass("refund_account")){
-			$(this).attr("placeholder","환불 계좌번호");
+			$(this).attr("placeholder","환불 계좌번호를 입력해주세요");
 		}
 	});
 	
@@ -190,6 +194,12 @@ $(function() {
 		if(!regexEmail.test($.trim($("#user_email").val()))){
 			alert("이메일 형식이 잘못되었습니다.");
 			$("#user_email").focus();
+			return false;
+		}
+		
+		if(!regexName.test($.trim($("#refund_name").val()))){
+			alert("예금주 성함을 정확하게 입력해주세요.");
+			$("#refund_name").focus();
 			return false;
 		}
 		

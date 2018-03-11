@@ -75,6 +75,7 @@
 					</c:forEach>
 					<!-- 책내용 끝 -->
 					<!-- 주의사항시작 -->
+					<c:if test="${identify > 25}">
 					<div class="order_Precautions">
 							<div>※배송 조회시 주의사항※</div>
 							<div>
@@ -83,9 +84,27 @@
 								<strong>비회원이신 경우</strong> 고객센터의 전화문의로 반품, 교환, 주문취소 접수 가능합니다.<br/>
 							</div>
 							<div class="order_onecontact">
-								<a href="${root}/service/contact/list.do">031-482-2148</a>
+								<a href="javascript:void(0)">031-482-2148</a>
 							</div>
 					</div>
+					</c:if>
+					<c:if test="${identify < 25}">
+					<div class="order_Precautions">
+							<div>※배송 조회시 주의사항※</div>
+							<div>
+								<p>교환신청은 상품의 결함 및 계약내용과 다를 경우 문제점 발견 후 30일 이내 가능합니다.<br/>
+								변심반품의 경우 수령 후 7일 이내, 상품의 결함 및 계약내용과 다를 경우 문제점 발견 후
+								30일 이내 가능합니다.<br/>
+								1:1 상담 문의를 통하여 배송조회페이지에서 접수 가능합니다.<br/>
+								반품처리 절차 : 반품신청 > 접수 > 반품회수 > 회수완료 > 반품완료<br/>
+								교환처리 절차 : 교환신청 > 접수 > 처리중 > 교환완료<br/>
+								반품/교환신청건은 접수 이전 상태에서 신청취소가 가능합니다.<br/>
+							</div>
+							<div class="order_onecontact">
+								<a href="${root}/order/list/cancle.do">취소/교환/반품</a>
+							</div>
+					</div>
+					</c:if>
 					<!-- 주의사항 끝 -->
 					
 					</div>

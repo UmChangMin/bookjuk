@@ -79,6 +79,14 @@
 										<button type="button" id="order_cancle" onclick="location.href='${root}/order/cancle.do?order_num=${orderDto.order_num}&order_total_price=${orderDto.order_total_price}'">취소</button>
 									</c:when>
 									
+									<c:when test="${orderDto.order_state eq '교환요청중'}">
+										<button type="button" id="order_cancle" onclick="location.href='${root}/service/contact/list.do'">1:1문의</button>
+									</c:when>
+									
+									<c:when test="${orderDto.order_state eq '반품요청중'}">
+										<button type="button" id="order_cancle" onclick="location.href='${root}/service/contact/list.do'">1:1문의</button>
+									</c:when>
+									
 									<c:when test="${orderDto.order_state eq '주문취소'}"></c:when>
 									
 									<c:otherwise>
@@ -122,7 +130,7 @@
 							<a href="${root}/order/cancle.do?pageNumber=${startPage - pageBlock}" class="orderCancle_num_before">이전</a>
 						</c:if>
 						
-						<c:forEach var="i" begin="${startPage}" end="${endPage}" >
+						<c:forEach var="i" begin="${startPage}" end="${endPage}">
 							<a href="${root}/order/cancle.do?pageNumber=${i}" class="orderCancle_num">${i}</a>
 						</c:forEach>
 						

@@ -1,8 +1,7 @@
 /**
  * 
  */
-var regexPwd = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
-var regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+var regexName = /^[가-힣]{2,4}$/;
 
 function focus(num) {
 	num = num.replace(/[^0-9]/g, '');
@@ -75,7 +74,7 @@ $(function() {
 			$(this).attr("placeholder","반드시 입력해주세요!");
 		}
 		if($(this).hasClass("order_phone")){
-			$(this).attr("placeholder","' - ' 제외하고 핸드폰번호를 입력해 주세요");
+			$(this).attr("placeholder","' - ' 제외하고 핸드폰번호를 입력해주세요");
 		}
 		if($(this).hasClass("order_postcode")){
 			$(this).attr("placeholder","반드시 입력해주세요!");
@@ -93,22 +92,22 @@ $(function() {
 	
 	$(".order_input input").on("blur",function(){
 		if($(this).hasClass("order_name")){
-			$(this).attr("placeholder","수령인");
+			$(this).attr("placeholder","수령인을 입력해주세요");
 		}
 		if($(this).hasClass("order_phone")){
-			$(this).attr("placeholder","연락처");
+			$(this).attr("placeholder","연락처를 입력해주세요");
 		}
 		if($(this).hasClass("order_postcode")){
-			$(this).attr("placeholder","우편번호");
+			$(this).attr("placeholder","우편번호를 입력해주세요");
 		}
 		if($(this).hasClass("order_address")){
-			$(this).attr("placeholder","주소");
+			$(this).attr("placeholder","주소를 입력해주세요");
 		}
 		if($(this).hasClass("refund_name")){
-			$(this).attr("placeholder","환불 예금주");
+			$(this).attr("placeholder","환불 예금주를 입력해주세요");
 		}
 		if($(this).hasClass("refund_account")){
-			$(this).attr("placeholder","환불 계좌번호");
+			$(this).attr("placeholder","환불 계좌번호를 입력해주세요");
 		}
 	});
 	
@@ -149,6 +148,12 @@ $(function() {
 	    }
 		if($("select[name=refund_bank]").val() == "은행명"){
 			alert("환불 은행을 선택해주세요!");
+			return false;
+		}
+		
+		if(!regexName.test($.trim($("#refund_name").val()))){
+			alert("예금주 성함을 정확하게 입력해주세요.");
+			$("#refund_name").focus();
 			return false;
 		}
 		

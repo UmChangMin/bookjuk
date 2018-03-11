@@ -283,9 +283,12 @@ public class OrderServiceImp implements OrderService {
 		/*페이징 처리*/
 		HashMap<String, Integer> page = page(request, count);
 		
+		int identify = order_id.length();
+		
 		int currentPage = page.get("currentPage");
 		int startRow = page.get("startRow");
 		int endRow = page.get("endRow");
+		mav.addObject("identify", identify);
 		mav.addObject("startRow", startRow);
 		mav.addObject("endRow", endRow);
 		mav.addObject("pageCount", page.get("pageCount"));

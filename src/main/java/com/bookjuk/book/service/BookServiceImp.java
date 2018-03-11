@@ -263,7 +263,12 @@ public class BookServiceImp implements BookService {
 		BookDto bookDto = bookDao.detail(book_num);
 		bookDto.setOrder_id(order_id);
 		
-		bookDao.insertCart(bookDto);
+		int check = bookDao.searchCartList(bookDto);
+		if(check > 0) {
+			bookDao.updateInsertCart(bookDto);
+		}else {
+			bookDao.insertCart(bookDto);
+		}
 	}
 
 	@Override

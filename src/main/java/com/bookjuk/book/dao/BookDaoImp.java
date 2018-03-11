@@ -155,10 +155,20 @@ public class BookDaoImp implements BookDao {
 		return sqlSession.selectList("currentList", current_id);
 	}
 	
+	@Override
+	public int searchCartList(BookDto bookDto) {
+		return sqlSession.selectOne("searchCartList", bookDto);
+	}
+	
 	public int insertCart(BookDto bookDto) {
 		return sqlSession.insert("insertCart", bookDto);
 	}
 
+	@Override
+	public int updateInsertCart(BookDto bookDto) {
+		return sqlSession.update("updateInsertCart", bookDto);
+	}
+	
 	@Override
 	public int bookSearchCount(String search) {
 		return sqlSession.selectOne("bookSearchCount", search);

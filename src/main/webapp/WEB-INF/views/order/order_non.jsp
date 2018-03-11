@@ -105,20 +105,20 @@
 							</div>
 							<div class="order_non_input">
 								<strong>수령인</strong>
-								<input type="text" name="order_name" class="order_name" id="name" placeholder="수령인"/>
+								<input type="text" name="order_name" class="order_name" id="name" placeholder="수령인을 입력해주세요"/>
 							</div>
 							<div class="order_non_input">
 								<strong>연락처</strong>
-								<input type="text" name="order_phone" class="order_phone" id="phone" placeholder="연락처" maxlength="13"/>
+								<input type="text" name="order_phone" class="order_phone" id="phone" placeholder="연락처를 입력해주세요" maxlength="13"/>
 							</div>
 							<div class="order_non_input">
 								<strong>배송지 주소</strong>
-								<input type="text" name="order_postcode" id="zipcode" placeholder="우편번호" class="order_postcode" /><button type="button" id="btn_zipcode" onclick="zipcodeRead('${root}')">우편번호</button><br/>
-								<input type="text" name="order_address" id="address1" class="order_address" placeholder="주소" /><input type="text" name="order_address_detail" id="address2" class="order_address_detail" placeholder="상세주소"/>
+								<input type="text" name="order_postcode" id="zipcode" placeholder="우편번호를 검색해주세요" class="order_postcode" /><button type="button" id="btn_zipcode" onclick="zipcodeRead('${root}')">우편번호</button><br/>
+								<input type="text" name="order_address" id="address1" class="order_address" placeholder="주소를 입력해주세요" /><input type="text" name="order_address_detail" id="address2" class="order_address_detail" placeholder="상세주소를 입력해주세요"/>
 							</div>
 							<div class="order_non_input">
 								<strong>배송메모</strong>
-								<input type="text" name="order_memo" id="memo" placeholder="배송 메모"/>
+								<input type="text" name="order_memo" id="memo" placeholder="배송 메모를 입력해주세요"/>
 							</div>
 						</div>
 						<!-- 주문자 정보 -->
@@ -130,19 +130,19 @@
 								</div>
 								<div class="order_non_input">
 									<strong>주문자 성함</strong>
-									<input type="text" name="nonmember_name" class="user_name" id="user_name" placeholder="주문자 성함"/>
+									<input type="text" name="nonmember_name" class="user_name" id="user_name" placeholder="주문자 성함을 입력해주세요"/>
 								</div>
 								<div class="order_non_input">
 									<strong>연락처</strong>
-									<input type="text" name="nonmember_phone" class="user_phone" id="user_phone" placeholder="연락처"/>
+									<input type="text" name="nonmember_phone" class="user_phone" id="user_phone" placeholder="연락처를 입력해주세요"/>
 								</div>
 								<div class="order_non_input">
 									<strong>이메일</strong>
-									<input type="text" name="nonmember_email" class="user_email" id="user_email" placeholder="이메일"/>
+									<input type="text" name="nonmember_email" class="user_email" id="user_email" placeholder="이메일을 입력해주세요"/>
 								</div>
 								<div class="order_non_input">
 									<strong>주문 비밀번호</strong>
-									<input type="password" name="nonmember_password" class="user_password" id="user_password" placeholder="주문 비밀번호"/>
+									<input type="password" name="nonmember_password" class="user_password" id="user_password" placeholder="주문 비밀번호를 입력해주세요"/>
 								</div>
 							</div>
 							<div class="info_dsc">
@@ -193,7 +193,7 @@
 								</div>
 								<div class="order_non_input" id="order_non_refund_name">
 									<strong>예금주</strong>
-									<input type="text" name="refund_name" class="refund_name" id="refund_name" placeholder="예금주"/>
+									<input type="text" name="refund_name" class="refund_name" id="refund_name" placeholder="예금주를 입력해주세요"/>
 								</div>
 								<div class="order_non_input" id="order_non_refund_bankinfo">
 									<strong>계좌번호</strong>
@@ -205,7 +205,7 @@
 										<option value="우리은행">우리은행</option>
 										<option value="농협">농협</option>
 									</select>
-									<input id="refund_account" name="refund_account" class="refund_account" type="text" placeholder="환불 계좌번호">
+									<input id="refund_account" name="refund_account" class="refund_account" type="text" placeholder="환불 계좌번호를 입력해주세요">
 								</div>
 							</div>
 							<div class="order_non_agree_wrap">

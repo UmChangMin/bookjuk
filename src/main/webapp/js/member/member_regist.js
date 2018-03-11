@@ -120,31 +120,31 @@ $(function(){
 	
 	$(".registe-input input").on("blur",function(){
 		if($(this).hasClass("registe_id")){
-			$(this).attr("placeholder","아이디");
+			$(this).attr("placeholder","아이디를 입력해주세요");
 			$(this).css("border","1px solid #ccc");
 		}
 		if($(this).hasClass("registe_pwd")){
-			$(this).attr("placeholder","비밀번호");
+			$(this).attr("placeholder","비밀번호를 입력해주세요");
 			$(this).css("border","1px solid #ccc");
 		}
 		
 		if($(this).hasClass("registe_pwdChk")){
-			$(this).attr("placeholder","비밀번호확인");
+			$(this).attr("placeholder","비밀번호를 한번 더 입력해주세요");
 			$(this).css("border","1px solid #ccc");
 		}
 		
 		if($(this).hasClass("registe_name")){
-			$(this).attr("placeholder","이름");
+			$(this).attr("placeholder","이름을 입력해주세요");
 			$(this).css("border","1px solid #ccc");
 		}
 		
 		if($(this).hasClass("registe_email")){
-			$(this).attr("placeholder","이메일");
+			$(this).attr("placeholder","이메일을 입력해주세요");
 			$(this).css("border","1px solid #ccc");
 		}
 		
 		if($(this).hasClass("registe_birthday")){
-			$(this).attr("placeholder","생년월일");
+			$(this).attr("placeholder","생년월일을 입력해주세요");
 			$(this).css("border","1px solid #ccc");
 		}
 	});

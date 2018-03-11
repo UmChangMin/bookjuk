@@ -24,11 +24,6 @@
   		select member_password from member where member_id = #{member_id} and member_email = #{member_email}
   	</select>
   	
-  	<!-- 회원탈퇴 -->
-  	<delete id="delete" parameterType="String">
-  		<![CDATA[delete from member where member_id = #{member_id} and member_password = #{member_password}]]>
-  	</delete>
-  	
   	<!-- 회원수정 -->
   	<select id="upSelect" parameterType="String" resultType="com.bookjuk.member.dto.MemberDto">
   		<![CDATA[select * from member where member_id=#{member_id}]]>
@@ -67,4 +62,30 @@
 	<update id="updateCart" parameterType="java.util.Map">
 		UPDATE cart SET order_id = #{member_id} WHERE order_id = #{session_id}
 	</update>
+	
+	<!-- 회원탈퇴 -->
+  	<delete id="delete" parameterType="String">
+  		<![CDATA[delete from member where member_id = #{member_id} and member_password = #{member_password}]]>
+  	</delete>
+	
+	<select id="searchPassword" parameterType="String" resultType="String">
+		SELECT member_password FROM member WHERE member_id = #{member_id}
+	</select>
+	
+	<delete id="deleteMemberReview" parameterType="String">
+		DELETE FROM member_review WHERE member_id = #{member_id}
+	</delete>
+	
+	<delete id="deleteMemberCart" parameterType="String">
+		DELETE FROM cart WHERE order_id = #{member_id}
+	</delete>
+	
+	<delete id="deleteMemberOrder" parameterType="String">
+		DELETE FROM book_order WHERE order_id = #{member_id}
+	</delete>
+	
+	<delete id="deleteMemberContact" parameterType="String">
+		DELETE FROM service_contact WHERE member_id = #{member_id}
+	</delete>
+	
 </mapper>

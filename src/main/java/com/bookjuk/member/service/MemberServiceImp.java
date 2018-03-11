@@ -134,6 +134,14 @@ public class MemberServiceImp implements MemberService {
 		String member_id=request.getParameter("member_id");
 		String member_password = request.getParameter("member_password");
 		
+		String password = memberDao.searchPassword(member_id);
+		if(member_password.equals(password)) {
+			memberDao.deleteMemberReview(member_id);
+			memberDao.deleteMemberCart(member_id);
+			memberDao.deleteMemberOrder(member_id);
+			memberDao.deleteMemberContact(member_id);
+		}
+		
 		int check = memberDao.delete(member_id, member_password);
 		
 		mav.addObject("check",check);

@@ -9,7 +9,14 @@ public interface MemberDao {
 	public String findId(String name, String email);
 	public String finfPwd(String id, String email);
 	
+	/*회원삭제*/
 	public int delete(String member_id, String member_password);
+	public String searchPassword(String member_id);
+	public int deleteMemberReview(String member_id);
+	public int deleteMemberCart(String member_id);
+	public int deleteMemberOrder(String member_id);
+	public int deleteMemberContact(String member_id);
+	
 	public MemberDto upSelect(String member_id);
 	public int update(MemberDto memberDto);
 	

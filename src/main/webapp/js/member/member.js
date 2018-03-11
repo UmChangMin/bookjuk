@@ -16,41 +16,10 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 
    self.close();
 }
-	
-function memberUpdate(obj) {
-	if (obj.member_name.value == "") {
-		alert("이름을 입력하세요");
-		obj.member_name.focus();
-		return false;
-	}
-	
-	if (obj.member_password.value == "") {
-		alert("비밀번호를 입력하세요");
-		obj.member_password.focus();
-		return false;
-	}
-	  if($("input[name='member_passwordOk']").val()==""){
-          alert("비밀번호를 입력하세요.");
-          $("input[name='member_passwordOk']").focus();
-          return;
-       }
-	  
-	  if($("input[name='member_password']").val()!=$("input[name='member_passwordOk']").val()){
-			alert("비밀번호가 일치하지 않습니다.");
-			$("input[name='member_password']").focus();
-			return;
-		}
-	
-	if (obj.member_email.value == "") {
-		alert("이메일을 입력하세요");
-		obj.member_email.focus();
-		return false;
-	}
-}
 
 function memberDelete(obj){
 	if (obj.member_password.value == "") {
-		alert("비밀번호를 입력하세요");
+		alert("비밀번호를 입력해주세요");
 		obj.member_password.focus();
 		return false;
 	}

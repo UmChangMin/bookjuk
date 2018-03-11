@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+input:focus {
+  outline: none;
+}
+
 #memberUpdate_all{
 	padding-bottom: 120px;
 	
@@ -102,7 +106,7 @@
     color: #333;
 }
 
-.memberUpdate_zip input:nth-child(2) {
+#memberUpdate_zip input:nth-child(2) {
 	background: #FFD8D8;
     padding: 0 10px;
     width: 100px;

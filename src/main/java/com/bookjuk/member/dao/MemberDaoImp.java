@@ -61,15 +61,6 @@ public class MemberDaoImp implements MemberDao {
 	}
 
 	@Override
-	public int delete(String member_id, String member_password) {
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("member_id", member_id);
-		map.put("member_password", member_password);
-		
-		return sqlSession.delete("delete", map);
-	}
-
-	@Override
 	public MemberDto upSelect(String member_id) {
 		
 		return sqlSession.selectOne("upSelect",member_id);
@@ -104,6 +95,40 @@ public class MemberDaoImp implements MemberDao {
 		map.put("session_id", session_id);
 		
 		return sqlSession.update("updateCart", map);
+	}
+	
+	@Override
+	public int delete(String member_id, String member_password) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("member_id", member_id);
+		map.put("member_password", member_password);
+		
+		return sqlSession.delete("delete", map);
+	}
+
+	@Override
+	public String searchPassword(String member_id) {
+		return sqlSession.selectOne("searchPassword", member_id);
+	}
+
+	@Override
+	public int deleteMemberReview(String member_id) {
+		return sqlSession.delete("deleteMemberReview", member_id);
+	}
+
+	@Override
+	public int deleteMemberCart(String member_id) {
+		return sqlSession.delete("deleteMemberCart", member_id);
+	}
+
+	@Override
+	public int deleteMemberOrder(String member_id) {
+		return sqlSession.delete("deleteMemberOrder", member_id);
+	}
+
+	@Override
+	public int deleteMemberContact(String member_id) {
+		return sqlSession.delete("deleteMemberContact", member_id);
 	}
 	
 }

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css"/>
 <link type="text/css" rel="stylesheet" href="${root}/css/member/member_update.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
-<script type="text/javascript" src="${root}/js/member/member.js"></script>
+<script type="text/javascript" src="${root}/js/member/member_update.js"></script>
 <title>회원정보수정</title>
 </head>
 <body>
@@ -32,35 +32,27 @@
 							</div>
 							<div class="memberUpdate_com">
 								<div>이름</div>
-								<div>
-									<input type="text" name="member_name" value="${memberDto.member_name}">
+								<div class="update_input">
+									<input type="text" name="member_name" class="update_name" id="nameChk" value="${memberDto.member_name}" oninput="checkName()">
 								</div>
 							</div>
 							<div class="memberUpdate_com">
 								<div>비밀번호</div>
-								<div>
-									<input type="password" name="member_password" value="${memberDto.member_password}">
+								<div class="update_input">
+									<input type="password" name="member_password" class="update_pwd" id="pwdChk" value="${memberDto.member_password}" oninput="checkPwd()">
 								</div>
 							</div>
 							<div class="memberUpdate_com">
 								<div>비밀번호 확인</div>
-								<div>
-									<input type="password" name="member_passwordOk" value="${memberDto.member_password}">
+								<div class="update_input">
+									<input type="password" name="member_passwordOk" class="update_pwdChk" id="rePwdChk" value="${memberDto.member_password}" oninput="reCheckPwd()">
 								</div>
 							</div>
 							
 							<div class="memberUpdate_email">
 								<div>이메일</div>
-								<div>
-									<input type="text" name="member_email" value="${memberDto.member_email}">
-									<!-- <span>&nbsp;@</span>
-									<select>
-										<option value="">선택하세요.</option>
-										<option value="naver.com">naver.com</option>
-										<option value="nate.com">nate.com</option>
-										<option value="gmail.com">gmail.com</option>
-										<option value="daum.net">daum.net</option>
-									</select> -->
+								<div class="update_input">
+									<input type="text" name="member_email" class="update_email" id="emailChk" value="${memberDto.member_email}" oninput="checkEmail()">
 								</div>
 							</div>
 						</div>
@@ -72,25 +64,25 @@
 						<div class="memberUpdate_options_inner">
 							<div class="memberUpdate_zips">
 								<div>우편번호</div>
-								<div class="memberUpdate_zip">
-									<input type="text" id="zipcode" placeholder="우편번호를 검색 하세요" name="member_postcode" value="${memberDto.member_postcode}"><input type="button" value="우편번호" onclick="zipcodeRead('${root}')">
+								<div class="update_input" id="memberUpdate_zip">
+									<input type="text" class="update_postcode" id="zipcode" placeholder="우편번호를 검색해주세요" name="member_postcode" value="${memberDto.member_postcode}"><input type="button" value="우편번호" onclick="zipcodeRead('${root}')">
 								</div>
 							</div>
 							
 							<div class="memberUpdate_com">
 								<div>주소</div>
-								<div>
-									<input type="text" id="address1" placeholder="주소를 입력하세요" name="member_address" value="${memberDto.member_address}">
+								<div class="update_input">
+									<input type="text" class="update_addr" id="address1" placeholder="주소를 입력해주세요" name="member_address" value="${memberDto.member_address}">
 								</div>
-								<div>
-								<input type="text" id="address2" placeholder="상세주소를 입력하세요" name="member_address_detail" value="${memberDto.member_address_detail}">
+								<div class="update_input">
+								<input type="text" class="update_addr_detail" id="address2" placeholder="상세주소를 입력해주세요" name="member_address_detail" value="${memberDto.member_address_detail}">
 								</div>
 							</div>
 
 							<div class="memberUpdate_com">
 								<div>휴대폰번호</div>
-								<div>
-									<input type="text" placeholder=" - 빼고 입력하세요." name="member_phone" value="${memberDto.member_phone}">
+								<div class="update_input">
+									<input type="text" class="update_phone" placeholder="휴대폰 번호를 입력해주세요." name="member_phone" value="${memberDto.member_phone}">
 								</div>
 							</div>
 						</div>

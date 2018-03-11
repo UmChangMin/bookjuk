@@ -107,20 +107,20 @@
 							</div>
 							<div class="order_input">
 								<label><strong>수령인</strong></label>
-								<input type="text" name="order_name" class="order_name" id="name" placeholder="수령인" value="${memberDto.member_name}"/>
+								<input type="text" name="order_name" class="order_name" id="name" placeholder="수령인을 입력해주세요" value="${memberDto.member_name}"/>
 							</div>
 							<div class="order_input">
 								<label><strong>연락처</strong></label>
-								<input type="text" name="order_phone" class="order_phone" name="phone" id="phone" maxlength="13" placeholder="연락처" value="${memberDto.member_phone}"/>
+								<input type="text" name="order_phone" class="order_phone" name="phone" id="phone" maxlength="13" placeholder="연락처를 입력해주세요" value="${memberDto.member_phone}"/>
 							</div>
 							<div class="order_input">
 								<label><strong>배송지 주소</strong></label>
-								<input type="text" name="order_postcode" class="order_postcode" id="zipcode" placeholder="우편번호" value="${memberDto.member_postcode}"/><button type="button" id="btn_zipcode" onclick="zipcodeRead('${root}')">우편번호</button><br/>
-								<input type="text" name="order_address" class="order_address" id="address1" placeholder="주소" value="${memberDto.member_address}"/><input type="text" name="order_address_detail" id="address2" placeholder="상세 주소" value="${memberDto.member_address_detail}"/>
+								<input type="text" name="order_postcode" class="order_postcode" id="zipcode" placeholder="우편번호를 입력해주세요" value="${memberDto.member_postcode}"/><button type="button" id="btn_zipcode" onclick="zipcodeRead('${root}')">우편번호</button><br/>
+								<input type="text" name="order_address" class="order_address" id="address1" placeholder="주소를 입력해주세요" value="${memberDto.member_address}"/><input type="text" name="order_address_detail" id="address2" placeholder="상세 주소를 입력해주세요" value="${memberDto.member_address_detail}"/>
 							</div>
 							<div class="order_input">
 								<label><strong>배송메모</strong></label>
-								<input type="text" name="order_memo" id="memo" placeholder="배송 메모"/>
+								<input type="text" name="order_memo" id="memo" placeholder="배송 메모를 입력해주세요"/>
 							</div>
 						</div>
 					</div>
@@ -257,7 +257,7 @@
 								</div>
 								<div class="order_input" id="order_refund_name">
 									<strong>예금주</strong>
-									<input type="text" name="refund_name" class="refund_name" id="refund_name" placeholder="환불 예금주"/>
+									<input type="text" name="refund_name" class="refund_name" id="refund_name" placeholder="환불 예금주를 입력해주세요"/>
 								</div>
 								<div class="order_input" id="order_refund_bankinfo">
 									<strong>계좌번호</strong>
@@ -269,7 +269,7 @@
 										<option value="우리은행">우리은행</option>
 										<option value="농협">농협</option>
 									</select>
-									<input id="refund_account" name="refund_account" class="refund_account" placeholder="환불 계좌번호" type="text">
+									<input id="refund_account" name="refund_account" class="refund_account" placeholder="환불 계좌번호를 입력해주세요" type="text">
 								</div>
 							</div>
 							<div class="order_agree_wrap">
