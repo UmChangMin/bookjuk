@@ -10,9 +10,9 @@
 <title>주문/배송조회</title>
 <link rel="stylesheet" type="text/css"href="${root}/css/order/order_list.css" />
 <link rel="stylesheet" type="text/css"href="${root}/css/template/basic.css" />
-<link type="text/css" rel="stylesheet" href="${root}/jqueryUI/jquery-ui.css"/>
+<link type="text/css" rel="stylesheet" href="${root}/jqueryUI/jquery-ui2.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
-<script type="text/javascript" src="${root}/jqueryUI/jquery-ui.js"></script>
+<script type="text/javascript" src="${root}/jqueryUI/jquery-ui2.js"></script>
 <script type="text/javascript" src="${root}/js/order/order_list.js"></script>
 </head>
 <body>

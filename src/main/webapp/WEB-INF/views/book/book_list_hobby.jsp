@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/book/book_list.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
-<script type="text/javascript" src="${root}/jqueryUI/jquery-ui.js"></script>
+<script type="text/javascript" src="${root}/jqueryUI/jquery-ui2.js"></script>
 </head>
 <body>
 <!-- 도서 목록 리스트 시작 강민아 -->

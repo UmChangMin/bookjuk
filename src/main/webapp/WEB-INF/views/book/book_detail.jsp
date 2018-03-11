@@ -11,8 +11,8 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/book/book_detail.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/book/star.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css"/>
-<script type="text/javascript" src="${root}/js/jquery.js"></script>
-<script type="text/javascript" src="${root}/jqueryUI/jquery-ui.js"></script>
+<%-- <script type="text/javascript" src="${root}/js/jquery.js"></script> --%>
+<script type="text/javascript" src="${root}/jqueryUI/jquery-ui2.js"></script>
 <script type="text/javascript" src="${root}/js/book/book_detail.js"></script>
 </head>
 <body>

@@ -111,6 +111,6 @@ function search(data){
 			  
 			response(request.slice(0,10));
 		},
-		autoFocus: true
+		/*autoFocus: true*/
 	});
 }
