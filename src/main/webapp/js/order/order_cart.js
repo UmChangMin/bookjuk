@@ -13,7 +13,7 @@ $(function(){
 	    num = $(".amount:eq("+n+")").val(num*1-1); 
 	  });
 	  
-	  $("input[type=checkbox]").prop("checked",true);
+	  /*$("input[type=checkbox]").prop("checked",true);*/
 	  
 	  $("#checkbox_all").click(function(){
 		 if($("#checkbox_all").prop("checked")){

@@ -58,7 +58,7 @@
 										<input type="checkbox" id="checkbox_all" class="checkbox_all">
 										<label for="checkbox_all" class="blind">전체 상품선택</label>
 									</th>
-									<th scope="col"><strong style="float: left;">전체선택</strong><strong>상품정보</strong></th>
+									<th scope="col"><strong style="float: left;">전체선택</strong><strong style="margin-left: 129px;">상품정보</strong></th>
 									<th scope="col"><strong>수량</strong></th>
 									<th scope="col"><strong>판매가</strong></th>
 									<th scope="col"><strong>배송비</strong></th>
