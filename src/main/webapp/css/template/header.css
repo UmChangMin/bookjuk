@@ -108,7 +108,7 @@ img, input, button, select, textarea {
     border-radius: 40px;
 }
 
-.header_SearchString{
+.search_mh{
     float: left;
     height: 47px;
     width: 375px;
@@ -120,7 +120,7 @@ img, input, button, select, textarea {
     margin-top:2px;
 }
 
-.header_Search_btn{
+.search_mh_btn{
 	float: left;
     height: 47px;
     line-height: 47px;
