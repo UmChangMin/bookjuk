@@ -38,6 +38,13 @@
 				<!-- 내용부분 시작 -->
 				<div class="service_content">
 					<div class="service_inner">
+					
+					<c:if test="${questionList==null }">
+						자주하는 질문이 존재하지 않습니다.
+					</c:if>
+					
+					
+					<c:if test="${questionList!=null }">
 						<div class="service_content_title">
 							<div align="center">글번호</div>
 							<div align="center">제목</div>
@@ -64,6 +71,7 @@
 							<%-- </c:if> --%> 
 
 						</c:forEach>
+					</c:if>
 					</div>
 				</div>
 				<!-- 내용부분 끝 -->

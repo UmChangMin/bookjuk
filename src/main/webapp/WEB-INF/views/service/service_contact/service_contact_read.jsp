@@ -62,7 +62,7 @@
 					<div class="service_content01"><span>답변</span></div>
 					<div class="service_content02"><div>${serviceContactDto.contact_answer}</div></div>
 				</div><br/><br/>
-				<div class="service_contact_button" align="center">
+				<div class="service_contact_button1" align="center">
 					<input type="button" value="목록" onclick="location.href='${root}/service/contact/list.do?pageNumber=${pageNumber}'"/>
 					<input type="button" value="삭제" onclick="contactDelete('${root}','${serviceContactDto.contact_num}','${pageNumber}')"/><!-- alert창 띄우고 삭제하시겠습니까? -->
 				</div>
@@ -75,8 +75,10 @@
 			<c:if test="${serviceContactDto.contact_answer==null}">
 			<!-- 버튼시작 -->
 			<div class="service_contact_button" align="center">
+				
 				<input type="button" value="수정" onclick="location.href='${root}/service/contact/update.do?contact_num=${serviceContactDto.contact_num}&pageNumber=${pageNumber}'"/>
 				<input type="button" value="목록" onclick="location.href='${root}/service/contact/list.do?pageNumber=${pageNumber}'"/>
+				
 				<input type="button" value="삭제" onclick="contactDelete('${root}','${serviceContactDto.contact_num}','${pageNumber}')"/><!-- alert창 띄우고 삭제하시겠습니까? -->
 			</div>
 			</c:if>

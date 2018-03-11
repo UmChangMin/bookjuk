@@ -64,7 +64,8 @@
 	position:relative;
 }
 
-.service_contact_button input{
+.service_contact_button input,
+.service_contact_button1 input{
 	border: 1px solid #b6b7b7;
     float: left;
     margin-right: 10px;
@@ -86,3 +87,9 @@
 	overflow: hidden;
 	padding: 0 290px;
 }
+
+.service_contact_button1{
+	overflow: hidden;
+	padding: 0 355px;
+}
+
