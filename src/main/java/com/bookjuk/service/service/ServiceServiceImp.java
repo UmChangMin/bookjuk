@@ -98,6 +98,7 @@ public class ServiceServiceImp implements ServiceService {
 		LogAspect.logger.info(LogAspect.logMsg+"notice_num&pageNumber : "+notice_num+","+pageNumber);
 		
 		ServiceNoticeDto serviceNoticeDto=serviceDao.noticeRead(notice_num);
+		serviceNoticeDto.setNotice_content(serviceNoticeDto.getNotice_content().replace("\r\n", "<br/>"));
 		//System.out.println(serviceNoticeDto.toString());
 		
 		int maxNum=serviceDao.maxNum(notice_num);

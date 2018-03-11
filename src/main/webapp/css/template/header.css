@@ -320,7 +320,7 @@ img, input, button, select, textarea {
 #floatMenu{
     position: absolute;
     width: 120px;
-    height: 400px;
+    
     left: 50%;
     padding: 0;
     margin: 0;
@@ -338,7 +338,6 @@ img, input, button, select, textarea {
 
 .today_view .tv_prod{
    width: 90px;
-    height: 90px;
     border: 1px solid #e5e6e7;
     margin-bottom: 10px;
     text-align: center;
@@ -350,7 +349,6 @@ img, input, button, select, textarea {
 }
 
 #floatMenu > div{
-   board : 1px solid #666;
 }
 
 .float_btn > a{
@@ -362,4 +360,9 @@ img, input, button, select, textarea {
     margin: 3px;
     background: #FFD8D8;
     color: #000;
+}
+
+.tv_prod img{
+	width: 90px;
+	height: 90px;
 }

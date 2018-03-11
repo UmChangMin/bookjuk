@@ -102,16 +102,16 @@
 				<h3 align="center">최근 본 목록</h3>
 			</div>
 			<div class="tv_container">
-				<div class="tv_prod">
-					<a href="#"><img src="${root}/book_img/computer/pro/computer_pro_02.jpg"></a>
-				</div>
-				<div class="tv_prod">
-					<a href="#"><img src="${root}/book_img/computer/pro/computer_pro_02.jpg"></a>
-				</div>
-				<div class="tv_prod">
-					<a href="#"><img src="${root}/book_img/computer/pro/computer_pro_02.jpg"></a>
-				</div>
-			</div>
+	            <div class="tv_prod">
+	               <a href="#"><img src="${root}/book_img/computer/pro/computer_pro_02.jpg"></a>
+	            </div>
+	            <div class="tv_prod">
+	               <a href="#"><img src="${root}/book_img/computer/pro/computer_pro_03.jpg"></a>
+	            </div>
+	            <div class="tv_prod">
+	               <a href="#"><img src="${root}/book_img/computer/pro/computer_pro_04.jpg"></a>
+	            </div>
+	         </div>
 		</div>
 		<div class="float_btn">
 			<a href="${root}/order/cart.do" class="cart_btn">장바구니</a><br /> <a
