@@ -56,8 +56,13 @@ public class UserDaoImp implements UserDao {
 	}
 
 	@Override
-	public List<UserDto> locationDtoList() {
-		return  sqlSession.selectList("locationDtoList");
+	public List<UserDto> getLocationList() {
+		return sqlSession.selectList("getLocationList");
+	}
+
+	@Override
+	public UserDto getLocationDto(int location_num) {
+		return sqlSession.selectOne("getLocationDto", location_num);
 	}
 
 	@Override

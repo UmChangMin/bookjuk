@@ -52,10 +52,16 @@
 		]]>
 	</select>
 
-	<select id="locationDtoList" resultType="com.bookjuk.user.dto.UserDto">
+	<!-- 영업점 조회 -->
+	<select id="getLocationList" resultType="com.bookjuk.user.dto.UserDto">
 		select * from location
 	</select>
 	
+	<select id="getLocationDto" parameterType="int" resultType="com.bookjuk.user.dto.UserDto">
+		SELECT * FROM location WHERE location_num = #{location_num}
+	</select>
+	
+	<!-- 통합 검색 -->
 	<select id="mainSearchList" resultType="com.bookjuk.book.dto.BookDto">
 		select book_name, book_author from book
 	</select>

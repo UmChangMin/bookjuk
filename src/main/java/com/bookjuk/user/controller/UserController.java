@@ -30,29 +30,14 @@ public class UserController {
 	
 	@RequestMapping(value = "location.do")
 	public ModelAndView location(HttpServletRequest request, HttpServletResponse response) {
-		
-		LogAspect.logger.info(LogAspect.logMsg+"userlocation");
-		
 		ModelAndView mav = new ModelAndView();
-		
 		mav.addObject("request", request);
 		mainService.location(mav);
 		
 		return mav;
 	}
 	
-	/* �̺�Ʈ �̱���
-	@RequestMapping(value = "event.do")
-	public ModelAndView event(HttpServletRequest request, HttpServletResponse response) {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("request", request);
-		mainService.event(mav);
-		
-		return mav;
-	}
-	 */
-	
-	@RequestMapping(value="**/search.do")
+	@RequestMapping(value = "**/search.do")
 	public ModelAndView main_header(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
@@ -62,4 +47,13 @@ public class UserController {
 		return null;
 	}
 	
+	/*이벤트
+	@RequestMapping(value = "event.do")
+	public ModelAndView event(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		mainService.event(mav);
+		
+		return mav;
+	}*/
 }

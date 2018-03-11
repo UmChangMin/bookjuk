@@ -24,37 +24,37 @@ import com.bookjuk.user.dto.UserDto;
 public class UserServiceImp implements UserService {
 	
 	@Autowired
-	private UserDao mainDao;
+	private UserDao userDao;
 
 	@Override
 	public void main(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		HttpSession session=(HttpSession)map.get("session");
+		HttpSession session = request.getSession();
 		
 		session.getAttribute("member_level");
 		session.getAttribute("member_name");
 		String nonmember_id = session.getId();
 		
 		/*베스트셀러*/
-		List<BookDto> bookBestList = mainDao.bestList();
+		List<BookDto> bookBestList = userDao.bestList();
 		
 		/*화제의도서*/
-		List<BookDto> bookIssueList = mainDao.issueList();
+		List<BookDto> bookIssueList = userDao.issueList();
 		
 		/*신간도서*/
-		List<BookDto> bookNewList = mainDao.newList();
+		List<BookDto> bookNewList = userDao.newList();
 		
 		/*할인도서*/
-		List<BookDto> bookDiscountList = mainDao.discountList();
+		List<BookDto> bookDiscountList = userDao.discountList();
 		
 		/*분야별 베스트*/
-		List<BookDto> bookBestComputerList = mainDao.bestComputerList();
-		List<BookDto> bookBestHobbyList = mainDao.bestHobbyList();
-		List<BookDto> bookBestNovelList = mainDao.bestNovelList();
+		List<BookDto> bookBestComputerList = userDao.bestComputerList();
+		List<BookDto> bookBestHobbyList = userDao.bestHobbyList();
+		List<BookDto> bookBestNovelList = userDao.bestNovelList();
 		
 		/*MD 추천*/
-		List<BookDto> bookMdList = mainDao.mdList();
+		List<BookDto> bookMdList = userDao.mdList();
 		
 		mav.addObject("nonmember_id", nonmember_id);
 		
@@ -76,11 +76,22 @@ public class UserServiceImp implements UserService {
 	public void location(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		String location = request.getParameter("location_num");
+		LogAspect.logger.info(LogAspect.logMsg + location);
 		
-		List<UserDto> locationDtoList = mainDao.locationDtoList();
-		LogAspect.logger.info(LogAspect.logMsg+locationDtoList.toString());
+		List<UserDto> locationList = userDao.getLocationList();
 		
-		mav.addObject("locationDtoList", locationDtoList);	
+		if(location == null) {
+			location = "1";
+		}
+		int location_num = Integer.parseInt(location);
+		
+		UserDto locationDto = userDao.getLocationDto(location_num);
+		locationDto.setLocation_comming(locationDto.getLocation_comming().replace("\n", "<br/>"));
+		
+		mav.addObject("locationDtoList", locationList);
+		mav.addObject("locationDto", locationDto);
+		
 		mav.setViewName("main/location.search");
 	}
 
@@ -89,7 +100,7 @@ public class UserServiceImp implements UserService {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletResponse response = (HttpServletResponse) map.get("response");
 
-		List<BookDto> searchList = mainDao.searchList();
+		List<BookDto> searchList = userDao.searchList();
 
 		try {
 
