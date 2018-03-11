@@ -66,4 +66,8 @@
 		select book_name, book_author from book
 	</select>
 
+	<!-- 최근 본 목록 -->
+	<select id="currentList" parameterType="String" resultType="com.bookjuk.user.dto.UserDto">
+		SELECT * FROM current_book WHERE current_id = #{current_id}
+	</select>
 </mapper>

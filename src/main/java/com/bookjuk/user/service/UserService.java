@@ -6,6 +6,7 @@ public interface UserService {
 	public void main(ModelAndView mav);
 	public void location(ModelAndView mav);
 	public void search(ModelAndView mav);
+	public void floating(ModelAndView mav);
 	
 	/*public void event(ModelAndView mav);*/
 }

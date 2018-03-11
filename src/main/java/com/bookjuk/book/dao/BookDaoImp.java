@@ -183,4 +183,14 @@ public class BookDaoImp implements BookDao {
 		
 		return sqlSession.selectList("searchList", map);
 	}
+
+	@Override
+	public int addCurrentBook(int book_num, String book_img, String order_id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("book_num", book_num);
+		map.put("book_img", book_img);
+		map.put("order_id", order_id);
+		
+		return sqlSession.insert("addCurrentBook", map);
+	}
 }

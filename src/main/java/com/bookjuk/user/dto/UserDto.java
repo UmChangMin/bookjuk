@@ -1,6 +1,9 @@
 package com.bookjuk.user.dto;
 
+import java.util.Date;
+
 public class UserDto {
+	/*영업점 안내*/
 	private int location_num;				// 영업점 번호
 	private String location_name;			// 영업점 이름
 	private String location_postcode;		// 영업점 우편번호
@@ -12,6 +15,12 @@ public class UserDto {
 	private String location_comming;		// 영업점 오시는길
 	private String location_lat;			// 영업점 위도
 	private String location_lng;			// 영업점 경도
+	
+	/*최근 본 목록*/
+	private int book_num;					// 도서번호
+	private String current_img;				// 도서이미지
+	private String current_id;				// 아이디
+	private Date current_time;				// 담긴 시간
 	
 	public int getLocation_num() {
 		return location_num;
@@ -79,13 +88,36 @@ public class UserDto {
 	public void setLocation_lng(String location_lng) {
 		this.location_lng = location_lng;
 	}
-	
-	@Override
+	public int getBook_num() {
+		return book_num;
+	}
+	public void setBook_num(int book_num) {
+		this.book_num = book_num;
+	}
+	public String getCurrent_img() {
+		return current_img;
+	}
+	public void setCurrent_img(String current_img) {
+		this.current_img = current_img;
+	}
+	public String getCurrent_id() {
+		return current_id;
+	}
+	public void setCurrent_id(String current_id) {
+		this.current_id = current_id;
+	}
+	public Date getCurrent_time() {
+		return current_time;
+	}
+	public void setCurrent_time(Date current_time) {
+		this.current_time = current_time;
+	}	@Override
 	public String toString() {
 		return "UserDto [location_num=" + location_num + ", location_name=" + location_name + ", location_postcode="
 				+ location_postcode + ", location_addr=" + location_addr + ", location_addr_detail="
 				+ location_addr_detail + ", location_call=" + location_call + ", location_fax=" + location_fax
 				+ ", location_hour=" + location_hour + ", location_comming=" + location_comming + ", location_lat="
-				+ location_lat + ", location_lng=" + location_lng + "]";
+				+ location_lat + ", location_lng=" + location_lng + ", book_num=" + book_num + ", current_img="
+				+ current_img + ", current_id=" + current_id + ", current_time=" + current_time + "]";
 	}
 }

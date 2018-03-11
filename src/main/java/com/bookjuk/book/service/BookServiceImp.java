@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -115,6 +114,8 @@ public class BookServiceImp implements BookService {
 		bookDto.setBook_intro(bookDto.getBook_intro().replace("\n", "<br/>"));
 		bookDto.setBook_author_info(bookDto.getBook_author_info().replace("\n", "<br/>"));
 		bookDto.setBook_publisher_review(bookDto.getBook_publisher_review().replace("\n", "<br/>"));
+		
+		bookDao.addCurrentBook(bookDto.getBook_num(), bookDto.getBook_img(), order_id);
 		
 		mav.addObject("bookDto", bookDto);
 		mav.addObject("book_num", book_num);

@@ -128,7 +128,7 @@
 									<span id="card">무통장 입금</span><br/>
 									<span id="card_num">입금은행  : 국민은행 (57451235968)</span><br/>
 									<span id="month">예금주 : 허단비</span><br/>
-									<span id="price">입금기한 : <fmt:formatDate value="${orderDto.order_date}" pattern="YYYY년 MM월 dd일"/>부터 7일 이내</span>
+									<span id="price">입금기한 : <label style="color: #F15F5F;"><fmt:formatDate value="${limit_date}" pattern="YYYY년 MM월 dd일"/></label>까지 입금해주세요 !</span>
 								</div>
 							</div>
 							<!-- 결제 총 금액 -->

@@ -102,20 +102,18 @@
 				<h3 align="center">최근 본 목록</h3>
 			</div>
 			<div class="tv_container">
-	            <div class="tv_prod">
-	               <a href="#"><img src="${root}/book_img/computer/pro/computer_pro_02.jpg"></a>
-	            </div>
-	            <div class="tv_prod">
-	               <a href="#"><img src="${root}/book_img/computer/pro/computer_pro_03.jpg"></a>
-	            </div>
-	            <div class="tv_prod">
-	               <a href="#"><img src="${root}/book_img/computer/pro/computer_pro_04.jpg"></a>
-	            </div>
+	           	 <c:if test="${currentList ne null}">
+		         	  <c:forEach var="currentDto" items="${currentList}">
+			            <div class="tv_prod">
+			               <a href="${root}/book/detail.do?book_num=${currentDto.book_num}"><img src="${root}${currentDto.current_img}"/></a>
+			            </div>
+	          		  </c:forEach>
+           		 </c:if>
 	         </div>
 		</div>
 		<div class="float_btn">
 			<a href="${root}/order/cart.do" class="cart_btn">장바구니</a><br /> <a
-				href="#" class="top_btn">TOP</a>
+				href="javascript:void(0)" class="top_btn">TOP</a>
 		</div>
 	</div>
 

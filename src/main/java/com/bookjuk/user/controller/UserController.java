@@ -18,6 +18,13 @@ public class UserController {
 	@Autowired
 	private UserService mainService;
 	
+	public ModelAndView floating(ModelAndView mav, HttpServletRequest request) {
+		mav.addObject("request", request);
+		mainService.floating(mav);
+		
+		return mav;
+	}
+	
 	@RequestMapping(value = "main.do")
 	public ModelAndView main(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
@@ -25,7 +32,7 @@ public class UserController {
 		mav.addObject("session", session);
 		mainService.main(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value = "location.do")
@@ -34,11 +41,11 @@ public class UserController {
 		mav.addObject("request", request);
 		mainService.location(mav);
 		
-		return mav;
+		return floating(mav, request);
 	}
 	
 	@RequestMapping(value = "**/search.do")
-	public ModelAndView main_header(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView headerSearch(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
 		mav.addObject("response", response);

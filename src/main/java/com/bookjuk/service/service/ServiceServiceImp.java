@@ -18,9 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bookjuk.admin.dao.AdminServiceDao;
 import com.bookjuk.aop.LogAspect;
-import com.bookjuk.book.dto.BookDto;
 import com.bookjuk.service.dao.ServiceDao;
 import com.bookjuk.service.dto.ServiceContactDto;
 import com.bookjuk.service.dto.ServiceNoticeDto;

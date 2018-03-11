@@ -17,6 +17,5 @@ public interface UserDao {
 	public List<UserDto> getLocationList();
 	public UserDto getLocationDto(int location_num);
 	public List<BookDto> searchList(); 
-
-
+	public List<UserDto> currentList(String current_id);
 }

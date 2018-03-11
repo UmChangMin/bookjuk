@@ -13,7 +13,6 @@ import java.util.StringTokenizer;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -176,13 +175,13 @@ public class OrderServiceImp implements OrderService {
 		OrderDto orderDto = (OrderDto) map.get("orderDto");
 		HttpSession session = request.getSession();
 		String order_id = getId(session);
+		Date limit_date = null;
 		
 		if(orderDto.getOrder_payment().equals("mutong")) {
 			orderDto.setOrder_state("입금대기중");
 		}else {
 			orderDto.setOrder_state("상품준비중");
 		}
-		LogAspect.logger.info(LogAspect.logMsg + orderDto);
 		
 		/*주문정보 입력*/
 		int check = orderDao.insertOrderInfo(orderDto);
@@ -215,6 +214,14 @@ public class OrderServiceImp implements OrderService {
 			orderDao.updateSales(order[i], amount[i]);
 		}
 		
+		if(orderDto.getOrder_payment().equals("mutong")) {
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(orderDto.getOrder_date());
+			calendar.add(Calendar.DATE, 7);
+			limit_date = calendar.getTime();
+		}
+		
+		mav.addObject("limit_date", limit_date);
 		mav.addObject("orderDto", orderDto);
 		
 		mav.setViewName("order/order_complete.search");

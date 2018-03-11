@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/member/member_delete.css"/>
 <script type="text/javascript" src="${root}/js/jquery.js"></script>
-<script type="text/javascript" src="${root}/js/member/member.js"></script>
+<script type="text/javascript" src="${root}/js/member/member_delete.js"></script>
 </head>
 <body>
 	<!-- 회원탈퇴 시작 강민아-->

@@ -69,4 +69,9 @@ public class UserDaoImp implements UserDao {
 	public List<BookDto> searchList() {
 		return sqlSession.selectList("mainSearchList");
 	}
+
+	@Override
+	public List<UserDto> currentList(String current_id) {
+		return sqlSession.selectList("currentList", current_id);
+	}
 }
