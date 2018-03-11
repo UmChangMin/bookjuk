@@ -1,7 +1,12 @@
 package com.bookjuk.admin.service;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -15,6 +20,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bookjuk.admin.dao.AdminBookDao;
@@ -89,15 +96,43 @@ public class AdminBookServiceImp implements AdminBookService {
 	
 	@Override
 	public void bookInputOkMove(ModelAndView mav) {		
-		HttpServletRequest request=(HttpServletRequest) mav.getModel().get("request");
-		AdminBookDto bookDto=(AdminBookDto) mav.getModel().get("adminBookDto");
+		//HttpServletRequest request=(HttpServletRequest) mav.getModel().get("request");
 		
-		//MultipartHttpServletRequest request=(MultipartHttpServletRequest) mav.getModel().get("request");
+		MultipartHttpServletRequest request=(MultipartHttpServletRequest) mav.getModel().get("request");
+		AdminBookDto bookDto=(AdminBookDto) mav.getModel().get("adminBookDto");
 		Random random=new Random();
 		
 		LogAspect.logger.info(LogAspect.logMsg+"바꾸기전:"+bookDto.toString()); 
+		//
+		//
+		MultipartFile upFile=request.getFile("file");
+		String fileName=Long.toString(System.currentTimeMillis()) +"_"+upFile.getOriginalFilename();
 		
+		long fileSize=upFile.getSize();
+		LogAspect.logger.info(LogAspect.logMsg + fileName +"< "+ fileSize);
 		
+		if(fileSize!=0) {
+			File path=new File("c:\\bookjuk\\");
+			path.mkdir();
+			
+			if(path.isDirectory() && path.exists()) {
+				File file=new File(path, fileName);
+				
+				//전가시키거나 처리해줘야한다.
+				try {
+					upFile.transferTo(file);
+				}catch(Throwable e) {
+					e.printStackTrace();
+				}
+				
+				bookDto.setBook_file_name(fileName);
+				bookDto.setBook_file_size(fileSize);
+				bookDto.setBook_file_path(file.getAbsolutePath());
+				LogAspect.logger.info(LogAspect.logMsg + bookDto.toString());
+			}
+		}
+		//
+		//
 		String main_cate_eng=request.getParameter("category_main_eng");
 		String sub_cate_eng=request.getParameter("category_sub_eng");
 		
@@ -114,13 +149,14 @@ public class AdminBookServiceImp implements AdminBookService {
 		
 		bookDto.setBook_img(img_path+bookDto.getBook_img());
 		
+		bookDto.setBook_score(0);
 		bookDto.setBook_date(new Date());
 		LogAspect.logger.info(LogAspect.logMsg+"바꾸는 중:"+bookDto.toString());
 		
 		//C:\taewoo\bookjuk\workspace\bookjuk\src\main\webapp\book_img
-		
 		int check=bookDao.InsertBook(bookDto);
-		System.out.println(check); 
+		int check_cate=bookDao.InsertBook_cate(bookDto);
+		System.out.println(check+","+check_cate); 
 		//String bp_re=book_pattern.replace("-", "/");
 		//System.out.println(bp_re);
 		//bookDto.setBook_date(bp_re);
@@ -134,15 +170,22 @@ public class AdminBookServiceImp implements AdminBookService {
 	public void bookOutputMove(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
-		String book_num=request.getParameter("book_num");
+		long book_num=Long.parseLong(request.getParameter("book_num"));
 		String pageNumber=request.getParameter("pageNumber");
+		System.out.println(book_num);
 		
-		AdminBookDto bookDto=bookDao.search(book_num);
-		LogAspect.logger.info(LogAspect.logMsg+bookDto.toString()); 
+		AdminBookDto bookDto=bookDao.search_book_num(book_num);
+		//AdminBookDto bookCate=bookDao.search_cate(book_num);
+		System.out.println(bookDto.toString());
+		//System.out.println(bookCate.toString());
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd"); 
+		SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd"); 		
         String sdfBookDate = sdf.format(bookDto.getBook_date());
-
+        
+        if(bookDto.getBook_file_size()!=0) {
+        	int index=bookDto.getBook_file_name().indexOf("_")+1;
+        	bookDto.setBook_file_name(bookDto.getBook_file_name().substring(index));
+        }
 		
 		mav.addObject("bookList",bookDto);
 		mav.addObject("sdfBookDate", sdfBookDate);
@@ -187,17 +230,73 @@ public class AdminBookServiceImp implements AdminBookService {
 	public void bookUpdateOkMove(ModelAndView mav) {
 		
 		Map<String,Object>map=mav.getModelMap();
-		HttpServletRequest request=(HttpServletRequest) mav.getModel().get("request");
-		AdminBookDto adminBookDto=(AdminBookDto)mav.getModel().get("adminBookDto");	
-		String book_img="123";
-		adminBookDto.setBook_img(book_img);	
-		LogAspect.logger.info(LogAspect.logMsg+adminBookDto.toString());
+		MultipartHttpServletRequest request=(MultipartHttpServletRequest) mav.getModel().get("request");
+		AdminBookDto bookDto=(AdminBookDto)mav.getModel().get("adminBookDto");	
+		Random random=new Random();
+		
+		LogAspect.logger.info(LogAspect.logMsg+bookDto.toString());
 		
 		//LogAspect.logger.info(LogAspect.logMsg+adminBookDto.toString());
-		int check=bookDao.updateOk(adminBookDto);		
+		String book_date=request.getParameter("book_date");
+		SimpleDateFormat sdf=new SimpleDateFormat("yy/MM/dd");
+		try {
+			Date to=sdf.parse(book_date);
+			bookDto.setBook_date(to);
+			System.out.println(bookDto.getBook_date());
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		bookDto.setBook_num(random.nextInt(100000));
+		
+		String main_cate_eng=request.getParameter("category_main_eng");
+		String sub_cate_eng=request.getParameter("category_sub_eng");
+		
+		String main_en_kr=bookDao.main_en_kr(main_cate_eng);
+		String sub_en_kr=bookDao.sub_en_kr(sub_cate_eng);
+		
+		bookDto.setCategory_main_kor(main_en_kr);
+		bookDto.setCategory_sub_kor(sub_en_kr);
+		
+		MultipartFile upFile=request.getFile("file");
+		String fileName=Long.toString(System.currentTimeMillis()) +"_"+upFile.getOriginalFilename();
+		
+		long fileSize=upFile.getSize();
+		LogAspect.logger.info(LogAspect.logMsg + fileName +"< "+ fileSize);
+		
+		if(fileSize!=0) {
+			File path=new File("c:\\bookjuk\\");
+			path.mkdir();
+			
+			if(path.isDirectory() && path.exists()) {
+				File file=new File(path, fileName);
+				
+				//전가시키거나 처리해줘야한다.
+				try {
+					upFile.transferTo(file);
+				}catch(Throwable e) {
+					e.printStackTrace();
+				}
+				
+				bookDto.setBook_file_name(fileName);
+				bookDto.setBook_file_size(fileSize);
+				bookDto.setBook_file_path(file.getAbsolutePath());
+				//LogAspect.logger.info(LogAspect.logMsg + bookDto.toString());
+			}
+		}
+		//int rand=random.nextInt(1000);
+		
+		String img_path="/book_img/"+bookDto.getBook_file_name();
+		
+		bookDto.setBook_img(img_path);
+		LogAspect.logger.info(LogAspect.logMsg + bookDto.toString());
+		
+		//System.out.println(bookDto.getBook_date());
+		int check_cate=bookDao.update_CateOk(bookDto);
+		int check=bookDao.updateOk(bookDto);		
+		LogAspect.logger.info(LogAspect.logMsg+check_cate);
 		LogAspect.logger.info(LogAspect.logMsg+check);
 		
-		
+		mav.addObject("check", check);
 		mav.setViewName("admin/book/bookManager_updateOk.admin");
 		
 	}
@@ -240,6 +339,51 @@ public class AdminBookServiceImp implements AdminBookService {
 		
 	}
 	//search
+
+	@Override
+	public void bookDownloadMove(ModelAndView mav) {
+		HttpServletRequest request=(HttpServletRequest) mav.getModel().get("request");
+		HttpServletResponse response=(HttpServletResponse) mav.getModel().get("response");
+		int book_num=Integer.parseInt(request.getParameter("book_num"));
+		//LogAspect.logger.info(LogAspect.logMsg + "boardNumber "+boardNumber);
+		
+		AdminBookDto bookDto=bookDao.getFile(book_num);
+		System.out.println(bookDto.toString());
+		
+		bookDto.setBook_file_name(bookDto.getBook_file_name().substring(bookDto.getBook_file_name().indexOf("_")+1));
+		
+		BufferedInputStream bis=null;
+		BufferedOutputStream bos=null;
+		try {
+		String fileName=new String(bookDto.getBook_file_name().getBytes("utf-8"),"ISO-8859-1");
+		
+		response.setContentType("application/octet-stream");
+		response.setContentLength((int)bookDto.getBook_file_size());
+		response.setHeader("Content-Disposition", "attachment;filename="+fileName+";");
+		
+		bis=new BufferedInputStream(new FileInputStream(bookDto.getBook_file_path()));
+		bos=new BufferedOutputStream(response.getOutputStream());
+		
+		while(true) {
+			int data=bis.read();
+			if(data==-1)	break;
+			bos.write(data);
+			
+		}
+		bos.flush();
+		
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(bis!=null)	bis.close();
+				if(bos!=null)	bos.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
 
 
 }

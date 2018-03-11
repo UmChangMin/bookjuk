@@ -18,10 +18,10 @@ public class AdminMemberDaoImp implements AdminMemberDao {
 	public AdminMemberDaoImp() {}
 
 	@Override
-	public AdminMemberDto search(String member_id, String member_password) {
+	public AdminMemberDto search(String member_id, String member_name) {
 		Map<String, String>hMap=new HashMap<String, String>();
 		hMap.put("member_id",member_id);
-		hMap.put("member_password", member_password);
+		hMap.put("member_name", member_name);
 		
 		return sqlSessionTemplate.selectOne("memberSearch",hMap);
 	}
@@ -32,8 +32,8 @@ public class AdminMemberDaoImp implements AdminMemberDao {
 	}
 
 	@Override
-	public int updateOk(AdminMemberDto adminDto) {
-		return sqlSessionTemplate.update("memberUpdate", adminDto);
+	public int updateOk(AdminMemberDto memberDto) {
+		return sqlSessionTemplate.update("memberUpdate", memberDto);
 	}
 
 	@Override

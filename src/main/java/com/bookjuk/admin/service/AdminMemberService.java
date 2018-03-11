@@ -12,6 +12,6 @@ public interface AdminMemberService {
 	
 	public void memberDelete(ModelAndView mav);
 	public void memberDeleteOk(ModelAndView mav);
-	
+	public void adminChk(ModelAndView mav);
 	
 }

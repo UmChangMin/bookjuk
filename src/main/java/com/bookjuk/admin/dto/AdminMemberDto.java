@@ -10,13 +10,11 @@ public class AdminMemberDto {
 	private int member_birth;			// 생년월일
 	private int member_postcode;		// 우편번호
 	private String member_address;		// 주소
-	private String member_address_detail;		// 상세주소
+	private String member_address_detail;// 상세주소
 	private String member_phone;		// 연락처+
 	private int member_point;			// 적립금
 	private int birthday_coupon;		// 생일쿠폰
-	private int delivery_coupon;		// 무료배송쿠폰
 	private String member_level;		// 회원레벨
-	
 	
 	public int getMember_num() {
 		return member_num;
@@ -96,19 +94,12 @@ public class AdminMemberDto {
 	public void setBirthday_coupon(int birthday_coupon) {
 		this.birthday_coupon = birthday_coupon;
 	}
-	public int getDelivery_coupon() {
-		return delivery_coupon;
-	}
-	public void setDelivery_coupon(int delivery_coupon) {
-		this.delivery_coupon = delivery_coupon;
-	}
 	public String getMember_level() {
 		return member_level;
 	}
 	public void setMember_level(String member_level) {
 		this.member_level = member_level;
 	}
-	
 	@Override
 	public String toString() {
 		return "AdminMemberDto [member_num=" + member_num + ", member_id=" + member_id + ", member_password="
@@ -116,9 +107,12 @@ public class AdminMemberDto {
 				+ ", member_mailing=" + member_mailing + ", member_birth=" + member_birth + ", member_postcode="
 				+ member_postcode + ", member_address=" + member_address + ", member_address_detail="
 				+ member_address_detail + ", member_phone=" + member_phone + ", member_point=" + member_point
-				+ ", birthday_coupon=" + birthday_coupon + ", delivery_coupon=" + delivery_coupon + ", member_level="
-				+ member_level + "]";
+				+ ", birthday_coupon=" + birthday_coupon + ", member_level=" + member_level + "]";
 	}
+	
+	
+	
+	
 	
 	
 	

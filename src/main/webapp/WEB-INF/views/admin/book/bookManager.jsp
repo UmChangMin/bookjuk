@@ -63,15 +63,15 @@
 											<ul class="content_box3">					
 												<li class="content_li">
 													<span class="content_title_name">도서명</span>
-													<input type="text" class="form-control" id="inputBookName" name="book_name" value="${bookList.book_name}">
+													<input type="text" class="form-control" id="inputBookName" name="book_name" value="${bookList.book_name}" readonly="readonly">
 												</li>		
 												<li class="content_li">
 													<span class="content_title_name">출판사</span>
-													<input type="text" class="form-control" id="inputPublisher" name="book_publisher" value="${bookList.book_publisher }">
+													<input type="text" class="form-control" id="inputPublisher" name="book_publisher" value="${bookList.book_publisher }" readonly="readonly">
 												</li>
 												<li class="content_li">
 													<span class="content_title_name">저자</span>
-													<input type="text" class="form-control" id="inputAuthor" name="book_author" value="${bookList.book_author}">
+													<input type="text" class="form-control" id="inputAuthor" name="book_author" value="${bookList.book_author}" readonly="readonly">
 												</li>
 												<li class="content_li">
 													<span class="content_title_name category" style="float:left;">분야</span>
@@ -92,24 +92,17 @@
 												
 												<li class="content_li" style="margin-top: 2px;">
 													<span class="content_title_name">발행일</span>
-													<input type="date" class="form-control" id="inputBookDate" name="book_date" value="${sdfBookDate }">													
+													<input type="text" class="form-control" id="inputBookDate" name="book_date" value="${sdfBookDate }" readonly="readonly">													
 												</li>		
 												<li class="content_li">
 													<span class="content_title_name">평점</span>
-													<input type="text" class="form-control" id="inputScore" name="book_score" value="${bookList.book_score }">
+													<input type="text" class="form-control" id="inputScore" name="book_score" value="${bookList.book_score }" readonly="readonly">
 												</li>
 												
 												<li class="content_li" style="margin-top: 2px;">
-													<span class="content_title_name">이미지</span>
-													<input type="file" class="form-control" id="inputImage" onchange="readURL(this);">
-												</li>		
-												<li class="c_orderlist_inputform_value img_margin">
-													<div class="form-group" align="center">											      
-												      <div class="imgLine">											      											      							 
-												        <img id="imgFrame" src="${root }${bookList.book_img }" alt="upload">											        
-												      </div>
-												    </div>												    
-												</li>																						
+													<span class="content_title_name">이미지</span>													
+													<a class="form-control" href="${root}/admin/book/book_Download.do?book_num=${bookList.book_num}" style="float: right;">${bookList.book_file_name}</a>
+												</li>																							
 											</ul>																					
 									</div>		
 														
@@ -119,23 +112,23 @@
 										<ul class="content_box4">																	
 											<li class="content_li textarea_height">
 												<span class="content_title_name">에디터 한마디</span>
-												<textarea class="form-control textarea_height" id="inputEditor" name="book_editor">${bookList.book_editor }</textarea>
+												<textarea class="form-control textarea_height" id="inputEditor" name="book_editor" readonly="readonly">${bookList.book_editor }</textarea>
 											</li>
 											<li class="content_li textarea_height">
 												<span class="content_title_name">목차</span>
-												<textarea class="form-control textarea_height" id="inputIntro" name="book_contents">${bookList.book_contents }</textarea>
+												<textarea class="form-control textarea_height" id="inputIntro" name="book_contents" readonly="readonly">${bookList.book_contents }</textarea>
 											</li>	
 											<li class="content_li textarea_height">
 												<span class="content_title_name">책소개</span>
-												<textarea class="form-control textarea_height" id="inputIntro" name="book_intro">${bookList.book_intro }</textarea>
+												<textarea class="form-control textarea_height" id="inputIntro" name="book_intro" readonly="readonly">${bookList.book_intro }</textarea>
 											</li>
 											<li class="content_li textarea_height">
 												<span class="content_title_name">저자소개</span>
-												<textarea class="form-control textarea_height" id="inputAuthor_info" name="book_author_info">${bookList.book_author_info }</textarea>
+												<textarea class="form-control textarea_height" id="inputAuthor_info" name="book_author_info" readonly="readonly">${bookList.book_author_info }</textarea>
 											</li>	
 											<li class="content_li textarea_height">
 												<span class="content_title_name">출판사 리뷰</span>
-												<textarea class="form-control textarea_height" id="inputPublisher_review" name="book_publisher_review">${bookList.book_publisher_review }</textarea>
+												<textarea class="form-control textarea_height" id="inputPublisher_review" name="book_publisher_review" readonly="readonly">${bookList.book_publisher_review }</textarea>
 											</li>																							
 										</ul>	
 									</div>

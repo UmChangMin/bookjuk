@@ -28,7 +28,8 @@ public class AdminBookDaoImp implements AdminBookDao {
 	}
 	
 	@Override
-	public AdminBookDto search(String book_num) {		
+	public AdminBookDto search_book_num(long book_num) {	
+		System.out.println(book_num);
 		return sqlSessionTemplate.selectOne("bookSearch",book_num);
 	}
 
@@ -51,7 +52,8 @@ public class AdminBookDaoImp implements AdminBookDao {
 
 
 	@Override
-	public int updateOk(AdminBookDto adminBookDto) {		
+	public int updateOk(AdminBookDto adminBookDto) {	
+		System.out.println(adminBookDto);
 		return sqlSessionTemplate.update("book_Update", adminBookDto);
 	}
 
@@ -90,6 +92,21 @@ public class AdminBookDaoImp implements AdminBookDao {
 		return sqlSessionTemplate.selectOne("sub_cate_eng", sub_cate_eng);
 	}
 
+	@Override
+	public int InsertBook_cate(AdminBookDto bookDto) {
+		return sqlSessionTemplate.insert("book_Insert_category", bookDto);
+	}
+
+	@Override
+	public AdminBookDto getFile(long book_num) {
+		return sqlSessionTemplate.selectOne("book_File", book_num);
+	}
+
+	@Override
+	public int update_CateOk(AdminBookDto adminBookDto) {	
+		System.out.println(adminBookDto);
+		return sqlSessionTemplate.update("book_Update_cate", adminBookDto);
+	}
 	
 
 	

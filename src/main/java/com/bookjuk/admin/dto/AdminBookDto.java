@@ -3,7 +3,7 @@ package com.bookjuk.admin.dto;
 import java.util.Date;
 
 public class AdminBookDto {
-	  private int book_num; //NUMBER(10) PRIMARY KEY,    --상품번호
+	  private long book_num; //NUMBER(10) PRIMARY KEY,    --상품번호
 	  private String book_img; //VARCHAR2(100) NOT NULL,    --도서이미지
 	  private String book_name; //VARCHAR2(100) NOT NULL,   --책 제목
 	  private String book_author; //VARCHAR2(30) NOT NULL,    --저자 
@@ -22,10 +22,13 @@ public class AdminBookDto {
 	  private String category_main_eng;
 	  private String category_sub_eng;
 	  
-	public int getBook_num() {
+	  private String book_file_name;
+	  private String book_file_path;
+	  private long book_file_size;
+	public long getBook_num() {
 		return book_num;
 	}
-	public void setBook_num(int book_num) {
+	public void setBook_num(long book_num) {
 		this.book_num = book_num;
 	}
 	public String getBook_img() {
@@ -118,6 +121,24 @@ public class AdminBookDto {
 	public void setCategory_sub_eng(String category_sub_eng) {
 		this.category_sub_eng = category_sub_eng;
 	}
+	public String getBook_file_name() {
+		return book_file_name;
+	}
+	public void setBook_file_name(String book_file_name) {
+		this.book_file_name = book_file_name;
+	}
+	public String getBook_file_path() {
+		return book_file_path;
+	}
+	public void setBook_file_path(String book_file_path) {
+		this.book_file_path = book_file_path;
+	}
+	public long getBook_file_size() {
+		return book_file_size;
+	}
+	public void setBook_file_size(long book_file_size) {
+		this.book_file_size = book_file_size;
+	}
 	@Override
 	public String toString() {
 		return "AdminBookDto [book_num=" + book_num + ", book_img=" + book_img + ", book_name=" + book_name
@@ -126,14 +147,9 @@ public class AdminBookDto {
 				+ ", book_contents=" + book_contents + ", book_author_info=" + book_author_info
 				+ ", book_publisher_review=" + book_publisher_review + ", category_main_kor=" + category_main_kor
 				+ ", category_sub_kor=" + category_sub_kor + ", category_main_eng=" + category_main_eng
-				+ ", category_sub_eng=" + category_sub_eng + "]";
+				+ ", category_sub_eng=" + category_sub_eng + ", book_file_name=" + book_file_name + ", book_file_path="
+				+ book_file_path + ", book_file_size=" + book_file_size + "]";
 	}
-	  
-	  
-	  
-	  
-	
-	
 	
 	
 	  

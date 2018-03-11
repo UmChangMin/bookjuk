@@ -62,7 +62,7 @@
 									
 									
 									<!--  -->
-									<form class="content_box3_formtag" action="${root}/admin/book/bookManager_inputOk.do" method="POST">	
+									<form class="content_box3_formtag" action="${root}/admin/book/bookManager_inputOk.do" method="POST" enctype="multipart/form-data">	
 									<div class="content_box3_form" align="center">
 											<ul class="content_box3">					
 												<li class="content_li">
@@ -114,7 +114,7 @@
 												
 												<li class="content_li" style="margin-top: 2px;">
 													<span class="content_title_name">이미지</span>
-													<input type="file" class="form-control" id="inputImage" onchange="readURL(this);" name="book_img">
+													<input type="file" class="form-control" id="inputImage" onchange="readURL(this);" name="file" size="40">
 												</li>		
 												<li class="c_orderlist_inputform_value img_margin">
 													<div class="form-group" align="center">											      

@@ -35,18 +35,18 @@
 									<ul class="content_box1">
 										<li class="content_box_title">회원정보조회</li>
 										<li class="">
-											<form class="form-horizontal">
+											<form class="form-horizontal" action="${root }/admin/member/memberManager.do">
 											  <fieldset>
 											  
 											    <div class="form-group">											      
 											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="inputId" name="" placeholder="아이디">											        
+											        <input type="text" class="form-control input_width" id="inputId" name="member_id" placeholder="아이디">											        
 											      </div>
 											    </div>
 											    
 											    <div class="form-group">											      
 											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="inputName" placeholder="이름">											        
+											        <input type="text" class="form-control input_width" id="inputName" name="member_name" placeholder="이름">											        
 											      </div>
 											    </div>
 											  											   										    									  

@@ -23,16 +23,20 @@
 	</select>
 	
 	<insert id="book_Insert" parameterType="com.bookjuk.admin.dto.AdminBookDto">
-		insert into book values(#{book_num}, #{book_img}, #{book_name}, #{book_author}, #{book_publisher}, #{book_date}, #{book_score}, #{book_editor}, #{book_contents}, #{book_intro}, #{book_author_info}, #{book_publisher_review})
+		insert into book values(#{book_num}, #{book_img}, #{book_name}, #{book_author}, #{book_publisher}, #{book_date}, #{book_score}, #{book_editor}, #{book_contents}, #{book_intro}, #{book_author_info}, #{book_publisher_review}, #{book_file_name}, #{book_file_path}, #{book_file_size})
 	</insert>
-
+	
+	<insert id="book_Insert_category" parameterType="com.bookjuk.admin.dto.AdminBookDto">
+		insert into category values(#{book_num}, #{category_main_kor},#{category_sub_kor},#{category_main_eng},#{category_sub_eng})
+	</insert>
+	
 	<select id="book_keyword" parameterType="String" resultType="com.bookjuk.admin.dto.AdminBookDto">
 		<![CDATA[
 			select * FROM book WHERE book_name like '%'||#{keyword}||'%' or book_publisher like '%'||#{keyword}||'%'			  
 		]]>
 	</select>
-	<select id="bookSearch" parameterType="java.util.Map" resultType="com.bookjuk.admin.dto.AdminBookDto">
-		select * FROM book b, CATEGORY c WHERE c.book_num=b.book_num and b.book_num=#{book_num}
+	<select id="bookSearch" parameterType="Long" resultType="com.bookjuk.admin.dto.AdminBookDto">
+		select * FROM book b, category c WHERE b.book_num=c.book_num and b.book_num=#{book_num}
 	</select>
 	
 	<select id="book_List" resultType="com.bookjuk.admin.dto.AdminBookDto">
@@ -61,10 +65,21 @@
 	
 	<update id="book_Update" parameterType="com.bookjuk.admin.dto.AdminBookDto">
 		<![CDATA[
-		update book set book_num=#{book_num}, book_name=#{book_name}, book_author=#{book_author}, book_publisher=#{book_publisher}, book_date=#{book_date}, 
-		book_score=#{book_score}, book_editor=#{book_editor}, book_contents=#{book_contents}, book_intro=#{book_intro}, book_author_info=#{book_author_info}, 
-		book_publisher_review=#{book_publisher_review} where book_num=#{book_num}
+		update book set book_img=#{book_img}, book_name=#{book_name}, book_author=#{book_author}, book_publisher=#{book_publisher}, book_date=#{book_date}, 
+		book_score=#{book_score}, book_editor=#{book_editor}, book_intro=#{book_intro}, book_contents=#{book_contents},  book_author_info=#{book_author_info}, 
+		book_publisher_review=#{book_publisher_review}, book_file_name=#{book_file_name}, book_file_path=#{book_file_path}, book_file_size=#{book_file_size}  where book_num=#{book_num}
 		]]>
 	</update>
+	
+	<update id="book_Update_cate" parameterType="com.bookjuk.admin.dto.AdminBookDto">
+		<![CDATA[
+		update category set category_main_kor=#{category_main_kor}, category_sub_kor=#{category_sub_kor}, category_main_eng=#{category_main_eng}, category_sub_eng=#{category_sub_eng}  where book_num=#{book_num}
+		]]>
+	</update>
+	
+	<select id="book_File" parameterType="Long" resultType="com.bookjuk.admin.dto.AdminBookDto">
+		select * from book where book_num=#{book_num}
+	</select>
+	
 	<!-- , category_main_kor=#{category_main_kor}, category_sub_kor=#{category_sub_kor}, category_main_eng=#{category_main_eng}, category_sub_eng=#{category_sub_eng}  -->
 </mapper>

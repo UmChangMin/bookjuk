@@ -64,7 +64,7 @@
 									
 									
 									<!--  -->
-									<form class="content_box3_formtag" action="${root }/admin/book/bookManager_updateOk.do" method="post">	
+									<form class="content_box3_formtag" action="${root }/admin/book/bookManager_updateOk.do" method="post"  enctype="multipart/form-data">	
 									
 									<input type="hidden" value="${bookList.book_num }" name="book_num">
 									<input type="hidden" value="${bookList.category_main_kor }" name="category_main_kor">
@@ -96,7 +96,7 @@
 												      </c:forEach>					          									         
 											        </select>
 											        		
-											        <!-- 승찬이형, 용기  confirm-->
+											       
 											       	<script type="text/javascript">
 											        	var category_main_eng="${category_main_eng}";
 											        	$("select[id='select1'] option[value='"+category_main_eng+"']").attr("selected","selected");
@@ -120,15 +120,15 @@
 												
 												<li class="content_li" style="margin-top: 2px;">
 													<span class="content_title_name">이미지</span>
-													<input type="file" class="form-control" id="inputImage" onchange="readURL(this);">
+													<input type="file" class="form-control" id="inputImage" onchange="readURL(this);" name="file" size="40">
 												</li>		
 												<li class="c_orderlist_inputform_value img_margin">
 													<div class="form-group" align="center">											      
 												      <div class="imgLine">											      											      							 
-												        <img id="imgFrame" src="${root }${bookList.book_img }" alt="upload">											        
+												        <img id="imgFrame" src="#" alt="upload">											        
 												      </div>
 												    </div>												    
-												</li>																						
+												</li>																							
 											</ul>									
 											<!-- 환불, 교환, 반품-->
 										    <div class="form-group btn-margin" align="center">

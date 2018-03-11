@@ -15,6 +15,7 @@ label{
 
 .form-group {
     margin-bottom: 5px;
+        margin-bottom: 25px;
 }
 
 .col-lg-10{
@@ -142,6 +143,8 @@ label{
 .content_box3_form{
 	margin:0px auto;
 	width:480px;
+	    height: auto;
+    overflow: hidden;
 }
 .content_box3_form>div{
 	float:left;
@@ -223,4 +226,8 @@ label{
 
 .form-horizontal{
 	height: 336px;
+}
+
+#select1{
+	width:388px;
 }

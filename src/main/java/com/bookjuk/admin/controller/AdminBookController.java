@@ -73,6 +73,20 @@ public class AdminBookController{
 		return mav;
 	}
 	
+	@RequestMapping(value="/admin/book/book_Download.do",method=RequestMethod.GET)
+	public ModelAndView bookDownload(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"book-download?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminBookService.bookDownloadMove(mav);
+		
+		return null;
+	}
+	
+	
+	
 	@RequestMapping(value="/admin/book/bookManager_update.do",method=RequestMethod.GET)
 	public ModelAndView bookUpdate(HttpServletRequest request, HttpServletResponse response) {
 		

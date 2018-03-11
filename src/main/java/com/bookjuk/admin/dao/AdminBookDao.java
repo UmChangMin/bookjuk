@@ -8,9 +8,10 @@ import com.bookjuk.admin.dto.AdminBookDto;
 public interface AdminBookDao {
 
 	//public AdminBookDto search(String book_name, String book_publisher, String book_author);	//상세검색 -search()로 수정
-	public AdminBookDto search(String book_num);
-	
+	public AdminBookDto search_book_num(long book_num);
+	public AdminBookDto getFile(long book_num);
 	public int InsertBook(AdminBookDto bookDto);
+	public int InsertBook_cate(AdminBookDto bookDto);
 	public List<AdminBookDto> book_keyword(String keyword);//키워드 검색 시
 	
 	public List<AdminBookDto>book_MainCate_List();
@@ -27,4 +28,5 @@ public interface AdminBookDao {
 	public List<AdminBookDto> getBookList(HashMap<String, Integer> hmap);
 	
 	public int updateOk(AdminBookDto adminBookDto); 
+	public int update_CateOk(AdminBookDto adminBookDto);
 }

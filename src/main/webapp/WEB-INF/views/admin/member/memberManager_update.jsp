@@ -12,7 +12,11 @@
 <link rel="stylesheet" type="text/css" href="${root }/css/admin/member/memberManager.css">
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>   
-<script type="text/javascript" src="${root }/js/admin/member.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".nav-item:eq(2)").addClass("active");
+	});
+</script>
 <body>
 	<!-- 타이틀메뉴 시작 -->
 	<div class="all">
@@ -35,7 +39,8 @@
 									
 									<ul class="content_box3">					
 										<li class="content_box3_main_li">
-
+											<form class="content_box3_formtag" action="${root }/admin/member/memberManager_updateOk.do" method="post">
+											<input type="hidden" name="member_num" value="${memberList.member_num }"/>											
 										<div class="content_box3_form">
 											
 											<div class="content_c_orderlist_title">												
@@ -44,7 +49,7 @@
 													<li>이름</li> 
 													<li>비밀번호</li> 
 													<li>이메일</li>
-													<li>메일수신</li> 
+													<li>메일수신</li>
 													<li>생년월일</li> 
 													<li>우편번호</li>
 													<li>주소</li>
@@ -56,13 +61,13 @@
 												</ul>
 											</div>
 											
-											<!-- 주문일자 -->
+											<!-- 고객정보 -->
 											<div class="content_c_orderlist_value">
 												<ul>
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
 													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputId" value="${memberList.member_id }" readonly="readonly">											        
+													        <input type="text" class="form-control" id="inputId" name="member_id" value="${memberList.member_id }" readonly="readonly">											        
 													      </div>
 													    </div>
 													</li>
@@ -70,7 +75,7 @@
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
 													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputName" value="${memberList.member_name }" readonly="readonly">											        
+													        <input type="text" class="form-control" id="inputName" name="member_name" value="${memberList.member_name }">											        
 													      </div>
 													    </div>
 													</li>
@@ -78,7 +83,7 @@
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
 													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputPassword" value="${memberList.member_password }" readonly="readonly">											        
+													        <input type="text" class="form-control" id="inputPassword" name="member_password" value="${memberList.member_password }">											        
 													      </div>
 													    </div>
 													</li>
@@ -86,38 +91,27 @@
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
 													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputEmail" value="${memberList.member_email }" readonly="readonly">											        
+													        <input type="text" class="form-control" id="inputEmail" name="member_email" value="${memberList.member_email }">											        
 													      </div>
 													    </div>
 													</li>
 													
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
-													      <div class="col-lg-10">													     	
-												     	 	<c:if test="${memberList.member_mailing=='yes'}">
-												      			<c:set var="member_mailing" value="${memberList.member_mailing='수신' }"/>
-													      		<input type="text" class="form-control" id="inputMailing" value="${member_mailing }" readonly="readonly">														      		
-												      		</c:if>	
-												      		<c:if test="${memberList.member_mailing=='no'}">
-												      			<c:set var="member_mailing" value="${memberList.member_mailing='수신거부' }"/>
-													      		<input type="text" class="form-control" id="inputMailing" value="${member_mailing }" readonly="readonly">														      		
-												      		</c:if>											      											      							 													        											       
-													      </div>
-													    </div>
-													</li>
-													
-													<li class="c_orderlist_inputform_value">
-														<div class="form-group">											      
-													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputAge" value="${memberList.member_birth }" readonly="readonly">											        
-													      </div>
-													    </div>
-													</li>
-													
-													<li class="c_orderlist_inputform_value">
-														<div class="form-group">											      
-													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputPost" value="${memberList.member_postcode }" readonly="readonly">											        
+													      <div class="col-lg-10">	
+													      	<select name="member_mailing" id="select1" class="form-control">	
+													      		<c:if test="${memberList.member_mailing=='yes'}">
+													      			<c:set var="member_mailing" value="${memberList.member_mailing='수신' }"/>
+														      		<option value="${memberList.member_mailing }" selected="selected">${member_mailing }</option>														      		
+													      		</c:if>	
+													      		<c:if test="${memberList.member_mailing=='no'}">
+													      			<c:set var="member_mailing" value="${memberList.member_mailing='수신거부' }"/>
+														      		<option value="${memberList.member_mailing }" selected="selected">${member_mailing }</option>														      		
+													      		</c:if>													      		
+													      		<option>------</option>											      		
+													      		<option value="yes">수신</option>
+													      		<option value="no">수신거부</option>
+													      	</select>											      											      							 													        											       
 													      </div>
 													    </div>
 													</li>
@@ -125,7 +119,7 @@
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
 													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputAddr" value="${memberList.member_address }" readonly="readonly">											        
+													        <input type="text" class="form-control" id="inputAge" name="member_birth" value="${memberList.member_birth }">											        
 													      </div>
 													    </div>
 													</li>
@@ -133,7 +127,7 @@
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
 													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputDetailAddr" value="${memberList.member_address_detail }" readonly="readonly">											        
+													        <input type="text" class="form-control" id="inputPost" name="member_postcode" value="${memberList.member_postcode }">											        
 													      </div>
 													    </div>
 													</li>
@@ -141,7 +135,7 @@
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
 													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputPhone" value="${memberList.member_phone }" readonly="readonly">											        
+													        <input type="text" class="form-control" id="inputAddr" name="member_address" value="${memberList.member_address }">											        
 													      </div>
 													    </div>
 													</li>
@@ -149,7 +143,7 @@
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
 													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputPoint" value="${memberList.member_point }" readonly="readonly">											        
+													        <input type="text" class="form-control" id="inputDetailAddr" name="member_address_detail" value="${memberList.member_address_detail }">											        
 													      </div>
 													    </div>
 													</li>
@@ -157,22 +151,43 @@
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
 													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputCoupon" value="${memberList.birthday_coupon }" readonly="readonly">											        
+													        <input type="text" class="form-control" id="inputPhone" name="member_phone" value="${memberList.member_phone }">											        
 													      </div>
 													    </div>
 													</li>
 													
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
-													      <div class="col-lg-10">													     	
-												     	 	<c:if test="${memberList.member_level=='admin'}">
-												      			<c:set var="member_level" value="${memberList.member_level='관리자' }"/>
-													      		<input type="text" class="form-control" id="inputLevel" value="${memberList.member_level }" readonly="readonly">														      		
-												      		</c:if>	
-												      		<c:if test="${memberList.member_level=='member'}">
-												      			<c:set var="member_level" value="${memberList.member_level='회원' }"/>
-													      		<input type="text" class="form-control" id="inputLevel" value="${memberList.member_level }" readonly="readonly">														      		
-												      		</c:if>											      											      							 													        											       
+													      <div class="col-lg-10">											      											      							 
+													        <input type="text" class="form-control" id="inputPoint" name="member_point" value="${memberList.member_point }">											        
+													      </div>
+													    </div>
+													</li>
+													
+													<li class="c_orderlist_inputform_value">
+														<div class="form-group">											      
+													      <div class="col-lg-10">											      											      							 
+													        <input type="text" class="form-control" id="inputCoupon" name="birthday_coupon" value="${memberList.birthday_coupon }">											        
+													      </div>
+													    </div>
+													</li>
+													
+													<li class="c_orderlist_inputform_value">
+														<div class="form-group">											      
+													      <div class="col-lg-10">
+													      	<select name="member_level" id="select1" class="form-control">	
+													      		<c:if test="${memberList.member_level=='admin'}">
+													      			<c:set var="member_level" value="${memberList.member_level='관리자' }"/>
+														      		<option value="admin" selected="selected">${member_level }</option>														      		
+													      		</c:if>	
+													      		<c:if test="${memberList.member_level=='member'}">
+													      			<c:set var="member_level" value="${memberList.member_level='회원' }"/>
+														      		<option value="member" selected="selected">${member_level }</option>														      		
+													      		</c:if>													      		
+													      		<option>------</option>											      		
+													      		<option value="admin">관리자</option>
+													      		<option value="member">회원</option>
+													      	</select>													      											      											      							 													       
 													      </div>
 													    </div>
 													</li>
@@ -180,17 +195,16 @@
 												</ul>
 											</div>											
 																					
+											<!-- 환불, 교환, 반품-->
 										
 										</div>
-											<!-- 환불, 교환, 반품-->
 											<div class="form-group">
 										      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left">
-										        <button type="button" class="btn btn-default" onclick="javascript:UpMove('${root}',${memberList.member_num })">수정</button>
-										        <button type="button" class="btn btn-default" onclick="javascript:DelMove('${root}',${memberList.member_num })">삭제</button>
-										        <button type="button" class="btn btn-default" onclick="javascript:BackMove('${root}')">뒤로가기</button>
+										        <button type="submit" class="btn btn-primary">수정</button>
+										        <button type="reset" class="btn btn-default">취소</button>										        
 										      </div>
 										    </div>					    
-										
+											</form>
 										</li>																										
 									</ul>
 								</div>

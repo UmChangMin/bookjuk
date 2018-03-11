@@ -59,13 +59,13 @@ public class AdminMemberController{
 	}
 	
 	@RequestMapping(value="/admin/member/memberManager_updateOk.do",method=RequestMethod.POST)
-	public ModelAndView memberUpdateOk(HttpServletRequest request, HttpServletResponse response, AdminMemberDto adminMemberDto) {
+	public ModelAndView memberUpdateOk(HttpServletRequest request, HttpServletResponse response, AdminMemberDto memberDto) {
 		
 		LogAspect.logger.info(LogAspect.logMsg+"Member_updateOk?");
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
-		mav.addObject("adminMemberDto",adminMemberDto);
+		mav.addObject("memberDto",memberDto);
 		adminMemberService.memberUpdateOk(mav);		
 		return mav;
 	}
@@ -79,12 +79,21 @@ public class AdminMemberController{
 		return mav;		
 	}
 	
-	@RequestMapping(value="/admin/member/memberManager_deleteOk.do",method=RequestMethod.POST)
+	@RequestMapping(value="/admin/member/memberManager_deleteOk.do",method=RequestMethod.GET)
 	public ModelAndView memberDeleteOk(HttpServletRequest request, HttpServletResponse response) {		
 		LogAspect.logger.info(LogAspect.logMsg+"Member_delete?");		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
 		adminMemberService.memberDeleteOk(mav);		
+		return mav;		
+	}
+	
+	@RequestMapping(value="/admin/member/del_AdminChk.do",method=RequestMethod.GET)
+	public ModelAndView adminChk(HttpServletRequest request, HttpServletResponse response) {		
+		LogAspect.logger.info(LogAspect.logMsg+"adminChk?");		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminMemberService.adminChk(mav);		
 		return mav;		
 	}
 }
