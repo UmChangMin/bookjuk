@@ -45,10 +45,12 @@
     overflow: hidden;
 }
 
-.location_Maps_text p{
+.location_Maps_text div{
     text-align: justify;
     font-size: 15px;
     margin-left: 20px;
+    line-height: 2.5;
+    margin-bottom: 15px;
 }
 
 .location_Maps_directions{
@@ -57,8 +59,8 @@
     margin-left: -16px;
 }
 
-.location_Maps_directions p:nth-child(1){
-   text-align: center;
+.location_Maps_directions div{
+    text-align: justify;
    margin-top: 10px;   
 }
 
@@ -68,11 +70,11 @@
 }
 
 .location_Maps_text_h3{
-    margin-top: 15px;
+	margin-top: 24px;
     margin-left: 20px;
-    margin-bottom: 31px;
+    margin-bottom: 11px;
     color: #ffa7a7;
-    font-size: 20px;
+    font-size: 25px;
 }
 .location_information{
     margin-left: 22px;
@@ -81,15 +83,8 @@
     margin-bottom: 15px;
 }
 
-.location_Maps_directions_h3{
-    margin-top: 17px;
-    margin-left: 25px;
-    color: #ffa7a7;
-    font-size: 20px;
-}
-
 #map {
-   width: 1010px;
+   width: 1013px;
    height: 241px;
 }
 
@@ -108,9 +103,16 @@ html, body {
 
 
 .btn{
-    width: 92px;
-    height: 36px;
-    margin: 3px;
-    background: none;
+    width: 69px;
+    margin: 12px;
     cursor: pointer;
+    float: left;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
    }
+   
+   
+.tabs_ul > li:nth-child(1){
+    margin-left: 25px;
+}

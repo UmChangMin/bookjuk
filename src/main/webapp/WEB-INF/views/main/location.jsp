@@ -7,10 +7,8 @@
 <head>
 <meta name="viewport" content="initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css"
-	href="${root}/css/main/location.css" />
-<link rel="stylesheet" type="text/css"
-	href="${root}/css/template/basic.css" />
+<link rel="stylesheet" type="text/css" href="${root}/css/main/location.css" />
+<link rel="stylesheet" type="text/css" href="${root}/css/template/basic.css" />
 <script type="text/javascript" src="${root}/js/xhr.js"></script>
 <title>영업점 안내</title>
 </head>
@@ -29,7 +27,7 @@
 					<div class="tabs_top">
 						<ul class="tabs_ul">
 							<c:forEach var="lacationList" items="${locationDtoList}">
-								<li><a href="${root}/location.do?location_num=${lacationList.location_num}" class="btn">${lacationList.location_name}</a></li>
+								<li><a href="${root}/location.do?location_num=${lacationList.location_num}" class="btn" style="color: white;">${lacationList.location_name}</a></li>
 							</c:forEach>
 						</ul>
 					</div>
@@ -49,7 +47,7 @@
 								    var marker = new google.maps.Marker({
 								      position: location,
 								      map: map,
-								      title : '북적북적 ${locationDto.location_name}점)'
+								      title : '북적북적 ${locationDto.location_name}점'
 								    });
 								  }
 								</script>
@@ -58,20 +56,20 @@
 						</div>
 						<div class="location_Maps_text">
 							<h3 class="location_Maps_text_h3">${locationDto.location_name}점</h3>
-							<p>
+							<div>
 								전화번호 : ${locationDto.location_call}<br /> 
 								팩스 : ${locationDto.location_fax}<br /> 
 								영업시간 : ${locationDto.location_hour}<br /> 
 								주소 : ${locationDto.location_addr}&nbsp;${locationDto.location_addr_detail}
-							</p>
+							</div>
 						</div>
-						<div class="location_Maps_directions">
-							<h3 class="location_Maps_directions_h3">오시는길</h3>
+						<div class="location_Maps_text">
+							<h3 class="location_Maps_text_h3">오시는길</h3>
 							<br />
 
-							<p class="location_Maps_directions_p">
+							<div class="location_Maps_directions_p">
 								${locationDto.location_comming}
-							</p>
+							</div>
 						</div>
 					</div>
 					<!-- 지도,영업점 정보 끝 -->
