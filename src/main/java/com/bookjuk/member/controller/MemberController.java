@@ -193,6 +193,26 @@ public class MemberController {
 		return floating(mav, request);
 	}
 	
+	@RequestMapping(value = "/update/check.do", method = RequestMethod.GET)
+	public ModelAndView updateCheck(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		
+		memberService.updateCheck(mav);
+		
+		return floating(mav, request);
+	}
+	
+	@RequestMapping(value = "/update/checkOk.do", method = RequestMethod.POST)
+	public ModelAndView updateCheckOk(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request",request);
+		
+		memberService.updateCheckOk(mav);
+		
+		return mav;
+	}
+	
 	@RequestMapping(value = "/updateOk.do", method = RequestMethod.POST)
 	public ModelAndView updateOk(HttpServletRequest request, HttpServletResponse response,MemberDto memberDto) {
 		ModelAndView mav = new ModelAndView();

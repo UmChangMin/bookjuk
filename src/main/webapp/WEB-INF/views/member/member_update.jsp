@@ -82,7 +82,7 @@
 							<div class="memberUpdate_com">
 								<div>휴대폰번호</div>
 								<div class="update_input">
-									<input type="text" class="update_phone" placeholder="휴대폰 번호를 입력해주세요." name="member_phone" value="${memberDto.member_phone}">
+									<input type="text" class="update_phone" id="phone" placeholder="휴대폰 번호를 입력해주세요." name="member_phone" value="${memberDto.member_phone}">
 								</div>
 							</div>
 						</div>

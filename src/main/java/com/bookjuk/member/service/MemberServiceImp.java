@@ -271,4 +271,37 @@ public class MemberServiceImp implements MemberService {
 		mav.setViewName("member/member_point.empty");
 		
 	}
+
+
+	@Override
+	public void updateCheck(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		HttpSession session = request.getSession();
+		String member_id = (String) session.getAttribute("member_id");
+		
+		mav.addObject("member_id", member_id);
+		
+		mav.setViewName("/member/member_pwd_check.search");
+	}
+
+
+	@Override
+	public void updateCheckOk(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		String member_id = request.getParameter("member_id");
+		String member_password = request.getParameter("member_password");
+		int member_num = 0;
+		
+		int count = memberDao.upCheck(member_id, member_password);
+		if(count > 0){
+			member_num = memberDao.upCheckOk(member_id, member_password);
+		}
+		LogAspect.logger.info(LogAspect.logMsg + member_num);
+		
+		mav.addObject("member_num", member_num);
+		
+		mav.setViewName("/member/member_pwd_checkOk.empty");
+	}
 }

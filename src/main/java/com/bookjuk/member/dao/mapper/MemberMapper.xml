@@ -33,6 +33,14 @@
   		<![CDATA[update member set member_password=#{member_password},member_email=#{member_email},member_postcode=#{member_postcode},member_address=#{member_address},member_address_detail=#{member_address_detail},member_phone=#{member_phone} where member_num=#{member_num}]]>
   	</update>
   	
+  	<select id="upCheck" parameterType="java.util.Map" resultType="int">
+  		SELECT nvl(count(member_num), 0) FROM member WHERE member_id = #{member_id} AND member_password = #{member_password}
+  	</select>
+  	
+  	<select id="upCheckOk" parameterType="java.util.Map" resultType="int">
+  		SELECT member_num FROM member WHERE member_id = #{member_id} AND member_password = #{member_password}
+  	</select>
+  	
   	<!-- 나의 문의 내역 -->
   	<select id="mypageCount" resultType="int" >
   		<![CDATA[select count(*) from service_contact where member_id=#{member_id}]]>

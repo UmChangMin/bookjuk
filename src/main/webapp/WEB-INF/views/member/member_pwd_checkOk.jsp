@@ -10,17 +10,16 @@
 <title>회원수정</title>
 </head>
 <body>
-	<c:if test="${check == 0}">
+	<c:if test="${member_num == 0}">
 		<script type="text/javascript">
-			alert("회원 정보 수정에 실패하였습니다.");
-			$(location).attr("href","${root}/member/update.do");
+			alert("입력하신 비밀번호가 맞지 않습니다.");
+			$(location).attr("href","${root}/member/update/check.do");
 		</script>
 	</c:if>
 
-	<c:if test="${check > 0}">
+	<c:if test="${member_num > 0}">
 		<script type="text/javascript">
-			alert("회원 정보 수정에 성공하였습니다.");
-			$(location).attr("href","${root}/member/mypage.do");
+			$(location).attr("href","${root}/member/update.do?member_num=${member_num}");
 		</script>
 	</c:if>
 </body>

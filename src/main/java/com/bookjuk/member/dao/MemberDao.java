@@ -18,6 +18,8 @@ public interface MemberDao {
 	public int deleteMemberContact(String member_id);
 	
 	public MemberDto upSelect(String member_id);
+	public int upCheck(String member_id, String member_password);
+	public int upCheckOk(String member_id, String member_password);
 	public int update(MemberDto memberDto);
 	
 	public int coupon(String member_id);

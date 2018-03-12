@@ -13,8 +13,8 @@
 <script type="text/javascript" src="${root}/js/member/member_delete.js"></script>
 </head>
 <body>
-	<!-- 회원탈퇴 시작 강민아-->
-	<form action="${root}/member/deleteOk.do" method="post" onsubmit="return memberDelete(this)">
+	<!-- 회원비밀번호 재확인 시작 강민아-->
+	<form action="${root}/member/update/checkOk.do" method="POST">
 	
 	<div id="memberDelete_all">
 		<div class="memberDeletes">
@@ -30,7 +30,7 @@
 				</div><br/><br/>  
 				
 				
-				<!-- 회원탈퇴 시작 -->
+				<!-- 회원비밀번호 재확인 시작 -->
 				<div class="memberDelete_start">
 					<div class="memberDelete_form">
 						<div class="memberDelete_id">
@@ -53,7 +53,7 @@
 						<input type="reset" value="취소"/>
 					</div>
 				</div>
-				<!-- 회원탈퇴 끝 -->
+				<!-- 회원비밀번호 재확인 끝 -->
 			</div>
 		</div>
 	</div>

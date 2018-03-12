@@ -53,7 +53,6 @@ public class MemberDaoImp implements MemberDao {
 	@Override
 	public String finfPwd(String id, String email) {
 		Map<String, String> hMap = new HashMap<String, String>();
-		
 		hMap.put("member_id", id);
 		hMap.put("member_email", email);
 		
@@ -62,14 +61,30 @@ public class MemberDaoImp implements MemberDao {
 
 	@Override
 	public MemberDto upSelect(String member_id) {
-		
 		return sqlSession.selectOne("upSelect",member_id);
 	}
 
 	@Override
 	public int update(MemberDto memberDto) {
-		
 		return sqlSession.update("update",memberDto);
+	}
+	
+	@Override
+	public int upCheck(String member_id, String member_password) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("member_id", member_id);
+		map.put("member_password", member_password);
+		
+		return sqlSession.selectOne("upCheck", map);
+	}
+
+	@Override
+	public int upCheckOk(String member_id, String member_password) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("member_id", member_id);
+		map.put("member_password", member_password);
+		
+		return sqlSession.selectOne("upCheckOk", map);
 	}
 
 	@Override
@@ -130,5 +145,4 @@ public class MemberDaoImp implements MemberDao {
 	public int deleteMemberContact(String member_id) {
 		return sqlSession.delete("deleteMemberContact", member_id);
 	}
-	
 }

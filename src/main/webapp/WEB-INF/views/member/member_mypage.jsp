@@ -61,7 +61,7 @@
 								<li>
 									<h4>회원 정보 관리</h4>
 									<ul>
-										<li><a href="${root}/member/update.do">회원정보수정</a></li>
+										<li><a href="${root}/member/update/check.do">회원정보수정</a></li>
 										<li><a href="${root}/member/delete.do">회원탈퇴</a></li>
 									</ul>
 								</li>

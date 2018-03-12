@@ -23,6 +23,22 @@ var regexName = /^[가-힣]{2,4}$/;
 var regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
 var regexBirth = /^[0-9]{6}$/;
 
+function focus(num) {
+	num = num.replace(/[^0-9]/g, '');
+	$("#phone").val(num);
+}
+
+function blur(num) {
+	num = num.replace(/[^0-9]/g, '');
+	var tmp = '';
+	tmp += num.substr(0, 3);
+	tmp += '-';
+	tmp += num.substr(3, 4);
+	tmp += '-';
+	tmp += num.substr(7);
+	$("#phone").val(tmp);
+}
+
 function checkPwd(){
 	var input = $(".update_pwd").val();
 
@@ -64,6 +80,15 @@ function checkEmail(){
 }
 
 $(function(){
+	$("input#phone").blur(function(){
+    	var num = $("#phone").val();
+    	blur(num)
+	});
+	$("input#phone").click(function(){
+	    	var num = $("#phone").val();
+	    	focus(num);
+	});
+	
 	$(".update_input input").on("focus", function(){
 		if($(this).hasClass("update_pwd")){
 			$(this).attr("placeholder","최소 8자 이상 특수문자 포함");
@@ -161,21 +186,39 @@ function memberUpdate(obj) {
 		obj.member_password.focus();
 		return false;
 	}
-	  if($("input[name='member_passwordOk']").val()==""){
+	if($("input[name='member_passwordOk']").val()==""){
           alert("비밀번호를 입력해주세요");
           $("input[name='member_passwordOk']").focus();
           return;
-       }
-	  
-	  if($("input[name='member_password']").val()!=$("input[name='member_passwordOk']").val()){
-			alert("비밀번호가 일치하지 않습니다");
-			$("input[name='member_password']").focus();
-			return;
-		}
-	
+    }
+		
 	if (obj.member_email.value == "") {
 		alert("이메일을 입력해주세요");
 		obj.member_email.focus();
+		return false;
+	}
+	if($("input[name='member_password']").val()!=$("input[name='member_passwordOk']").val()){
+		alert("비밀번호가 일치하지 않습니다");
+		$("input[name='member_password']").focus();
+		return;
+	}
+  
+
+	if (!regexName.test($.trim($(".update_name").val()))) {
+		alert("이름 : 2~4 글자를 입력해주세요.");
+		$(".update_name").focus();
+		return false;
+	}
+
+	if (!regexPwd.test($.trim($(".update_pwd").val()))) {
+		alert("비밀번호 : 특수문자, 영문 소문자, 숫자 포함, 8~15자 입력해주세요.");
+		$(".update_pwd").focus();
+		return false;
+	}
+
+	if (!regexEmail.test($.trim($(".update_email").val()))) {
+		alert("이메일 형식이 잘못되었습니다.");
+		$(".update_email").focus();
 		return false;
 	}
 }

@@ -12,6 +12,8 @@ public interface MemberService {
 	public void deleteOk(ModelAndView mav);
 	public void update(ModelAndView mav);
 	public void updateOk(ModelAndView mav);
+	public void updateCheck(ModelAndView mav);
+	public void updateCheckOk(ModelAndView mav);
 	public void zipcode(ModelAndView mav);
 	
 	public void mypage(ModelAndView mav);
