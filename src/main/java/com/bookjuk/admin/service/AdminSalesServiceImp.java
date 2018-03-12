@@ -26,7 +26,7 @@ public class AdminSalesServiceImp implements AdminSalesService {
 	public void salesMove(ModelAndView mav) {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
-		AdminSalesDto salesDto=new AdminSalesDto();
+		/*AdminSalesDto salesDto=new AdminSalesDto();
 
 		SimpleDateFormat sdf= new SimpleDateFormat("yyyyMMdd");
 		
@@ -38,7 +38,7 @@ public class AdminSalesServiceImp implements AdminSalesService {
 		long tm_sa;
 		long tm_rf;
 		long tot_sa;
-		long tot_rf;
+		long tot_rf;*/
 		
 		
 		mav.setViewName("admin/sales/salesManager.admin");
