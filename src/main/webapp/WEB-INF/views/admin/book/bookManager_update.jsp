@@ -95,8 +95,7 @@
 												      	<option value="${book.category_main_eng }" id="cate_select">${book.category_main_kor}</option>
 												      </c:forEach>					          									         
 											        </select>
-											        		
-											       
+											        													    
 											       	<script type="text/javascript">
 											        	var category_main_eng="${category_main_eng}";
 											        	$("select[id='select1'] option[value='"+category_main_eng+"']").attr("selected","selected");

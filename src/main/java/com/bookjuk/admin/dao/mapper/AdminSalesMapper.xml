@@ -4,9 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bookjuk.admin.dao.mapper.AdminLocationMapper">
 	
-	<select id="today_sales" parameterType="String" resultType="long">
+	<select id="today_order_sales" resultType="long">
 		<![CDATA[
-			select sum(order_total_price) FROM book_order WHERE order_date between to_date(#{to}#,'yyyyDDMM') AND TO_DATE(#{to}#,'yyyyMMDD')+0.99999
+			SELECT sum(order_total_price) FROM book_order WHERE to_char(#{date},'yy/mm/dd')=to_char(#{date},'yy/MM/DD')
 		]]>
 	</select>
 	

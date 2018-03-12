@@ -141,7 +141,7 @@
 									    <div class="form-group btn-margin" align="center">
 										      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left" id="btn-margin">
 											        <button type="button" class="btn btn-default" onclick="upmove('${root }','${bookList.book_num}','${bookList.category_main_eng }')">수정</button>												        
-											        <button type="button" class="btn btn-default" id="" onclick="location.href='${root}/admin/book/bookManager_search.do">목록</button>
+											        <button type="button" class="btn btn-default" id="" onclick="location.href='${root}/admin/book/bookManager_search.do'">목록</button>
 											        <button type="button" class="btn btn-default" onclick="delmove('${root }','${bookList.book_num}')">삭제</button>
 										      </div>
 									    </div>						

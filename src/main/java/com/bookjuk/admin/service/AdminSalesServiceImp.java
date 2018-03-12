@@ -1,6 +1,5 @@
 package com.bookjuk.admin.service;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
@@ -27,12 +26,8 @@ public class AdminSalesServiceImp implements AdminSalesService {
 		Map<String,Object>map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		/*AdminSalesDto salesDto=new AdminSalesDto();
-
-		SimpleDateFormat sdf= new SimpleDateFormat("yyyyMMdd");
 		
-		Date sales_date=new Date();
-		String to=sdf.format(sales_date);
-		long td_sa=salesDao.td_sa(to);
+		long td_sa=salesDao.td_sa(new Date());
 		System.out.println(td_sa);
 		long td_rf;
 		long tm_sa;

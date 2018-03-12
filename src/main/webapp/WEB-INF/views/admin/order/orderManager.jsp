@@ -178,7 +178,12 @@
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
 													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputTotalPrice" name="order_total_price" value="${orderDto.order_total_price}" readonly="readonly">											        
+													        	<c:if test="${orderDto.order_state=='반품완료' }">										      											      							 
+													        	<input type="text" class="form-control" id="inputTotalPrice" name="order_total_price" value="0" readonly="readonly">
+													        </c:if>	
+													        <c:if test="${orderDto.order_state!='반품완료' }">										      											      							 
+													        	<input type="text" class="form-control" id="inputTotalPrice" name="order_total_price" value="${orderDto.order_total_price}" readonly="readonly">
+													        </c:if>													        
 													      </div>
 													    </div>
 													</li>

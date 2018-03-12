@@ -113,6 +113,7 @@ public class AdminBookServiceImp implements AdminBookService {
 		
 		if(fileSize!=0) {
 			File path=new File("c:\\bookjuk\\");
+			
 			path.mkdir();
 			
 			if(path.isDirectory() && path.exists()) {
@@ -145,9 +146,9 @@ public class AdminBookServiceImp implements AdminBookService {
 		bookDto.setBook_num(random.nextInt(100000));
 		
 		int rand=random.nextInt(1000);
-		String img_path="/book_img/"+main_cate_eng+"/"+sub_cate_eng+"/"+main_cate_eng+"_"+sub_cate_eng+"_"+rand;
 		
-		bookDto.setBook_img(img_path+bookDto.getBook_img());
+		String img_path="/book_img/"+main_cate_eng+"/"+sub_cate_eng+"/"+main_cate_eng+"_"+sub_cate_eng+"_"+rand;		
+		bookDto.setBook_img(img_path+fileName);
 		
 		bookDto.setBook_score(0);
 		bookDto.setBook_date(new Date());
@@ -235,8 +236,6 @@ public class AdminBookServiceImp implements AdminBookService {
 		Random random=new Random();
 		
 		LogAspect.logger.info(LogAspect.logMsg+bookDto.toString());
-		
-		//LogAspect.logger.info(LogAspect.logMsg+adminBookDto.toString());
 		String book_date=request.getParameter("book_date");
 		SimpleDateFormat sdf=new SimpleDateFormat("yy/MM/dd");
 		try {
@@ -264,7 +263,8 @@ public class AdminBookServiceImp implements AdminBookService {
 		LogAspect.logger.info(LogAspect.logMsg + fileName +"< "+ fileSize);
 		
 		if(fileSize!=0) {
-			File path=new File("c:\\bookjuk\\");
+			File path=new File("C:\\ucm\\bookjuk\\workspace\\bookjuk\\src\\main\\webapp\\book_img");
+			
 			path.mkdir();
 			
 			if(path.isDirectory() && path.exists()) {

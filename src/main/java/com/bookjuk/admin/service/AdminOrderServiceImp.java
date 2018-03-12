@@ -161,6 +161,10 @@ public class AdminOrderServiceImp implements AdminOrderService {
 		    int book_amount=Integer.parseInt(tokensA.nextToken());
 		    mav.addObject("book_amount",book_amount);
 		  } 
+		  
+		  if(orderDto.getOrder_state()=="반품완료") {
+			  orderDto.setOrder_total_price(0);
+		  }
 		SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd HH:mm"); 		
 	    String sdfOrderDate = sdf.format(orderDto.getOrder_date());
 	    System.out.println(sdfOrderDate);

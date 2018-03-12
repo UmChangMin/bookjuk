@@ -185,6 +185,8 @@
 													        	<option>---------</option>
 													        	<option value="배송중">배송중</option>
 													        	<option value="배송준비중">배송준비중</option>
+													        	<option value="배송완료">"배송완료"</option>
+													        	<option value="교환완료">교환완료</option>
 													        	<option value="반품완료">반품완료</option>
 													        	<option value="환불완료">환불완료</option>
 													        </select>											        
@@ -194,8 +196,13 @@
 													
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
-													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputTotalPrice" name="order_total_price" value="${orderDto.order_total_price}">											        
+													      <div class="col-lg-10">	
+													      	<c:if test="${orderDto.order_state=='반품완료' }">										      											      							 
+													        	<input type="text" class="form-control" id="inputTotalPrice" name="order_total_price" value="0">
+													        </c:if>	
+													        <c:if test="${orderDto.order_state!='반품완료' }">										      											      							 
+													        	<input type="text" class="form-control" id="inputTotalPrice" name="order_total_price" value="${orderDto.order_total_price}">
+													        </c:if>										        
 													      </div>
 													    </div>
 													</li>

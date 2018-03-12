@@ -1,5 +1,7 @@
 package com.bookjuk.admin.dao;
 
+import java.util.Date;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,9 +14,8 @@ public class AdminSalesDaoImp implements AdminSalesDao {
 	
 
 	@Override
-	public long td_sa(String to) {
-		System.out.println(to);
-		return sqlSessionTemplate.selectOne("today_sales", to);
+	public long td_sa(Date date) {
+		return sqlSessionTemplate.selectOne("today_order_sales",date);
 	}
 
 	
