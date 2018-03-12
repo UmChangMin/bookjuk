@@ -107,6 +107,48 @@ public class AdminBookDaoImp implements AdminBookDao {
 		System.out.println(adminBookDto);
 		return sqlSessionTemplate.update("book_Update_cate", adminBookDto);
 	}
+
+	@Override
+	public int deleteOk(String book_num) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.delete("book_Delete", book_num);
+	}
+
+	@Override
+	public int delete_member_review(String book_num) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.delete("delete_member_review", book_num);
+	}
+
+	@Override
+	public int delete_CATEGORY(String book_num) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.delete("delete_CATEGORY", book_num);
+	}
+
+	@Override
+	public int delete_product(String book_num) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.delete("delete_product", book_num);
+	}
+
+	@Override
+	public int delete_md_recommend(String book_num) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.delete("delete_md_recommend", book_num);
+	}
+
+	@Override
+	public int delete_current_book(String book_num) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.delete("delete_current_book", book_num);
+	}
+
+	@Override
+	public int delete_cart(String book_num) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.delete("delete_cart", book_num);
+	}
 	
 
 	

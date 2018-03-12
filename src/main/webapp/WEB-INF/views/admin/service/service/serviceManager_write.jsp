@@ -36,15 +36,15 @@
 							<div class="content_title_signature" align="center">자주묻는질문쓰기</div>	
 							<div class="content_form" align="center">
 							
-								<form>
+								<form action="${root }/admin/service/service/serviceManager_writeOk.do" method="post">
 									
-									<input type="text" class="notice_1_write" placeholder="제목">
-									<textarea rows="8" cols="76"></textarea>
+									<input type="text" class="notice_1_write" name="question_subject" placeholder="제목">
+									<textarea rows="8" name="question_content"  cols="76"></textarea>
 									
 									<div class="form-group btn-margin" align="center">
 									      <div class="col-lg-10 col-lg-offset-2" id="btn-margin">
-										        <button type="submit" class="btn btn-default" id="" onclick="location.href='serviceManager.do'">완료</button>
-										        <button type="reset" class="btn btn-default" id="" onclick="location.href='serviceManager.do'">취소</button>										        										     
+										        <button type="submit" class="btn btn-default" id="">완료</button>
+										        <button type="reset" class="btn btn-default" id="">취소</button>										        										     
 									      </div>
 									</div>
 								</form>

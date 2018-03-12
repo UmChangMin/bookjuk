@@ -13,4 +13,7 @@ public interface AdminBookService {
 	public void bookUpdateMove(ModelAndView mav);
 	public void bookUpdateOkMove(ModelAndView mav);
 	
+	public void bookDeleteMove(ModelAndView mav);
+	public void bookDeleteOkMove(ModelAndView mav);
+	
 }

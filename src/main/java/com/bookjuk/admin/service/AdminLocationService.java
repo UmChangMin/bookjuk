@@ -13,4 +13,13 @@ public interface AdminLocationService {
 	
 	public void locationInputOk(ModelAndView mav);
 	public void locationOutputMove(ModelAndView mav);
+	
+	public void locationUpdateMove(ModelAndView mav);
+	public void locationUpdateOkMove(ModelAndView mav);
+	
+	public void locationDeleteMove(ModelAndView mav);
+	public void locationDeleteOkMove(ModelAndView mav);
+	
 }
+
+

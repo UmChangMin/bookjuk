@@ -3,60 +3,62 @@ package com.bookjuk.admin.dto;
 import java.util.Date;
 
 public class AdminSalesDto {
-	private long td_sales;
-	private long td_refund;
-	private long tm_sales;
-	private long tm_refund;	
+	private long today_sales;
+	private long today_refund;
+	private long tmonth_sales;
+	private long tmonth_refund;	
+	private long total_sales;
+	private long total_refund;
 	private Date sales_date;
-	
-	public AdminSalesDto(){}
-
-	public long getTd_sales() {
-		return td_sales;
+	public long getToday_sales() {
+		return today_sales;
 	}
-
-	public void setTd_sales(long td_sales) {
-		this.td_sales = td_sales;
+	public void setToday_sales(long today_sales) {
+		this.today_sales = today_sales;
 	}
-
-	public long getTd_refund() {
-		return td_refund;
+	public long getToday_refund() {
+		return today_refund;
 	}
-
-	public void setTd_refund(long td_refund) {
-		this.td_refund = td_refund;
+	public void setToday_refund(long today_refund) {
+		this.today_refund = today_refund;
 	}
-
-	public long getTm_sales() {
-		return tm_sales;
+	public long getTmonth_sales() {
+		return tmonth_sales;
 	}
-
-	public void setTm_sales(long tm_sales) {
-		this.tm_sales = tm_sales;
+	public void setTmonth_sales(long tmonth_sales) {
+		this.tmonth_sales = tmonth_sales;
 	}
-
-	public long getTm_refund() {
-		return tm_refund;
+	public long getTmonth_refund() {
+		return tmonth_refund;
 	}
-
-	public void setTm_refund(long tm_refund) {
-		this.tm_refund = tm_refund;
+	public void setTmonth_refund(long tmonth_refund) {
+		this.tmonth_refund = tmonth_refund;
 	}
-
+	public long getTotal_sales() {
+		return total_sales;
+	}
+	public void setTotal_sales(long total_sales) {
+		this.total_sales = total_sales;
+	}
+	public long getTotal_refund() {
+		return total_refund;
+	}
+	public void setTotal_refund(long total_refund) {
+		this.total_refund = total_refund;
+	}
 	public Date getSales_date() {
 		return sales_date;
 	}
-
 	public void setSales_date(Date sales_date) {
 		this.sales_date = sales_date;
 	}
-
 	@Override
 	public String toString() {
-		return "SalesDto [td_sales=" + td_sales + ", td_refund=" + td_refund
-				+ ", tm_sales=" + tm_sales + ", tm_refund=" + tm_refund
-				+ ", sales_date=" + sales_date + "]";
-	};
+		return "AdminSalesDto [today_sales=" + today_sales + ", today_refund=" + today_refund + ", tmonth_sales="
+				+ tmonth_sales + ", tmonth_refund=" + tmonth_refund + ", total_sales=" + total_sales + ", total_refund="
+				+ total_refund + ", sales_date=" + sales_date + "]";
+	}
+	
 	
 	
 }

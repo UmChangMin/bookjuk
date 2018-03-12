@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.bookjuk.admin.dao.mapper.AdminLocationMapper">
+<mapper namespace="com.bookjuk.admin.dao.mapper.AdminBookMapper">
 	<select id="getBookCount" resultType="int">
 		select count(*) from book
 	</select>
@@ -81,5 +81,32 @@
 		select * from book where book_num=#{book_num}
 	</select>
 	
+	<delete id="book_Delete" parameterType="String">
+		delete from book where book_num=#{book_num}
+	</delete>
+	
+	<delete id="delete_member_review" parameterType="String">
+		delete from member_review where book_num=#{book_num}
+	</delete>
+	
+	<delete id="delete_CATEGORY" parameterType="String">
+		delete from CATEGORY where book_num=#{book_num}
+	</delete>
+	
+	<delete id="delete_product" parameterType="String">
+		delete from product where book_num=#{book_num}
+	</delete>
+	
+	<delete id="delete_md_recommend" parameterType="String">
+		delete from md_recommend where book_num=#{book_num}
+	</delete>
+	
+	<delete id="delete_current_book" parameterType="String">
+		delete from current_book where book_num=#{book_num}
+	</delete>
+	
+	<delete id="delete_cart" parameterType="String">
+		delete from cart where book_num=#{book_num}	
+	</delete>
 	<!-- , category_main_kor=#{category_main_kor}, category_sub_kor=#{category_sub_kor}, category_main_eng=#{category_main_eng}, category_sub_eng=#{category_sub_eng}  -->
 </mapper>

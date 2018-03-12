@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bookjuk.admin.dao.AdminOrderMapper">
+	
+	<select id="getOrderCount" resultType="int">
+		select count(*) from book_order
+	</select>
+	
+	<select id="getOrderList2" parameterType="java.util.HashMap" resultType="com.bookjuk.admin.dto.AdminOrderDto">
+		<![CDATA[
+			SELECT * FROM (SELECT ROWNUM rnum, A.* FROM 
+			(SELECT * FROM book_order ORDER BY order_date desc) A)b 		
+		]]>
+	</select>
+	<select id="select_order" parameterType="String" resultType="com.bookjuk.admin.dto.AdminOrderDto">
+		select * from book_order where order_num=#{order_num}
+	</select>
+	
+	<select id="select_order_delivery" parameterType="String" resultType="com.bookjuk.admin.dto.AdminOrderDto">
+		select * from delivery where order_num=#{order_num}
+	</select>
+	
+	<select id="getBookInfo_admin" parameterType="Long" resultType="com.bookjuk.admin.dto.AdminBookDto">
+		select * from book where book_num=#{book_num}
+	</select>
+	
+	<select id="getBookProduct_admin" parameterType="Long" resultType="com.bookjuk.admin.dto.AdminOrderDto">
+		select * from product where book_num=#{book_num}
+	</select>
+	
+	<select id="order_num_upSelect" parameterType="String" resultType="com.bookjuk.admin.dto.AdminOrderDto">
+		select * from delivery where order_num=#{order_num}
+	</select>
+	
+	<select id="book_num_upSelect" parameterType="Long" resultType="com.bookjuk.admin.dto.AdminBookDto">
+		select * from book where book_num=#{book_num}
+	</select>
+	
+	
+	<update id="update_orderlist" parameterType="com.bookjuk.admin.dto.AdminOrderDto">
+		update book_order set order_id=#{order_id}, order_list=#{order_list}, amount_list=#{amount_list}, order_date=#{order_date}, order_state=#{order_state}, order_payment=#{order_payment},
+		order_point=#{order_point}, order_coupon=#{order_coupon}, order_total_price=#{order_total_price}, order_total_point=#{order_total_point},refund_name=#{refund_name}, refund_bank=#{refund_bank}, refund_account=#{refund_account}
+		where order_num=#{order_num}
+	</update>
+	
+	<update id="update_delivery_list" parameterType="com.bookjuk.admin.dto.AdminOrderDto">
+		update delivery set order_name=#{order_name}, order_phone=#{order_phone}, order_postcode=#{order_postcode}, order_address=#{order_address}, order_memo=#{order_memo}
+		where order_num=#{order_num}
+	</update>
+	
+</mapper>

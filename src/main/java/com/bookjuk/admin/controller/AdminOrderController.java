@@ -47,4 +47,31 @@ public class AdminOrderController{
 		return mav;
 	}
 	
+	@RequestMapping(value="/admin/order/orderManager_update.do",method=RequestMethod.GET)
+	public ModelAndView orderUpdate(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"order-update?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		
+		adminOrderService.orderUpdateMove(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/admin/order/orderManager_updateOk.do",method=RequestMethod.POST)
+	public ModelAndView orderUpdateOk(HttpServletRequest request, HttpServletResponse response, AdminOrderDto orderDto) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"order-updateOk?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("orderDto",orderDto);
+		
+		adminOrderService.orderUpdateOkMove(mav);
+		
+		return mav;
+	}
+	
 }

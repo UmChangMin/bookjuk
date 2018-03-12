@@ -8,6 +8,10 @@
 		insert into service_notice values(notice_num_seq.nextval, #{notice_subject}, #{notice_content}, #{notice_writer}, #{notice_date})
 	</insert>
 	
+	<insert id="service_question_insert" parameterType="com.bookjuk.admin.dto.AdminService_questionDto">
+		insert into service_question values(#{question_num}, #{question_subject}, #{question_content}, #{question_date})
+	</insert>
+	
 	<select id="getCount" resultType="int">
 		select count(*) from service_notice
 	</select>
@@ -78,6 +82,10 @@
 	<delete id="contact_Delete" parameterType="String">
 		delete from service_contact where contact_num=#{contact_num}
 	</delete>
-	
-	
+	<select id="service_File" parameterType="Long" resultType="com.bookjuk.admin.dto.AdminService_contactDto">
+		select * from service_contact where contact_num=#{contact_num}
+	</select>
+	<delete id="delete_question" parameterType="Long">
+		delete from service_question where question_num=#{question_num}
+	</delete>
 </mapper>

@@ -29,4 +29,11 @@ public interface AdminBookDao {
 	
 	public int updateOk(AdminBookDto adminBookDto); 
 	public int update_CateOk(AdminBookDto adminBookDto);
+	public int deleteOk(String book_num);
+	public int delete_member_review(String book_num);
+	public int delete_CATEGORY(String book_num);
+	public int delete_product(String book_num);
+	public int delete_md_recommend(String book_num);
+	public int delete_current_book(String book_num);
+	public int delete_cart(String book_num);
 }

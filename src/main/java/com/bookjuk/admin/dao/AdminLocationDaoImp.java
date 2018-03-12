@@ -40,5 +40,21 @@ public class AdminLocationDaoImp implements AdminLocationDao {
 		
 		return sqlSessionTemplate.selectList("locationZipCode",dong);
 	}
+
+	@Override
+	public AdminLocationDto upSelect(String location_num) {
+		return sqlSessionTemplate.selectOne("locationUpSelect", location_num);
+	}
+
+	@Override
+	public int updateOk(AdminLocationDto locationDto) {
+		return sqlSessionTemplate.update("locationUpdate", locationDto);
+	}
+
+	@Override
+	public int deleteOk(String location_num) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.delete("locationDelete", location_num);
+	}
 	
 }

@@ -68,6 +68,7 @@
 	/**지도파싱 끝*/
 		
 	
+	
 	/**상단 타이틀 메뉴 active ->font-Weight:bold*/
 	$(function(){
 		$(".nav-item:eq(5)").addClass("active");

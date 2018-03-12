@@ -14,14 +14,15 @@
 		location.href=move;			
 	}
 	
-	function deleteMove(root,question_num,pageNumber) {
-		url=root+"/admin/service/service/serviceManager_delete.do?service_num="+service_num+"&pageNumber="+pageNumber;
+	function delMove(root,questionNumber) {
+		url=root+"/admin/service/service/serviceManager_delete.do?question_num="+questionNumber;
 		location.href=url;
 	}
 	
 	
 	
 	$(function () {
+		$(".nav-item:eq(4)").addClass("active");
 		$(".pagepic").click(function () {
 			$(".pagepic").css("color","red");
 		});

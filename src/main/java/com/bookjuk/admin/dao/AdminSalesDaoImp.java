@@ -10,7 +10,12 @@ public class AdminSalesDaoImp implements AdminSalesDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate; 
 	
-	public AdminSalesDaoImp() {}
+
+	@Override
+	public long td_sa(String to) {
+		System.out.println(to);
+		return sqlSessionTemplate.selectOne("today_sales", to);
+	}
 
 	
 

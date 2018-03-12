@@ -80,6 +80,7 @@ public class AdminBookController{
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
+		mav.addObject("response", response);
 		adminBookService.bookDownloadMove(mav);
 		
 		return null;
@@ -108,6 +109,30 @@ public class AdminBookController{
 		mav.addObject("request",request);
 		mav.addObject("adminBookDto", adminBookDto);
 		adminBookService.bookUpdateOkMove(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/admin/book/bookManager_delete.do",method=RequestMethod.GET)
+	public ModelAndView bookDelete(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"book-delete?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminBookService.bookDeleteMove(mav);
+		
+		return mav;
+	}
+	 
+	@RequestMapping(value="/admin/book/bookManager_deleteOk.do",method=RequestMethod.GET)
+	public ModelAndView bookDeleteOk(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"book-deleteOk?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminBookService.bookDeleteOkMove(mav);
 		
 		return mav;
 	}

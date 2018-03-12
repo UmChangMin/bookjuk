@@ -50,7 +50,7 @@
 										</ul>
 										<ul>											
 											<li class="contact_title">작성자</li>
-											<li class="contact_writer_value">${contactDto.contact_content}</li>
+											<li class="contact_writer_value">${contactDto.member_id}</li>
 											<li class="contact_title">작성일</li>
 											<li class="contact_date">
 												<fmt:formatDate var="contact_date" value="${contactDto.contact_date}" pattern="yy/MM/dd"/>${contact_date}
@@ -58,7 +58,9 @@
 										</ul>
 										<ul>
 											<li class="contact_title">파일첨부</li>
-											<li class="contact_title_value"><input type="file" class="" id=""></li>										
+											<li class="contact_title_value">
+												<a class="form-control" href="${root}/admin/service/contact/serviceDownload.do?contact_num=${contactDto.contact_num}" style="float: right;width: 546px;height: 40px;">${contactDto.contact_file_name}</a>
+											</li>										
 										</ul>
 										<ul>
 											<li class="contact_title">문의유형</li>

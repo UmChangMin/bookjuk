@@ -7,9 +7,11 @@ public interface AdminServiceService {
 	//자주묻는질문
 	public void serviceMove(ModelAndView mav);
 	public void serviceWriteMove(ModelAndView mav);
+	public void serviceWriteOkMove(ModelAndView mav);
 	public void serviceUpdateMove(ModelAndView mav);
 	public void serviceUpdateOkMove(ModelAndView mav);
 	public void serviceDeleteMove(ModelAndView mav);
+	public void serviceDeleteOkMove(ModelAndView mav);
 	
 	//공지사항
 	public void noticeMove(ModelAndView mav);
@@ -30,6 +32,6 @@ public interface AdminServiceService {
 	public void contactUpdateMove(ModelAndView mav);
 	public void contactDeleteMove(ModelAndView mav);
 	public void contactDeleteOkMove(ModelAndView mav);
-	
+	public void serviceDownload(ModelAndView mav);
 	
 }

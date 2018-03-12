@@ -48,7 +48,7 @@
 									      	<ul>
 									      		<li>
 											        <button type="submit" class="btn btn-default" id="">완료</button>											        
-										        	<button type="reset" class="btn btn-default" id="">취소</button>
+										        	<button type="button" class="btn btn-default" id="" onclick="location.href='${root}/admin/service/service/serviceManager.do'">목록</button>
 										        </li>
 										    </ul>										        										     
 									      </div>

@@ -15,6 +15,7 @@
 	}
 	
 	$(function () {
+		$(".nav-item:eq(1)").addClass("active");
 		$(".pagepic").click(function () {
 			$(".pagepic").css("color","red");
 		});

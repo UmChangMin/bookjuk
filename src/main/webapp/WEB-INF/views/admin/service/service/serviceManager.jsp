@@ -48,84 +48,12 @@
 									            <p class="content_value" name="">${questionDto.question_content}
 									            	<br/><br/>
 									            	<a href="#" class="service_update" onclick="javascript:upMove('${root}','${questionDto.question_num }','${pageNumber }')">수정</a>
-								            		<a href="#" class="service_delete" onclick="javascript:upMove('${root}','${questionDto.question_num }','${pageNumber }')">삭제</a>
+								            		<a href="#" class="service_delete" onclick="javascript:delMove('${root}','${questionDto.question_num }')">삭제</a>
 									            </p>									           
 									        </li>
 										</c:forEach>	
 										
-									        <!-- <li class="collapsible">
-									            <h2 class="title"><a href="#">주문 취소는 어떻게 하나요?</a></h2>
-									            <p class="content_value">1:1문의 게시판에서 신청해 주시면 됩니다.
-									            	<br/><br/>
-									            	<a href="serviceManager_update.do" class="service_update">수정</a>
-								            		<a href="serviceManager_delete.do" class="service_delete">삭제</a>
-									            </p>									           
-									        </li> -->
-									        <!-- <li class="collapsible">
-									            <h2 class="title"><a href="#">환불은 어떻게 하나요?</a></h2>
-									            <p class="content_value">1:1문의 게시판에서 신청해 주시면 됩니다.
-									            <br/><br/>
-									            	<a href="serviceManager_update.do" class="service_update">수정</a>
-								            		<a href="serviceManager_delete.do" class="service_delete">삭제</a></p>
-									        </li>
-									        <li class="collapsible">
-									            <h2 class="title"><a href="#">적립금은 어떻게 사용하나요?</a></h2>
-									            <p class="content_value">1:1문의 게시판에서 신청해 주시면 됩니다.
-									            <br/><br/>
-									            	<a href="serviceManager_update.do" class="service_update">수정</a>
-								            		<a href="serviceManager_delete.do" class="service_delete">삭제</a></p>
-									        </li>
-									        <li class="collapsible">
-									            <h2 class="title"><a href="#">카카오 ID로 여러 기기에서 이용할 수 있나요?</a></h2>
-									            <p class="content_value">1:1문의 게시판에서 신청해 주시면 됩니다.
-									            <br/><br/>
-									            	<a href="serviceManager_update.do" class="service_update">수정</a>
-								            		<a href="serviceManager_delete.do" class="service_delete">삭제</a></p>
-									        </li>
-									        <li class="collapsible">
-									            <h2 class="title"><a href="#">비회원이 문의를 할 경우는 어떻게 하나요?</a></h2>
-									            <p class="content_value">1:1문의 게시판에서 신청해 주시면 됩니다.
-									            <br/><br/>
-									            	<a href="serviceManager_update.do" class="service_update">수정</a>
-								            		<a href="serviceManager_delete.do" class="service_delete">삭제</a></p>
-									        </li>
-									        
-									        <li class="collapsible">
-									            <h2 class="title"><a href="#">해외카드로도 결제가 되나요?</a></h2>
-									            <p class="content_value">1:1문의 게시판에서 신청해 주시면 됩니다.
-									            <br/><br/>
-									            	<a href="serviceManager_update.do" class="service_update">수정</a>
-								            		<a href="serviceManager_delete.do" class="service_delete">삭제</a></p>
-									        </li>
-									        <li class="collapsible">
-									            <h2 class="title"><a href="#">페이스북/네이버/카카오/페이코 계정을 탈퇴하고 싶어요!</a></h2>
-									            <p class="content_value">1:1문의 게시판에서 신청해 주시면 됩니다.
-									            <br/><br/>
-									            	<a href="serviceManager_update.do" class="service_update">수정</a>
-								            		<a href="serviceManager_delete.do" class="service_delete">삭제</a></p>
-									        </li>
-									        <li class="collapsible">
-									            <h2 class="title"><a href="#">회원 탈퇴는 어떻게 하나요?</a></h2>
-									            <p class="content_value">1:1문의 게시판에서 신청해 주시면 됩니다.
-									            <br/><br/>
-									            	<a href="serviceManager_update.do" class="service_update">수정</a>
-								            		<a href="serviceManager_delete.do" class="service_delete">삭제</a></p>
-									        </li>
-									        <li class="collapsible">
-									            <h2 class="title"><a href="#">구매 또는 대여한 도서는 몇 대의 기기까지 이용 가능한가요?</a></h2>
-									            <p class="content_value">1:1문의 게시판에서 신청해 주시면 됩니다.
-									            <br/><br/>
-									            	<a href="serviceManager_update.do" class="service_update">수정</a>
-								            		<a href="serviceManager_delete.do" class="service_delete">삭제</a></p>
-									        </li>
-									        <li class="collapsible">
-									            <h2 class="title"><a href="#">선물한 도서에 대하여 환불 가능한가요?</a></h2>
-									            <p class="content_value">1:1문의 게시판에서 신청해 주시면 됩니다.
-									            <br/><br/>
-									            	<a href="serviceManager_update.do" class="service_update">수정</a>
-								            		<a href="serviceManager_delete.do" class="service_delete">삭제</a></p>
-									        </li> -->
-									    </ul>										
+									     						
 									</div>
 									<!-- 아코디언 끝 -->
 									<!-- 페이징 처리 -->

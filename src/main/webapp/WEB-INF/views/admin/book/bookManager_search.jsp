@@ -37,6 +37,7 @@
 										<ul class="content_box1">
 											<li class="content_box_title">도서정보조회</li>
 											<li style="width:800px;">
+												
 												<form class="form-horizontal" action="${root }/admin/book/bookManager_search.do">
 												  <fieldset>
 												  

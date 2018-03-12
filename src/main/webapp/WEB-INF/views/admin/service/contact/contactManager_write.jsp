@@ -48,7 +48,7 @@
 										</ul>
 										<ul>											
 											<li class="contact_title">작성자</li>
-											<li class="contact_writer_value">${contactDto.contact_content}</li>
+											<li class="contact_writer_value">${contactDto.member_id}</li>
 											<li class="contact_title">작성일</li>
 											<li class="contact_date">
 												<fmt:formatDate var="contact_date" value="${contactDto.contact_date}" pattern="yy/MM/dd"/>${contact_date}

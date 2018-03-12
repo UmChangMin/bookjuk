@@ -14,6 +14,9 @@ public interface AdminServiceDao {
 	public List<AdminService_questionDto> getQuestionList(HashMap<String, Integer> hmap);
 	public AdminService_questionDto questionUpSelect(String question_num);
 	public int serviceUpdate(AdminService_questionDto questionDto);
+	public int writeQuestion(AdminService_questionDto questionDto);
+	public int delete_question(long question_num);
+	
 	
 	//공지사항
 	public int getCount();
@@ -32,5 +35,7 @@ public interface AdminServiceDao {
 	public AdminService_contactDto contactSelect(String contact_num);	
 
 	public int writeInsert(String contact_answer, String contact_answer_whether, long contact_num);
+	
+	public AdminService_contactDto getFile(long contact_num);
 	
 }

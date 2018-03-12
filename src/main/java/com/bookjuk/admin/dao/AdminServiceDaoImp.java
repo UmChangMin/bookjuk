@@ -108,6 +108,23 @@ public class AdminServiceDaoImp implements AdminServiceDao {
 		return sqlSessionTemplate.update("service_Update", questionDto);
 	}
 
+	@Override
+	public AdminService_contactDto getFile(long contact_num) {
+		return sqlSessionTemplate.selectOne("service_File",contact_num);
+	}
+
+	@Override
+	public int writeQuestion(AdminService_questionDto questionDto) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.insert("service_question_insert", questionDto);
+	}
+	
+	@Override
+	public int delete_question(long question_num) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.delete("delete_question", question_num);
+	}
+
 	
 	
 

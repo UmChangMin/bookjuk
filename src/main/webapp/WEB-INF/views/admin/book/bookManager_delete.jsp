@@ -11,20 +11,20 @@
 <script type="text/javascript"></script>
 <script type="text/javascript">
 
-	function deleteChk(question_num) {
+	function deleteChk(book_num) {
 		var btn_check=confirm("정말로 삭제하시겠습니까?");
 		
 		if(btn_check==true){
-			location.href="/bookjuk/admin/service/service/serviceManager_deleteOk.do?question_num="+question_num;			
+			location.href="/bookjuk/admin/book/bookManager_deleteOk.do?book_num="+book_num;			
 		}else if(btn_check==false){
 			//alert("처음부터 다시 진행해주세요.");
-			location.href="/bookjuk/admin/service/service/serviceManager_update.do?question_num="+question_num;
+			location.href="/bookjuk/admin/book/bookManager.do";
 		}	
 	}
 </script>
 
 </head>
-<body onload="deleteChk('${question_num}')">
+<body onload="deleteChk('${book_num}')">
 	
 </body>
 </html>

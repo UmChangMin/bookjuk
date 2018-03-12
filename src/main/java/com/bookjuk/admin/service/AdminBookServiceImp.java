@@ -357,7 +357,7 @@ public class AdminBookServiceImp implements AdminBookService {
 		try {
 		String fileName=new String(bookDto.getBook_file_name().getBytes("utf-8"),"ISO-8859-1");
 		
-		response.setContentType("application/octet-stream");
+		response.setContentType("image/x-icon");
 		response.setContentLength((int)bookDto.getBook_file_size());
 		response.setHeader("Content-Disposition", "attachment;filename="+fileName+";");
 		
@@ -383,6 +383,38 @@ public class AdminBookServiceImp implements AdminBookService {
 			}
 		}
 		
+	}
+
+	@Override
+	public void bookDeleteMove(ModelAndView mav) {
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		String book_num=request.getParameter("book_num");
+		System.out.println(book_num);
+		
+		mav.addObject("book_num",book_num);
+		
+		mav.setViewName("admin/book/bookManager_delete.admin");
+	}
+
+	@Override
+	public void bookDeleteOkMove(ModelAndView mav) {
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		String book_num=request.getParameter("book_num");
+		int c2=bookDao.delete_member_review(book_num);
+		int c3=bookDao.delete_CATEGORY(book_num);
+		int c4=bookDao.delete_product(book_num);
+		int c5=bookDao.delete_md_recommend(book_num);
+		int c6=bookDao.delete_current_book(book_num);
+		int c7=bookDao.delete_cart(book_num);
+		int check=bookDao.deleteOk(book_num);
+		
+		
+		LogAspect.logger.info(LogAspect.logMsg+check);
+		
+		mav.addObject("check", check);
+		mav.setViewName("admin/book/bookManager_deleteOk.admin");
 	}
 
 

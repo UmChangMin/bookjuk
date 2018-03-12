@@ -36,43 +36,52 @@
 										<!-- <li class="content_box_title">고객배송지정보</li> -->
 										
 										<li class="">
+									  	<form action="${root }/admin/order/orderManager_updateOk.do" method="post">		 								 
+											<input type="hidden" name="order_num" value="${orderDto.order_num }"/>
+											<input type="hidden" name="order_id" value="${orderDto.order_id }"/>
+											<input type="hidden" name="order_list" value="${orderList }"/>
+											<input type="hidden" name="amount_list" value="${amountList }"/>
+											<input type="hidden" name="refund_bank" value="${orderDto.refund_bank }"/>
+											<input type="hidden" name="refund_account" value="${orderDto.refund_account}"/>
+											<input type="hidden" name="refund_name" value="${orderDto.refund_name}"/>
+											<input type="hidden" name="order_total_point" value="${orderDto.order_total_point}"/>
+											
 											
 											  <div class="form-left">
 											  	<div class="content_box_title left_title">고객배송지정보</div>
-											  											 
 											    <div class="form-group">											      
 											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="outputName" value="${orderDto_del.order_name }">											        
+											        <input type="text" class="form-control input_width" id="outputName" name="order_name" value="${orderDto_del.order_name }">											        
 											      </div>
 											    </div>
 										
 											  	<div class="form-group">											      
 											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="outputPost" value="${orderDto_del.order_postcode }">											        
+											        <input type="text" class="form-control input_width" id="outputPost" name="order_postcode" value="${orderDto_del.order_postcode }">											        
 											      </div>
 											    </div>
 											    
 											    <div class="form-group">											      
 											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="outputAddress" value="${orderDto_del.order_address }">											        
+											        <input type="text" class="form-control input_width" id="outputAddress" name="order_address"  value="${orderDto_del.order_address }">											        
 											      </div>
 											    </div>
 											    
 											    <div class="form-group">											      
 											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="outputDetailAddr" value="${orderDto_del.order_address_detail }">											        
+											        <input type="text" class="form-control input_width" id="outputDetailAddr" name="order_address_detail"  value="${orderDto_del.order_address_detail }">											        
 											      </div>
 											    </div>
 											    										   
 											    <div class="form-group">											      
 											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="outputPhone" value="${orderDto_del.order_phone }">											        
+											        <input type="text" class="form-control input_width" id="outputPhone" name="order_phone"  value="${orderDto_del.order_phone }">											        
 											      </div>
 											    </div>
 											    
 											    <div class="form-group">											      
 											      <div class="col-lg-10">											      											      							 
-											        <input type="text" class="form-control input_width" id="outputMemo" value="${orderDto_del.order_memo }">											        
+											        <input type="text" class="form-control input_width" id="outputMemo" name="order_memo"  value="${orderDto_del.order_memo }">											        
 											      </div>
 											    </div>
 										    </div>
@@ -107,14 +116,14 @@
 												
 												<ul>
 													<li>${orderDto_book_num.book_name}</li>
-													<li><input type="text" value="${book_amount }" id="value_count" readonly="readonly"/></li>
-													<li><input type="text" value="${orderDto_product.product_disprice }" id="value_price" readonly="readonly"/></li>
+													<li><input type="text"  name="book_amount" value="${book_amount }" id="value_count" /></li>
+													<li><input type="text"  name="product_disprice" value="${orderDto_product.product_disprice }" id="value_price" /></li>
 												</ul>
 												 <%-- <c:forEach var="book_name" items="${orderList }" var="amount_list" items="${amountList }">
 												<ul>
 													<li>${book_name}</li>
-													<li><input type="text" value="${amount_list }" id="value_count" readonly="readonly"/></li>
-													<li><input type="text" value="${orderDto_product.product_disprice }" id="value_price" readonly="readonly"/></li>
+													<li><input type="text" value="${amount_list }" id="value_count" /></li>
+													<li><input type="text" value="${orderDto_product.product_disprice }" id="value_price" /></li>
 												</ul>
 												</c:forEach> --%>
 						
@@ -137,7 +146,7 @@
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
 													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputOrderDate" value="<fmt:formatDate var="order_date" value="${orderDto.order_date }" pattern="yy/MM/dd hh:mm"/>${order_date}" readonly="readonly">
+													        <input type="text" class="form-control" id="inputOrderDate"  name="order_date" value="${sdfOrderDate}" >
 													        											        
 													      </div>
 													    </div>
@@ -146,7 +155,7 @@
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
 													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputCredit" value="${orderDto.order_payment }" readonly="readonly">											        
+													        <input type="text" class="form-control" id="inputCredit"  name="order_payment" value="${orderDto.order_payment }" >											        
 													      </div>
 													    </div>
 													</li>
@@ -154,7 +163,7 @@
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
 													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputRefer" value="${orderDto.refund_bank },${orderDto.refund_account}" readonly="readonly">											        
+													        <input type="text" class="form-control" id="inputRefer"  value="${orderDto.refund_bank },${orderDto.refund_account}" >											        
 													      </div>
 													    </div>
 													</li>
@@ -162,7 +171,7 @@
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
 													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputUseCoupon" value="${orderDto.order_coupon}" readonly="readonly">											        
+													        <input type="text" class="form-control" id="inputUseCoupon"  name="order_coupon" value="${orderDto.order_coupon}" >											        
 													      </div>
 													    </div>
 													</li>
@@ -170,7 +179,15 @@
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
 													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputStatus" value="${orderDto.order_state }" readonly="readonly">											        
+													        <%-- <input type="text" class="form-control" id="inputStatus" value="${orderDto.order_state }" > --%>
+													        <select name="order_state" class="form-control" style="width: 404px;">
+													        	<option value="${orderDto.order_state }">${orderDto.order_state }</option>
+													        	<option>---------</option>
+													        	<option value="배송중">배송중</option>
+													        	<option value="배송준비중">배송준비중</option>
+													        	<option value="반품완료">반품완료</option>
+													        	<option value="환불완료">환불완료</option>
+													        </select>											        
 													      </div>
 													    </div>
 													</li>
@@ -178,15 +195,15 @@
 													<li class="c_orderlist_inputform_value">
 														<div class="form-group">											      
 													      <div class="col-lg-10">											      											      							 
-													        <input type="text" class="form-control" id="inputTotalPrice" name="order_total_price" value="${orderDto.order_total_price}" readonly="readonly">											        
+													        <input type="text" class="form-control" id="inputTotalPrice" name="order_total_price" value="${orderDto.order_total_price}">											        
 													      </div>
 													    </div>
 													</li>
 												</ul>
 											     <div class="form-group btn-margin" align="center">
 												      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left" id="btn-margin">											
-													        <button type="button" class="btn btn-default" id="" onclick="upMove('${root}','${orderDto.order_num }','${orderDto_book_num.book_num }')">수정</button>													        
-													        <button type="button" class="btn btn-default" id="">삭제</button>
+													        <button type="submit" class="btn btn-default" id="">완료</button>													        
+													        <button type="reset" class="btn btn-default" id="">취소</button>
 												      </div>
 											    </div> 								
 											</div>											
@@ -200,7 +217,8 @@
 							</div>
 											    
 											
-										</li>							
+							</form>						
+										</li>	
 									</ul>
 								</div>
 							</div>

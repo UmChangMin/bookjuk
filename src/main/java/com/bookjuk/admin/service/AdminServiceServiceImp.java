@@ -1,12 +1,17 @@
 package com.bookjuk.admin.service;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -76,6 +81,22 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		
 	}
 	
+	@Override
+	public void serviceWriteOkMove(ModelAndView mav) {
+		Map<String,Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		AdminService_questionDto questionDto=(AdminService_questionDto)map.get("questionDto");
+		
+		Random rd=new Random();
+		questionDto.setQuestion_num(rd.nextInt(1000));
+		questionDto.setQuestion_date(new Date());
+		int check=serviceDao.writeQuestion(questionDto);
+		
+		mav.addObject("check", check);
+		mav.setViewName("admin/service/service/serviceManager_writeOk.admin");
+		
+	}
+	
 	//자주묻는질문 수정
 		@Override
 		public void serviceUpdateMove(ModelAndView mav) {
@@ -121,8 +142,22 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		public void serviceDeleteMove(ModelAndView mav) {
 			Map<String,Object>map=mav.getModelMap();
 			HttpServletRequest request=(HttpServletRequest)map.get("request");
+			long question_num=Long.parseLong(request.getParameter("question_num"));
+			mav.addObject("question_num", question_num);
+			mav.setViewName("admin/service/service/serviceManager_delete.admin"); 
 			
-			mav.setViewName("admin/service/service/serviceManager_delete.admin");
+		}
+		
+		@Override
+		public void serviceDeleteOkMove(ModelAndView mav) {
+			Map<String,Object>map=mav.getModelMap();
+			HttpServletRequest request=(HttpServletRequest)map.get("request");
+			long question_num=Long.parseLong(request.getParameter("question_num"));
+			
+			int check=serviceDao.delete_question(question_num);
+			
+			mav.addObject("check",check);
+			mav.setViewName("admin/service/service/serviceManager_deleteOk.admin");
 			
 		}
 	
@@ -465,7 +500,51 @@ public class AdminServiceServiceImp implements AdminServiceService {
 		
 	}
 
-
+	@Override
+	public void serviceDownload(ModelAndView mav) {
+		Map<String, Object>map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		HttpServletResponse response=(HttpServletResponse)map.get("response");
+		long contact_num=Long.parseLong(request.getParameter("contact_num"));
+		
+		AdminService_contactDto contactDto=serviceDao.getFile(contact_num);
+		System.out.println(contactDto.toString());
+		
+		contactDto.setContact_file_name(contactDto.getContact_file_name().substring(contactDto.getContact_file_name().indexOf("_")+1));
+		
+		BufferedInputStream bis=null;
+		BufferedOutputStream bos=null;
+		try {
+		String fileName=new String(contactDto.getContact_file_name().getBytes("utf-8"),"ISO-8859-1");
+		
+		response.setContentType("image/x-icon");
+		response.setContentLength((int)contactDto.getContact_file_size());
+		response.setHeader("Content-Disposition", "attachment;filename="+fileName+";");
+		
+		bis=new BufferedInputStream(new FileInputStream(contactDto.getContact_file_path()));
+		bos=new BufferedOutputStream(response.getOutputStream());
+		
+		while(true) {
+			int data=bis.read();
+			if(data==-1)break;
+			bos.write(data);
+			
+		}
+		bos.flush();
+		
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(bis!=null)	bis.close();
+				if(bos!=null)	bos.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+		
 	
 	/** 1:1문의 끝*/
 	

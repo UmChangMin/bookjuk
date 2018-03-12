@@ -3,65 +3,50 @@ package com.bookjuk.admin.dto;
 import java.util.Date;
 
 public class AdminOrderDto {
-	private int num;			//주문번호
-	private String name;			//주문고객이름
-	private String email;			//이메일
-	private String phone;			//핸드폰번호
+	private int order_num;				// 주문번호
+	private String order_id;			// 주문 아이디
+	private Date order_date;			// 주문날짜
+	private String order_list;			// 상품목록
+	private String amount_list;			// 샹품주문수량
+	private String order_state;			// 주문상태
+	private String order_payment;		// 결제수단
+	private int order_point;			// 포인트 사용
+	private String order_coupon;		// 쿠폰사용여부.
+	private int order_total_price;		// 총 금액
+	private int order_total_point;		// 적립예정포인트
+	private String refund_name;			// 환불 예금주
+	private String refund_bank;			// 환불은행
+	private String refund_account;		// 환불계좌 
+	/*배송*/
+	private String order_name;			// 수령인
+	private String order_phone;			// 연락처
+	private String order_postcode;		// 우편번호
+	private String order_address;		// 주소
+	private String order_address_detail;// 상세주소
+	private String order_memo;			// 배송메모
 	
-	private String post_num;		//우편번호
-	private String addr;			//주소
-	private String detailAddr;		//상세주소
+	/*도서정보*/
+	private String book_img;			// 도서이미지
+	private String book_name;			// 책 제목
+	private int cart_num;				// 장바구니 번호
+	private int book_num;				// 상품번호
+	private int cart_amount;			// 수량
+	private Date cart_date;				// 담긴시간
+	private int product_amount;			// 재고
+	private int product_price;			// 원래가격
+	private int product_disprice;		// 할인가격
+	private int product_point;			// 포인트
+	private int product_sales;			// 판매량
+	private int product_delivery;		// 배송료
 	
-	private String book_name;		//도서명
-	private int book_order_count;	//도서주문수량
-	private String order_date;	 	//주문일자 ex)2018-01-14 13:35 
-	
-	private String credit;			//결제수단 ex)카드, 카드번호 xxxx-xxxx-xxxx-xxxx
-	private String refund_account;	//환불계좌 ex)신한, 110-xxx-xxxxxx
-	private String use_coupon;		//사용쿠폰 ex)없음 or 무료배송쿠폰..etc
-	private String order_status;	//결제처리상태	ex)정상
-	
-	public int getNum() {
-		return num;
+	public int getOrder_num() {
+		return order_num;
 	}
-	public void setNum(int num) {
-		this.num = num;
+	public String getBook_img() {
+		return book_img;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	public String getPost_num() {
-		return post_num;
-	}
-	public void setPost_num(String post_num) {
-		this.post_num = post_num;
-	}
-	public String getAddr() {
-		return addr;
-	}
-	public void setAddr(String addr) {
-		this.addr = addr;
-	}
-	public String getDetailAddr() {
-		return detailAddr;
-	}
-	public void setDetailAddr(String detailAddr) {
-		this.detailAddr = detailAddr;
+	public void setBook_img(String book_img) {
+		this.book_img = book_img;
 	}
 	public String getBook_name() {
 		return book_name;
@@ -69,23 +54,140 @@ public class AdminOrderDto {
 	public void setBook_name(String book_name) {
 		this.book_name = book_name;
 	}
-	public int getBook_order_count() {
-		return book_order_count;
+	public int getCart_num() {
+		return cart_num;
 	}
-	public void setBook_order_count(int book_order_count) {
-		this.book_order_count = book_order_count;
+	public void setCart_num(int cart_num) {
+		this.cart_num = cart_num;
 	}
-	public String getOrder_date() {
+	public int getBook_num() {
+		return book_num;
+	}
+	public void setBook_num(int book_num) {
+		this.book_num = book_num;
+	}
+	public int getCart_amount() {
+		return cart_amount;
+	}
+	public void setCart_amount(int cart_amount) {
+		this.cart_amount = cart_amount;
+	}
+	public Date getCart_date() {
+		return cart_date;
+	}
+	public void setCart_date(Date cart_date) {
+		this.cart_date = cart_date;
+	}
+	public int getProduct_amount() {
+		return product_amount;
+	}
+	public void setProduct_amount(int product_amount) {
+		this.product_amount = product_amount;
+	}
+	public int getProduct_price() {
+		return product_price;
+	}
+	public void setProduct_price(int product_price) {
+		this.product_price = product_price;
+	}
+	public int getProduct_disprice() {
+		return product_disprice;
+	}
+	public void setProduct_disprice(int product_disprice) {
+		this.product_disprice = product_disprice;
+	}
+	public int getProduct_point() {
+		return product_point;
+	}
+	public void setProduct_point(int product_point) {
+		this.product_point = product_point;
+	}
+	public int getProduct_sales() {
+		return product_sales;
+	}
+	public void setProduct_sales(int product_sales) {
+		this.product_sales = product_sales;
+	}
+	public int getProduct_delivery() {
+		return product_delivery;
+	}
+	public void setProduct_delivery(int product_delivery) {
+		this.product_delivery = product_delivery;
+	}
+	public void setOrder_num(int order_num) {
+		this.order_num = order_num;
+	}
+	public String getOrder_id() {
+		return order_id;
+	}
+	public void setOrder_id(String order_id) {
+		this.order_id = order_id;
+	}
+	public Date getOrder_date() {
 		return order_date;
 	}
-	public void setOrder_date(String order_date) {
+	public void setOrder_date(Date order_date) {
 		this.order_date = order_date;
 	}
-	public String getCredit() {
-		return credit;
+	public String getOrder_list() {
+		return order_list;
 	}
-	public void setCredit(String credit) {
-		this.credit = credit;
+	public void setOrder_list(String order_list) {
+		this.order_list = order_list;
+	}
+	public String getAmount_list() {
+		return amount_list;
+	}
+	public void setAmount_list(String amount_list) {
+		this.amount_list = amount_list;
+	}
+	public String getOrder_state() {
+		return order_state;
+	}
+	public void setOrder_state(String order_state) {
+		this.order_state = order_state;
+	}
+	public String getOrder_payment() {
+		return order_payment;
+	}
+	public void setOrder_payment(String order_payment) {
+		this.order_payment = order_payment;
+	}
+	public int getOrder_point() {
+		return order_point;
+	}
+	public void setOrder_point(int order_point) {
+		this.order_point = order_point;
+	}
+	public String getOrder_coupon() {
+		return order_coupon;
+	}
+	public void setOrder_coupon(String order_coupon) {
+		this.order_coupon = order_coupon;
+	}
+	public int getOrder_total_price() {
+		return order_total_price;
+	}
+	public void setOrder_total_price(int order_total_price) {
+		this.order_total_price = order_total_price;
+	}
+	public int getOrder_total_point() {
+		return order_total_point;
+	}
+	public void setOrder_total_point(int order_total_point) {
+		this.order_total_point = order_total_point;
+	}
+	public String getRefund_name() {
+		return refund_name;
+	}
+	public void setRefund_name(String refund_name) {
+		this.refund_name = refund_name;
+	}
+	public String getRefund_bank() {
+		return refund_bank;
+	}
+	public void setRefund_bank(String refund_bank) {
+		this.refund_bank = refund_bank;
 	}
 	public String getRefund_account() {
 		return refund_account;
@@ -93,25 +195,56 @@ public class AdminOrderDto {
 	public void setRefund_account(String refund_account) {
 		this.refund_account = refund_account;
 	}
-	public String getUse_coupon() {
-		return use_coupon;
+	public String getOrder_name() {
+		return order_name;
 	}
-	public void setUse_coupon(String use_coupon) {
-		this.use_coupon = use_coupon;
+	public void setOrder_name(String order_name) {
+		this.order_name = order_name;
 	}
-	public String getOrder_status() {
-		return order_status;
+	public String getOrder_phone() {
+		return order_phone;
 	}
-	public void setOrder_status(String order_status) {
-		this.order_status = order_status;
+	public void setOrder_phone(String order_phone) {
+		this.order_phone = order_phone;
+	}
+	public String getOrder_postcode() {
+		return order_postcode;
+	}
+	public void setOrder_postcode(String order_postcode) {
+		this.order_postcode = order_postcode;
+	}
+	public String getOrder_address() {
+		return order_address;
+	}
+	public void setOrder_address(String order_address) {
+		this.order_address = order_address;
+	}
+	public String getOrder_address_detail() {
+		return order_address_detail;
+	}
+	public void setOrder_address_detail(String order_address_detail) {
+		this.order_address_detail = order_address_detail;
+	}
+	public String getOrder_memo() {
+		return order_memo;
+	}
+	public void setOrder_memo(String order_memo) {
+		this.order_memo = order_memo;
 	}
 	@Override
 	public String toString() {
-		return "OrderDto [num=" + num + ", name=" + name + ", email=" + email + ", phone=" + phone
-				+ ", post_num=" + post_num + ", addr=" + addr + ", detailAddr=" + detailAddr + ", book_name="
-				+ book_name + ", book_order_count=" + book_order_count + ", order_date=" + order_date + ", credit="
-				+ credit + ", refund_account=" + refund_account + ", use_coupon=" + use_coupon + ", order_status="
-				+ order_status + "]";
+		return "AdminOrderDto [order_num=" + order_num + ", order_id=" + order_id + ", order_date=" + order_date
+				+ ", order_list=" + order_list + ", amount_list=" + amount_list + ", order_state=" + order_state
+				+ ", order_payment=" + order_payment + ", order_point=" + order_point + ", order_coupon=" + order_coupon
+				+ ", order_total_price=" + order_total_price + ", order_total_point=" + order_total_point
+				+ ", refund_name=" + refund_name + ", refund_bank=" + refund_bank + ", refund_account=" + refund_account
+				+ ", order_name=" + order_name + ", order_phone=" + order_phone + ", order_postcode=" + order_postcode
+				+ ", order_address=" + order_address + ", order_address_detail=" + order_address_detail
+				+ ", order_memo=" + order_memo + ", book_img=" + book_img + ", book_name=" + book_name + ", cart_num="
+				+ cart_num + ", book_num=" + book_num + ", cart_amount=" + cart_amount + ", cart_date=" + cart_date
+				+ ", product_amount=" + product_amount + ", product_price=" + product_price + ", product_disprice="
+				+ product_disprice + ", product_point=" + product_point + ", product_sales=" + product_sales
+				+ ", product_delivery=" + product_delivery + "]";
 	}
 	
 	

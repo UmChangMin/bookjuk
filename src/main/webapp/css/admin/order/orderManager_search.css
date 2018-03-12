@@ -75,7 +75,8 @@ label{
 	margin-left:50px;
 	border: 1px solid #CCCCCC;
 	width: 900px;
-	height:500px;
+	    height: auto;
+    overflow: hidden;
 }
 
 .content_wrap_body_right{
@@ -234,6 +235,79 @@ label{
 	border:0px;
 	width:90px;
 	text-align: center;
+}
+
+/**/
+
+/**/
+
+
+
+
+.order_content, .order_header{
+	border: 1px solid;
+	height: auto;
+	line-height: 40px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.order_content>ul, , .order_header>ul{
+	margin-bottom:0px;
+}
+
+.order_content li, .order_header li{
+	float:left;
+}
+
+.order_order_num{
+	width:130px;
+	border-right:1px solid;
+	border-bottom: 1px solid;
+}
+
+.order_order_id{
+	width:210px;
+	border-bottom: 1px solid;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.order_order_date{
+	width:150px;
+	border-left:1px solid;
+	border-bottom: 1px solid;
+}
+
+.order_order_status{
+	width:168px;
+	border-left:1px solid;
+	border-bottom: 1px solid;
+}
+
+.order_order_price{
+	width:140px;
+	border-left:1px solid;
+	border-bottom: 1px solid;
+}
+
+.order_box_area{
+	width:800px;
+}
+
+.order_content>ul:last-child>li {
+	border-bottom: 0px;
+}
+
+/**/
+
+.order_content ul[visible='false'],
+.no-result{
+  display:none;
+}
+
+.order_content ul[visible='true']{
+  display:table-row;
 }
 
 

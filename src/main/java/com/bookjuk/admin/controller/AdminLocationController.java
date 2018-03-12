@@ -71,17 +71,57 @@ public class AdminLocationController{
 		return mav;
 	}
 	
-	@RequestMapping(value="/admin/location/zipcode.do",method=RequestMethod.GET)
-	public ModelAndView ZipCodeMove(HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value="/admin/location/locationManager_update.do",method=RequestMethod.GET)
+	public ModelAndView LocationUpdate(HttpServletRequest request, HttpServletResponse response) {
 		
-		LogAspect.logger.info(LogAspect.logMsg+"Zipcode?");
+		LogAspect.logger.info(LogAspect.logMsg+"Location-update?");
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
-		adminLocationService.zipCodeMove(mav);
+		adminLocationService.locationUpdateMove(mav);
 		
 		return mav;
 	}
+	
+	@RequestMapping(value="/admin/location/locationManager_updateOk.do",method=RequestMethod.POST)
+	public ModelAndView LocationUpdateOk(HttpServletRequest request, HttpServletResponse response, AdminLocationDto locationDto) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"Location-updateOk?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("locationDto", locationDto);
+		adminLocationService.locationUpdateOkMove(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/admin/location/locationManager_delete.do",method=RequestMethod.GET)
+	public ModelAndView LocationDelete(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"Location-delete?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminLocationService.locationDeleteMove(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/admin/location/locationManager_deleteOk.do",method=RequestMethod.GET)
+	public ModelAndView LocationDeleteOk(HttpServletRequest request, HttpServletResponse response, AdminLocationDto locationDto) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"Location-deleteOk?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("locationDto", locationDto);
+		adminLocationService.locationDeleteOkMove(mav);
+		
+		return mav;
+	}
+	
+	
 	
 	@RequestMapping(value="/admin/location/jusoPopup.do",method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView JusoPopup(HttpServletRequest request, HttpServletResponse response) {

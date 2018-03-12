@@ -30,8 +30,13 @@
 		$(".nav-item:eq(3)").addClass("active");
 	});
 	
-	function upmove(root, bookNum,category_main_eng,pageNumber) {
-		var url=root+"/admin/book/bookManager_update.do?book_num="+bookNum+"&category_main_eng="+category_main_eng+"&pageNumber="+pageNumber;
+	function upmove(root, bookNum,category_main_eng) {
+		var url=root+"/admin/book/bookManager_update.do?book_num="+bookNum+"&category_main_eng="+category_main_eng;
+		location.href=url;
+	}
+	
+	function delmove(root, bookNum) {
+		var url=root+"/admin/book/bookManager_delete.do?book_num="+bookNum;
 		location.href=url;
 	}
 </script>
@@ -101,7 +106,7 @@
 												
 												<li class="content_li" style="margin-top: 2px;">
 													<span class="content_title_name">이미지</span>													
-													<a class="form-control" href="${root}/admin/book/book_Download.do?book_num=${bookList.book_num}" style="float: right;">${bookList.book_file_name}</a>
+													<a class="form-control" href="${root}/admin/book/book_Download.do?book_num=${bookList.book_num}" style="float: right;height: 40px; ">${bookList.book_file_name}</a>
 												</li>																							
 											</ul>																					
 									</div>		
@@ -135,9 +140,9 @@
 									<!-- 환불, 교환, 반품-->
 									    <div class="form-group btn-margin" align="center">
 										      <div class="col-lg-10 col-lg-offset-2 col-lg-margin-left" id="btn-margin">
-											        <button type="button" class="btn btn-default" onclick="upmove('${root }','${bookList.book_num}','${bookList.category_main_eng }','${pageNumber }')">수정</button>												        
-											        <button type="button" class="btn btn-default" id="" onclick="location.href='${root}/admin/book/bookManager_search.do?pageNumber='+${pageNumber}">목록</button>
-											        <button type="button" class="btn btn-default" id="">삭제</button>
+											        <button type="button" class="btn btn-default" onclick="upmove('${root }','${bookList.book_num}','${bookList.category_main_eng }')">수정</button>												        
+											        <button type="button" class="btn btn-default" id="" onclick="location.href='${root}/admin/book/bookManager_search.do">목록</button>
+											        <button type="button" class="btn btn-default" onclick="delmove('${root }','${bookList.book_num}')">삭제</button>
 										      </div>
 									    </div>						
 									<!--  -->			

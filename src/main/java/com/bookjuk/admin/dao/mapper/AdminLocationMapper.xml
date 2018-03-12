@@ -21,4 +21,17 @@
 	<select id="locationZipCode" parameterType="String" resultType="com.bookjuk.admin.dto.ZipCodeDto">
 		select * from zipcode where dong=#{dong}
 	</select>
+	
+	<select id="locationUpSelect" parameterType="String" resultType="com.bookjuk.admin.dto.AdminLocationDto" >
+			select * from location where location_num=#{location_num}
+	</select>
+	
+	<update id="locationUpdate" parameterType="com.bookjuk.admin.dto.AdminLocationDto">
+		update location set location_lat=#{location_lat}, location_lng=#{location_lng}, location_name=#{location_name}, location_postcode=#{location_postcode}, location_addr=#{location_addr}, location_addr_detail=#{location_addr_detail}, location_call=#{location_call},
+		location_fax=#{location_fax}, location_hour=#{location_hour}, location_comming=#{location_comming} where location_num=#{location_num}
+	</update>
+	
+	<delete id="locationDelete" parameterType="String">
+		delete from location where location_num=#{location_num}
+	</delete>
 </mapper>

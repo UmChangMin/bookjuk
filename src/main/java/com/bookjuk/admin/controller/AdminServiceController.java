@@ -14,6 +14,7 @@ import com.bookjuk.admin.dto.AdminService_noticeDto;
 import com.bookjuk.admin.dto.AdminService_questionDto;
 import com.bookjuk.admin.service.AdminServiceService;
 import com.bookjuk.aop.LogAspect;
+import com.bookjuk.service.dto.ServiceQuestionDto;
 
 @Controller
 public class AdminServiceController{
@@ -45,6 +46,20 @@ public class AdminServiceController{
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
 		adminServiceService.serviceWriteMove(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/admin/service/service/serviceManager_writeOk.do",method=RequestMethod.POST)
+	public ModelAndView serviceWriteOk(HttpServletRequest request, HttpServletResponse response, AdminService_questionDto questionDto) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"service-writeOk?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("questionDto",questionDto);
+		
+		adminServiceService.serviceWriteOkMove(mav);
 		
 		return mav;
 	}
@@ -85,6 +100,18 @@ public class AdminServiceController{
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
 		adminServiceService.serviceDeleteMove(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/admin/service/service/serviceManager_deleteOk.do",method=RequestMethod.GET)
+	public ModelAndView serviceDeleteOk(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"service-delete?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminServiceService.serviceDeleteOkMove(mav);
 		
 		return mav;
 	}
@@ -294,6 +321,18 @@ public class AdminServiceController{
 		return mav;
 	}
 	
+	@RequestMapping(value="/admin/service/contact/serviceDownload.do",method=RequestMethod.GET)
+	public ModelAndView serviceDownload(HttpServletRequest request, HttpServletResponse response) {
+		
+		LogAspect.logger.info(LogAspect.logMsg+"book-download?");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("response", response);
+		adminServiceService.serviceDownload(mav);
+		
+		return null;
+	}
 	/*1:1문의 끝*/
 	/**/
 	/**/
